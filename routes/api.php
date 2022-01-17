@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 });
 
 Route::group(['middleware' => 'guest:sanctum'], function () {
-    Route::post('login', [LoginController::class, 'login']);
+    Route::post('login', [LoginController::class, 'signin']);
     Route::post('register', [RegisterController::class, 'register']);
 
     Route::post('password/email', [PasswordController::class, 'sendResetLinkEmail']);

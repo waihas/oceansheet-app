@@ -19,7 +19,11 @@ mix.js('resources/js/app.js', 'public/dist/js')
     .sass('resources/sass/app.scss', 'public/dist/css')
     .options({
       processCssUrls: false,
-      postCss: [ require("tailwindcss") ],
+      postCss: [
+        require("tailwindcss"),
+        // require('autoprefixer'),
+        // require('postcss-import'),
+      ],
     });
 
 if (mix.inProduction()) {

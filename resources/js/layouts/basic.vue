@@ -1,7 +1,7 @@
 <template>
-  <div class="font-hairline h-screen w-screen flex text-gray-800 bg-gray-100">
+  <!-- <div class="font-hairline h-screen w-screen flex text-gray-800 bg-gray-100"> -->
     <child />
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

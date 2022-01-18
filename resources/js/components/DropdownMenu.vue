@@ -5,7 +5,7 @@
         <button id="options-menu" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-800 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:shadow-outline-none active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" aria-haspopup="true" aria-expanded="true" @click="toggle">
           <slot />
           <!-- Heroicon name: chevron-down -->
-          <fa :icon="['fas', 'chevron-down']" class="m-auto text-xs -ml-1 transition-all duration-300 ease-in-out" :class="isOpen ? 'flip-y' : ''" />
+          <!-- <fa :icon="['fas', 'chevron-down']" class="m-auto text-xs -ml-1 transition-all duration-300 ease-in-out" :class="isOpen ? 'flip-y' : ''" /> -->
         </button>
       </span>
     </div>

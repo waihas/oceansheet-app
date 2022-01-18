@@ -19,11 +19,32 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // protected function attemptLogin(Request $request)
+    // {
+    //     $token = $this->guard()->attempt($this->credentials($request));
+
+    //     if (! $token) {
+    //         return false;
+    //     }
+
+    //     $user = $this->guard()->user();
+    //     if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
+    //         return false;
+    //     }
+
+    //     $this->guard()->setToken($token);
+
+    //     return true;
+    // }
+
     protected function attemptLogin(Request $request)
     {
-        $token = $this->guard()->attempt($this->credentials($request));
+        $attr = $request->validate([
+            'email' => 'required|string|email|',
+            'password' => 'required|string|min:6'
+        ]);
 
-        if (! $token) {
+        if (!Auth::attempt($attr)) {
             return false;
         }
 
@@ -32,38 +53,31 @@ class LoginController extends Controller
             return false;
         }
 
-        $this->guard()->setToken($token);
-
         return true;
     }
 
-    public function signin(Request $request)
-    {
-        $attr = $request->validate([
-            'email' => 'required|string|email|',
-            'password' => 'required|string|min:6'
-        ]);
+    // public function signin(Request $request)
+    // {
+    //     $attr = $request->validate([
+    //         'email' => 'required|string|email|',
+    //         'password' => 'required|string|min:6'
+    //     ]);
 
-        if (!Auth::attempt($attr)) {
-            return $this->error('Credentials not match', 401);
-        }
-
-        return $this->success([
-            'token' => auth()->user()->createToken('OceanSheet')->plainTextToken
-        ]);
-    }
+    //     if (!Auth::attempt($attr)) {
+    //         return $this->error('Credentials not match', 401);
+    //     }
+        
+    //     return $this->success([
+    //         'token' => auth()->user()->createToken('OceanSheet')->plainTextToken,
+    //     ]);
+    // }
 
     protected function sendLoginResponse(Request $request)
     {
         $this->clearLoginAttempts($request);
 
-        $token = (string) $this->guard()->getToken();
-        $expiration = $this->guard()->getPayload()->get('exp');
-
         return response()->json([
-            'token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => $expiration - time(),
+            'token' => auth()->user()->createToken('OceanSheet')->plainTextToken,
         ]);
     }
 
@@ -83,6 +97,5 @@ class LoginController extends Controller
     {
         auth()->user()->tokens()->delete();
         auth()->guard('web')->logout();
-        // $this->guard('web')->logout();
     }
 }

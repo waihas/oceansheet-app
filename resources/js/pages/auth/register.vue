@@ -64,81 +64,73 @@
 <template>
   <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <a href="/">
-            <img src="/assets/img/oceansheet-logo.svg" class="w-auto h-32 mx-auto" alt="OceanSheet logo" />
-        </a>
-
+        <v-logo></v-logo>
+        
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
             Create a new account
         </h2>
 
         <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-            Ou
-            <a href="/login" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                Connectez-vous à votre compte
-            </a>
+            Or
+            <router-link :to="{name: 'login'}" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                Sign into your account
+            </router-link>
         </p>
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-            <form>
+            <form @submit.prevent="register" @keydown="form.onKeydown($event)">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
-                        Nom complet
+                        Name
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="name" type="text" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('name') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                        <input id="name" v-model="form.name" type="text" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': form.errors.has('name') }" />
                     </div>
-
-                        <!-- <p class="mt-2 text-sm text-red-600">{{ $message }}</p> -->
+                    <has-error class="text-sm text-red-600 mt-2" :form="form" field="name" />
                 </div>
 
                 <div class="mt-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Adresse e-mail
+                        Email address
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                        <input id="email" v-model="form.email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" 
+                        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': form.errors.has('email') }"/>
                     </div>
-
-                    <!-- <p class="mt-2 text-sm text-red-600">{{ $message }}</p> -->
+                    <has-error class="text-sm text-red-600 mt-2" :form="form" field="email" />
                 </div>
                 
                 <div class="mt-6">
-                    <label for="phone" class="block text-sm font-medium text-gray-700 leading-5">
-                        Téléphone
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input id="phone" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('phone') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
-                    </div>
-
-                    <!-- <p class="mt-2 text-sm text-red-600">{{ $message }}</p> -->
-                </div>
-
-                <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                        Mot de passe
+                        Password
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                        <input id="password" v-model="form.password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': form.errors.has('password') }"/>
                     </div>
-
-                    <!-- <p class="mt-2 text-sm text-red-600">{{ $message }}</p> -->
+                    <has-error class="text-sm text-red-600 mt-2" :form="form" field="password" />
                 </div>
 
                 <div class="mt-6">
                     <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
-                        Confirmez le mot de passe
+                        Repeat password
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                        <input id="password_confirmation" v-model="form.password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                     </div>
+                </div>
+
+                <div class="mt-6">
+                    <div class="flex items-center">
+                        <input id="terms" v-model="form.terms" type="checkbox" class="form-checkbox w-4 h-4 text-teal-600 transition duration-150 ease-in-out" />
+                        <label for="terms" class="block ml-2 text-sm text-gray-900 leading-5">
+                            I agree to the <router-link class="text-teal-500 hover:text-teal-600" :to="{name: 'terms'}">Terms & Conditions</router-link>
+                        </label>
+                    </div>
+                    <has-error class="text-sm text-red-500 font-semibold mt-2" :form="form" field="terms" />
                 </div>
 
                 <div class="mt-6">
@@ -183,6 +175,7 @@ export default {
       name: '',
       email: '',
       password: '',
+      password_confirmation: '',
       terms: false
     }),
     mustVerifyEmail: false
@@ -192,13 +185,16 @@ export default {
     async register () {
       // Register the user.
       const { data } = await this.form.post('/api/register')
-
+      console.log('data1:' + JSON.stringify(data))
       // Must verify email fist.
       if (data.status) {
         this.mustVerifyEmail = true
       } else {
         // Log in the user.
         const { data: { token } } = await this.form.post('/api/login')
+
+        console.log('data: ' + JSON.stringify(data))
+        console.log('token: ' + token)
 
         // Save the token.
         this.$store.dispatch('auth/saveToken', { token })

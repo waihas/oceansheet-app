@@ -62,9 +62,6 @@
 <template>
   <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <!-- <a href="/">
-          <img src="/assets/img/oceansheet-logo.svg" class="w-auto h-32 mx-auto" alt="OceanSheet logo" />
-        </a> -->
         <v-logo></v-logo>
 
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">

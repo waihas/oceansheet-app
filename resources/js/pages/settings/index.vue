@@ -9,7 +9,7 @@
           class="p-4 font-semibold mx-4 text-gray-500 hover:text-gray-800 transition-all ease-in-out duration-100 border-b-4 border-transparent"
           active-class="text-gray-800 border-teal-500"
         >
-          <fa :icon="tab.icon" fixed-width />
+          <!-- <fa :icon="tab.icon" fixed-width /> -->
           {{ tab.name }}
         </router-link>
       </div>

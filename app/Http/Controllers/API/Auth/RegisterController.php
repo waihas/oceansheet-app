@@ -34,7 +34,7 @@ class RegisterController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
             'terms' => 'required|accepted'
         ];
 
@@ -54,23 +54,22 @@ class RegisterController extends Controller
         ]);
     }
 
+    // public function createAccount(Request $request)
+    // {
+    //     $attr = $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|unique:users,email',
+    //         'password' => 'required|string|min:6|confirmed'
+    //     ]);
 
-    public function createAccount(Request $request)
-    {
-        $attr = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
-        ]);
+    //     $user = User::create([
+    //         'name' => $attr['name'],
+    //         'password' => bcrypt($attr['password']),
+    //         'email' => $attr['email']
+    //     ]);
 
-        $user = User::create([
-            'name' => $attr['name'],
-            'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
-        ]);
-
-        return $this->success([
-            'token' => $user->createToken('tokens')->plainTextToken
-        ]);
-    }
+    //     return $this->success([
+    //         'token' => $user->createToken('OceanSheet')->plainTextToken
+    //     ]);
+    // }
 }

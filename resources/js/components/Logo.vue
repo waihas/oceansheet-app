@@ -1,7 +1,7 @@
 <template>
-  <a href="/">
+  <router-link :to="{name: 'welcome'}">
     <img src="/assets/img/oceansheet-logo.svg" class="w-auto h-32 mx-auto" alt="OceanSheet logo" />
-    </a>
+  </router-link>
 </template>
 
 <script>

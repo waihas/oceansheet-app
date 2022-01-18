@@ -14,7 +14,10 @@ function page (path) {
     { path: '/email/resend', name: 'verification.resend', component: page('auth/verification/resend.vue') },
   
     { path: '/dashboard', name: 'dashboard.home', component: page('dashboard/home.vue') },
-    { path: '/dashboard/components', name: 'dashboard.components', component: page('dashboard/components.vue') },
+    { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },
+    { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
+    { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
+    { path: '/help/support', name: 'dashboard.support', component: page('dashboard/support.vue') },
   
     { path: '/settings',
       component: page('dashboard/settings/index.vue'),

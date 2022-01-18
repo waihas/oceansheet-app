@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex">
     <h1 class="text-7xl font-bold text-gray-400 m-auto leading-none select-none text-center">
-      Components
+      Workflows
     </h1>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   layout: 'dashboard',
 
   metaInfo () {
-    return { title: 'Components' }
+    return { title: 'Workflows' }
   }
 }
 </script>

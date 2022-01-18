@@ -3,7 +3,7 @@
     <navbar />
 
     <div class="flex flex-grow">
-      <sidebar />
+      <!-- <sidebar /> -->
       <div class="bg-gray-100 flex-grow overflow-auto p-8">
         <child />
       </div>

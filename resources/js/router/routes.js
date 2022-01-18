@@ -13,15 +13,15 @@ function page (path) {
     { path: '/email/verify/:id', name: 'verification.verify', component: page('auth/verification/verify.vue') },
     { path: '/email/resend', name: 'verification.resend', component: page('auth/verification/resend.vue') },
   
-    { path: '/dashboard', name: 'dashboard.home', component: page('home.vue') },
-    { path: '/dashboard/components', name: 'dashboard.components', component: page('components.vue') },
+    { path: '/dashboard', name: 'dashboard.home', component: page('dashboard/home.vue') },
+    { path: '/dashboard/components', name: 'dashboard.components', component: page('dashboard/components.vue') },
   
     { path: '/settings',
-      component: page('settings/index.vue'),
+      component: page('dashboard/settings/index.vue'),
       children: [
         { path: '', redirect: { name: 'settings.profile' } },
-        { path: 'profile', name: 'settings.profile', component: page('settings/profile.vue') },
-        { path: 'password', name: 'settings.password', component: page('settings/password.vue') }
+        { path: 'profile', name: 'settings.profile', component: page('dashboard/settings/profile.vue') },
+        { path: 'password', name: 'settings.password', component: page('dashboard/settings/password.vue') }
       ] },
   
     { path: '*', component: page('errors/404.vue') }

@@ -41,11 +41,12 @@
 
 <script>
 import Form from 'vform'
-import Notification from '../../components/Notification'
+import Notification from '~/components/Notification'
 
 export default {
   components: { Notification },
   scrollToTop: false,
+  layout: 'dashboard',
 
   metaInfo () {
     return { title: this.$t('settings') }

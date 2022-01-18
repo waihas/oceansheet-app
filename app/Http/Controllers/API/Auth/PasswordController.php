@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class PasswordController extends Controller
 {
@@ -20,8 +21,24 @@ class PasswordController extends Controller
         return [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
         ];
+    }
+
+    // To send reset link via email
+    public function sendResetLinkEmail(Request $request)
+    {
+        $attr = $request->validate([
+            'email' => ['required', 'email'],
+        ]);
+
+        $response = Password::sendResetLink(['email' => $attr['email']]);
+
+        if ($response == Password::RESET_LINK_SENT) {
+            return ['status' => trans($response)];
+        }
+
+        return response()->json(['email' => trans($response)], 400);
     }
 
     protected function sendResetResponse(Request $request, $response)

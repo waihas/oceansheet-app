@@ -69,46 +69,42 @@
         <v-logo></v-logo>
 
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-            Réinitialiser le mot de passe
+            Reset your password
         </h2>
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-            <form submit.prevent="resetPassword">
-                <input id="token" type="hidden">
-
+            <form v-if="!status" @submit.prevent="reset" @keydown="form.onKeydown($event)">
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Adresse e-mail
+                        Email address
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="email" type="email" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                        <input id="email" v-model="form.email" type="email" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': form.errors.has('email') }" />
                     </div>
-
-                    <!-- <p class="mt-2 text-sm text-red-600">{{ $message }}</p> -->
+                    <has-error class="text-sm text-red-600 mt-2" :form="form" field="email" />
                 </div>
 
                 <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                        Mot de passe
+                        New password
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                        <input id="password" v-model="form.password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" 
+                        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': form.errors.has('password') }"
+                        placeholder="Min. 6 characters"/>
                     </div>
-
-                    <!-- <p class="mt-2 text-sm text-red-600">{{ $message }}</p> -->
+                    <has-error class="text-sm text-red-600 mt-2" :form="form" field="password" />
                 </div>
 
                 <div class="mt-6">
                     <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
-                        Confirmez le mot de passe
+                        Repeat new password
                     </label>
-
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input id="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                        <input id="password_confirmation" v-model="form.password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                     </div>
                 </div>
 
@@ -116,32 +112,20 @@
                   <v-button :loading="form.busy">
                     {{ $t('reset_password') }}
                   </v-button>
-                    <!-- <span class="block w-full rounded-md" wire:loading wire:target="resetPassword">
-                        <button type="button"
-                            class="w-full flex justify-center py-2 px-4 border border-transparent text-md font-medium hover:bg-gray-700 rounded-md text-white bg-ayyaw-600 focus:outline-none focus:shadow-outline-indigo transition duration-150 ease-in-out cursor-wait"
-                            disabled>
-                            <svg class="animate-spin h-5 w-5 mr-3 fill-current text-white" viewBox="0 0 24 24">
-                                <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
-                            </svg>
-                            En traitement
-                        </button>
-                    </span>
-                    <span class="block w-full rounded-md" wire:loading.remove wire:target="resetPassword">
-                        <button type="submit"
-                            class="w-full flex justify-center py-2 px-4 border border-transparent text-md font-medium hover:bg-gray-700 rounded-md text-white bg-ayyaw-600 focus:outline-none focus:shadow-outline-indigo transition duration-150 ease-in-out">
-                            Réinitialiser
-                        </button>
-                    </span> -->
                 </div>
-
-                <!-- <div class="mt-6">
-                    <span class="block w-full rounded-md shadow-sm">
-                        <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-ayyaw-600 border border-transparent rounded-md hover:bg-ayyaw-500 focus:outline-none focus:border-ayyaw-700 focus:ring-ayyaw active:bg-ayyaw-700 transition duration-150 ease-in-out">
-                            Reset password
-                        </button>
-                    </span>
-                </div> -->
             </form>
+            <div v-else class="text-center">
+              <div class="flex items-center px-4 py-3 mb-6 text-sm text-white bg-green-500 rounded shadow" role="alert">
+                  <svg class="w-4 h-4 mr-3 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p>{{ success }}</p>
+              </div>
+
+              <router-link :to="{ name: 'login' }" class="text-teal-700 cursor-pointer hover:text-teal-600 focus:outline-none focus:underline transition ease-in-out duration-150">
+                {{ $t('login') }}
+              </router-link>
+            </div>
         </div>
     </div>
 </div>

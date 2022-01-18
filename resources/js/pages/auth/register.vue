@@ -185,7 +185,7 @@ export default {
     async register () {
       // Register the user.
       const { data } = await this.form.post('/api/register')
-      console.log('data1:' + JSON.stringify(data))
+
       // Must verify email fist.
       if (data.status) {
         this.mustVerifyEmail = true
@@ -193,11 +193,8 @@ export default {
         // Log in the user.
         const { data: { token } } = await this.form.post('/api/login')
 
-        console.log('data: ' + JSON.stringify(data))
-        console.log('token: ' + token)
-
         // Save the token.
-        this.$store.dispatch('auth/saveToken', { token })
+        this.$store.dispatch('auth/saveToken', { 'token': data.token })
 
         // Update the user.
         await this.$store.dispatch('auth/updateUser', { user: data })

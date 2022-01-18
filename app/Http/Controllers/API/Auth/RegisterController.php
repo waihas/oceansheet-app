@@ -18,7 +18,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    protected function registered(Request $request, User $user)
+    protected function registered(User $user)
     {
         if ($user instanceof MustVerifyEmail) {
             $user->sendEmailVerificationNotification();
@@ -26,6 +26,8 @@ class RegisterController extends Controller
             return response()->json(['status' => trans('verification.sent')]);
         }
 
+        $user['token'] = $user->createToken('OceanSheet')->plainTextToken;
+        
         return response()->json($user);
     }
 

@@ -10,17 +10,17 @@ use Illuminate\Auth\Notifications\ResetPassword as Notification;
 
 class ResetPassword extends Notification
 {
-    use Queueable;
+    // use Queueable;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    // public function __construct()
+    // {
+    //     //
+    // }
 
     /**
      * Get the notification's delivery channels.
@@ -28,10 +28,10 @@ class ResetPassword extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function via($notifiable)
-    {
-        return ['mail'];
-    }
+    // public function via($notifiable)
+    // {
+    //     return ['mail'];
+    // }
 
     /**
      * Get the mail representation of the notification.
@@ -57,10 +57,10 @@ class ResetPassword extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
+    // public function toArray($notifiable)
+    // {
+    //     return [
+    //         //
+    //     ];
+    // }
 }

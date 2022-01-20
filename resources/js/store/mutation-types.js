@@ -10,4 +10,4 @@ export const UPDATE_USER = 'UPDATE_USER'
 export const SET_LOCALE = 'SET_LOCALE'
 
 // main.js
-export const IS_SIDEBAR_OPEN = false
+export const TOGGLE_SIDEBAR = 'IS_SIDEBAR_OPEN'

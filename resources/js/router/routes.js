@@ -17,15 +17,16 @@ function page (path) {
     { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },
     { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
     { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
-    { path: '/dash/billing', name: 'dashboard.billing', component: page('dashboard/settings/billing.vue') },
     { path: '/help/support', name: 'dashboard.support', component: page('dashboard/support.vue') },
+    { path: '/dash/profile', name: 'dashboard.profile', component: page('dashboard/profile.vue') },
   
     { path: '/settings',
       component: page('dashboard/settings/index.vue'),
       children: [
-        { path: '', redirect: { name: 'settings.profile' } },
-        { path: 'profile', name: 'settings.profile', component: page('dashboard/settings/profile.vue') },
-        { path: 'password', name: 'settings.password', component: page('dashboard/settings/password.vue') }
+        { path: '', redirect: { name: 'settings.billing' } },
+        { path: 'billing', name: 'settings.billing', component: page('dashboard/settings/billing.vue') },
+        { path: 'notifications', name: 'settings.notifications', component: page('dashboard/settings/notifications.vue') },
+        { path: 'storage', name: 'settings.storage', component: page('dashboard/settings/storage.vue') }
       ] },
   
     { path: '*', component: page('errors/404.vue') }

@@ -1,7 +1,7 @@
 <template>
   
   <header class="flex items-center px-6 sm:px-10 bg-white" style="height: 10vh;">
-      <button class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
+      <button type="button" @click="toggleSideMenu" class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
         <span class="sr-only">Menu</span>
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
@@ -87,23 +87,23 @@
             </span>
             <template v-slot:items>
               <div class="py-1">
-                <router-link :to="{name: 'settings.profile'}"
+                <router-link :to="{name: 'dashboard.profile'}"
                             class="font-semibold block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 transition-all duration-100 ease-in-out outline-none"
                             role="menuitem"
                 >
                   Profile
                 </router-link>
-                <router-link :to="{name: 'dashboard.billing'}"
+                <router-link :to="{name: 'settings.billing'}"
                             class="font-semibold block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 transition-all duration-100 ease-in-out outline-none"
                             role="menuitem"
                 >
                   Billing
                 </router-link>
-                <router-link :to="{name: 'settings.profile'}"
+                <router-link :to="{name: 'settings.notifications'}"
                             class="font-semibold block px-4 py-2 text-sm leading-5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 transition-all duration-100 ease-in-out outline-none"
                             role="menuitem"
                 >
-                  Settings
+                  Notifications
                 </router-link>
               </div>
               <div class="border-t border-gray-100" />
@@ -251,6 +251,9 @@ export default {
       // Redirect to login.
       await this.$router.push({ name: 'login' })
     },
+    toggleSideMenu () {
+      this.$store.dispatch('main/toggleSidebar')
+    }
     // toggleSideMenu () {
     //   await this.$store.dispatch('toggleSideMenu');
     //   // this.$parent.$emit('toggleSideMenu')

@@ -1,7 +1,7 @@
 <template>
   <aside class="hidden sm:flex sm:flex-col h-screen">
-    <router-link :to="{name: 'dashboard.home'}" class="inline-flex items-center justify-center h-20 w-24 bg-white">
-        <img src="/assets/img/oceansheet-logo.svg" class="h-12 w-12" alt="OceanSheet logo">
+    <router-link :to="{name: 'dashboard.home'}" class="inline-flex items-center justify-center h-20 w-24 bg-main-500">
+        <img src="/assets/img/oceansheet-logo-white.svg" class="h-12 w-12" alt="OceanSheet logo">
       <!-- <svg fill="none" viewBox="0 0 64 64" class="h-12 w-12">
         <title>Company logo</title>
         <path d="M32 14.2c-8 0-12.9 4-14.9 11.9 3-4 6.4-5.6 10.4-4.5 2.3.6 4 2.3 5.7 4 2.9 3 6.3 6.4 13.7 6.4 7.9 0 12.9-4 14.8-11.9-3 4-6.4 5.5-10.3 4.4-2.3-.5-4-2.2-5.7-4-3-3-6.3-6.3-13.7-6.3zM17.1 32C9.2 32 4.2 36 2.3 43.9c3-4 6.4-5.5 10.3-4.4 2.3.5 4 2.2 5.7 4 3 3 6.3 6.3 13.7 6.3 8 0 12.9-4 14.9-11.9-3 4-6.4 5.6-10.4 4.5-2.3-.6-4-2.3-5.7-4-2.9-3-6.3-6.4-13.7-6.4z" fill="#fff"/>
@@ -44,7 +44,7 @@
         </button>
       </div>
     </div> -->
-    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-white w-24">
+    <div class="flex-grow flex flex-col justify-between text-white bg-main-500 w-24">
         <nav class="flex flex-col mx-2 my-6 space-y-4">
             <!-- <a href="purchase"
               class="items-center justify-center py-3 @routeis(purchase) text-blue-600 bg-white @else hover:bg-gray-200 focus:bg-gray-100 rounded-lg">

@@ -1,7 +1,7 @@
 <template>
   <div 
-    class="items-center justify-center py-3 hover:bg-gray-100 focus:bg-gray-100 rounded-lg hover:cursor-pointer"
-       :class="isCurrentRoute ? 'text-main-600 bg-gray-50' : 'bg-white'"
+    class="items-center justify-center py-3 focus:bg-gray-100 rounded-lg hover:cursor-pointer"
+       :class="isCurrentRoute ? 'text-main-600 bg-gray-50' : 'bg-main-500 hover:bg-main-600'"
        @click="go"
   >
     <!-- <span class="font-semibold transition-all duration-100 ease-in-out" :class="isCurrentRoute ? 'text-white' : 'text-gray-600 group-hover:text-gray-800'"> -->

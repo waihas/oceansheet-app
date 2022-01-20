@@ -114,7 +114,7 @@
 
     <navbar />
 
-    <main class="overflow-auto" style="height: 90vh;">
+    <main class="overflow-auto bg-gray-50" style="height: 90vh;">
       
         <child />
 

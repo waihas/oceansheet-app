@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -18,7 +19,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    protected function registered(User $user)
+    protected function registered(Request $request, User $user)
     {
         if ($user instanceof MustVerifyEmail) {
             $user->sendEmailVerificationNotification();
@@ -52,7 +53,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => Hash::make($data['password']),
         ]);
     }
 

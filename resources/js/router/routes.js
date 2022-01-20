@@ -17,6 +17,7 @@ function page (path) {
     { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },
     { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
     { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
+    { path: '/dash/billing', name: 'dashboard.billing', component: page('dashboard/settings/billing.vue') },
     { path: '/help/support', name: 'dashboard.support', component: page('dashboard/support.vue') },
   
     { path: '/settings',

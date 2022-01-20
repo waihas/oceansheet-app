@@ -6,7 +6,7 @@
       <div class="absolute top-0 right-0 p-6">
         <template v-if="authenticated">
           <router-link :to="{ name: 'dashboard.home' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-teal-500">
-            {{ $t('home') }}
+            {{ Dashboard }}
           </router-link>
         </template>
         <template v-else>

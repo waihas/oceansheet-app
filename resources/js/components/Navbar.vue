@@ -251,6 +251,10 @@ export default {
       // Redirect to login.
       await this.$router.push({ name: 'login' })
     },
+    // toggleSideMenu () {
+    //   await this.$store.dispatch('toggleSideMenu');
+    //   // this.$parent.$emit('toggleSideMenu')
+    // }
   }
 }
 </script>

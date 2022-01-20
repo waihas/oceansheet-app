@@ -1,5 +1,5 @@
 <template>
-  <div v-click-outside="hide" class="relative inline-block text-left">
+  <div v-click-outside="hide" @keydown.esc="hide" class="relative inline-block text-left">
     <div>
         <button id="notifications-menu" type="button" class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full" aria-haspopup="true" aria-expanded="true" @click="toggle">
           <slot />

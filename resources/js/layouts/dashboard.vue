@@ -146,6 +146,11 @@ import Sidebar from '~/components/Sidebar'
 
 export default {
   name: 'DashboardLayout',
+  data () {
+    return {
+      isSideMenuOpen: true
+    }
+  },
 
   components: {
     Sidebar,

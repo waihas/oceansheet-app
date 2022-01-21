@@ -14,16 +14,16 @@
         <input type="text" role="search" placeholder="Search..." class="py-2 pl-10 pr-4 w-full border-4 border-transparent placeholder-gray-400 focus:bg-gray-50 rounded-lg" />
       </div> -->
       <div class="relative w-full max-w-md sm:-ml-2">
-          <h1 class="text-3xl font-semibold">OceanSheet</h1>
-          <!-- <h1 class="text-3xl font-semibold">{{ title }}</h1> -->
+          <!-- <h1 class="text-3xl font-semibold">OceanSheet</h1> -->
+          <h1 class="text-3xl font-semibold">{{ title }}</h1>
       </div>
       <div class="flex flex-shrink-0 items-center ml-auto">
         <div class="border-r pr-3 mr-3 space-x-1">
             <dropdown-notification class="relative">
                 
               <span class="sr-only">Notifications</span>
-              <!-- <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span> -->
-              <!-- <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span> -->
+              <!-- <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-main-500 rounded-full"></span> -->
+              <!-- <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-main-500 rounded-full animate-ping"></span> -->
               <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
@@ -225,23 +225,53 @@ export default {
   components: { DropdownMenu, DropdownNotification },
   data: () => ({
     appName: window.config.appName,
-    // title: document.title,
-    // title: this.$meta.refresh().titleTemplate,
-    // title: window.titleTemplate
+    title: '',
   }),
   
   computed: mapGetters({
     user: 'auth/user'
   }),
+
+  metaInfo() {
+    return {
+      changed: (meta) => {
+        this.title = meta.titleChunk;
+        console.log(meta.titleChunk);
+      },
+    }
+  },
+
+  // computed: {
+  //   title(ctx) {
+  //     return ctx.$root.$meta().refresh().metaInfo.titleChunk
+  //   },
+  // },
+
+  // watch:{
+  //   $route (to, from, meta){
+  //     console.log(meta)
+  //     // this.title = meta.titleChunk
+  //   }
+  // },
+
+  // watch: {
+  //   firstName: function (val) {
+  //     this.fullName = val + ' ' + this.lastName
+  //   },
+  //   lastName: function (val) {
+  //     this.fullName = this.firstName + ' ' + val
+  //   }
+  // }
   
-  // created() {
+  created() {
+    // this.title = newInfo.titleChunk
+    
   //   console.log(router);
   //   let meta = router.currentRoute.meta;
   //   console.log(meta);
 
   //   console.log( meta.fields); // not sure what you're trying to return exactly
-    
-  // },
+  },
 
   methods: {
     async logout () {

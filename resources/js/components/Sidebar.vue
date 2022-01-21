@@ -166,9 +166,9 @@
     x-transition:leave="transition ease-in-out duration-150"
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0 transform -translate-x-20"
-    v-click-outside="closeSideMenu"
-    @keydown.esc="closeSideMenu"
     >
+    <!-- v-click-outside="closeSideMenu"
+    @keydown.esc="closeSideMenu" -->
     <!-- <a href="/home" class="inline-flex items-center justify-center h-32 bg-gray-700 w-32">
       <img class="h-16 w-16" src="images/waihas-logo-circle-white.svg') }}" alt="Waihas">
     </a> -->
@@ -313,15 +313,20 @@ export default {
   directives: {
     ClickOutside
   },
-  
+  computed: {
+    isSideMenuOpen () {
+      return this.$store.getters['main/sidebarOpen']
+    }
+  },
   // computed: {
   //     open () {
   //       return this.$store.state.ui.sidebarOpen
   //     }
   // },
-  computed: mapGetters({
-    isSideMenuOpen: 'main/sidebarOpen'
-  }),
+  // this one
+  // computed: mapGetters({
+  //   isSideMenuOpen: 'main/sidebarOpen'
+  // }),
   // watch: {
   //     open: function (open) {
   //       const dX = open ? 0 : this.$el.offsetWidth
@@ -332,12 +337,21 @@ export default {
   //     }
   //   }
 
+  mounted() {
+    console.log(this.$store.getters['main/sidebarOpen']) // false
+    this.$store.dispatch('main/toggleSidebar')
+    console.log(this.$store.getters['main/sidebarOpen']) // true
+    this.$store.dispatch('main/toggleSidebar')
+    console.log(this.$store.getters['main/sidebarOpen']) // false
+  },
+
   methods: {
     // openSideMenu () {
     //   this.$parent.$emit('openSideMenu')
     // },
     closeSideMenu () {
       this.$store.dispatch('main/toggleSidebar')
+      
     }
   }
 }

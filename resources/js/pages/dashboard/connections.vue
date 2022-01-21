@@ -93,8 +93,8 @@
             <span class="block text-gray-500">Hours spent on lections</span>
           </div>
         </div> -->
-        <div class="row-span-3 bg-white shadow rounded-lg">
-          <div class="px-6 py-5 font-semibold border-b border-gray-100">Students by type of studying</div>
+        <div class="row-span-3 bg-white rounded-lg">
+          <div class="px-6 py-5 font-semibold border-b border-gray-100">List of connections</div>
           <!-- <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
             <span>Students by average mark</span>
             <button type="button" class="inline-flex justify-center rounded-md px-1 -mr-1 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-600" id="options-menu" aria-haspopup="true" aria-expanded="true">
@@ -105,6 +105,62 @@
             </button>
           </div> -->
           <div class="overflow-y-auto"> <!-- style="max-height: 24rem;" -->
+            <!-- <div class="bg-white rounded-lg shadow-xl px-4 relative"> -->
+            <!-- <div class="p-6 space-y-6">
+
+                  <div class="py-6 flex items-center w-full hover:bg-gray-50">
+                      <a href="#" class="flex-1">
+                          <div class="text-gray-400 text-base">Profile</div>
+                      </a>
+                      <div>
+                          <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                              <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                          </svg>
+                      </div>
+                  </div>
+
+                  <div class="py-6 flex items-center w-full border-t border-gray-200 hover:bg-gray-50">
+                      <a href="#" class="flex-1">
+                          <div class="text-gray-400 text-base">Status (Online)</div>
+                      </a>
+                      <div>
+                          <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                              <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                          </svg>
+                      </div>
+                  </div>
+
+                  <div class="py-6 flex items-center w-full border-t border-gray-200 hover:bg-gray-50">
+                      <a href="#" class="flex-1">
+                          <div class="text-gray-400 text-base">Notifications</div>
+                      </a>
+                      <div>
+                          <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                              <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                          </svg>
+                      </div>
+                  </div>
+
+                  <div class="py-6 flex items-center w-full hover:bg-gray-50 border-t border-gray-200 hover:bg-gray-50">
+                      <a href="#" class="flex-1">
+                          <div class="text-gray-400 text-base">Sign out</div>
+                      </a>
+                      <div>
+                          <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                              <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                              <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                          </svg>
+                      </div>
+                  </div>
+              </div> -->
+            
             <ul class="p-6 space-y-6">
               <li class="flex items-center">
                 <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
@@ -179,7 +235,8 @@
           </div>
         </div> -->
 
-        <steps />
+        <!-- <steps /> -->
+        <GDriveSelector />
 
       </section>
       <!-- <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
@@ -301,12 +358,13 @@
 
 <script>
 import Steps from './connections/steps'
+import GDriveSelector from './connections/GDriveSelector'
 
 export default {
   middleware: 'auth',
   layout: 'dashboard',
 
-  components: { Steps },
+  components: { Steps, GDriveSelector },
 
   metaInfo () {
     return { title: 'Connections' }

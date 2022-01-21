@@ -41,7 +41,7 @@
                             Name
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="name" v-model="formAccount.name" type="text" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                            <input id="name" v-model="formAccount.name" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                             :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': formAccount.errors.has('name') }"
                             />
                         </div>
@@ -90,7 +90,7 @@
                                 New Password
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="password" v-model="formPassword.password" type="password" required autofocus placeholder="Min. 6 characters" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                <input id="password" v-model="formPassword.password" type="password" required placeholder="Min. 6 characters" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                 :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red': formPassword.errors.has('password') }"
                                 />
                             </div>

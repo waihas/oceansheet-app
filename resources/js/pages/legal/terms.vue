@@ -15,109 +15,62 @@
 			</div>
 
 
-			<!--Post Content-->
+		<p class="py-6">
+			The obligation to register the name, data and personal information (work data and address) and means of communication (phone number and e-mail).
+		</p>
+		<p class="py-6">
+			Commitment to free the content of your site from any materials or phrases that offend religions, Islamic law, morals and social norms, or those that violate public decency, or call for sedition and sectarian strife.
+		</p>
+		<p class="py-6">
+			Refrain from uploading any files that contain viruses or harmful software with the aim of stealing information, sabotaging or violating the privacy of other customers or in an illegal manner, and violating this clause leads to the final closure of the website and the immediate revocation of the license.
+		</p>
+		<p class="py-6">
+			It is forbidden to send violating or harassing messages through mailing lists without the knowledge or consent of their owners, as well as prohibiting all kinds of mail dumping as these practices violate internationally applicable laws and require the immediate suspension of your site.
+		</p>
+		<p class="py-6">
+			In the event that the data transfer rate exceeds the specified and agreed upon quantity upon requesting the service, the site will be stopped automatically until the beginning of the next month. (Monitoring the monthly data transfer volume is done through the customer's control panel, and you may upgrade at any moment to a higher plan easily by contacting technical support).
+		</p>
+		<p class="py-6">
+			Technical support is responsible for fixing the problems that are caused by the server only, God forbid, and we are not obligated to fix or amend errors and problems resulting from your misuse or misuse of your visitors to the content of your website.
+		</p>
+		<p class="py-6">
+			Removing Waihas website logo from our products or services, especially software and designs, requires legal accountability under the law of property and intellectual rights, with the exception of purchasing the copyrights to pay fees from the value of the work or product sold.
+		</p>
+		<p class="py-6">
+			The prices of the plans and services provided by Waihas are subject to change according to market variables at any time, without affecting the previous purchases of the amendment, as the customer has the right to deal with the previous price until the end of the prepaid subscription period.
+		</p>
+		<p class="py-6">
+			The customer’s failure to fulfill his financial obligations towards one of the services leads to the cessation of all his dealings with Waihas until the full payment of dues.
+		</p>
+		<p class="py-6">
+			Waihas is committed to ensuring the security of your website and protecting its content from leakage and penetration even when the website is stopped.
+		</p>
+		<p class="py-6">
+			Once you register on our website, you fully agree to the privacy policy, terms of use and refund policy, also once you purchase means that you have examined and read the service or product specifications well, and there is no refund once the service or product is received.
+		</p>
+		<p class="py-6">
+			Failure to comply with the terms of the agreement necessitates warning, then warning, and then taking the measures stipulated in this agreement.
+		</p>
+		<p class="py-6">
+			Also, in the event of a negative evaluation for the purpose of tarnishing our reputation or defamation, your license will be suspended completely.
+		</p>
+		<p class="py-6">
+			We are the full decision-makers and we do not accept mediation or external intervention to solve problems, if any, and in the event that this occurs exposes you to a fine, and you have no right to object to the final decision taken.
+		</p>
+		<p class="py-6">
+			The services or products provided to you are for personal use only and you are not authorized to resell them, so when this matter is violated, you will be alerted or your license suspended without warning.
+		</p>
+		<p class="py-6">
+			In the event that a PayPal dispute is opened or an attempt is made to recover the money, your license will be suspended immediately and all your services will be lost, so if you have a problem, please contact us first.
+		</p>
+		<p class="py-6">
+			The services or products provided by us work on one domain only of your choice, and each additional domain has a cost starting from $ 30 for each additional domain.
+		</p>
+		<p class="py-6 pt-12">
+			Waihas always committed to quality, efficiency and customer satisfaction, so your successes are our real profits.
+		</p>
 
-
-			<!--Lead Para-->
-			<p class="py-6">
-				👋 Welcome fellow <a class="text-green-500 no-underline hover:underline" href="https://www.tailwindcss.com">Tailwind CSS</a> and miminal monochrome blog fan. This starter template provides a starting point to create your own minimal monochrome blog using Tailwind CSS and vanilla Javascript.
-			</p>
-
-			<p class="py-6">The basic blog page layout is available and all using the default Tailwind CSS classes (although there are a few hardcoded style tags). If you are going to use this in your project, you will want to convert the classes into components.</p>
-
-
-			<h1 class="py-2 font-sans">Heading 1</h1>
-			<h2 class="py-2 font-sans">Heading 2</h2>
-			<h3 class="py-2 font-sans">Heading 3</h3>
-			<h4 class="py-2 font-sans">Heading 4</h4>
-			<h5 class="py-2 font-sans">Heading 5</h5>
-			<h6 class="py-2 font-sans">Heading 6</h6>
-
-			<p class="py-6">Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam, pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum elementum.</p>
-
-			<ol>
-				<li class="py-3">Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo sit amet placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.</li>
-				<li class="py-3">Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo. Duis auctor ornare mauris, eu accumsan odio viverra in. Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec felis.</li>
-				<li class="py-3">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc vitae pretium elit. Cras leo mauris, tristique in risus ac, tristique rutrum velit. Mauris accumsan tempor felis vitae gravida. Cras egestas convallis malesuada. Etiam ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit, elementum odio et, consequat tellus.</li>
-			</ol>
-
-			<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
-
-			<p class="py-6">Example code block:</p>
-			<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-				<code class="break-words whitespace-pre-wrap">
-&lt;header class="site-header outer"&gt;
-&lt;div class="inner"&gt;
-
-&lt;/div&gt;
-&lt;/header&gt;
-				</code>
-			</pre>
-
-
-			<!--/ Post Content-->
-
-		</div>
-
-		<!--Tags -->
-		<div class="text-base md:text-sm text-gray-500 px-4 py-6">
-			Tags: <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a> . <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a>
-		</div>
-
-		<!--Divider-->
-		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-
-
-		<!--Subscribe-->
-		<div class="container px-4">
-			<div class="font-sans bg-gradient-to-b from-green-100 to-gray-100 rounded-lg shadow-xl p-4 text-center">
-				<h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe to my Newsletter</h2>
-				<h3 class="font-bold break-normal text-gray-600 text-sm md:text-base">Get the latest posts delivered right to your inbox</h3>
-				<div class="w-full text-center pt-4">
-					<form action="#">
-						<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
-							<input type="email" placeholder="youremail@example.com" class="flex-1 mt-4 appearance-none border border-gray-400 rounded shadow-md p-3 text-gray-600 mr-2 focus:outline-none">
-							<button type="submit" class="flex-1 mt-4 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<!-- /Subscribe-->
-
-
-
-		<!--Author-->
-		<div class="flex w-full items-center font-sans px-4 py-12">
-			<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-			<div class="flex-1 px-2">
-				<p class="text-base font-bold text-base md:text-xl leading-none mb-2">Jo Bloggerson</p>
-				<p class="text-gray-600 text-xs md:text-base">Minimal Blog Tailwind CSS template by <a class="text-green-500 no-underline hover:underline" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a></p>
-			</div>
-			<div class="justify-end">
-				<button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Read More</button>
-			</div>
-		</div>
-		<!--/Author-->
-
-		<!--Divider-->
-		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-
-		<!--Next & Prev Links-->
-		<div class="font-sans flex justify-between content-center px-4 pb-12">
-			<div class="text-left">
-				<span class="text-xs md:text-sm font-normal text-gray-600">&lt; Previous Post</span><br>
-				<p><a href="#" class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Blog title</a></p>
-			</div>
-			<div class="text-right">
-				<span class="text-xs md:text-sm font-normal text-gray-600">Next Post &gt;</span><br>
-				<p><a href="#" class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Blog title</a></p>
-			</div>
-		</div>
-
-
-		<!--/Next & Prev Links-->
-
+	</div>
 	</div>
 	<!--/container-->
 </template>

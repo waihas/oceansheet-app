@@ -18,116 +18,102 @@
 			<!--Post Content-->
 
 
-			<!--Lead Para-->
+			<h1 class="py-2 text-3xl font-sans">
+				Confidentiality of information and privacy statement
+			</h1>				
+
 			<p class="py-6">
-				👋 Welcome fellow <a class="text-green-500 no-underline hover:underline" href="https://www.tailwindcss.com">Tailwind CSS</a> and miminal monochrome blog fan. This starter template provides a starting point to create your own minimal monochrome blog using Tailwind CSS and vanilla Javascript.
+				OceanSheet appreciates your anxiety and concerns about the privacy of your data on the Internet.
+				<br>
+				We have therefore prepared this privacy policy page to help you understand the nature of the data that may be read when you visit our website and how we treat this personal data.
 			</p>
 
-			<p class="py-6">The basic blog page layout is available and all using the default Tailwind CSS classes (although there are a few hardcoded style tags). If you are going to use this in your project, you will want to convert the classes into components.</p>
+			<h1 class="py-2 text-3xl font-sans">
+				Navigation
+			</h1>				
+
+			<p class="py-6">
+				OceanSheet is an official website subject to laws and intellectual property rights and was never created in order to collect your personal data from your computer while browsing our website, but only the data you provide will be used with your knowledge and of your own free will.
+			</p>
 
 
-			<h1 class="py-2 font-sans">Heading 1</h1>
-			<h2 class="py-2 font-sans">Heading 2</h2>
-			<h3 class="py-2 font-sans">Heading 3</h3>
-			<h4 class="py-2 font-sans">Heading 4</h4>
-			<h5 class="py-2 font-sans">Heading 5</h5>
-			<h6 class="py-2 font-sans">Heading 6</h6>
+			<h1 class="py-2 text-3xl font-sans">
+				Links to other websites on the Internet
+			</h1>				
 
-			<p class="py-6">Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam, pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum elementum.</p>
+			<p class="py-6">
+				Our website may include links to other websites on the Internet. Or advertisements from other sites such as (Google AdSense) and we are not responsible for the methods of data collection by such websites, you can see the privacy policies and content of such website which are accessible through any link on their website.
+				<br>
+				We will not use third party advertising companies to serve ads when you visit our website. These companies are not permitted to use information about your visits to our website, while these websites may use information about your visit to other websites (except name, address, location, e-mail address or phone number) in order to provide advertisements about the products and services that interest you. We confirm that OceanSheet does not use any of these websites for advertising purposes.
+			</p>
 
-			<ol>
-				<li class="py-3">Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo sit amet placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.</li>
-				<li class="py-3">Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo. Duis auctor ornare mauris, eu accumsan odio viverra in. Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec felis.</li>
-				<li class="py-3">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc vitae pretium elit. Cras leo mauris, tristique in risus ac, tristique rutrum velit. Mauris accumsan tempor felis vitae gravida. Cras egestas convallis malesuada. Etiam ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit, elementum odio et, consequat tellus.</li>
-			</ol>
+			<h1 class="py-2 text-3xl font-sans">
+				Confidentiality of your personal files
+			</h1>				
 
-			<blockquote class="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
+			<p class="py-6">
+				OceanSheet is committed to maintaining the confidentiality and secrecy of all personal data it obtains at all times. This information will only be disclosed if required by law or when we believe in good faith that such a procedure will be required or desirable to comply with the law, or to defend or protect the property rights of this site or of its beneficiaries.
+			</p>
 
-			<p class="py-6">Example code block:</p>
-			<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-				<code class="break-words whitespace-pre-wrap">
-&lt;header class="site-header outer"&gt;
-&lt;div class="inner"&gt;
+			<h1 class="py-2 text-3xl font-sans">
+				Presentation of the necessary data for the execution of the requested services
+			</h1>				
 
-&lt;/div&gt;
-&lt;/header&gt;
-				</code>
-			</pre>
+			<p class="py-6">
+				When requesting any of the OceanSheet's services, be aware that any information is necessary for the execution of legal procedures, we will ask you to provide them of your own free will. This information will help us contact you and respond to your inquiries where possible. The data you have submitted will never be sold to third parties for the purpose of marketing for its own interests without obtaining your prior written consent, unless this is done on the basis that it is in the collective data used for statistical and research purposes without including any data that can be used to identify you.
+			</p>
 
+			<h1 class="py-2 text-3xl font-sans">
+				If you contact us
+			</h1>				
 
-			<!--/ Post Content-->
+			<p class="py-6">
+				When you contact us, all data you provide to us is treated confidentially. Forms submitted online require the submission of data that will help us improve our website. The data you provide will be used to answer any questions, comments or requests from this website or any of our websites.
+			</p>
 
-		</div>
+			<h1 class="py-2 text-3xl font-sans">
+				Disclosure of information to a third party
+			</h1>				
 
-		<!--Tags -->
-		<div class="text-base md:text-sm text-gray-500 px-4 py-6">
-			Tags: <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a> . <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a>
-		</div>
+			<p class="py-6">
+				We do not sell, market, rent or disclose any information for the benefit of third parties outside of this website or its affiliated websites. Information will only be disclosed if an order is issued by a judicial or regulatory authority.
+			</p>
 
-		<!--Divider-->
-		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
+			<h1 class="py-2 text-3xl font-sans">
+				Changes to the confidentiality and information confidentiality policy
+			</h1>
 
+			<p class="py-6">
+				We reserve the right to modify the terms and conditions of the Information Secrecy and Confidentiality Policy from time to time. Changes will be implemented here or on the main privacy policy page.
+			</p>
 
-		<!--Subscribe-->
-		<div class="container px-4">
-			<div class="font-sans bg-gradient-to-b from-green-100 to-gray-100 rounded-lg shadow-xl p-4 text-center">
-				<h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe to my Newsletter</h2>
-				<h3 class="font-bold break-normal text-gray-600 text-sm md:text-base">Get the latest posts delivered right to your inbox</h3>
-				<div class="w-full text-center pt-4">
-					<form action="#">
-						<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
-							<input type="email" placeholder="youremail@example.com" class="flex-1 mt-4 appearance-none border border-gray-400 rounded shadow-md p-3 text-gray-600 mr-2 focus:outline-none">
-							<button type="submit" class="flex-1 mt-4 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<!-- /Subscribe-->
+			<h1 class="py-2 text-3xl font-sans">
+				Contact us
+			</h1>				
 
+			<p class="py-6">
+				You can contact us if necessary by clicking on the contact us link at the top of the page and within the links on our website or by sending to our email: contact@oceansheet.com.
+			</p>
 
+			<h1 class="py-2 text-3xl font-sans">
+				Finally
+			</h1>				
 
-		<!--Author-->
-		<div class="flex w-full items-center font-sans px-4 py-12">
-			<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-			<div class="flex-1 px-2">
-				<p class="text-base font-bold text-base md:text-xl leading-none mb-2">Jo Bloggerson</p>
-				<p class="text-gray-600 text-xs md:text-base">Minimal Blog Tailwind CSS template by <a class="text-green-500 no-underline hover:underline" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a></p>
-			</div>
-			<div class="justify-end">
-				<button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Read More</button>
-			</div>
-		</div>
-		<!--/Author-->
+			<p class="py-6">
+				Your anxieties and concerns about data secrecy and privacy are of critical importance for us, we hope that this will be achieved through this policy.
+			</p>
 
-		<!--Divider-->
-		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-
-		<!--Next & Prev Links-->
-		<div class="font-sans flex justify-between content-center px-4 pb-12">
-			<div class="text-left">
-				<span class="text-xs md:text-sm font-normal text-gray-600">&lt; Previous Post</span><br>
-				<p><a href="#" class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Blog title</a></p>
-			</div>
-			<div class="text-right">
-				<span class="text-xs md:text-sm font-normal text-gray-600">Next Post &gt;</span><br>
-				<p><a href="#" class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Blog title</a></p>
-			</div>
-		</div>
-
-
-		<!--/Next & Prev Links-->
-
+	</div>
 	</div>
 	<!--/container-->
 </template>
 
 <script>
 export default {
-  name: 'Terms',
+  name: 'PrivacyPolicy',
   layout: 'basic',
   metaInfo () {
-    return { title: this.$t('Terms & Conditions') }
+    return { title: this.$t('Privacy Policy') }
   },
 }
 </script>

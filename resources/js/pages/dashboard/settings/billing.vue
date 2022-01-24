@@ -45,7 +45,7 @@ export default {
   layout: 'dashboard',
 
   metaInfo () {
-    return { title: 'Billing' }
+    return { title: 'Settings · Billing' }
   }
 }
 </script>

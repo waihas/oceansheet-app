@@ -16,6 +16,9 @@ function page (path) {
   
     { path: '/dashboard', name: 'dashboard.home', component: page('dashboard/home.vue') },
     { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },
+    { path: '/dash/connections/create', name: 'dashboard.connections.create', component: page('dashboard/connections/create.vue') },
+    { path: '/dash/connections/:token/edit', name: 'dashboard.connections.edit', component: page('dashboard/connections/edit.vue') },
+    { path: '/dash/connections/:token/view', name: 'dashboard.connections.view', component: page('dashboard/connections/show.vue') },
     { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
     { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
     { path: '/help/support', name: 'dashboard.support', component: page('dashboard/support.vue') },

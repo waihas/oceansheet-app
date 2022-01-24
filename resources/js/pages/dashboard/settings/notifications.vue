@@ -12,7 +12,7 @@ export default {
   layout: 'dashboard',
 
   metaInfo () {
-    return { title: 'Notifications' }
+    return { title: 'Settings · Notifications' }
   }
 }
 </script>

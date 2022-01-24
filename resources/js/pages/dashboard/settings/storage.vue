@@ -12,7 +12,7 @@ export default {
   layout: 'dashboard',
 
   metaInfo () {
-    return { title: 'File Storage' }
+    return { title: 'Settings · File Storage' }
   }
 }
 </script>

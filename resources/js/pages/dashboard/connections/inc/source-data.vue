@@ -62,7 +62,10 @@
                         </header>
 
                         <div class="mt-12 mb-4">
-                            <GDriveSelector />
+                            <!-- <GDriveSelector /> -->
+                            <file-picker-button :config="gConfig" @picked="showDetails">
+                                Open Google Drive Dialog
+                            </file-picker-button>
                         </div>
                     </div>
                 </transition>
@@ -82,6 +85,7 @@
 <script>
 import clickOutside from 'vue-click-outside'
 import GDriveSelector from '~/components/picker/GDriveSelector'
+import FilePickerButton from 'vue-google-picker'
 
 export default {
     name: 'SourceData',
@@ -90,7 +94,7 @@ export default {
         clickOutside
     },
 
-    components: { GDriveSelector },
+    components: { GDriveSelector, FilePickerButton },
     
     data: () => ({
         showPicker: false,
@@ -98,6 +102,19 @@ export default {
             files:null,
         },
     }),
+
+    created() {
+        this.gConfig = {
+            // The Browser API key obtained from the Google API Console.
+            developerKey: 'AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw',
+
+            // The Client ID obtained from the Google API Console. Replace with your own Client ID.
+            clientId: '727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com',
+
+            // Scope to use to access user's drive.
+            scope: 'https://www.googleapis.com/auth/drive.file'
+        }
+    }, 
     
     methods: {
         closePicker: function() {
@@ -105,6 +122,11 @@ export default {
         },
         makeCompleted: function() {
             this.$emit("step-one-completed", this.source) ;
+        },
+        showDetails (data) {
+            if(data.picked === 'picked') {
+                console.log(data.docs)
+            }
         }
     },
 }

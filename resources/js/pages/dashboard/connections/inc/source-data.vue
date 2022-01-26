@@ -17,6 +17,10 @@
                 Please select your data source sheet.
             </div>
 
+            <div @click="execute()">
+                Execute
+            </div>
+
             <br>
             <br>
             <AttachmentList :tempAttachments="source.files"/>

@@ -10,15 +10,23 @@
           </div>
 
           <div v-show="step === 2">
-            <output-data @step-two-completed="stepTwoCompleted"></output-data>
+            <output-data @step-two-completed="stepTwoCompleted"
+            ></output-data>
           </div>
 
           <div v-show="step === 3">
-            <settings @step-three-completed="stepThreeCompleted"></settings>
+            <settings :source="source" 
+              :output="output" 
+              @step-three-completed="stepThreeCompleted"
+            ></settings>
           </div>
 
           <div v-show="step === 4">
-            <connecting :source="source" :output="output" :options="options" :startConnectiong="startConnectiong"></connecting>
+            <connecting :source="source"
+              :output="output"
+              :options="options"
+              :startConnectiong="startConnectiong"
+            ></connecting>
           </div>
 
           <div class="flex flex-row-reverse justify-between py-3 px-4 border-t border-gray-100">
@@ -108,18 +116,18 @@ export default {
 
     data() {
         return {
-            step:1,
-            step1Validated:false,
-            step2Validated:false,
-            step3Validated:false,
-            source:{
-                files:null,
+            step: 1,
+            step1Validated: false,
+            step2Validated: false,
+            step3Validated: false,
+            source: {
+                files: null,
             },
-            output:{
-                files:null,
+            output: {
+                files: null,
             },
-            options:{
-                files:null,
+            options: {
+                files: null,
             },
             movingToNextStep: false,
             startConnectiong: false

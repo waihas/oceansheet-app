@@ -27,6 +27,7 @@
         "vue-google-picker": "^1.0.0",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.12",
+        "vuedraggable": "^2.24.3",
         "webpack-bundle-analyzer": "^4.5.0"
     },
     "dependencies": {

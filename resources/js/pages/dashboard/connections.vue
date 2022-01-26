@@ -222,14 +222,16 @@
         <!-- here check if there is a connection created
         then: show statistics of the first one in the list by default (also mention by design that it's selected)
         otherwise: show video tutorial -->
-        <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+        <!-- by default pass first one in the list -->
+        <overview :connection="null" ></overview>
+        <!-- <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
           <div class="px-6 py-5 font-semibold border-b border-gray-100">Overwiew</div>
           <div class="p-4 flex-grow">
               <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
                   Overview/Video tutorial
               </div>
           </div>
-        </div>
+        </div> -->
 
       </section>
       <!-- <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
@@ -350,13 +352,13 @@
 </template>
 
 <script>
-// import Overview from './connections/inc/overview'
+import Overview from './connections/inc/overview'
 
 export default {
   middleware: 'auth',
   layout: 'dashboard',
 
-  // components: { Overview },
+  components: { Overview },
 
   metaInfo () {
     return { title: 'Connections' }

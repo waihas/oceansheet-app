@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="file-selector">
+  <div class="">
+    <div class="file-selector flex-col bg-gray-100">
       <figure>
         <UploadIcon/>
       </figure>Select Files from Google Drive
@@ -9,6 +9,21 @@
       </p>
       <button type="button" @click="driveIconClicked();">Connect to Google Drive</button>
     </div>
+
+    <div class="mt-6 inline-flex text-sm text-gray-700 items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-6 w-6 mr-4" viewBox="0 0 24 24">
+        <path d="M15.762 8.047l-4.381 4.475-2.215-2.123-1.236 1.239 3.451 3.362 5.619-5.715-1.238-1.238zm-3.762-5.503c2.5 1.805 4.555 2.292 7 2.416v9.575c0 3.042-1.686 3.827-7 7.107-5.309-3.278-7-4.065-7-7.107v-9.575c2.447-.124 4.5-.611 7-2.416zm0-2.544c-3.371 2.866-5.484 3-9 3v11.535c0 4.603 3.203 5.804 9 9.465 5.797-3.661 9-4.862 9-9.465v-11.535c-3.516 0-5.629-.134-9-3z"/>
+      </svg>
+      <div>
+        OceanSheet does not store any copies of your file content.<br>
+        Read our privacy policy 
+        <router-link :to="{name: 'privacy.policy'}">
+          here.
+        </router-link>
+      </div>
+    </div>
+
+    
     <AttachmentList :tempAttachments="getTempAttachments"/>
   </div>
 </template>
@@ -28,7 +43,10 @@ export default {
       pickerApiLoaded: false,
       developerKey: "AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw",
       clientId: "727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com",
-      scope: "https://www.googleapis.com/auth/drive.readonly",
+      scope: "https://www.googleapis.com/auth/drive",
+      // scope: "https://www.googleapis.com/auth/drive.readonly",
+      // scope: "https://www.googleapis.com/auth/drive.compose",
+      // scope: "https://www.googleapis.com/auth/drive.modify",
       oauthToken: null
     };
   },
@@ -39,6 +57,7 @@ export default {
   mounted() {
     let gDrive = document.createElement("script");
     gDrive.setAttribute("type", "text/javascript");
+    // gDrive.setAttribute("prompt", "select_account");
     gDrive.setAttribute("src", "https://apis.google.com/js/api.js");
     document.head.appendChild(gDrive);
   },
@@ -82,6 +101,18 @@ export default {
           .setCallback(this.pickerCallback)
           .build();
         picker.setVisible(true);
+
+        // const pickerBuilder = new google.picker.PickerBuilder().
+        //  setOAuthToken(this.oauthToken).
+        //  setDeveloperKey(this.config.developerKey).
+        //  setCallback(this.pickerCallback)         
+        //   this.$emit('build', pickerBuilder)
+    
+        //   if (!this.$listeners.build)
+        //     pickerBuilder.addView(google.picker.ViewId.DOCS)
+            
+        //   const picker = pickerBuilder.build()
+        //   picker.setVisible(true)
       }
     },
     async pickerCallback(data) {
@@ -94,6 +125,7 @@ export default {
         name = doc.name;
         let docs = data.docs;
         var param = { fileId: doc.id, oAuthToken: this.oauthToken, name: name };
+        console.log('param: ' + param);
         let attachments = [];
         for (let i = 0; i < docs.length; i++) {
           let attachment = {};

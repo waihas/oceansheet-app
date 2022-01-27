@@ -24,17 +24,34 @@
                 <img src="/assets/img/sheet-logo.svg" class="w-auto h-32 mx-auto" alt="Sheet logo" />
             </div> -->
 
-            <div v-if="Object.keys(sourceFile).length > 0">
-                <div class="bg-white p-3">
+            <div v-if="Object.keys(source.file).length > 0">
+                <div class="bg-white p-3 flex flex-wrap">
                     <img class="w-28 h-28" src="/assets/img/sheet-logo.svg" alt="Sheet logo" >
-                    <div class="file-details">
-                        <div class="file-name display-flex align-center">
-                            <p class="text-xl" ref="attachmentTitle">{{ sourceFile.name }}</p>
+                    <div class="ml-6 flex flex-col my-auto">
+                        <div class="text-2xl">
+                            {{ source.file.name }}
                         </div>
-                        <div class="file-info">
-                            <span class="uploaded-date">File Size : {{ sourceFile.kind }} bytes</span>
-                            <!-- <span v-if="checkProgress(sourceFile)" class="upload-prgress"></span> -->
+                        <div class="text-sm">
+                            File Size : {{ source.file.kind }} bytes
+                            <!-- <span v-if="checkProgress(source.file)" class="upload-prgress"></span> -->
                         </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-200 mt-6 py-6 border-dashed">
+                    <label for="selectTab" class="block text-sm font-medium text-gray-700 leading-5">
+                        Select the tab you want to use
+                    </label>
+
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <select id="selectTab" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option>Sheet 1</option>
+                            <option>Sheet 2</option>
+                            <option>Employees</option>
+                        </select>
+                    </div>
+                    
+                     <div class="mt-2 text-sm text-red-600" @click="makeCompleted">
+                        Please select your data source sheet.
                     </div>
                 </div>
             </div>
@@ -108,82 +125,32 @@
                                 Open Google Drive Dialog
                             </file-picker-button> -->
 
-                            <div class="flex items-center justify-center w-full border-b pb-5">
-                                <div v-if="driveFiles.length > 0" class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-1/2 border rounded bg-gray-100 overflow-visible">
+                            <div class="w-full border-b pb-5">
+                                <div v-if="driveFiles.length > 0">
                                     
                                     <!-- search and nav bar -->
-
-
-                                    <div v-for="file in driveFiles" :key="file.id"
-                                        class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
-                                        @click="choosedFile(file)"
-                                        :class="file.id == sourceFile.id ? 'bg-white border border-main-300' : ''">
-                                        <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
-                                        <h2 class="mt-4">{{ file.name }}</h2>
-                                        <p class="mt-2 text-sm">{{ file.kind }} bytes</p>
+                                    <div class="flex flex-row items-center rounded-t p-1 justify-between border bg-gray-100">
+                                        <span class="w-2/3 md:w-1/3 h-10 cursor-pointer text-sm rounded-full flex">
+                                            <input type="search" name="serch" placeholder="Search"
+                                                class="flex-grow px-4 rounded-l-full rounded-r-full border-0 text-sm focus:outline-none">
+                                        </span>
+                                        <div class="flex flex-row-reverse mr-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-5 w-5 text-gray-500 hover:text-gray-700 " viewBox="0 0 24 24">
+                                                <path d="M13.5 2c-5.629 0-10.212 4.436-10.475 10h-3.025l4.537 5.917 4.463-5.917h-2.975c.26-3.902 3.508-7 7.475-7 4.136 0 7.5 3.364 7.5 7.5s-3.364 7.5-7.5 7.5c-2.381 0-4.502-1.119-5.876-2.854l-1.847 2.449c1.919 2.088 4.664 3.405 7.723 3.405 5.798 0 10.5-4.702 10.5-10.5s-4.702-10.5-10.5-10.5z"/>
+                                            </svg>
+                                        </div>
                                     </div>
 
-                                    <!-- <div class="col-span-12 lg:col-span-9 xxl:col-span-10">
-                                        <div class="intro-y flex flex-col-reverse sm:flex-row items-center">
-                                            <div class="w-full sm:w-auto relative mr-auto mt-3 sm:mt-0">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search w-4 h-4 absolute my-auto inset-y-0 ml-3 left-0 z-10 text-gray-700"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> 
-                                                <input type="text" class="input w-full sm:w-64 box px-10 text-gray-700 placeholder-theme-13" placeholder="Search files">
-                                            </div>
-                                            <div class="w-full sm:w-auto flex">
-                                                <button class="button text-white bg-theme-1 shadow-md mr-2">Upload New Files</button>
-                                                <div class="dropdown relative">
-                                                    <button class="dropdown-toggle button px-2 box text-gray-700">
-                                                        <span class="w-5 h-5 flex items-center justify-center"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus w-4 h-4"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> </span>
-                                                    </button>
-                                                    <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
-                                                        <div class="dropdown-box__content box p-2">
-                                                            <a href="" class="flex items-center p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file w-4 h-4 mr-2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg> Share Files </a>
-                                                            <a href="" class="flex items-center p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings w-4 h-4 mr-2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border rounded-b bg-gray-100 overflow-auto">
+                                        <div v-for="file in driveFiles" :key="file.id"
+                                            class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
+                                            @click="choosedFile(file)"
+                                            :class="file.id == source.file.id ? 'bg-white border border-main-300' : ''">
+                                            <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
+                                            <h2 class="mt-4">{{ file.name }}</h2>
+                                            <p class="mt-2 text-sm">{{ file.kind }} bytes</p>
                                         </div>
-
-                                        <div class="intro-y grid grid-cols-12 gap-3 sm:gap-6 mt-5">
-                                            <div class="intro-y col-span-6 sm:col-span-4 md:col-span-3 xxl:col-span-2">
-                                                <div class="file box rounded-md px-3 pt-8 pb-5 sm:px-5 relative zoom-in">
-                                                    <div class="absolute left-0 top-0 mt-3 ml-3">
-                                                        <input class="input border border-gray-500" type="checkbox">
-                                                    </div>
-                                                    <a href="" class="w-3/5 file__icon file__icon--file mx-auto">
-                                                        <div class="file__icon__file-name">TXT</div>
-                                                    </a>
-                                                    <a href="" class="block font-medium mt-4 text-center truncate">Resources.txt</a> 
-                                                    <div class="text-gray-600 text-xs text-center">2.2 MB</div>
-                                                </div>
-                                            </div>
-                                            <div class="intro-y col-span-6 sm:col-span-4 md:col-span-3 xxl:col-span-2">
-                                                <div class="file box rounded-md pt-8 pb-5 px-3 sm:px-5 relative zoom-in">
-                                                    <div class="absolute left-0 top-0 mt-3 ml-3">
-                                                        <input class="input border border-gray-500" type="checkbox">
-                                                    </div>
-                                                    <a href="" class="w-3/5 file__icon file__icon--file mx-auto">
-                                                        <div class="file__icon__file-name">TXT</div>
-                                                    </a>
-                                                    <a href="" class="block font-medium mt-4 text-center truncate">Resources.txt</a> 
-                                                    <div class="text-gray-600 text-xs text-center">2.2 MB</div>
-                                                </div>
-                                            </div>
-                                            <div class="intro-y col-span-6 sm:col-span-4 md:col-span-3 xxl:col-span-2">
-                                                <div class="file box rounded-md pt-8 pb-5 px-3 sm:px-5 relative zoom-in">
-                                                    <div class="absolute left-0 top-0 mt-3 ml-3">
-                                                        <input class="input border border-gray-500" type="checkbox">
-                                                    </div>
-                                                    <a href="" class="w-3/5 file__icon file__icon--file mx-auto">
-                                                        <div class="file__icon__file-name">TXT</div>
-                                                    </a>
-                                                    <a href="" class="block font-medium mt-4 text-center truncate">Resources.txt</a> 
-                                                    <div class="text-gray-600 text-xs text-center">2.2 MB</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    </div>
 
                                 </div>
                                 <div v-else class="flex flex-col w-full group border rounded bg-gray-100 hover:border-main-300">
@@ -357,58 +324,11 @@ export default {
 
     data: () => ({
         showPicker: false,
-        sourceFile: {},
+        source: {
+            file: {},
+            tab: null
+        },
         driveFiles: [],
-        fakeData: [
-            {
-                    "kind": "drive#file",
-                    "id": "1-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "2-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "3-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "8-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-        ]
     }),
 
     created() {
@@ -437,11 +357,11 @@ export default {
             this.showPicker = false
         },
         makeCompleted: function() {
-            this.$emit("step-one-completed", this.source) ;
+            this.$emit("step-one-completed", this.source);
         },
         showDetails (data) {
             if(data.picked === 'picked') {
-                this.source.files = data.docs
+                this.source.file = data.docs
                 console.log(data.docs)
             }
         },
@@ -502,8 +422,12 @@ export default {
                     });
         },
         choosedFile: function(file) {
-            this.sourceFile = file
+            this.source.file = file
+            this.$emit("step-one-completed", this.source)
             console.log('choosed file is: ' + file.id)
+        },
+        chooseTab: function() {
+            this.$emit("step-one-completed", this.source);
         }
     },
 

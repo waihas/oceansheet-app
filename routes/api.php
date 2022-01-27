@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::patch('settings/profile', [UserController::class, 'updateProfile']);
     Route::patch('settings/password', [UserController::class, 'updatePassword']);
+    Route::patch('user/driveAccessToken', [UserController::class, 'saveDriveAccessToken']);
 });
 
 Route::group(['middleware' => 'guest:sanctum'], function () {

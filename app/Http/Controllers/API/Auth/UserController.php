@@ -24,6 +24,17 @@ class UserController extends Controller
         return tap($user)->update($request->only('name', 'email'));
     }
 
+    public function saveDriveAccessToken(Request $request)
+    {
+        $this->validate($request, [
+            'access_token' => 'required'
+        ]);
+
+        $request->user()->update([
+            'drive_access_token' => $request->access_token
+        ]);
+    }
+
     public function updatePassword(Request $request)
     {
         $this->validate($request, [

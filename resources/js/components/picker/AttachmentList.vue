@@ -2,7 +2,7 @@
   <div>
     <ul v-if="tempAttachments.length > 0">
       <li v-for="tempAttachment in tempAttachments" :key="tempAttachment._id">
-        <img class="icon" :src="tempAttachment.iconURL">
+        <img class="icon" src="/assets/img/sheet-logo.svg" alt="Sheet logo" >
         <div class="file-details">
           <div class="file-name display-flex align-center">
             <p class ref="attachmentTitle">{{ tempAttachment.title }}</p>

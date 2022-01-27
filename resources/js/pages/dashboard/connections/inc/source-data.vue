@@ -489,11 +489,12 @@ export default {
         // Make sure the client is loaded and sign-in is complete before calling this method.
         execute() {
             console.log('im executing')
+            var self = this;
             return gapi.client.drive.files.list({})
                 .then(
                     function(response) {
                         // Handle the results here (response.result has the parsed body).
-                        this.driveFiles = response.result.files
+                        self.driveFiles = response.result.files
                         console.log("Response", response);
                     },
                     function(err) {

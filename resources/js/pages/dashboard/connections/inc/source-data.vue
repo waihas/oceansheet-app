@@ -445,11 +445,10 @@ export default {
                 console.log(data.docs)
             }
         },
-        connectToDrive() {
-            this.authenticate().then(this.loadClient());
-            this.execute();
+        async connectToDrive() {
+            await this.authenticate().then(this.loadClient());
+            this.execute()
 
-            
             // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
             // .then((response) => {
             //     console.log(response.data);
@@ -489,6 +488,7 @@ export default {
         },
         // Make sure the client is loaded and sign-in is complete before calling this method.
         execute() {
+            console.log('im executing')
             return gapi.client.drive.files.list({})
                 .then(
                     function(response) {

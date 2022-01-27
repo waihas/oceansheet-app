@@ -434,7 +434,8 @@ export default {
             }
         },
         connectToDrive() {
-            this.authenticate().then(this.loadClient());
+            this.authenticate()
+            // .then(this.loadClient());
             // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
             // .then((response) => {
             //     console.log(response.data);
@@ -453,6 +454,7 @@ export default {
                     function() {
                         console.log("Sign-in successful");
                         console.log('token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token);
+                        this.loadClient();
                     },
                     function(err) {
                         console.error("Error signing in", err);

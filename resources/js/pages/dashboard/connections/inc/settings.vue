@@ -25,7 +25,8 @@
                     filter=".action-button"
                     :list="source.selectedFiles"
                     group="sourceFiles"
-                    :animation="200">
+                    >
+                    <!-- :animation="200" -->
                     <li v-for="file in source.selectedFiles"
                         :key="file.id"
                         class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
@@ -46,7 +47,8 @@
                     group="sourceFiles"
                     :list="source.files"
                     @change="log"
-                    :animation="200">
+                    >
+                    <!-- :animation="200" -->
                     <li v-for="file in source.files"
                         :key="file.id"
                         class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
@@ -88,7 +90,8 @@
                         ghost-class="moving-card"
                         :list="output.selectedFiles"
                         group="outputFiles"
-                        :animation="200">
+                        >
+                        <!-- :animation="200" -->
                     <li v-for="file in output.selectedFiles"
                         :key="file.id"
                         class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
@@ -109,7 +112,8 @@
                         group="outputFiles"
                         ghost-class="moving-card"
                         :list="output.files"
-                        :animation="200">
+                        >
+                        <!-- :animation="200" -->
                     <li v-for="file in output.files"
                         :key="file.id"
                         class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">

@@ -395,7 +395,7 @@ export default {
             }
         },
         connectToDrive() {
-            this.authenticate().then(this.loadClient());
+            this.authenticate().then(this.loadClient().then(this.execute()));
             // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
             // .then((response) => {
             //     console.log(response.data);
@@ -428,7 +428,6 @@ export default {
                 .then(
                     function() {
                         console.log("GAPI client loaded for API");
-                        this.execute();
                     },
                     function(err) {
                         console.error("Error loading GAPI client for API", err);

@@ -354,45 +354,6 @@ export default {
             ]
         }
     },
-    
-    // {
-    //     "action": "picked",
-    //     "viewToken": [
-    //         "all",
-    //         null,
-    //         {}
-    //     ],
-    //     "docs": [
-    //         {
-    //             "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             "serviceId": "spread",
-    //             "mimeType": "application/vnd.google-apps.spreadsheet",
-    //             "name": "Laravel Sheets",
-    //             "description": "",
-    //             "type": "document",
-    //             "lastEditedUtc": 1643187270278,
-    //             "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
-    //             "url": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/edit?usp=drive_web",
-    //             "embedUrl": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/htmlembed",
-    //             "sizeBytes": 0,
-    //             "isShared": true
-    //         },
-    //         {
-    //             "id": "1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c",
-    //             "serviceId": "spread",
-    //             "mimeType": "application/vnd.google-apps.spreadsheet",
-    //             "name": "Laravel Code Review",
-    //             "description": "",
-    //             "type": "document",
-    //             "lastEditedUtc": 1642311000332,
-    //             "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
-    //             "url": "https://docs.google.com/spreadsheets/d/1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c/edit?usp=drive_web",
-    //             "embedUrl": "https://docs.google.com/spreadsheets/d/1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c/htmlembed",
-    //             "sizeBytes": 0,
-    //             "isShared": true
-    //         }
-    //     ]
-    // }
 
     data: () => ({
         showPicker: false,
@@ -454,7 +415,7 @@ export default {
                     function() {
                         console.log("Sign-in successful");
                         console.log('token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token);
-                        this.loadClient();
+                        // this.loadClient();
                     },
                     function(err) {
                         console.error("Error signing in", err);
@@ -491,5 +452,44 @@ export default {
             console.log('choosed file is: ' + file.id)
         }
     },
+
+    // {
+    //     "action": "picked",
+    //     "viewToken": [
+    //         "all",
+    //         null,
+    //         {}
+    //     ],
+    //     "docs": [
+    //         {
+    //             "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             "serviceId": "spread",
+    //             "mimeType": "application/vnd.google-apps.spreadsheet",
+    //             "name": "Laravel Sheets",
+    //             "description": "",
+    //             "type": "document",
+    //             "lastEditedUtc": 1643187270278,
+    //             "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
+    //             "url": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/edit?usp=drive_web",
+    //             "embedUrl": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/htmlembed",
+    //             "sizeBytes": 0,
+    //             "isShared": true
+    //         },
+    //         {
+    //             "id": "1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c",
+    //             "serviceId": "spread",
+    //             "mimeType": "application/vnd.google-apps.spreadsheet",
+    //             "name": "Laravel Code Review",
+    //             "description": "",
+    //             "type": "document",
+    //             "lastEditedUtc": 1642311000332,
+    //             "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
+    //             "url": "https://docs.google.com/spreadsheets/d/1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c/edit?usp=drive_web",
+    //             "embedUrl": "https://docs.google.com/spreadsheets/d/1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c/htmlembed",
+    //             "sizeBytes": 0,
+    //             "isShared": true
+    //         }
+    //     ]
+    // }
 }
 </script>

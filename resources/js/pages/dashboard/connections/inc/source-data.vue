@@ -284,80 +284,131 @@ export default {
         UploadIcon
     },
 
-    computed: {
-        driveFiles: function () {
-            // `this` points to the vm instance
-            // return this.message.split('').reverse().join('')
-            // return null
+    // computed: {
+    //     driveFiles: function () {
+    //         // `this` points to the vm instance
+    //         // return this.message.split('').reverse().join('')
+    //         // return null
 
-            return [
-                // {
-                //     "kind": "drive#file",
-                //     "id": "1-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                //     // "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     // "serviceId": "spread",
-                //     // "mimeType": "application/vnd.google-apps.spreadsheet",
-                //     // "name": "Laravel Sheets",
-                //     // "description": "",
-                //     // "type": "document",
-                //     // "lastEditedUtc": 1643187270278,
-                //     // "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
-                //     // "url": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/edit?usp=drive_web",
-                //     // "embedUrl": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/htmlembed",
-                //     // "sizeBytes": 0,
-                //     // "isShared": true
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "2-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "3-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-                // {
-                //     "kind": "drive#file",
-                //     "id": "8-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                //     "name": "Laravel Sheets",
-                //     "mimeType": "application/vnd.google-apps.folder",
-                // },
-            ]
-        }
-    },
+    //         return [
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "1-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             //     // "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     // "serviceId": "spread",
+    //             //     // "mimeType": "application/vnd.google-apps.spreadsheet",
+    //             //     // "name": "Laravel Sheets",
+    //             //     // "description": "",
+    //             //     // "type": "document",
+    //             //     // "lastEditedUtc": 1643187270278,
+    //             //     // "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
+    //             //     // "url": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/edit?usp=drive_web",
+    //             //     // "embedUrl": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/htmlembed",
+    //             //     // "sizeBytes": 0,
+    //             //     // "isShared": true
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "2-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "3-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //             // {
+    //             //     "kind": "drive#file",
+    //             //     "id": "8-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+    //             //     "name": "Laravel Sheets",
+    //             //     "mimeType": "application/vnd.google-apps.folder",
+    //             // },
+    //         ]
+    //     }
+    // },
 
     data: () => ({
         showPicker: false,
         sourceFile: {},
+        driveFiles: [],
+        fakeData: [
+            {
+                    "kind": "drive#file",
+                    "id": "1-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "2-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "3-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "8-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+        ]
     }),
 
     created() {
@@ -395,7 +446,10 @@ export default {
             }
         },
         connectToDrive() {
-            this.authenticate().then(this.loadClient().then(this.execute()));
+            this.authenticate().then(this.loadClient());
+            this.execute();
+
+            
             // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
             // .then((response) => {
             //     console.log(response.data);

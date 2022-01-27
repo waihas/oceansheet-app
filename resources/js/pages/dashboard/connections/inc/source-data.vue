@@ -434,8 +434,7 @@ export default {
             }
         },
         connectToDrive() {
-            this.authenticate()
-            // .then(this.loadClient());
+            this.authenticate().then(this.loadClient());
             // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
             // .then((response) => {
             //     console.log(response.data);
@@ -449,7 +448,8 @@ export default {
         },
         authenticate() {
             return gapi.auth2.getAuthInstance()
-                .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly"})
+                .signIn({scope: "https://www.googleapis.com/auth/drive"})
+                // .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly"})
                 .then(
                     function() {
                         console.log("Sign-in successful");
@@ -462,6 +462,7 @@ export default {
         },
         loadClient() {
             gapi.client.setApiKey("AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw");
+            // gapi.client.setToken(tokenObject)
             return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest")
                 .then(
                     function() {

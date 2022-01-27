@@ -116,7 +116,7 @@ export default {
 
     data() {
         return {
-            step: 1,
+            step: 3,
             step1Validated: false,
             step2Validated: false,
             step3Validated: false,

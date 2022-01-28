@@ -372,6 +372,7 @@ export default {
             // }
             // else {
                 await this.authenticate().then(this.loadClient());
+                // await this.loadClient();
             // }
             this.execute()
 
@@ -385,6 +386,23 @@ export default {
             // }, (error) => {
             //     console.log(error);
             // });
+
+
+            // const config =  {
+            //     response_type: 'permission',
+            //     scope: 'CALENDAR_SCOPE',
+            //     client_id: clientId,
+            //     login_hint: credential.id,
+            //     promt: 'none',
+            //     }
+            //     gapi.auth2.authorize(config, function(response) {
+            //     // No need to `setToken`, it's done for you by auth2.
+            //     let calConfig = {discoveryDocs} // only of google calendar
+            //     window.gapi.client.init(calConfig).then(function() {
+            //         // then execute a calendar call:
+            //         window.gapi.client.calendar.events.list({'calendarId': 'primary'})
+            //     })
+            //     })
         },
         authenticate() {
             return gapi.auth2.getAuthInstance()
@@ -393,7 +411,7 @@ export default {
                 .then(
                     function() {
                         console.log("Sign-in successful");
-                        console.log('instance:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse());
+                        console.log('instance:' + JSON.stringify(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse()));
                         console.log('access_token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token);
                         console.log('id_token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token);
                         // this.loadClient();

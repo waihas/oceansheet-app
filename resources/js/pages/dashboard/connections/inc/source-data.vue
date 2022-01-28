@@ -141,14 +141,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border rounded-b bg-gray-100 overflow-x-auto">
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border rounded-b bg-gray-100 overflow-y-auto overflow-x-hidden">
                                         <div v-for="file in driveFiles" :key="file.id"
                                             class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
                                             @click="choosedFile(file)"
                                             :class="file.id == source.file.id ? 'bg-white border border-main-300' : ''">
                                             <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
-                                            <h2 class="mt-4 truncate">{{ file.name }}</h2>
-                                            <p class="mt-2 text-sm truncate">{{ file.kind }} bytes</p>
+                                            <h2 class="mt-4 w-28 truncate">{{ file.name }}</h2>
+                                            <p class="mt-2 w-24 text-sm truncate">{{ file.kind }} bytes</p>
                                         </div>
                                     </div>
 
@@ -393,7 +393,9 @@ export default {
                 .then(
                     function() {
                         console.log("Sign-in successful");
-                        console.log('token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token);
+                        console.log('instance:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse());
+                        console.log('access_token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token);
+                        console.log('id_token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token);
                         // this.loadClient();
                     },
                     function(err) {
@@ -402,7 +404,7 @@ export default {
         },
         loadClient() {
             gapi.client.setApiKey("AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw");
-            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest?q=mimeType='application/vnd.google-apps.spreadsheet'")
+            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest")//?q=mimeType='application/vnd.google-apps.spreadsheet'
                 .then(
                     function() {
                         console.log("GAPI client loaded for API");

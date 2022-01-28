@@ -141,14 +141,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border rounded-b bg-gray-100 overflow-auto">
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border rounded-b bg-gray-100 overflow-x-auto">
                                         <div v-for="file in driveFiles" :key="file.id"
                                             class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
                                             @click="choosedFile(file)"
                                             :class="file.id == source.file.id ? 'bg-white border border-main-300' : ''">
                                             <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
-                                            <h2 class="mt-4">{{ file.name }}</h2>
-                                            <p class="mt-2 text-sm">{{ file.kind }} bytes</p>
+                                            <h2 class="mt-4 truncate">{{ file.name }}</h2>
+                                            <p class="mt-2 text-sm truncate">{{ file.kind }} bytes</p>
                                         </div>
                                     </div>
 
@@ -366,7 +366,13 @@ export default {
             }
         },
         async connectToDrive() {
-            await this.authenticate().then(this.loadClient());
+            // if(hasToken) {
+                // gapi.client.setToken('eyJhbGciOiJSUzI1NiIsImtpZCI6IjllYWEwMjZmNjM1MTU3ZGZhZDUzMmU0MTgzYTZiODIzZDc1MmFkMWQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTExNzI5MTAwMTcwNDM5MjA5NDUxIiwiZW1haWwiOiJraGFsaWRoYW1kYW5pMjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJRZ0tMd0djR1p2d2VjUlBycEdkME1RIiwibmFtZSI6IktoYWxpZCBIQU1EQU5JIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoQkp6RjRoY2RSODVvem5xVEJFbXdPOEgweGNLUDJsYzY2a21qdWhBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IktoYWxpZCIsImZhbWlseV9uYW1lIjoiSEFNREFOSSIsImxvY2FsZSI6ImZyIiwiaWF0IjoxNjQzMzYwMDI3LCJleHAiOjE2NDMzNjM2MjcsImp0aSI6ImQwNWQyMWU4NWNmYTI1NmQ1NWZhYjIxOWMwMmZkNmY5MTI0ZjIyMGQifQ.IA5sq4HxrjX7ht3mjtxck5uI-AOsOmxwm6qVwfrlr75kuAWbQNeY9EEADYV6_w334YBfNZ7PbW_oI8Nj6vk3qCVAZA2dVJ2pZWpgMm-AN3MOMZJk_2HYAHOyBf6ttQgyaS7ZyEiT3MRStzO7i4SQ0-FJAmOAHb51mo_B_brIrTi27KwU33jEGkfe7hxQyjX5IZU9oDaeZBBr1FvsTyCU7-5_XZAX1p0jDG70aziRL4VjnRGP4qXghrssdQK8mu9J-hzhmG2YocsgDQl2R1-5swn9AVuwPNs1SWD4EQwZXfhGrGtPfVS4BZkT93S_cdf2CWKziRG8LcyH7duL706XeQ');
+                // await this.loadClient();
+            // }
+            // else {
+                await this.authenticate().then(this.loadClient());
+            // }
             this.execute()
 
             // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
@@ -396,8 +402,7 @@ export default {
         },
         loadClient() {
             gapi.client.setApiKey("AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw");
-            // gapi.client.setToken(tokenObject)
-            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest")
+            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest?q=mimeType='application/vnd.google-apps.spreadsheet'")
                 .then(
                     function() {
                         console.log("GAPI client loaded for API");

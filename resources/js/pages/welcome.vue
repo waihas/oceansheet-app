@@ -5,16 +5,16 @@
     <!-- <div class="w-full flex text-center"> -->
       <div class="absolute top-0 right-0 p-6">
         <template v-if="authenticated">
-          <router-link :to="{ name: 'dashboard.home' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-teal-500">
+          <router-link :to="{ name: 'dashboard.home' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-main-500">
             <!-- {{ $t('home') }} -->
             Dashboard
           </router-link>
         </template>
         <template v-else>
-          <router-link :to="{ name: 'login' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-teal-500">
+          <router-link :to="{ name: 'login' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-main-500">
             {{ $t('login') }}
           </router-link>
-          <router-link :to="{ name: 'register' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-teal-500">
+          <router-link :to="{ name: 'register' }" class="mx-4 transition-all duration-100 ease-in-out hover:text-main-500">
             {{ $t('register') }}
           </router-link>
         </template>
@@ -54,7 +54,7 @@
           {{ title }}
         </div>
 
-        <div class="links transition-all duration-100 ease-in-out hover:text-teal-500">
+        <div class="links transition-all duration-100 ease-in-out hover:text-main-500">
           <a href="https://waihas.com" target="_blank">by waihas</a>
         </div>
       </div>
@@ -70,13 +70,13 @@
       <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
       <div class="relative mb-4">
         <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
-        <input type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        <input type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-main-500 focus:ring-2 focus:ring-main-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
       <div class="relative mb-4">
         <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-main-500 focus:ring-2 focus:ring-main-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
-      <button class="text-white bg-teal-500 border-0 py-2 px-8 focus:outline-none hover:bg-teal-600 rounded text-lg">Button</button>
+      <button class="text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Button</button>
       <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
     </div>
   </div>
@@ -86,14 +86,14 @@
     <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
-      <h2 class="text-xs text-teal-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
+      <h2 class="text-xs text-main-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
       <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Master Cleanse Reliac Heirloom</h1>
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/3">
         <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-teal-500 text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
               </svg>
@@ -102,7 +102,7 @@
           </div>
           <div class="flex-grow">
             <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-            <a class="mt-3 text-teal-500 inline-flex items-center">Learn More
+            <a class="mt-3 text-main-500 inline-flex items-center">Learn More
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
@@ -113,7 +113,7 @@
       <div class="p-4 md:w-1/3">
         <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-teal-500 text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
@@ -123,7 +123,7 @@
           </div>
           <div class="flex-grow">
             <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-            <a class="mt-3 text-teal-500 inline-flex items-center">Learn More
+            <a class="mt-3 text-main-500 inline-flex items-center">Learn More
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
@@ -134,7 +134,7 @@
       <div class="p-4 md:w-1/3">
         <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-teal-500 text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <circle cx="6" cy="6" r="3"></circle>
                 <circle cx="6" cy="18" r="3"></circle>
@@ -145,7 +145,7 @@
           </div>
           <div class="flex-grow">
             <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-            <a class="mt-3 text-teal-500 inline-flex items-center">Learn More
+            <a class="mt-3 text-main-500 inline-flex items-center">Learn More
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
@@ -162,79 +162,81 @@
   <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-teal-500 rounded-full" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-main-500 rounded-full" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-        <span class="ml-3 text-xl">Tailblocks</span>
+        <span class="ml-3 text-xl">OceanSheet</span>
       </a>
-      <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+      <p class="mt-2 text-sm text-gray-500">Connect and manage your spreadsheets using #OceanSheet 💯</p>
     </div>
     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">COMPANY</h2>
         <nav class="list-none mb-10">
           <li>
-            <a href="/terms" class="text-gray-600 hover:text-gray-800">Terms & conditions</a>
+            <a href="/terms" class="text-gray-600 hover:text-gray-800">About</a>
           </li>
           <li>
-            <a href="/privacy-policy" class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+            <a href="/privacy-policy" class="text-gray-600 hover:text-gray-800">Work with us</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Press kit</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Blog</a>
           </li>
         </nav>
       </div>
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">PRODUCT</h2>
         <nav class="list-none mb-10">
           <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Features</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Templates</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Security</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Pricing</a>
           </li>
         </nav>
       </div>
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">LEGAL</h2>
         <nav class="list-none mb-10">
           <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+            <router-link :to="{ name: 'terms' }"
+              class="text-gray-600 hover:text-gray-800">Terms of use</router-link>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+            <router-link :to="{ name: 'privacy.policy' }"
+              class="text-gray-600 hover:text-gray-800">Privacy policy</router-link>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Cookies policy</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Privacy guide</a>
           </li>
         </nav>
       </div>
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">RESOURCES</h2>
         <nav class="list-none mb-10">
           <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Help Center</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+            <a href="https://www.youtube.com/channel/UCbRMRjWEd5nFKM493VB53hA" target="_blank" class="text-gray-600 hover:text-gray-800">YouTube channel</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            <a href="https://instagram.com/ocean.sheet" target="_blank" class="text-gray-600 hover:text-gray-800">Instagram</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            <a href="https://www.linkedin.com/company/oceansheet" target="_blank" class="text-gray-600 hover:text-gray-800">LinkedIn</a>
           </li>
         </nav>
       </div>
@@ -242,27 +244,27 @@
   </div>
   <div class="bg-gray-100">
     <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Tailblocks —
-        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+      <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 OceanSheet —
+        <a href="https://waihas.com" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@waihas</a>
       </p>
       <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-        <a class="text-gray-500">
+        <a href="https://www.facebook.com/oceansheet" target="_blank" class="text-gray-500">
           <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
             <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
           </svg>
         </a>
-        <a class="ml-3 text-gray-500">
+        <a href="https://www.twitter.com/OceanSheet" target="_blank" class="ml-3 text-gray-500">
           <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
             <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
           </svg>
         </a>
-        <a class="ml-3 text-gray-500">
+        <a href="https://www.instagram.com/ocean.sheet" target="_blank" class="ml-3 text-gray-500">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
           </svg>
         </a>
-        <a class="ml-3 text-gray-500">
+        <a href="https://www.linkedin.com/company/oceansheet" target="_blank" class="ml-3 text-gray-500">
           <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
             <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
             <circle cx="4" cy="4" r="2" stroke="none"></circle>
@@ -284,7 +286,7 @@ export default {
   layout: 'basic',
 
   metaInfo () {
-    return { title: this.$t('home') }
+    return { title: 'Connect and Manage your Spreadsheets' }
   },
 
   data: () => ({

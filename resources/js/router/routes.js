@@ -7,12 +7,13 @@ function page (path) {
   
     { path: '/login', name: 'login', component: page('auth/login.vue') },
     { path: '/register', name: 'register', component: page('auth/register.vue') },
-    { path: '/terms', name: 'terms', component: page('legal/terms.vue') },
-    { path: '/privacy-policy', name: 'privacy.policy', component: page('legal/privacy-policy.vue') },
     { path: '/password/reset', name: 'password.request', component: page('auth/password/email.vue') },
     { path: '/password/reset/:token', name: 'password.reset', component: page('auth/password/reset.vue') },
     { path: '/email/verify/:id', name: 'verification.verify', component: page('auth/verification/verify.vue') },
     { path: '/email/resend', name: 'verification.resend', component: page('auth/verification/resend.vue') },
+    
+    { path: '/terms', name: 'terms', component: page('legal/terms.vue') },
+    { path: '/privacy-policy', name: 'privacy.policy', component: page('legal/privacy-policy.vue') },
   
     { path: '/dashboard', name: 'dashboard.home', component: page('dashboard/home.vue') },
     { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },

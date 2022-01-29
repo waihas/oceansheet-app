@@ -335,7 +335,10 @@ export default {
 
         gapi.load("client:auth2", function() {
             gapi.auth2.init({client_id: "727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com"});
+            console.log(gapi.auth2.getAuthInstance().isSignedIn);
         });
+
+        
 
         // this.gConfig = {
         //     // The Browser API key obtained from the Google API Console.
@@ -371,7 +374,8 @@ export default {
                 // await this.loadClient();
             // }
             // else {
-                await this.authenticate().then(this.loadClient());
+                // await this.authenticate().then(this.loadClient());
+                // await this.otherone()
                 // await this.loadClient();
             // }
             this.execute()
@@ -387,6 +391,20 @@ export default {
             //     console.log(error);
             // });
 
+            // data = {
+            //     "token_type":"Bearer",
+            //     "access_token":"ya29.A0ARrdaM_KTj9fuvXr5Ozuzfm2Qig6LTYsBJAsrMY0ZiBz5D4CE_sjm8coL_jEZkijRuPdNGD3HXD8O2bYL4T-vTNRop9jB7vW7LG2MKMNB5PRIWv0MCLCIhkSGsnjUJUbMd_uunqlOAz5Br5NlgxAvsVH6iOx5w",
+            //     "scope":"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata openid https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.appdata",
+            //     "login_hint":"AJDLj6ImIbA_g2DsPZ9dQV5WvhKXrZfYGuszUoCnwCrhxGbpLJuyUyrwQnUaZmiyLCT9tsQxW5lMpEHaxrYzBj8GkZ-RjblIZA",
+            //     "expires_in":3599,
+            //     "id_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjllYWEwMjZmNjM1MTU3ZGZhZDUzMmU0MTgzYTZiODIzZDc1MmFkMWQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTExNzI5MTAwMTcwNDM5MjA5NDUxIiwiZW1haWwiOiJraGFsaWRoYW1kYW5pMjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJyQnFVSmRrb3U2NDU3UFlValYyYnVnIiwibmFtZSI6IktoYWxpZCBIQU1EQU5JIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoQkp6RjRoY2RSODVvem5xVEJFbXdPOEgweGNLUDJsYzY2a21qdWhBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IktoYWxpZCIsImZhbWlseV9uYW1lIjoiSEFNREFOSSIsImxvY2FsZSI6ImZyIiwiaWF0IjoxNjQzMzg3MTQ3LCJleHAiOjE2NDMzOTA3NDcsImp0aSI6IjdhZWVjNGUzM2FiZDlkNmIzYTJiZDAwMDBkZTQ2ZDcyZjY1YTRhMjgifQ.IikmjBAnFaJGjfpLTjA8c0ZrvbLkpRW3d6TLXHZznigiyjGsVdiXk0rKolDT6sp3HyoKN48jocRAb2curtwVevIIGIlKPTeYRO04zh1uEBwWKMxfPifNM7s2hHe4gfligqwsUWihg-T1blPEXL3LEDzv5mfc1Q813TD9e8UPGLPgKwuE9XHPvSPGwMtemegkhfMqJle7q-LFhiwGX2hjRd_8wsqQg87fF0QIdFhqEdQW0qKxiZ0stno_hSfoatrnjhgvIhRCO8Ox_zgriXCdSNZlEwb3V0qXqCNc3uGdGGK_wG_EKAoQGyJoCw5WFcT0PiDeUo5VMXb7Y44gJuIqiw",
+            //     "session_state":{
+            //         "extraQueryParams":{"authuser":"0"}
+            //     },
+            //     "first_issued_at":1643387147212,
+            //     "expires_at":1643390746212,
+            //     "idpId":"google"
+            // }
 
             // const config =  {
             //     response_type: 'permission',
@@ -404,8 +422,21 @@ export default {
             //     })
             //     })
         },
+        // otherone() {
+        //     console.log("im there")
+        //     var token = 'ya29.A0ARrdaM_KTj9fuvXr5Ozuzfm2Qig6LTYsBJAsrMY0ZiBz5D4CE_sjm8coL_jEZkijRuPdNGD3HXD8O2bYL4T-vTNRop9jB7vW7LG2MKMNB5PRIWv0MCLCIhkSGsnjUJUbMd_uunqlOAz5Br5NlgxAvsVH6iOx5w'
+        //     return gapi.load('client:auth2', function(){
+        //         gapi.client.load(
+        //             'https://content.googleapis.com/discovery/v1/apis/drive/v3/rest',
+        //         ).then(function(){
+        //             gapi.auth.setToken({ access_token: token })
+        //             // business logic with gapi.client.analyticsreporting()
+        //         })
+        //     })
+        // },
         authenticate() {
             return gapi.auth2.getAuthInstance()
+            
                 .signIn({scope: "https://www.googleapis.com/auth/drive"})
                 // .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly"})
                 .then(
@@ -422,6 +453,7 @@ export default {
         },
         loadClient() {
             gapi.client.setApiKey("AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw");
+             gapi.auth.setToken({ access_token: 'ya29.A0ARrdaM_KTj9fuvXr5Ozuzfm2Qig6LTYsBJAsrMY0ZiBz5D4CE_sjm8coL_jEZkijRuPdNGD3HXD8O2bYL4T-vTNRop9jB7vW7LG2MKMNB5PRIWv0MCLCIhkSGsnjUJUbMd_uunqlOAz5Br5NlgxAvsVH6iOx5w' })
             return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest")//?q=mimeType='application/vnd.google-apps.spreadsheet'
                 .then(
                     function() {
@@ -455,6 +487,91 @@ export default {
             this.$emit("step-one-completed", this.source);
         }
     },
+
+
+//      Js sample
+//     // Client ID and API key from the Developer Console
+//       var CLIENT_ID = '<YOUR_CLIENT_ID>';
+//       var API_KEY = '<YOUR_API_KEY>';
+//       var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+//       var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+
+//      function handleClientLoad() {
+//         gapi.load('client:auth2', initClient);
+//       }
+
+ 
+//       function initClient() {
+//         gapi.client.init({
+//           apiKey: API_KEY,
+//           clientId: CLIENT_ID,
+//           discoveryDocs: DISCOVERY_DOCS,
+//           scope: SCOPES
+//         }).then(function () {
+//           // Listen for sign-in state changes.    
+//           gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+//           // Handle the initial sign-in state.          
+//           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        
+//         }, function(error) {
+//           appendPre(JSON.stringify(error, null, 2));
+//         });
+//       }
+
+     
+//      function updateSigninStatus(isLoggedIn:boolean){
+//        if(isLoggedIn){
+// //* you can disable the sign-in button(if any) because the user has //already logged in.
+// //* you can access your api library from here because the user has //logged in 
+//        console.log('logged in');
+//        getSheetsFromDrive();
+//        }
+//         else{
+//  //you can disable the sign-out button here because the user already //clicked sign-out
+//        }}
+
+      
+//        // Sign in the user upon button click.
+//        function signIn() {
+//         gapi.auth2.getAuthInstance().signIn();
+//       }
+
+    
+//        // Sign out the user upon button click.
+//        function signOut() {
+//         gapi.auth2.getAuthInstance().signOut();
+//       }
+
+//       //get only spreadSheets from drive
+//       function getSheetsFromDrive() {
+//      if (!gapi.auth2.getAuthInstance().isSignedIn.get()) 
+//     { 
+//       signIn();
+//       return; }
+//     //gapi method formats: gapi.client.api.collection.method
+//      gapi.client.drive.files.list({
+//      fields: 'files(name, id, thumbnailLink)',        
+//      corpora: 'user',
+//      q: "mimeType='application/vnd.google-apps.spreadsheet'",
+//      supportsAllDrives: false,
+//       }).then((response: any) => {
+//         const files = response.result.files;         
+//         if (files) {
+//         console.log(response);} 
+//         else {
+//         console.log('no files');}
+//      });
+//     }
+
+
+
+
+
+
+
+
+
 
     // {
     //     "action": "picked",

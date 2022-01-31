@@ -36,6 +36,9 @@
                             <!-- <span v-if="checkProgress(source.file)" class="upload-prgress"></span> -->
                         </div>
                     </div>
+                    <button @click="clearChoosedFile" class="ml-auto cursor-pointer text-gray-400 text-sm">
+                        remove
+                    </button>
                 </div>
                 <div class="border-t border-gray-200 mt-6 py-6 border-dashed">
                     <label for="selectTab" class="block text-sm font-medium text-gray-700 leading-5">
@@ -141,15 +144,23 @@
                                         </div>
                                     </div>
 
-                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border rounded-b bg-gray-100 overflow-y-auto overflow-x-hidden">
+                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border bg-gray-100 overflow-y-auto overflow-x-hidden">
                                         <div v-for="file in driveFiles" :key="file.id"
                                             class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
                                             @click="choosedFile(file)"
-                                            :class="file.id == source.file.id ? 'bg-white border border-main-300' : ''">
+                                            :class="file.id == tmpChoosedFile.id ? 'bg-white border border-main-300' : ''">
                                             <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                                             <h2 class="mt-4 w-28 truncate">{{ file.name }}</h2>
                                             <p class="mt-2 w-24 text-sm truncate">{{ file.kind }} bytes</p>
                                         </div>
+                                    </div>
+
+                                    <div v-if="showConfirmFile" class="flex flex-row justify-center rounded-b p-1 border bg-gray-100">
+                                        <button
+                                            @click="confirmChoosedFile()"
+                                            class="bg-main-600 text-white py-2 px-8 rounded-3xl transition-all duration-100 ease-in-out hover:bg-main-700">
+                                            Confirm
+                                        </button>
                                     </div>
 
                                 </div>
@@ -324,11 +335,38 @@ export default {
 
     data: () => ({
         showPicker: false,
+        showConfirmFile: false,
+        tmpChoosedFile: {},
         source: {
             file: {},
             tab: null
         },
-        driveFiles: [],
+        driveFiles: [
+                {
+                    "kind": "drive#file",
+                    "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "1Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "2Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "3Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+                {
+                    "kind": "drive#file",
+                    "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                    "name": "4Laravel Sheets",
+                    "mimeType": "application/vnd.google-apps.folder",
+                },
+        ],
     }),
 
     created() {
@@ -480,14 +518,28 @@ export default {
                         console.error("Execute error", err);
                     });
         },
+        
         choosedFile: function(file) {
-            this.source.file = file
+            this.tmpChoosedFile = file
+            this.showConfirmFile = true
+        },
+        confirmChoosedFile: function() {
+            this.source.file = this.tmpChoosedFile
             this.$emit("step-one-completed", this.source)
-            console.log('choosed file is: ' + file.id)
+            console.log('choosed file is: ' + this.tmpChoosedFile.id)
+            this.closePicker()
         },
         chooseTab: function() {
             this.$emit("step-one-completed", this.source);
-        }
+        },
+        clearChoosedFile: function() {
+            this.showConfirmFile = false
+            this.tmpChoosedFile = {}
+            this.source = {
+                file: {},
+                tab: null
+            }
+        },
     },
 
 

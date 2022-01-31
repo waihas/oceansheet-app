@@ -335,7 +335,7 @@ export default {
 
         gapi.load("client:auth2", function() {
             gapi.auth2.init({client_id: "727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com"});
-            console.log(gapi.auth2.getAuthInstance().isSignedIn);
+            // console.log(gapi.auth2.getAuthInstance().isSignedIn);
         });
 
         
@@ -374,7 +374,7 @@ export default {
                 // await this.loadClient();
             // }
             // else {
-                // await this.authenticate().then(this.loadClient());
+                await this.authenticate().then(this.loadClient());
                 // await this.otherone()
                 // await this.loadClient();
             // }
@@ -471,7 +471,9 @@ export default {
                 .then(
                     function(response) {
                         // Handle the results here (response.result has the parsed body).
-                        self.driveFiles = response.result.files
+                        self.driveFiles = response.result.files.filter(file => {
+                            return file.mimeType == 'application/vnd.google-apps.spreadsheet'
+                        })
                         console.log("Response", response);
                     },
                     function(err) {

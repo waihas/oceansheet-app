@@ -160,14 +160,24 @@ export default {
         },
         nextStep() {
           // console.log('form: '+ this.form.email);
-          if(this.step === 1 && this.step1Validated)
-            this.step++
-          else if(this.step === 2 && this.step2Validated)
-            this.step++
-          else if(this.step === 3 && this.step3Validated) {
-            this.step++
-            this.startConnectiong = true
-          }
+          if(this.step === 1)
+            if(this.step1Validated)
+              this.step++
+            else
+              console.log('finish step 1')
+          else if(this.step === 2)
+            if(this.step2Validated)
+              this.step++
+            else
+              console.log('finish step 2')
+          else if(this.step === 3)
+            if(this.step3Validated)
+            {
+              this.step++
+              this.startConnectiong = true
+            }
+            else
+              console.log('finish step 3')
           else if(this.step === 4)
             this.onComplete();
         }

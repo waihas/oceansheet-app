@@ -37,6 +37,6 @@ $config = [
 
     {{-- Load the application scripts --}}
     <script src="{{ mix('dist/js/app.js') }}"></script>
-    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+    {{-- <script type="text/javascript" src="https://apis.google.com/js/api.js"></script> --}}
 </body>
 </html>

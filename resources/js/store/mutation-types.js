@@ -11,3 +11,7 @@ export const SET_LOCALE = 'SET_LOCALE'
 
 // main.js
 export const TOGGLE_SIDEBAR = 'IS_SIDEBAR_OPEN'
+
+// gauth.js
+export const STATUS_LOADING  = 'loading'
+export const STATUS_READY    = 'ready'

@@ -5,25 +5,6 @@
             Select source data
         </div>
         <div class="p-4 flex-grow">
-            
-            <!-- <button @click.stop="showPicker = true" class="bg-teal-500 text-white font-bold py-2 px-4 rounded w-full transition-all duration-100 ease-in-out hover:bg-teal-700"
-                id="buttonSelectFile">
-                Select file
-            </button> -->
-
-            <!-- on click on this one make step validated just for now -->
-            <!-- <div class="mt-2 text-sm text-red-600" @click="makeCompleted">
-                Please select your data source sheet.
-            </div> -->
-
-            <!-- <div @click="execute()">
-                Execute
-            </div> -->
-
-            <!-- <div>
-                <img src="/assets/img/sheet-logo.svg" class="w-auto h-32 mx-auto" alt="Sheet logo" />
-            </div> -->
-
             <div v-if="Object.keys(source.file).length > 0">
                 <div class="bg-white p-3 flex flex-wrap">
                     <img class="w-28 h-28" src="/assets/img/sheet-logo.svg" alt="Sheet logo" >
@@ -72,8 +53,6 @@
                     </div>
                 </label>
             </div>
-
-            <!-- <AttachmentList :tempAttachments="source.files"/> -->
         </div>
 
         <transition
@@ -121,13 +100,6 @@
                         </header>
 
                         <div class="mt-12 mb-4">
-                            <!-- <GDriveSelector /> -->
-                            <!-- <file-picker-button :config="gConfig"
-                                @picked="showDetails"
-                                >
-                                Open Google Drive Dialog
-                            </file-picker-button> -->
-
                             <div class="w-full border-b pb-5">
                                 <div v-if="driveFiles.length > 0">
                                     
@@ -167,8 +139,16 @@
                                 <div v-else class="flex flex-col w-full group border rounded bg-gray-100 hover:border-main-300">
                                     <div class="flex flex-col items-center justify-center py-7">
                                         <UploadIcon/>
-                                        <button @click="connectToDrive()" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out">
+                                        <!-- <button @click="connectToDrive()" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out"> -->
+                                        <button :disabled="isSignedIn || !gauthReady"
+                                            @click="signIn()"
+                                            class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out">
                                             Connect to Google drive
+                                        </button>
+                                        <button :disabled="!isSignedIn || !gauthReady"
+                                            @click="loadSheets"
+                                            class="bg-main-500 hover:bg-main-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out">
+                                            Load Sheets
                                         </button>
                                     </div>
                                 </div>
@@ -193,145 +173,26 @@
             </div>
         </transition>
 
-        <!-- x-transition:enter = enter-active-class
-        x-transition:enter-start = enter-class
-        x-transition:enter-end = enter-to-class
-        x-transition:leave = leave-active-class
-        x-transition:leave-start = leave-class
-        x-transition:leave-end = leave-to-class -->
-
     </div>
 </template>
 
 <script>
 import clickOutside from 'vue-click-outside'
 import GDriveSelector from '~/components/picker/GDriveSelector'
-// import FilePickerButton from 'vue-google-picker'
-// import AttachmentList from "~/components/picker/AttachmentList";
 import UploadIcon from "~/components/picker/UploadIcon";
-
-
-// {
-//     "result": {
-//         "kind": "drive#fileList",
-//         "nextPageToken": "~!!~AI9FV7RGv_YKBL_h0VAPMNC7JGabSdq--18QwgtW2sp7tNDSUKT09VI3kCvWFl0qigiuuwrnwGytZVUfRZTEr1AZB9gMnMdgRKe4u0vDgUvKrbaXizpbtUDb5_YvEO5lR8EdOY1itv71TkMzJzpKMAiKgmToaMbdo6ljboSKMIWrC2WZSE1lpTjeyrXnPRK9jm8e4zlAH2xBJzbdT7ohmMOQjiKHdWj90ipNKphcZ2hcSHNeyaSf7gkEza7MNfD22tIwQ4NpzuixEhzILnVwlhVGsGf3x5ubaA==",
-//         "incompleteSearch": false,
-//         "files": [
-//             {
-//                 "kind": "drive#file",
-//                 "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-//                 "name": "Laravel Sheets",
-//                 "mimeType": "application/vnd.google-apps.spreadsheet"
-//             },
-//             {
-//                 "kind": "drive#file",
-//                 "id": "0B6mYnb1g2UTDcGNUaGkycXRKUlE",
-//                 "name": "English",
-//                 "mimeType": "application/vnd.google-apps.folder",
-//                 "resourceKey": "0-A58QZDTokYF-CLOvPwYtBw"
-//             },
-//         ]
-//     },
-//     "headers": {
-//         "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-//         "content-encoding": "gzip",
-//         "content-length": "5936",
-//         "content-type": "application/json; charset=UTF-8",
-//         "date": "Thu, 27 Jan 2022 10:12:55 GMT",
-//         "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
-//         "pragma": "no-cache",
-//         "server": "GSE",
-//         "vary": "Origin, X-Origin"
-//     },
-//     "status": 200,
-//     "statusText": null
-// }
-
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     name: 'SourceData',
     
     directives: {
-        clickOutside
+        clickOutside,
     },
 
     components: {
         GDriveSelector,
-        // FilePickerButton,
-        // AttachmentList,
         UploadIcon
     },
-
-    // computed: {
-    //     driveFiles: function () {
-    //         // `this` points to the vm instance
-    //         // return this.message.split('').reverse().join('')
-    //         // return null
-
-    //         return [
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "1-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             //     // "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     // "serviceId": "spread",
-    //             //     // "mimeType": "application/vnd.google-apps.spreadsheet",
-    //             //     // "name": "Laravel Sheets",
-    //             //     // "description": "",
-    //             //     // "type": "document",
-    //             //     // "lastEditedUtc": 1643187270278,
-    //             //     // "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
-    //             //     // "url": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/edit?usp=drive_web",
-    //             //     // "embedUrl": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/htmlembed",
-    //             //     // "sizeBytes": 0,
-    //             //     // "isShared": true
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "2-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "3-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //             // {
-    //             //     "kind": "drive#file",
-    //             //     "id": "8-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             //     "name": "Laravel Sheets",
-    //             //     "mimeType": "application/vnd.google-apps.folder",
-    //             // },
-    //         ]
-    //     }
-    // },
 
     data: () => ({
         showPicker: false,
@@ -341,59 +202,32 @@ export default {
             file: {},
             tab: null
         },
-        driveFiles: [
-                {
-                    "kind": "drive#file",
-                    "id": "4-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "1Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "5-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "2Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "3Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-                {
-                    "kind": "drive#file",
-                    "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                    "name": "4Laravel Sheets",
-                    "mimeType": "application/vnd.google-apps.folder",
-                },
-        ],
+        driveFiles: [],
     }),
 
-    created() {
+    // computed: mapGetters({
+    //     gauthReady: 'isReady',
+    //     isSignedIn: 'isSignedIn',
+    //     user: 'getUser'
+    // }),
 
-        gapi.load("client:auth2", function() {
-            gapi.auth2.init({client_id: "727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com"});
-            // console.log(gapi.auth2.getAuthInstance().isSignedIn);
-        });
-
-        
-
-        // this.gConfig = {
-        //     // The Browser API key obtained from the Google API Console.
-        //     developerKey: 'AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw',
-
-        //     // The Client ID obtained from the Google API Console. Replace with your own Client ID.
-        //     clientId: '727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com',
-
-        //     // Scope to use to access user's drive.
-        //     scope: 'https://www.googleapis.com/auth/drive.file',
-
-        //     // redirect_uri: 'https://www.example.com',
-        //     // prompt: 'select_account'
-        // }
+    computed: {
+        ...mapGetters('gauth',{
+            gauthReady: 'isReady',
+            isSignedIn: 'isSignedIn',
+            user: 'getUser'
+        }),
+    },
+    mounted() {
+        this.$store.dispatch('gauth/init')
     },
     
     methods: {
+        ...mapActions('gauth',{
+            signIn: 'signIn',
+            signOut: 'signOut',
+            disconnect: 'disconnect'
+        }),
         closePicker: function() {
             this.showPicker = false
         },
@@ -406,119 +240,16 @@ export default {
                 console.log(data.docs)
             }
         },
-        async connectToDrive() {
-            // if(hasToken) {
-                // gapi.client.setToken('eyJhbGciOiJSUzI1NiIsImtpZCI6IjllYWEwMjZmNjM1MTU3ZGZhZDUzMmU0MTgzYTZiODIzZDc1MmFkMWQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTExNzI5MTAwMTcwNDM5MjA5NDUxIiwiZW1haWwiOiJraGFsaWRoYW1kYW5pMjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJRZ0tMd0djR1p2d2VjUlBycEdkME1RIiwibmFtZSI6IktoYWxpZCBIQU1EQU5JIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoQkp6RjRoY2RSODVvem5xVEJFbXdPOEgweGNLUDJsYzY2a21qdWhBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IktoYWxpZCIsImZhbWlseV9uYW1lIjoiSEFNREFOSSIsImxvY2FsZSI6ImZyIiwiaWF0IjoxNjQzMzYwMDI3LCJleHAiOjE2NDMzNjM2MjcsImp0aSI6ImQwNWQyMWU4NWNmYTI1NmQ1NWZhYjIxOWMwMmZkNmY5MTI0ZjIyMGQifQ.IA5sq4HxrjX7ht3mjtxck5uI-AOsOmxwm6qVwfrlr75kuAWbQNeY9EEADYV6_w334YBfNZ7PbW_oI8Nj6vk3qCVAZA2dVJ2pZWpgMm-AN3MOMZJk_2HYAHOyBf6ttQgyaS7ZyEiT3MRStzO7i4SQ0-FJAmOAHb51mo_B_brIrTi27KwU33jEGkfe7hxQyjX5IZU9oDaeZBBr1FvsTyCU7-5_XZAX1p0jDG70aziRL4VjnRGP4qXghrssdQK8mu9J-hzhmG2YocsgDQl2R1-5swn9AVuwPNs1SWD4EQwZXfhGrGtPfVS4BZkT93S_cdf2CWKziRG8LcyH7duL706XeQ');
-                // await this.loadClient();
-            // }
-            // else {
-                await this.authenticate().then(this.loadClient());
-                // await this.otherone()
-                // await this.loadClient();
-            // }
-            this.execute()
-
-            // const { data } = await axios.get('https://www.googleapis.com/drive/v3/files/AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw?access_token=727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com')
-            // .then((response) => {
-            //     console.log(response.data);
-            //     console.log(response.status);
-            //     console.log(response.statusText);
-            //     console.log(response.headers);
-            //     console.log(response.config);
-            // }, (error) => {
-            //     console.log(error);
-            // });
-
-            // data = {
-            //     "token_type":"Bearer",
-            //     "access_token":"ya29.A0ARrdaM_KTj9fuvXr5Ozuzfm2Qig6LTYsBJAsrMY0ZiBz5D4CE_sjm8coL_jEZkijRuPdNGD3HXD8O2bYL4T-vTNRop9jB7vW7LG2MKMNB5PRIWv0MCLCIhkSGsnjUJUbMd_uunqlOAz5Br5NlgxAvsVH6iOx5w",
-            //     "scope":"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata openid https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.appdata",
-            //     "login_hint":"AJDLj6ImIbA_g2DsPZ9dQV5WvhKXrZfYGuszUoCnwCrhxGbpLJuyUyrwQnUaZmiyLCT9tsQxW5lMpEHaxrYzBj8GkZ-RjblIZA",
-            //     "expires_in":3599,
-            //     "id_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjllYWEwMjZmNjM1MTU3ZGZhZDUzMmU0MTgzYTZiODIzZDc1MmFkMWQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNzI3OTE0MzU3MzM4LWwzaGhjZWJmNDhjZmVzdjRyMjczM3ZwamlhNDBsOGZ0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTExNzI5MTAwMTcwNDM5MjA5NDUxIiwiZW1haWwiOiJraGFsaWRoYW1kYW5pMjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJyQnFVSmRrb3U2NDU3UFlValYyYnVnIiwibmFtZSI6IktoYWxpZCBIQU1EQU5JIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoQkp6RjRoY2RSODVvem5xVEJFbXdPOEgweGNLUDJsYzY2a21qdWhBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IktoYWxpZCIsImZhbWlseV9uYW1lIjoiSEFNREFOSSIsImxvY2FsZSI6ImZyIiwiaWF0IjoxNjQzMzg3MTQ3LCJleHAiOjE2NDMzOTA3NDcsImp0aSI6IjdhZWVjNGUzM2FiZDlkNmIzYTJiZDAwMDBkZTQ2ZDcyZjY1YTRhMjgifQ.IikmjBAnFaJGjfpLTjA8c0ZrvbLkpRW3d6TLXHZznigiyjGsVdiXk0rKolDT6sp3HyoKN48jocRAb2curtwVevIIGIlKPTeYRO04zh1uEBwWKMxfPifNM7s2hHe4gfligqwsUWihg-T1blPEXL3LEDzv5mfc1Q813TD9e8UPGLPgKwuE9XHPvSPGwMtemegkhfMqJle7q-LFhiwGX2hjRd_8wsqQg87fF0QIdFhqEdQW0qKxiZ0stno_hSfoatrnjhgvIhRCO8Ox_zgriXCdSNZlEwb3V0qXqCNc3uGdGGK_wG_EKAoQGyJoCw5WFcT0PiDeUo5VMXb7Y44gJuIqiw",
-            //     "session_state":{
-            //         "extraQueryParams":{"authuser":"0"}
-            //     },
-            //     "first_issued_at":1643387147212,
-            //     "expires_at":1643390746212,
-            //     "idpId":"google"
-            // }
-
-            // const config =  {
-            //     response_type: 'permission',
-            //     scope: 'CALENDAR_SCOPE',
-            //     client_id: clientId,
-            //     login_hint: credential.id,
-            //     promt: 'none',
-            //     }
-            //     gapi.auth2.authorize(config, function(response) {
-            //     // No need to `setToken`, it's done for you by auth2.
-            //     let calConfig = {discoveryDocs} // only of google calendar
-            //     window.gapi.client.init(calConfig).then(function() {
-            //         // then execute a calendar call:
-            //         window.gapi.client.calendar.events.list({'calendarId': 'primary'})
-            //     })
-            //     })
-        },
-        // otherone() {
-        //     console.log("im there")
-        //     var token = 'ya29.A0ARrdaM_KTj9fuvXr5Ozuzfm2Qig6LTYsBJAsrMY0ZiBz5D4CE_sjm8coL_jEZkijRuPdNGD3HXD8O2bYL4T-vTNRop9jB7vW7LG2MKMNB5PRIWv0MCLCIhkSGsnjUJUbMd_uunqlOAz5Br5NlgxAvsVH6iOx5w'
-        //     return gapi.load('client:auth2', function(){
-        //         gapi.client.load(
-        //             'https://content.googleapis.com/discovery/v1/apis/drive/v3/rest',
-        //         ).then(function(){
-        //             gapi.auth.setToken({ access_token: token })
-        //             // business logic with gapi.client.analyticsreporting()
-        //         })
-        //     })
-        // },
-        authenticate() {
-            return gapi.auth2.getAuthInstance()
-            
-                .signIn({scope: "https://www.googleapis.com/auth/drive"})
-                // .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/drive.photos.readonly https://www.googleapis.com/auth/drive.readonly"})
-                .then(
-                    function() {
-                        console.log("Sign-in successful");
-                        console.log('instance:' + JSON.stringify(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse()));
-                        console.log('access_token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token);
-                        console.log('id_token:' + gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token);
-                        // this.loadClient();
-                    },
-                    function(err) {
-                        console.error("Error signing in", err);
-                    });
-        },
-        loadClient() {
-            gapi.client.setApiKey("AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw");
-             gapi.auth.setToken({ access_token: 'ya29.A0ARrdaM_KTj9fuvXr5Ozuzfm2Qig6LTYsBJAsrMY0ZiBz5D4CE_sjm8coL_jEZkijRuPdNGD3HXD8O2bYL4T-vTNRop9jB7vW7LG2MKMNB5PRIWv0MCLCIhkSGsnjUJUbMd_uunqlOAz5Br5NlgxAvsVH6iOx5w' })
-            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest")//?q=mimeType='application/vnd.google-apps.spreadsheet'
-                .then(
-                    function() {
-                        console.log("GAPI client loaded for API");
-                    },
-                    function(err) {
-                        console.error("Error loading GAPI client for API", err);
-                    });
-        },
-        // Make sure the client is loaded and sign-in is complete before calling this method.
-        execute() {
-            console.log('im executing')
-            var self = this;
-            return gapi.client.drive.files.list({})
-                .then(
-                    function(response) {
-                        // Handle the results here (response.result has the parsed body).
-                        self.driveFiles = response.result.files.filter(file => {
+        async loadSheets() {
+            const response = await this.$google.api.client.drive.files.list({})
+            if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
+                console.log(response.result.files)
+                this.driveFiles = response.result.files.filter(file => {
                             return file.mimeType == 'application/vnd.google-apps.spreadsheet'
                         })
-                        console.log("Response", response);
-                    },
-                    function(err) {
-                        console.error("Execute error", err);
-                    });
+            } else this.driveFiles = []
+
         },
-        
         choosedFile: function(file) {
             this.tmpChoosedFile = file
             this.showConfirmFile = true
@@ -541,129 +272,5 @@ export default {
             }
         },
     },
-
-
-//      Js sample
-//     // Client ID and API key from the Developer Console
-//       var CLIENT_ID = '<YOUR_CLIENT_ID>';
-//       var API_KEY = '<YOUR_API_KEY>';
-//       var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-//       var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
-
-//      function handleClientLoad() {
-//         gapi.load('client:auth2', initClient);
-//       }
-
- 
-//       function initClient() {
-//         gapi.client.init({
-//           apiKey: API_KEY,
-//           clientId: CLIENT_ID,
-//           discoveryDocs: DISCOVERY_DOCS,
-//           scope: SCOPES
-//         }).then(function () {
-//           // Listen for sign-in state changes.    
-//           gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-//           // Handle the initial sign-in state.          
-//           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        
-//         }, function(error) {
-//           appendPre(JSON.stringify(error, null, 2));
-//         });
-//       }
-
-     
-//      function updateSigninStatus(isLoggedIn:boolean){
-//        if(isLoggedIn){
-// //* you can disable the sign-in button(if any) because the user has //already logged in.
-// //* you can access your api library from here because the user has //logged in 
-//        console.log('logged in');
-//        getSheetsFromDrive();
-//        }
-//         else{
-//  //you can disable the sign-out button here because the user already //clicked sign-out
-//        }}
-
-      
-//        // Sign in the user upon button click.
-//        function signIn() {
-//         gapi.auth2.getAuthInstance().signIn();
-//       }
-
-    
-//        // Sign out the user upon button click.
-//        function signOut() {
-//         gapi.auth2.getAuthInstance().signOut();
-//       }
-
-//       //get only spreadSheets from drive
-//       function getSheetsFromDrive() {
-//      if (!gapi.auth2.getAuthInstance().isSignedIn.get()) 
-//     { 
-//       signIn();
-//       return; }
-//     //gapi method formats: gapi.client.api.collection.method
-//      gapi.client.drive.files.list({
-//      fields: 'files(name, id, thumbnailLink)',        
-//      corpora: 'user',
-//      q: "mimeType='application/vnd.google-apps.spreadsheet'",
-//      supportsAllDrives: false,
-//       }).then((response: any) => {
-//         const files = response.result.files;         
-//         if (files) {
-//         console.log(response);} 
-//         else {
-//         console.log('no files');}
-//      });
-//     }
-
-
-
-
-
-
-
-
-
-
-    // {
-    //     "action": "picked",
-    //     "viewToken": [
-    //         "all",
-    //         null,
-    //         {}
-    //     ],
-    //     "docs": [
-    //         {
-    //             "id": "1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-    //             "serviceId": "spread",
-    //             "mimeType": "application/vnd.google-apps.spreadsheet",
-    //             "name": "Laravel Sheets",
-    //             "description": "",
-    //             "type": "document",
-    //             "lastEditedUtc": 1643187270278,
-    //             "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
-    //             "url": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/edit?usp=drive_web",
-    //             "embedUrl": "https://docs.google.com/spreadsheets/d/1SUNw7QzAMx-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ/htmlembed",
-    //             "sizeBytes": 0,
-    //             "isShared": true
-    //         },
-    //         {
-    //             "id": "1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c",
-    //             "serviceId": "spread",
-    //             "mimeType": "application/vnd.google-apps.spreadsheet",
-    //             "name": "Laravel Code Review",
-    //             "description": "",
-    //             "type": "document",
-    //             "lastEditedUtc": 1642311000332,
-    //             "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
-    //             "url": "https://docs.google.com/spreadsheets/d/1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c/edit?usp=drive_web",
-    //             "embedUrl": "https://docs.google.com/spreadsheets/d/1oa75jjArJFdWfcr1ejOMdEVULH_Lbo6drryxx4xTM5c/htmlembed",
-    //             "sizeBytes": 0,
-    //             "isShared": true
-    //         }
-    //     ]
-    // }
 }
 </script>

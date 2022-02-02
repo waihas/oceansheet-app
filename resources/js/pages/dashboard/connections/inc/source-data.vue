@@ -117,8 +117,7 @@
                                             <div class="relative">
                                                 <button @click="isMenuOpen = !isMenuOpen"
                                                     class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-gray-200 rounded-lg cursor-pointer">
-                                                    <!-- {{ guser.Ba }} -->
-                                                    khalidhamdani25@gmail.com
+                                                    {{ user.Iu.yv }}
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">

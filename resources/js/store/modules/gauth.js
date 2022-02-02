@@ -49,7 +49,8 @@ export const actions = {
     },
     // loadUser(context) {
         isSignedId () {
-            return  this.$google.api.auth2.getAuthInstance().isSignedIn.get()
+            let google = this._vm.$google
+            return  google.api.auth2.getAuthInstance().isSignedIn.get()
           },
     // } ,
     async signIn (context) {

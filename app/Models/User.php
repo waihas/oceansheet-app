@@ -23,7 +23,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'drive_acccess_token',
     ];
 
     /**
@@ -67,5 +66,10 @@ class User extends Authenticatable
     public function sendEmailVerificationNotification()
     {
         $this->notify(new VerifyEmail);
+    }
+
+    public function cloud()
+    {
+        return $this->hasOne(UserCloudStorage::class, 'user_id');
     }
 }

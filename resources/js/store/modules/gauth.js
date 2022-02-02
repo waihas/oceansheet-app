@@ -1,5 +1,6 @@
 import * as types from '../mutation-types'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 
 export const state = {
     status: types.STATUS_LOADING,
@@ -51,9 +52,14 @@ export const actions = {
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
 
-            console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
-            // here send it to server to save it
-            
+            // try {
+            //     await axios.post('/api/user/drive/Ba', {baID: this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba})
+            // } catch (e) {
+            //     console.error(e)
+            //     console.log(e.error)
+            // }
+
+            // console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
         } catch (e) {
             console.error(e)
             context.commit('setError', e.error)

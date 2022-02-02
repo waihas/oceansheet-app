@@ -3,7 +3,6 @@
     <div>
         <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Select source data
-            {{user}}
         </div>
         <div class="p-4 flex-grow">
             <div v-if="Object.keys(source.file).length > 0">

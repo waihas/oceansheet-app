@@ -4,18 +4,7 @@ import Swal from 'sweetalert2'
 export const state = {
     status: types.STATUS_LOADING,
     signedId: null,
-    user: {
-        "Ba":"111729100170439209451",
-        "wc":null,
-        "Iu":{
-            "SW":"111729100170439209451",
-            "sf":"Khalid HAMDANI",
-            "hY":"Khalid",
-            "vW":"HAMDANI",
-            "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
-            "yv":"khalidhamdani25@gmail.com"
-        }
-    },
+    user: null,
     error: null,
 }
 
@@ -30,7 +19,18 @@ export const mutations = {
         state.error = error
     },
     setUser(state, user) {
-        state.user = user
+        state.user = {
+            "Ba":"111729100170439209451",
+            "wc":null,
+            "Iu":{
+                "SW":"111729100170439209451",
+                "sf":"Khalid HAMDANI",
+                "hY":"Khalid",
+                "vW":"HAMDANI",
+                "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
+                "yv":"khalidhamdani25@gmail.com"
+            }
+        }
     },
 }
 

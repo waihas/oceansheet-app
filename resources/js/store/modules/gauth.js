@@ -50,6 +50,9 @@ export const actions = {
     async signIn (context) {
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
+
+            console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
+            // here send it to server to save it
             
         } catch (e) {
             console.error(e)

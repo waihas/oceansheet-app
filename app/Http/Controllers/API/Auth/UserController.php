@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserCloudStorage;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -30,9 +31,17 @@ class UserController extends Controller
             'baID' => 'required'
         ]);
 
-        $request->user()->cloud()->update([
-            'google_drive_signed_id' => $request->baID
-        ]);
+        if($request->user()->cloud()->exists()) {
+            $request->user()->cloud()->update([
+                'google_drive_signed_id' => $request->baID
+            ]);
+        }
+        else {
+            UserCloudStorage::create([
+                'user_id' => $request->user()->id,
+                'google_drive_signed_id' => $request->baID
+            ]);
+        }
     }
 
     public function updatePassword(Request $request)

@@ -291,41 +291,10 @@ export default {
     watch: {
         isSignedIn: function (val, oldVal) {
             // console.log('new: %s, old: %s', val, oldVal)
-            // then here call loadSheets
             // make this condition more specific if not null and true
             if(val) 
                 this.loadSheets()
         },
-        // user: function (val, oldVal) {
-        //     console.log('user; new: %s, old: %s', val, oldVal)
-        //     console.log(JSON.stringify(val))
-        // },
-        /// this use "Ba":"111729100170439209451",
-        // {
-        //     "Ba":"111729100170439209451",
-        //     "wc":null,
-        //     "Iu":{
-        //         "SW":"111729100170439209451",
-        //         "sf":"Khalid HAMDANI",
-        //         "hY":"Khalid",
-        //         "vW":"HAMDANI",
-        //         "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
-        //         "yv":"khalidhamdani25@gmail.com"
-        //     }
-        // }
-
-        // {
-        //     "Ba":"115060874369806567293",
-        //     "wc":null,
-        //     "Iu":{
-        //         "SW":"115060874369806567293",
-        //         "sf":"Khalid Ham",
-        //         "hY":"Khalid",
-        //         "vW":"Ham",
-        //         "zN":"https://lh3.googleusercontent.com/a/AATXAJyVTV1frNxq5a77LQeyiiVmB9WkOxl1zIvws2NM=s96-c",
-        //         "yv":"khalidwork222@gmail.com"
-        //     }
-        // }
     },
 
     methods: {
@@ -352,7 +321,21 @@ export default {
                 //     return file.mimeType == 'application/vnd.google-apps.spreadsheet'
                 // })
             } else this.driveFiles = []
+        },
+        async loadSheetDetails() {
+            const response = await this.$google.api.client.drive.files.list({
+                fileId: this.source.file
+            })
+            console.log(response.result)
+            console.log(JSON.stringify(response.result))
+            // if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
+                
+            //     console.log(response.result)
+            //     console.log(JSON.stringify(response.result))
 
+            //     // this.driveFiles = response.result.files
+            // } 
+            // else // do something
         },
         choosedFile: function(file) {
             this.tmpChoosedFile = file
@@ -362,6 +345,7 @@ export default {
             this.source.file = this.tmpChoosedFile
             this.$emit("step-one-completed", this.source)
             console.log('choosed file is: ' + this.tmpChoosedFile.id)
+            this.loadSheetDetails()
             this.closePicker()
         },
         chooseTab: function() {

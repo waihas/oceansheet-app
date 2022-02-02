@@ -106,6 +106,9 @@ export const actions = {
             })
         }
     },
+    async getFile(context, fileID) {
+
+    }
 }
 
 export const getters = {

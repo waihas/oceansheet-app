@@ -117,7 +117,7 @@
                                             <div class="relative">
                                                 <button @click="isMenuOpen = !isMenuOpen"
                                                     class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-gray-200 rounded-lg cursor-pointer">
-                                                    {{ gEmail }}
+                                                    {{ guser.Ba }}
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
@@ -284,7 +284,7 @@ export default {
             user: 'getUser',
             signedId: 'getSignedId',
         }),
-        gEmail () {
+        guser () {
             return this.$store.getters['gauth/getUser']
         }
     },
@@ -354,6 +354,8 @@ export default {
         console.log('signedID' + this.signedId)
         console.log("user:" + this.user)
         console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
+        console.log("USER:" + this.guser.Ba)
+        console.log("EMAIL:" + this.guser.Iu.yv)
     },
     
     methods: {

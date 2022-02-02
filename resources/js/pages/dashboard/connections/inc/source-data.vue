@@ -280,6 +280,12 @@ export default {
             if(val) 
                 this.loadSheets()
         },
+        user: function (val, oldVal) {
+            console.log('user; new: %s, old: %s', val, oldVal)
+        },
+        isSignedIn: function (val, oldVal) {
+            console.log('isSignedIn; new: %s, old: %s', val, oldVal)
+        },
     },
 
     created() {

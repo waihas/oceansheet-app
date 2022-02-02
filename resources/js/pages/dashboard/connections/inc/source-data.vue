@@ -101,7 +101,7 @@
 
                         <div class="mt-12 mb-4">
                             <div class="w-full border-b pb-5">
-                                <div v-if="driveFiles.length > 0">
+                                <div v-if="isSignedIn">
                                     
                                     <!-- search and nav bar -->
                                     <div class="flex flex-wrap items-center rounded-t p-1 justify-between border bg-gray-100">
@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border bg-gray-100 overflow-y-auto overflow-x-hidden">
+                                    <div v-if="driveFiles.length > 0" class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border bg-gray-100 overflow-y-auto overflow-x-hidden">
                                         <div v-for="file in driveFiles" :key="file.id"
                                             class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
                                             @click="choosedFile(file)"
@@ -160,6 +160,9 @@
                                             <h2 class="mt-4 w-28 truncate">{{ file.name }}</h2>
                                             <p class="mt-2 w-24 text-sm truncate">{{ file.kind }} bytes</p>
                                         </div>
+                                    </div>
+                                    <div v-else class="">
+                                        nothing in here bro
                                     </div>
 
                                     <div v-if="showConfirmFile" class="flex flex-row justify-center rounded-b p-1 border bg-gray-100">

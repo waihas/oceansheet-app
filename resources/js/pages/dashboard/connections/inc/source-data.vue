@@ -285,7 +285,7 @@ export default {
             signedId: 'getSignedId',
         }),
         guser () {
-            return this.$store.getters['gauth/getUser']
+            return this.$store.getters['gauth/user']
         }
     },
     mounted() {

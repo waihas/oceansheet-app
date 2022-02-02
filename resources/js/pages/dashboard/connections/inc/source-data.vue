@@ -301,7 +301,7 @@ export default {
         },
         async loadSheets() {
             const response = await this.$google.api.client.drive.files.list({
-                q: 'mimeType=application/vnd.google-apps.spreadsheet'
+                q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })
             if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 console.log(response.result.files)

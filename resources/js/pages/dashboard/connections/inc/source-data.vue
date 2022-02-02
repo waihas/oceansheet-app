@@ -280,12 +280,15 @@ export default {
             if(val) 
                 this.loadSheets()
         },
+        user: function (val, oldVal) {
+            console.log('new: %s, old: %s', val, oldVal)
+        },
     },
 
-    created() {
-        console.log('signedID' + this.signedId)
-        console.log("user:" + this.user)
-    },
+    // created() {
+    //     console.log('signedID' + this.signedId)
+    //     console.log("user:" + this.user)
+    // },
     
     methods: {
         ...mapActions('gauth',{

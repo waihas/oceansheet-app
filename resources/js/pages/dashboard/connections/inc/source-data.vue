@@ -157,7 +157,7 @@
                                             @click="choosedFile(file)"
                                             :class="file.id == tmpChoosedFile.id ? 'bg-white border border-main-300' : ''">
                                             <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
-                                            <h2 class="mt-4 w-28 truncate">{{ file.name }}</h2>
+                                            <h2 class="mt-4 w-28 text-center truncate">{{ file.name }}</h2>
                                             <p class="mt-2 w-24 text-sm truncate">{{ file.kind }} bytes</p>
                                         </div>
                                     </div>
@@ -196,11 +196,11 @@
                                             class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out">
                                             Connect to Google drive
                                         </button>
-                                        <button :disabled="!isSignedIn || !gauthReady"
+                                        <!-- <button :disabled="!isSignedIn || !gauthReady"
                                             @click="loadSheets"
                                             class="bg-main-500 hover:bg-main-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out">
                                             Load Sheets
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +217,6 @@
                                     </router-link>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </transition>

@@ -5,6 +5,7 @@ export const state = {
     status: types.STATUS_LOADING,
     signedId: null,
     user: null,
+    userEmail: null,
     error: null,
 }
 
@@ -19,18 +20,10 @@ export const mutations = {
         state.error = error
     },
     setUser(state, user) {
-        state.user = {
-            "Ba":"111729100170439209451",
-            "wc":null,
-            "Iu":{
-                "SW":"111729100170439209451",
-                "sf":"Khalid HAMDANI",
-                "hY":"Khalid",
-                "vW":"HAMDANI",
-                "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
-                "yv":"khalidhamdani25@gmail.com"
-            }
-        }
+        state.user = user
+    },
+    setUserEmail(state, mail) {
+        state.userEmail = mail
     },
 }
 
@@ -58,15 +51,19 @@ export const actions = {
             }        
         })
     },
-    async loadUser(context) {
-        console.log('loadUser coming')
-        await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-            console.log('loadUser on the way')
-            console.log(user)
-            context.commit('setUser', user)
-            console.log('loadUser got there')
-        })
+    async loadUserEmail(context) {
+        context.commit('setUserEmail', this._vm.$google.api.auth2.getAuthInstance().currentUser.get())
+        console.log('setUserEmail', this._vm.$google.api.auth2.getAuthInstance().currentUser.get().uc)
     },
+    // async loadUser(context) {
+    //     console.log('loadUser coming')
+    //     await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+    //         console.log('loadUser on the way')
+    //         console.log(user)
+    //         context.commit('setUser', user)
+    //         console.log('loadUser got there')
+    //     })
+    // },
     async signIn (context) {
         console.log('signIn coming')
         try{
@@ -133,6 +130,9 @@ export const getters = {
     },
     getSignedId(state) {
         return state.signedId
-    }
+    },
+    getUserEmail(state) {
+        return state.userEmail
+    },
 }
 

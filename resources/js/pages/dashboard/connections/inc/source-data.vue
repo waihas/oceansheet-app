@@ -3,7 +3,7 @@
     <div>
         <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Select source data
-            {{user}}
+            {{userMail}}
         </div>
         <div class="p-4 flex-grow">
             <div v-if="Object.keys(source.file).length > 0">
@@ -284,10 +284,13 @@ export default {
             isSignedIn: 'isSignedIn',
             user: 'getUser',
             signedId: 'getSignedId',
+            userMail: 'getUserEmail',
         }),
     },
     mounted() {
         this.$store.dispatch('gauth/init')
+        this.$store.dispatch('gauth/loadUserEmail')
+
         // console.log(this.user.Ba)
     },
 
@@ -361,7 +364,6 @@ export default {
             signIn: 'signIn',
             signOut: 'signOut',
             disconnect: 'disconnect',
-            loadUser: 'loadUser'
         }),
         closePicker: function() {
             this.showPicker = false
@@ -370,7 +372,7 @@ export default {
             this.$emit("step-one-completed", this.source);
         },
         async loadSheets() {
-            await this.loadUser()
+            // await this.loadUser()
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

@@ -3,7 +3,7 @@
     <div>
         <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Select source data
-            {{userMail}}
+            {{user}}
         </div>
         <div class="p-4 flex-grow">
             <div v-if="Object.keys(source.file).length > 0">
@@ -283,19 +283,15 @@ export default {
             gauthReady: 'isReady',
             isSignedIn: 'isSignedIn',
             user: 'getUser',
-            signedId: 'getSignedId',
             userMail: 'getUserEmail',
         }),
     },
     mounted() {
         this.$store.dispatch('gauth/init')
-        this.$store.dispatch('gauth/loadUserEmail')
-
-        // console.log(this.user.Ba)
     },
 
     watch: {
-        signedId: function (val, oldVal) {
+        isSignedIn: function (val, oldVal) {
             console.log('new: %s, old: %s', val, oldVal)
             // then here call loadSheets
             // make this condition more specific if not null and true
@@ -306,22 +302,6 @@ export default {
             console.log('user; new: %s, old: %s', val, oldVal)
             console.log(JSON.stringify(val))
         },
-        isSignedIn: function (val, oldVal) {
-            console.log('isSignedIn; new: %s, old: %s', val, oldVal)
-        },
-
-        // {
-        //     "Ba":"111729100170439209451",
-        //     "wc":null,
-        //     "Iu":{
-        //         "SW":"111729100170439209451",
-        //         "sf":"Khalid HAMDANI",
-        //         "hY":"Khalid",
-        //         "vW":"HAMDANI",
-        //         "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
-        //         "yv":"khalidhamdani25@gmail.com"
-        //     }
-        // }
         /// this use "Ba":"111729100170439209451",
         // {
         //     "Ba":"111729100170439209451",
@@ -350,15 +330,6 @@ export default {
         // }
     },
 
-    created() {
-        console.log('here we are')
-        // console.log('signedID' + this.signedId)
-        // console.log("user:" + this.user)
-        // console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
-        // console.log("USER:" + this.guser.Ba)
-        // console.log("EMAIL:" + this.guser.Iu.yv)
-    },
-    
     methods: {
         ...mapActions('gauth',{
             signIn: 'signIn',
@@ -372,7 +343,6 @@ export default {
             this.$emit("step-one-completed", this.source);
         },
         async loadSheets() {
-            // await this.loadUser()
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

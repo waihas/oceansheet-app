@@ -5,7 +5,6 @@ export const state = {
     status: types.STATUS_LOADING,
     signedId: null,
     user: null,
-    userEmail: null,
     error: null,
 }
 
@@ -22,9 +21,6 @@ export const mutations = {
     setUser(state, user) {
         state.user = user
     },
-    setUserEmail(state, mail) {
-        state.userEmail = mail
-    },
 }
 
 export const actions = {
@@ -38,8 +34,6 @@ export const actions = {
                     google.api.auth2.getAuthInstance().isSignedIn.get()
                 )
                 google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
-                    console.log('im here 1')
-                    console.log('setSignedIn' + signedId)
                     context.commit('setSignedIn', signedId)
                 })
                 context.commit(
@@ -47,29 +41,13 @@ export const actions = {
                     google.api.auth2.getAuthInstance().currentUser.get()
                 )
                 google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-                    console.log('im here 2')
-                    console.log('setUser' + user)
                     context.commit('setUser', user)
                 })
                 clearInterval(load)
             }        
         })
     },
-    loadUserEmail(context) {
-        context.commit('setUserEmail', this._vm.$google.api.auth2.getAuthInstance().currentUser.get())
-        console.log('setUserEmail', this._vm.$google.api.auth2.getAuthInstance().currentUser.get().uc)
-    },
-    // async loadUser(context) {
-    //     console.log('loadUser coming')
-    //     await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-    //         console.log('loadUser on the way')
-    //         console.log(user)
-    //         context.commit('setUser', user)
-    //         console.log('loadUser got there')
-    //     })
-    // },
     async signIn (context) {
-        console.log('signIn coming')
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
             
@@ -90,7 +68,6 @@ export const actions = {
         }      
     },
     async signOut (context) {
-        console.log('signOut coming')
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signOut()
         } catch (e) {
@@ -134,9 +111,6 @@ export const getters = {
     },
     getSignedId(state) {
         return state.signedId
-    },
-    getUserEmail(state) {
-        return state.userEmail
     },
 }
 

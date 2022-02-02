@@ -70,6 +70,6 @@ class User extends Authenticatable
 
     public function cloud()
     {
-        return $this->hasOne(UserCloudStorage::class, 'user_id');
+        return $this->hasOne(UserCloudStorage::class);
     }
 }

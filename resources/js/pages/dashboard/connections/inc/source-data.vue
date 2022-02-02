@@ -290,16 +290,16 @@ export default {
 
     watch: {
         isSignedIn: function (val, oldVal) {
-            console.log('new: %s, old: %s', val, oldVal)
+            // console.log('new: %s, old: %s', val, oldVal)
             // then here call loadSheets
             // make this condition more specific if not null and true
             if(val) 
                 this.loadSheets()
         },
-        user: function (val, oldVal) {
-            console.log('user; new: %s, old: %s', val, oldVal)
-            console.log(JSON.stringify(val))
-        },
+        // user: function (val, oldVal) {
+        //     console.log('user; new: %s, old: %s', val, oldVal)
+        //     console.log(JSON.stringify(val))
+        // },
         /// this use "Ba":"111729100170439209451",
         // {
         //     "Ba":"111729100170439209451",

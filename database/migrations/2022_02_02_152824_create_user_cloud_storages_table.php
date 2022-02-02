@@ -15,7 +15,7 @@ class CreateUserCloudStoragesTable extends Migration
     {
         Schema::create('user_cloud_storages', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained();
             $table->string('google_drive_signed_id')->nullable();
             $table->timestamps();
         });

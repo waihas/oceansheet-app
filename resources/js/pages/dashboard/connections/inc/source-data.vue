@@ -120,13 +120,13 @@
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
-                                                    <button @click="disconnect"
+                                                    <button @click="disconnect; isMenuOpen=false"
                                                         :disabled="!isSignedIn || !gauthReady"
                                                         :class="{'cursor-not-allowed': !isSignedIn || !gauthReady}"
                                                         class="w-full text-left rounded-lg text-gray-600 p-2 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                                         Disconnect
                                                     </button>
-                                                    <button @click="signOut"
+                                                    <button @click="signOut; isMenuOpen=false"
                                                         :disabled="!isSignedIn || !gauthReady"
                                                         :class="{'cursor-not-allowed': !isSignedIn || !gauthReady}"
                                                         class="w-full text-left rounded-lg text-gray-600 p-2 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
@@ -161,8 +161,20 @@
                                             <p class="mt-2 w-24 text-sm truncate">{{ file.kind }} bytes</p>
                                         </div>
                                     </div>
-                                    <div v-else class="">
-                                        nothing in here bro
+                                    <div v-else class="p-4 flex justify-center items-center w-full h-80 border bg-gray-100">
+                                        <div class="flex flex-col text-center space-y-3">
+                                            <div class="bg-gray-200 p-8 rounded-full mx-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                class="w-16 h-16"
+                                                viewBox="0 0 64 64">
+                                                    <g data-name="28-folder"><path fill="#fcea81" d="M1,57V7H20l3,6H59a4,4,0,0,1,4,4V57Z"></path><path fill="#e2c47d" d="M1,57a8,8,0,0,0,8-8V25a4,4,0,0,1,4-4H63V57Z"></path></g>
+                                                </svg>
+                                            </div>
+                                            <h4 class="text-xl">Empty folder</h4>
+                                            <p class="text-gray-600 text-sm">
+                                                This folder is empty. Upload some files in your Google Drive to start connecting your spreadsheets.
+                                            </p>
+                                        </div>
                                     </div>
 
                                     <div v-if="showConfirmFile" class="flex flex-row justify-center rounded-b p-1 border bg-gray-100">
@@ -262,6 +274,7 @@ export default {
             //     "mimeType": "application/vnd.google-apps.folder",
             // },
         ],
+        // isSignedIn: true
     }),
 
     computed: {
@@ -290,6 +303,32 @@ export default {
         isSignedIn: function (val, oldVal) {
             console.log('isSignedIn; new: %s, old: %s', val, oldVal)
         },
+
+        // {
+        //     "Ba":"111729100170439209451",
+        //     "wc":null,
+        //     "Iu":{
+        //         "SW":"111729100170439209451",
+        //         "sf":"Khalid HAMDANI",
+        //         "hY":"Khalid",
+        //         "vW":"HAMDANI",
+        //         "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
+        //         "yv":"khalidhamdani25@gmail.com"
+        //     }
+        // }
+        /// this use "Ba":"111729100170439209451",
+        // {
+        //     "Ba":"111729100170439209451",
+        //     "wc":null,
+        //     "Iu":{
+        //         "SW":"111729100170439209451",
+        //         "sf":"Khalid HAMDANI",
+        //         "hY":"Khalid",
+        //         "vW":"HAMDANI",
+        //         "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
+        //         "yv":"khalidhamdani25@gmail.com"
+        //     }
+        // }
     },
 
     created() {

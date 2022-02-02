@@ -52,6 +52,7 @@ export const actions = {
             context.commit('setError', e.error)
             //show alert error
             // e.error == 'popup_closed_by_user'
+            // also if he didnt gave me the scope for drive
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

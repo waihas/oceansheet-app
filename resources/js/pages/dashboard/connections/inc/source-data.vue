@@ -280,9 +280,6 @@ export default {
             if(val) 
                 this.loadSheets()
         },
-        user: function (val, oldVal) {
-            console.log('new: %s, old: %s', val, oldVal)
-        },
     },
 
     // created() {

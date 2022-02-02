@@ -34,9 +34,11 @@ export const actions = {
                     google.api.auth2.getAuthInstance().isSignedIn.get()
                 )
                 google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
+                    console.log('gauth signedID: ' + signedId)
                     context.commit('setSignedIn', signedId)
                 })
                 google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+                    console.log('gauth user: ' + user)
                     context.commit('setUser', user)
                 })
                 clearInterval(load)

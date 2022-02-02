@@ -59,11 +59,13 @@ export const actions = {
         })
     },
     async loadUser(context) {
+        console.log('loadUser coming')
         await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
             context.commit('setUser', user)
         })
     },
     async signIn (context) {
+        console.log('signIn coming')
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
             
@@ -84,6 +86,7 @@ export const actions = {
         }      
     },
     async signOut (context) {
+        console.log('signOut coming')
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signOut()
         } catch (e) {

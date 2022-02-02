@@ -371,7 +371,6 @@ export default {
         },
         async loadSheets() {
             await this.loadUser()
-            this.$store.dispatch('gauth/loadUser')
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

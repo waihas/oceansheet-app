@@ -49,19 +49,19 @@ export const actions = {
     },
     async loadUser(context) {
         await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-            context.commit('setUser', user)
-            // context.commit('setUser', {
-            //         "Ba":"111729100170439209451",
-            //         "wc":null,
-            //         "Iu":{
-            //             "SW":"111729100170439209451",
-            //             "sf":"Khalid HAMDANI",
-            //             "hY":"Khalid",
-            //             "vW":"HAMDANI",
-            //             "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
-            //             "yv":"khalidhamdani25@gmail.com"
-            //         }
-            //     })
+            // context.commit('setUser', user)
+            context.commit('setUser', {
+                    "Ba":"111729100170439209451",
+                    "wc":null,
+                    "Iu":{
+                        "SW":"111729100170439209451",
+                        "sf":"Khalid HAMDANI",
+                        "hY":"Khalid",
+                        "vW":"HAMDANI",
+                        "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
+                        "yv":"khalidhamdani25@gmail.com"
+                    }
+                })
         })
     },
     async signIn (context) {

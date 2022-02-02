@@ -282,10 +282,11 @@ export default {
         },
     },
 
-    // created() {
-    //     console.log('signedID' + this.signedId)
-    //     console.log("user:" + this.user)
-    // },
+    created() {
+        console.log('here we are')
+        console.log('signedID' + this.signedId)
+        console.log("user:" + this.user)
+    },
     
     methods: {
         ...mapActions('gauth',{

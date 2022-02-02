@@ -120,13 +120,13 @@
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
-                                                    <button @click="disconnect; isMenuOpen=false"
+                                                    <button @click="disconnect(); isMenuOpen=false"
                                                         :disabled="!isSignedIn || !gauthReady"
                                                         :class="{'cursor-not-allowed': !isSignedIn || !gauthReady}"
                                                         class="w-full text-left rounded-lg text-gray-600 p-2 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                                         Disconnect
                                                     </button>
-                                                    <button @click="signOut; isMenuOpen=false"
+                                                    <button @click="signOut(); isMenuOpen=false"
                                                         :disabled="!isSignedIn || !gauthReady"
                                                         :class="{'cursor-not-allowed': !isSignedIn || !gauthReady}"
                                                         class="w-full text-left rounded-lg text-gray-600 p-2 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

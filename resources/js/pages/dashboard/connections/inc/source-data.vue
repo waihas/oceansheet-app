@@ -348,7 +348,6 @@ export default {
 
     created() {
         console.log('here we are')
-        console.log(this.isSignedId())
         // console.log('signedID' + this.signedId)
         // console.log("user:" + this.user)
         // console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
@@ -370,6 +369,7 @@ export default {
             this.$emit("step-one-completed", this.source);
         },
         async loadSheets() {
+            console.log(this.isSignedId())
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

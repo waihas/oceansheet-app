@@ -348,6 +348,7 @@ export default {
 
     created() {
         console.log('here we are')
+        console.log(this.isSignedId())
         // console.log('signedID' + this.signedId)
         // console.log("user:" + this.user)
         // console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
@@ -359,7 +360,8 @@ export default {
         ...mapActions('gauth',{
             signIn: 'signIn',
             signOut: 'signOut',
-            disconnect: 'disconnect'
+            disconnect: 'disconnect',
+            isSignedId: 'isSignedId'
         }),
         closePicker: function() {
             this.showPicker = false

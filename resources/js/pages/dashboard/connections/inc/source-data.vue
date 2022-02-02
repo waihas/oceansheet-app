@@ -117,7 +117,7 @@
                                             <div class="relative">
                                                 <button @click="isMenuOpen = !isMenuOpen"
                                                     class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-gray-200 rounded-lg cursor-pointer">
-                                                    khalidhamdani25@gmail.com
+                                                    {{ gEmail }}
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
@@ -284,6 +284,9 @@ export default {
             user: 'getUser',
             signedId: 'getSignedId',
         }),
+        gEmail () {
+            return this.$store.getters['gauth/getUser']
+        }
     },
     mounted() {
         this.$store.dispatch('gauth/init')
@@ -294,6 +297,7 @@ export default {
         signedId: function (val, oldVal) {
             console.log('new: %s, old: %s', val, oldVal)
             // then here call loadSheets
+            // make this condition more specific if not null and true
             if(val) 
                 this.loadSheets()
         },
@@ -349,6 +353,7 @@ export default {
         console.log('here we are')
         console.log('signedID' + this.signedId)
         console.log("user:" + this.user)
+        console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
     },
     
     methods: {

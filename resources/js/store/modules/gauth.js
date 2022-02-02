@@ -62,6 +62,7 @@ export const actions = {
         console.log('loadUser coming')
         await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
             console.log('loadUser on the way')
+            console.log(user)
             context.commit('setUser', user)
             console.log('loadUser got there')
         })

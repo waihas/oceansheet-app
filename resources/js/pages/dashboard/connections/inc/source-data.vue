@@ -369,7 +369,7 @@ export default {
             this.$emit("step-one-completed", this.source);
         },
         async loadSheets() {
-            console.log(this.isSignedId())
+            await this.isSignedId()
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

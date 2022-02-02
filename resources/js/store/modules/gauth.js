@@ -51,7 +51,7 @@ export const actions = {
         isSignedId () {
             let google = this._vm.$google
             google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-                return user
+                console.log(user)
             })
           },
     // } ,

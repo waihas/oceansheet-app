@@ -351,11 +351,11 @@ export default {
 
     created() {
         console.log('here we are')
-        console.log('signedID' + this.signedId)
-        console.log("user:" + this.user)
-        console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
-        console.log("USER:" + this.guser.Ba)
-        console.log("EMAIL:" + this.guser.Iu.yv)
+        // console.log('signedID' + this.signedId)
+        // console.log("user:" + this.user)
+        // console.log("EMAIL:" + this.$store.getters['gauth/getUser'])
+        // console.log("USER:" + this.guser.Ba)
+        // console.log("EMAIL:" + this.guser.Iu.yv)
     },
     
     methods: {

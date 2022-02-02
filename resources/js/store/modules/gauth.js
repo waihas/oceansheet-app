@@ -109,7 +109,6 @@ export const getters = {
     getUser(state) {
         return state.user
     },
-    user: state => state.user,
     getSignedId(state) {
         return state.signedId
     }

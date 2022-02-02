@@ -3,7 +3,6 @@
     <div>
         <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Select source data
-            {{guser}}
         </div>
         <div class="p-4 flex-grow">
             <div v-if="Object.keys(source.file).length > 0">
@@ -117,7 +116,8 @@
                                             <div class="relative">
                                                 <button @click="isMenuOpen = !isMenuOpen"
                                                     class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-gray-200 rounded-lg cursor-pointer">
-                                                    {{ guser.Ba }}
+                                                    <!-- {{ guser.Ba }} -->
+                                                    khalidhamdani25@gmail.com
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
@@ -284,9 +284,6 @@ export default {
             user: 'getUser',
             signedId: 'getSignedId',
         }),
-        guser () {
-            return this.$store.getters['gauth/user']
-        }
     },
     mounted() {
         this.$store.dispatch('gauth/init')
@@ -301,10 +298,10 @@ export default {
             if(val) 
                 this.loadSheets()
         },
-        // user: function (val, oldVal) {
-        //     console.log('user; new: %s, old: %s', val, oldVal)
-        //     console.log(JSON.stringify(val))
-        // },
+        user: function (val, oldVal) {
+            console.log('user; new: %s, old: %s', val, oldVal)
+            console.log(JSON.stringify(val))
+        },
         isSignedIn: function (val, oldVal) {
             console.log('isSignedIn; new: %s, old: %s', val, oldVal)
         },

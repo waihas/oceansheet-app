@@ -50,7 +50,9 @@ export const actions = {
     // loadUser(context) {
         isSignedId () {
             let google = this._vm.$google
-            return  google.api.auth2.getAuthInstance().isSignedIn.get()
+            google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+                return user
+            })
           },
     // } ,
     async signIn (context) {

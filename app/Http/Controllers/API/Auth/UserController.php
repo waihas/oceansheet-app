@@ -24,14 +24,14 @@ class UserController extends Controller
         return tap($user)->update($request->only('name', 'email'));
     }
 
-    public function saveDriveAccessToken(Request $request)
+    public function saveDriveUserSignedId(Request $request)
     {
         $this->validate($request, [
-            'access_token' => 'required'
+            'signedID' => 'required'
         ]);
 
         $request->user()->update([
-            'drive_access_token' => $request->access_token
+            'google_drive_signed_id' => $request->signedID
         ]);
     }
 

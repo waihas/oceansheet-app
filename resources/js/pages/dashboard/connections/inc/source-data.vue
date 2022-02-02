@@ -287,6 +287,7 @@ export default {
     },
     mounted() {
         this.$store.dispatch('gauth/init')
+        console.log(user.Ba)
     },
 
     watch: {
@@ -327,6 +328,19 @@ export default {
         //         "vW":"HAMDANI",
         //         "zN":"https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s96-c",
         //         "yv":"khalidhamdani25@gmail.com"
+        //     }
+        // }
+
+        // {
+        //     "Ba":"115060874369806567293",
+        //     "wc":null,
+        //     "Iu":{
+        //         "SW":"115060874369806567293",
+        //         "sf":"Khalid Ham",
+        //         "hY":"Khalid",
+        //         "vW":"Ham",
+        //         "zN":"https://lh3.googleusercontent.com/a/AATXAJyVTV1frNxq5a77LQeyiiVmB9WkOxl1zIvws2NM=s96-c",
+        //         "yv":"khalidwork222@gmail.com"
         //     }
         // }
     },

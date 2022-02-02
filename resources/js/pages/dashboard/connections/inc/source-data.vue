@@ -370,7 +370,7 @@ export default {
             this.$emit("step-one-completed", this.source);
         },
         async loadSheets() {
-            this.loadUser()
+            await this.loadUser()
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

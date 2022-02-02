@@ -3,6 +3,7 @@
     <div>
         <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Select source data
+            {{user}}
         </div>
         <div class="p-4 flex-grow">
             <div v-if="Object.keys(source.file).length > 0">
@@ -286,7 +287,7 @@ export default {
     },
     mounted() {
         this.$store.dispatch('gauth/init')
-        console.log(user.Ba)
+        // console.log(this.user.Ba)
     },
 
     watch: {
@@ -296,10 +297,10 @@ export default {
             if(val) 
                 this.loadSheets()
         },
-        user: function (val, oldVal) {
-            console.log('user; new: %s, old: %s', val, oldVal)
-            console.log(JSON.stringify(val))
-        },
+        // user: function (val, oldVal) {
+        //     console.log('user; new: %s, old: %s', val, oldVal)
+        //     console.log(JSON.stringify(val))
+        // },
         isSignedIn: function (val, oldVal) {
             console.log('isSignedIn; new: %s, old: %s', val, oldVal)
         },

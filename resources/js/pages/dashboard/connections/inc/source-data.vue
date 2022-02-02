@@ -104,15 +104,50 @@
                                 <div v-if="driveFiles.length > 0">
                                     
                                     <!-- search and nav bar -->
-                                    <div class="flex flex-row items-center rounded-t p-1 justify-between border bg-gray-100">
-                                        <span class="w-2/3 md:w-1/3 h-10 cursor-pointer text-sm rounded-full flex">
-                                            <input type="search" name="serch" placeholder="Search"
-                                                class="flex-grow px-4 rounded-l-full rounded-r-full border-0 text-sm focus:outline-none">
-                                        </span>
-                                        <div class="flex flex-row-reverse mr-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-5 w-5 text-gray-500 hover:text-gray-700 " viewBox="0 0 24 24">
-                                                <path d="M13.5 2c-5.629 0-10.212 4.436-10.475 10h-3.025l4.537 5.917 4.463-5.917h-2.975c.26-3.902 3.508-7 7.475-7 4.136 0 7.5 3.364 7.5 7.5s-3.364 7.5-7.5 7.5c-2.381 0-4.502-1.119-5.876-2.854l-1.847 2.449c1.919 2.088 4.664 3.405 7.723 3.405 5.798 0 10.5-4.702 10.5-10.5s-4.702-10.5-10.5-10.5z"/>
+                                    <div class="flex flex-wrap items-center rounded-t p-1 justify-between border bg-gray-100">
+                                        <div class="flex flex-row items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                               class="w-8 h-8 mx-3" viewBox="0 0 48 48">
+                                                <path fill="#FFC107" d="M17 6L31 6 45 30 31 30z"></path><path fill="#1976D2" d="M9.875 42L16.938 30 45 30 38 42z"></path><path fill="#4CAF50" d="M3 30.125L9.875 42 24 18 17 6z"></path>
                                             </svg>
+                                            <!-- <div class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-white rounded-lg cursor-pointer">
+                                                khalidhamdani25@gmail.com
+                                            </div> -->
+                                            <div class="relative">
+                                                <button @click="isMenuOpen = !isMenuOpen"
+                                                    class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-gray-200 rounded-lg cursor-pointer">
+                                                    khalidhamdani25@gmail.com
+                                                </button>
+                                                <div v-show="isMenuOpen" 
+                                                    class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
+                                                    <button @click="disconnect"
+                                                        :disabled="!isSignedIn || !gauthReady"
+                                                        :class="{'cursor-not-allowed': !isSignedIn || !gauthReady}"
+                                                        class="w-full text-left rounded-lg text-gray-600 p-2 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                                        Disconnect
+                                                    </button>
+                                                    <button @click="signOut"
+                                                        :disabled="!isSignedIn || !gauthReady"
+                                                        :class="{'cursor-not-allowed': !isSignedIn || !gauthReady}"
+                                                        class="w-full text-left rounded-lg text-gray-600 p-2 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                                        Sign out
+                                                    </button>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        
+                                        <div class="flex flex-row items-center">
+                                            <span class="w-64 h-10 cursor-pointer text-sm rounded-full flex">
+                                                <input type="search" name="serch" placeholder="Search"
+                                                class="flex-grow px-4 rounded-l-full rounded-r-full border-0 text-sm focus:outline-none">
+                                            </span>
+                                            <div class="flex flex-row-reverse mx-3">
+                                                <button @click="loadSheets">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-5 w-5 text-gray-500 hover:text-gray-700" viewBox="0 0 24 24">
+                                                        <path d="M13.5 2c-5.629 0-10.212 4.436-10.475 10h-3.025l4.537 5.917 4.463-5.917h-2.975c.26-3.902 3.508-7 7.475-7 4.136 0 7.5 3.364 7.5 7.5s-3.364 7.5-7.5 7.5c-2.381 0-4.502-1.119-5.876-2.854l-1.847 2.449c1.919 2.088 4.664 3.405 7.723 3.405 5.798 0 10.5-4.702 10.5-10.5s-4.702-10.5-10.5-10.5z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -142,6 +177,7 @@
                                         <!-- <button @click="connectToDrive()" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out"> -->
                                         <button :disabled="isSignedIn || !gauthReady"
                                             @click="signIn()"
+                                            :class="{ 'cursor-not-allowed' : isSignedIn || !gauthReady}"
                                             class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-all duration-100 ease-in-out">
                                             Connect to Google drive
                                         </button>
@@ -198,28 +234,57 @@ export default {
         showPicker: false,
         showConfirmFile: false,
         tmpChoosedFile: {},
+        isMenuOpen: false, 
         source: {
             file: {},
             tab: null
         },
-        driveFiles: [],
+        driveFiles: [
+            // {
+            //     "kind": "drive#file",
+            //     "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+            //     "name": "Laravel Sheets",
+            //     "mimeType": "application/vnd.google-apps.folder",
+            // },
+            // {
+            //     "kind": "drive#file",
+            //     "id": "7-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+            //     "name": "Laravel Sheets",
+            //     "mimeType": "application/vnd.google-apps.folder",
+            // },
+            // {
+            //     "kind": "drive#file",
+            //     "id": "8-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+            //     "name": "Laravel Sheets",
+            //     "mimeType": "application/vnd.google-apps.folder",
+            // },
+        ],
     }),
-
-    // computed: mapGetters({
-    //     gauthReady: 'isReady',
-    //     isSignedIn: 'isSignedIn',
-    //     user: 'getUser'
-    // }),
 
     computed: {
         ...mapGetters('gauth',{
             gauthReady: 'isReady',
             isSignedIn: 'isSignedIn',
-            user: 'getUser'
+            user: 'getUser',
+            signedId: 'getSignedId',
         }),
     },
     mounted() {
         this.$store.dispatch('gauth/init')
+    },
+
+    watch: {
+        signedId: function (val, oldVal) {
+            console.log('new: %s, old: %s', val, oldVal)
+            // then here call loadSheets
+            if(val) 
+                this.loadSheets()
+        },
+    },
+
+    created() {
+        console.log('signedID' + this.signedId)
+        console.log("user:" + this.user)
     },
     
     methods: {
@@ -234,19 +299,14 @@ export default {
         makeCompleted: function() {
             this.$emit("step-one-completed", this.source);
         },
-        showDetails (data) {
-            if(data.picked === 'picked') {
-                this.source.file = data.docs
-                console.log(data.docs)
-            }
-        },
         async loadSheets() {
             const response = await this.$google.api.client.drive.files.list({})
             if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 console.log(response.result.files)
+
                 this.driveFiles = response.result.files.filter(file => {
-                            return file.mimeType == 'application/vnd.google-apps.spreadsheet'
-                        })
+                    return file.mimeType == 'application/vnd.google-apps.spreadsheet'
+                })
             } else this.driveFiles = []
 
         },

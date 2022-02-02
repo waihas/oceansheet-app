@@ -566,11 +566,11 @@ select{
 .top-0{
   top: 0px;
 }
-.z-20{
-  z-index: 20;
-}
 .z-50{
   z-index: 50;
+}
+.z-20{
+  z-index: 20;
 }
 .z-10{
   z-index: 10;
@@ -1009,6 +1009,9 @@ select{
 }
 .cursor-move{
   cursor: move;
+}
+.cursor-not-allowed{
+  cursor: not-allowed;
 }
 .select-none{
   -webkit-user-select: none;
@@ -1964,6 +1967,14 @@ select{
 .focus\:bg-main-700:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(4 120 87 / var(--tw-bg-opacity));
+}
+.focus\:bg-white:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.focus\:bg-gray-200:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .focus\:text-gray-600:focus{
   --tw-text-opacity: 1;

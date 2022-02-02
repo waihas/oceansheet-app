@@ -19,7 +19,7 @@
       leave-class="opacity-100 scale-100"
       leave-to-class="opacity-0 scale-95"
     >
-      <div v-show="isOpen" class="origin-top-right absolute right-0 mt-2 w-64 rounded-md shadow-lg">
+      <div v-show="isOpen" class="origin-top-right absolute right-0 mt-2 w-64 rounded-md shadow-lg z-50">
         <div class="rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu" @click="hide">
           <slot name="items" />
         </div>

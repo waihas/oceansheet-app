@@ -1,10 +1,11 @@
 import * as types from '../mutation-types'
+import Swal from 'sweetalert2'
 
 export const state = {
     status: types.STATUS_LOADING,
     signedId: null,
     user: null,
-    error: null
+    error: null,
 }
 
 export const mutations = {
@@ -19,51 +20,76 @@ export const mutations = {
     },
     setUser(state, user) {
         state.user = user
-    }
+    },
 }
 
 export const actions = {
     init (context) {
         let google = this._vm.$google
         let load = setInterval(function () {
-        if (google.isInit) {
-            context.commit('setStatus', types.STATUS_READY)
-            context.commit(
-            'setSignedIn', 
-            google.api.auth2.getAuthInstance().isSignedIn.get()
-            )
-            google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
-            context.commit('setSignedIn', signedId)
-            })
-            google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-            context.commit('setUser', user)
-            })
-            clearInterval(load)
-        }        
+            if (google.isInit) {
+                context.commit('setStatus', types.STATUS_READY)
+                context.commit(
+                    'setSignedIn', 
+                    google.api.auth2.getAuthInstance().isSignedIn.get()
+                )
+                google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
+                    context.commit('setSignedIn', signedId)
+                })
+                google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+                    context.commit('setUser', user)
+                })
+                clearInterval(load)
+            }        
         })
     },
     async signIn (context) {
         try{
-        await this._vm.$google.api.auth2.getAuthInstance().signIn()
+            await this._vm.$google.api.auth2.getAuthInstance().signIn()
+            
         } catch (e) {
-        console.error(e)
-        context.commit('setError', e.error)
+            console.error(e)
+            context.commit('setError', e.error)
+            //show alert error
+            // e.error == 'popup_closed_by_user'
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong while signing in, please try again!',
+                confirmButtonColor: "#10b981",
+            }).then(() => {
+               // refresh the page
+            })
         }      
     },
     async signOut (context) {
         try{
-        await this._vm.$google.api.auth2.getAuthInstance().signOut()
+            await this._vm.$google.api.auth2.getAuthInstance().signOut()
         } catch (e) {
-        console.error(e)
-        context.commit('setError', e.error)
+            console.error(e)
+            context.commit('setError', e.error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong while signing out!',
+                confirmButtonColor: "#10b981",
+            }).then(() => {
+               // refresh the page
+            })
         }
     },
     async disconnect (context) {
         try{
-        await this._vm.$google.api.auth2.getAuthInstance().disconnect()
+            await this._vm.$google.api.auth2.getAuthInstance().disconnect()
         } catch (e) {
-        console.error(e)
-        context.commit('setError', e.error)
+            console.error(e)
+            context.commit('setError', e.error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong while disconnecting!',
+                confirmButtonColor: "#10b981",
+            })
         }
     },
 }
@@ -77,6 +103,9 @@ export const getters = {
     },
     getUser(state) {
         return state.user
+    },
+    getSignedId(state) {
+        return state.signedId
     }
 }
 

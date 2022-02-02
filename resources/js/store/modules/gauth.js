@@ -42,6 +42,10 @@ export const actions = {
                     console.log('setSignedIn' + signedId)
                     context.commit('setSignedIn', signedId)
                 })
+                context.commit(
+                    'setUser', 
+                    google.api.auth2.getAuthInstance().currentUser.get()
+                )
                 google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
                     console.log('im here 2')
                     console.log('setUser' + user)
@@ -51,7 +55,7 @@ export const actions = {
             }        
         })
     },
-    async loadUserEmail(context) {
+    loadUserEmail(context) {
         context.commit('setUserEmail', this._vm.$google.api.auth2.getAuthInstance().currentUser.get())
         console.log('setUserEmail', this._vm.$google.api.auth2.getAuthInstance().currentUser.get().uc)
     },

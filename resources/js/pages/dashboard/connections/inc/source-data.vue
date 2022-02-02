@@ -285,6 +285,7 @@ export default {
         },
         user: function (val, oldVal) {
             console.log('user; new: %s, old: %s', val, oldVal)
+            console.log(JSON.stringify(val))
         },
         isSignedIn: function (val, oldVal) {
             console.log('isSignedIn; new: %s, old: %s', val, oldVal)

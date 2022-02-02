@@ -50,7 +50,7 @@ export const actions = {
     async loadUser(context) {
         await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
             // context.commit('setUser', user)
-            context.commit('setUser', {
+            return context.commit('setUser', {
                     "Ba":"111729100170439209451",
                     "wc":null,
                     "Iu":{

@@ -47,6 +47,11 @@ export const actions = {
             }        
         })
     },
+    async loadUser(context) {
+        await this._vm.$google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+            context.commit('setUser', user)
+        })
+    },
     async signIn (context) {
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
@@ -107,11 +112,7 @@ export const getters = {
         return state.signedId === true
     },
     getUser(state) {
-        let google = this._vm.$google
-        google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-            return user
-        })
-        // return state.user
+        return state.user
     },
     getSignedId(state) {
         return state.signedId

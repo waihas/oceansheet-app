@@ -361,7 +361,7 @@ export default {
             signIn: 'signIn',
             signOut: 'signOut',
             disconnect: 'disconnect',
-            isSignedId: 'isSignedId'
+            loadUser: 'loadUser'
         }),
         closePicker: function() {
             this.showPicker = false
@@ -370,7 +370,7 @@ export default {
             this.$emit("step-one-completed", this.source);
         },
         async loadSheets() {
-            await this.isSignedId()
+            this.loadUser()
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'"
             })

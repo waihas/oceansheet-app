@@ -47,14 +47,6 @@ export const actions = {
             }        
         })
     },
-    // loadUser(context) {
-        isSignedId () {
-            let google = this._vm.$google
-            google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-                console.log(user)
-            })
-          },
-    // } ,
     async signIn (context) {
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
@@ -115,7 +107,11 @@ export const getters = {
         return state.signedId === true
     },
     getUser(state) {
-        return state.user
+        let google = this._vm.$google
+        google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+            return user
+        })
+        // return state.user
     },
     getSignedId(state) {
         return state.signedId

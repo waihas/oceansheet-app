@@ -1,11 +1,23 @@
 <template>
-  <!-- <div class="font-hairline h-screen w-screen flex text-gray-800 bg-gray-100"> -->
+  <div>
+    <navbar></navbar>
+    
     <child />
-  <!-- </div> -->
+
+    <footer-home></footer-home>
+  </div>
 </template>
 
 <script>
+import Navbar from '~/components/home/Navbar'
+import FooterHome from '~/components/home/Footer'
+
 export default {
-  name: 'BasicLayout'
+  name: 'BasicLayout',
+
+   components: {
+    Navbar,
+    FooterHome,
+  },
 }
 </script>

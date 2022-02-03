@@ -4,6 +4,7 @@ function page (path) {
   
   export default [
     { path: '/', name: 'welcome', component: page('welcome.vue') },
+    { path: '/pricing', name: 'pricing', component: page('pricing.vue') },
   
     { path: '/login', name: 'login', component: page('auth/login.vue') },
     { path: '/register', name: 'register', component: page('auth/register.vue') },
@@ -14,6 +15,8 @@ function page (path) {
     
     { path: '/terms', name: 'terms', component: page('legal/terms.vue') },
     { path: '/privacy-policy', name: 'privacy.policy', component: page('legal/privacy-policy.vue') },
+    { path: '/cookies', name: 'cookies.policy', component: page('legal/cookies-policy.vue') },
+    { path: '/privacy-and-data-protection-guide', name: 'privacy.guide', component: page('legal/privacy-guide.vue') },
   
     { path: '/dashboard', name: 'dashboard.home', component: page('dashboard/home.vue') },
     { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },

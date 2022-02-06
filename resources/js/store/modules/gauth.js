@@ -29,6 +29,8 @@ export const actions = {
         let google = this._vm.$google
         let load = setInterval(function () {
             if (google.isInit) {
+                // first if(to check if it's same id)
+                // if(resultat)
                 context.commit('setStatus', types.STATUS_READY)
                 context.commit(
                     'setSignedIn', 

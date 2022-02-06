@@ -7,7 +7,7 @@
 					Terms & Conditions
 				</h1>
 				<p class="text-sm md:text-base font-normal text-gray-600">
-					Published 18 Junuary 2022
+					Updated 06 February 2022
 				</p>
 			</div>
 
@@ -34,7 +34,7 @@
 					<br><br>
 					<ul class="list-disc">
 						<li>Email address: support@oceansheet.com</li>
-						<li>Postal address: Muelle de la Aduana s/n – Edificio Lanzadera, postal code 46024 of Valencia, Spain.</li>
+						<li>Postal address: Erzsébet krt.25 Budapest, postal code 1073, Hungary.</li>
 					</ul>
 					<br><br>
 					Any notification and communication between users and the OceanSheet shall be considered effective, for any purposes, whenever conducted through any of the aforementioned methods.
@@ -86,7 +86,7 @@
 					Intellectual Property
 				</h1>
 				<p class="py-6">
-					The Service and its original content, features, and functionality are and will remain the exclusive property of OceanSheet and its licensors. The Service is protected by copyright, trademark, and other laws of both the Spain and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of OceanSheet.
+					The Service and its original content, features, and functionality are and will remain the exclusive property of OceanSheet and its licensors. The Service is protected by copyright, trademark, and other laws of both the Hungary and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of OceanSheet.
 				</p>
 
 				<h1 class="py-2 text-3xl text-gray-800">
@@ -129,7 +129,7 @@
 					Governing law
 				</h1>
 				<p class="py-6">
-					These Terms shall be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions.
+					These Terms shall be governed and construed in accordance with the laws of Hungary, without regard to its conflict of law provisions.
 					<br><br>
 					Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
 				</p>

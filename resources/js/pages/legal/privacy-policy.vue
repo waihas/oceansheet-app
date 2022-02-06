@@ -7,7 +7,7 @@
 					Privacy Policy
 				</h1>
 				<p class="text-sm md:text-base font-normal text-gray-600">
-					Published 18 Junuary 2022
+					Updated 06 February 2022
 				</p>
 			</div>
 
@@ -120,7 +120,7 @@
 				<p class="py-6">
 					Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction, where the data protection laws may differ from those of your jurisdiction. The persons in charge of data processing may be located outside the European Union. Others may include third parties necessary for the fulfillment of legal duties.
 					<br><br>
-					If you are located outside Spain or the United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to Spain and the United States and process it there. Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
+					If you are located outside Hungary or the United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to Hungary and the United States and process it there. Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
 					<br><br>
 					OceanSheet will take all reasonable steps necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and that no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place regarding the security of your data and other personal information.
 				</p>

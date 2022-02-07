@@ -66,9 +66,10 @@ export const actions = {
     async isSignedId(context) {
         try {
             const { data } = await axios.get('/api/user/drive/get/Ba')
-            console.log(data)
+            // console.log(data)
             if(data == this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba) {
-                // context.commit('setStatus', types.STATUS_READY)
+                let google = this._vm.$google
+                
                 context.commit(
                     'setSignedIn', 
                     google.api.auth2.getAuthInstance().isSignedIn.get()
@@ -77,11 +78,9 @@ export const actions = {
                     'setUser', 
                     google.api.auth2.getAuthInstance().currentUser.get()
                 )
-                console.log('its the same')
             }
             else {
                 await this._vm.$google.api.auth2.getAuthInstance().disconnect()
-                console.log('its not the same')
             }
         } catch (e) {
             await this._vm.$google.api.auth2.getAuthInstance().disconnect()

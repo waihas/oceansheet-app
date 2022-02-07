@@ -46,7 +46,12 @@ class UserController extends Controller
 
     public function getDriveUserId(Request $request)
     {
-        return $request->user()->cloud->google_drive_signed_id;
+        if($request->user()->cloud()->exists())
+            return $request->user()->cloud->google_drive_signed_id;
+        
+        return response()->json([
+            'status' => "Signing not found.",
+            ], 404);
     }
 
     public function updatePassword(Request $request)

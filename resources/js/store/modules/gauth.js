@@ -30,6 +30,8 @@ export const actions = {
         let load = setInterval(function () {
             if (google.isInit) {
 
+                context.commit('setStatus', types.STATUS_READY)
+
                 context.dispatch('isSignedId')
 
                 google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
@@ -66,7 +68,7 @@ export const actions = {
             const { data } = await axios.get('/api/user/drive/get/Ba')
             console.log(data)
             if(data == this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba) {
-                context.commit('setStatus', types.STATUS_READY)
+                // context.commit('setStatus', types.STATUS_READY)
                 context.commit(
                     'setSignedIn', 
                     google.api.auth2.getAuthInstance().isSignedIn.get()

@@ -32,7 +32,7 @@
                   x-transition:leave="transition ease-in duration-75" 
                   x-transition:leave-start="transform opacity-100 scale-100" 
                   x-transition:leave-end="transform opacity-0 scale-95" 
-                  class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+                  class="absolute right-0 w-full md:w-screen mt-2 origin-top-right z-20">
                   <div class="p-2 bg-white rounded-md shadow-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <a class="flex row items-start rounded-lg bg-transparent p-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
@@ -71,7 +71,7 @@
                   x-transition:leave="transition ease-in duration-75" 
                   x-transition:leave-start="transform opacity-100 scale-100" 
                   x-transition:leave-end="transform opacity-0 scale-95" 
-                  class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+                  class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right z-20">
                   <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <a class="flex row items-start rounded-lg bg-transparent p-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">

@@ -1396,6 +1396,10 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(110 231 183 / var(--tw-bg-opacity));
 }
+.bg-main-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 253 245 / var(--tw-bg-opacity));
+}
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -1781,6 +1785,10 @@ select{
   --tw-text-opacity: 1;
   color: rgb(15 118 110 / var(--tw-text-opacity));
 }
+.text-main-800{
+  --tw-text-opacity: 1;
+  color: rgb(6 95 70 / var(--tw-text-opacity));
+}
 .underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2078,6 +2086,10 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.focus\:bg-main-600:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 150 105 / var(--tw-bg-opacity));
+}
 .focus\:text-gray-600:focus{
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -2341,6 +2353,9 @@ select{
   }
   .md\:justify-end{
     justify-content: flex-end;
+  }
+  .md\:justify-center{
+    justify-content: center;
   }
   .md\:justify-between{
     justify-content: space-between;

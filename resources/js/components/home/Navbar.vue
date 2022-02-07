@@ -3,7 +3,8 @@
         <div class="w-full text-gray-700 bg-white">
           <div class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
             <div class="flex flex-row items-center justify-between p-4">
-              <router-link :to="{name: 'welcome'}" class="text-xl text-gray-900 rounded-lg focus:outline-none focus:shadow-outline">
+              <router-link :to="{name: 'welcome'}" class="flex flex-row items-center font-bold text-xl text-gray-900 rounded-lg focus:outline-none focus:shadow-outline">
+                <img src="/assets/img/oceansheet-logo.svg" class="w-10 h-10 mr-3" alt="OceanSheet logo" />
                 OceanSheet
               </router-link>
               <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="isOpen = !isOpen">
@@ -14,7 +15,7 @@
               </button>
             </div>
             <nav :class="isOpen ? 'flex' : 'hidden'"
-            class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row items-center">
+            class="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-center md:flex-row items-center">
               <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 About
               </a>
@@ -122,23 +123,24 @@
               <router-link :to="{name: 'pricing'}" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 Pricing
               </router-link>
-              <div class="relative">
-                <template v-if="authenticated">
-                  <router-link :to="{ name: 'dashboard.home' }" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
-                    <!-- {{ $t('home') }} -->
-                    Dashboard
-                  </router-link>
-                </template>
-                <template v-else>
-                  <router-link :to="{ name: 'login' }" class="transition-all duration-100 ease-in-out hover:text-main-500 px-4 py-2 mt-2 text-sm font-semibold rounded-lg bg-transparent md:mt-0 md:ml-4 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                    {{ $t('login') }}
-                  </router-link>
-                  <router-link :to="{ name: 'register' }" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
-                    {{ $t('register') }}
-                  </router-link>
-                </template>
-              </div>
             </nav>
+            <div :class="isOpen ? 'flex' : 'hidden'"
+            class="relative md:flex mx-auto">
+              <template v-if="authenticated">
+                <router-link :to="{ name: 'dashboard.home' }" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
+                  <!-- {{ $t('home') }} -->
+                  Dashboard
+                </router-link>
+              </template>
+              <template v-else>
+                <router-link :to="{ name: 'login' }" class="transition-all duration-100 ease-in-out hover:text-main-500 px-4 py-2 mt-2 text-sm font-semibold rounded-lg bg-transparent md:mt-0 md:ml-4 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                  {{ $t('login') }}
+                </router-link>
+                <router-link :to="{ name: 'register' }" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
+                  {{ $t('register') }}
+                </router-link>
+              </template>
+            </div>
           </div>
         </div>
       </div>

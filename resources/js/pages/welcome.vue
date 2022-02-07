@@ -3,8 +3,10 @@
     <section>
           <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
             <div class="flex flex-col w-full mb-12 text-center">
-              <div class="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 mx-auto mb-5 text-blue-600 rounded-full bg-gray-50">
-                <v-logo></v-logo>
+              <div class="inline-flex items-center justify-center flex-shrink-0 mx-auto mb-5 rounded-full bg-main-50">
+               <lottie-player src="/assets/gif/sync-files.json" background="transparent" speed="1" class="w-32 h-32" loop autoplay>
+               </lottie-player>
+                <!-- <v-logo></v-logo> -->
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 icon icon-tabler icon-tabler-aperture" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                   <circle cx="12" cy="12" r="9"></circle>
@@ -21,8 +23,8 @@
               <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
                 The best way to connect and manage your spreadsheets for free.
               </p>
-              <router-link :to="{ name: 'register' }" class="mx-auto mt-8 text-sm font-semibold text-primary-600 hover:text-primary-600" title="sign up"> 
-                Sign up now » 
+              <router-link :to="{ name: 'register' }" class="mx-auto mt-8 transition-all duration-100 ease-in-out border border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
+                Get Started Now »
               </router-link>
             </div>
           </div>
@@ -240,6 +242,12 @@ export default {
 
   metaInfo () {
     return { title: 'Connect and Manage your Spreadsheets' }
+  },
+
+  mounted() {
+    let Script = document.createElement("script");
+    Script.setAttribute("src", "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js");
+    document.head.appendChild(Script);
   },
 
   data: () => ({

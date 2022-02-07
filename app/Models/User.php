@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable //implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 

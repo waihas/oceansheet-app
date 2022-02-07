@@ -12,7 +12,7 @@
                         <div class="text-2xl">
                             {{ source.file.name }}
                         </div>
-                        <div class="text-sm">
+                        <div class="text-sm" v-if="source.file.size">
                             File Size : {{ source.file.size }} bytes
                             <!-- <span v-if="checkProgress(source.file)" class="upload-prgress"></span> -->
                         </div>
@@ -331,7 +331,7 @@ export default {
         async loadSheetDetails() {
             const response = await this.$google.api.client.drive.files.get({
                 fileId: this.source.file.id,
-                fields: 'size,modifiedTime'
+                fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))

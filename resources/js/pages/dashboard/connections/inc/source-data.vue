@@ -331,7 +331,8 @@ export default {
         async loadSheetDetails() {
             const response = await this.$google.api.client.drive.files.get({
                 fileId: this.source.file.id,
-                fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
+                fields: '*'
+                // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))

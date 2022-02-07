@@ -316,7 +316,8 @@ export default {
         },
         async loadSheets() {
             const response = await this.$google.api.client.drive.files.list({
-                q: "mimeType='application/vnd.google-apps.spreadsheet'"
+                q: "mimeType='application/vnd.google-apps.spreadsheet'",
+                // fields: 'files(size,modifiedTime)'
             })
             if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 console.log(response.result.files)
@@ -329,8 +330,8 @@ export default {
         },
         async loadSheetDetails() {
             const response = await this.$google.api.client.drive.files.get({
-                fileId: this.source.file,
-                fields: 'files(size,modifiedTime)'
+                fileId: this.source.file.id,
+                fields: 'size,modifiedTime'
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))

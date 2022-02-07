@@ -69,6 +69,8 @@ export const actions = {
     } catch (e) { }
 
     commit(types.LOGOUT)
+    // this one idk about it
+    window.location.reload();
   },
 
   async fetchOauthUrl (ctx, { provider }) {

@@ -328,10 +328,10 @@ export default {
             } else this.driveFiles = []
         },
         async loadSheetDetails() {
-            const response = await this.$google.api.client.drive.files.get({
-                // fileId: this.source.file,
-                fields: 'size,modifiedTime'
-            }, this.source.file)
+            const response = await this.$google.api.client.drive.files.list({
+                fileId: this.source.file,
+                fields: 'files(size,modifiedTime)'
+            })
             console.log(response.result)
             console.log(JSON.stringify(response.result))
             // if ('result' in response && 'files' in response.result && response.result.files.length > 0) {

@@ -41,7 +41,7 @@
             </div>
             <div v-else class="flex items-center justify-center w-full">
                 <label class="flex flex-col w-full border-2 border-dashed group rounded-lg bg-gray-50 hover:bg-gray-100 hover:border-main-300 cursor-pointer"
-                    @click.stop="showPicker = true">
+                    @click.stop="openPicker">
                     <div class="flex flex-col items-center justify-center py-7">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-gray-400 group-hover:text-gray-500"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -303,6 +303,11 @@ export default {
             signOut: 'signOut',
             disconnect: 'disconnect',
         }),
+        openPicker: function() {
+            this.showPicker = true
+            if(this.isSignedIn)
+                this.loadSheets()
+        },
         closePicker: function() {
             this.showPicker = false
         },

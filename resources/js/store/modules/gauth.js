@@ -32,11 +32,24 @@ export const actions = {
 
                 context.commit('setStatus', types.STATUS_READY)
 
-                context.dispatch('isSignedId')
+                if(google.api.auth2.getAuthInstance().isSignedIn.get()) {
+                    context.dispatch('isSignedId')
+                }
+                else {
+                    context.commit(
+                        'setSignedIn', 
+                        google.api.auth2.getAuthInstance().isSignedIn.get()
+                    )
+                }
 
                 google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
                     context.commit('setSignedIn', signedId)
                 })
+
+                context.commit(
+                    'setUser', 
+                    google.api.auth2.getAuthInstance().currentUser.get()
+                )
 
                 google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
                     context.commit('setUser', user)
@@ -68,22 +81,18 @@ export const actions = {
             const { data } = await axios.get('/api/user/drive/get/Ba')
             // console.log(data)
             if(data == this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba) {
-                let google = this._vm.$google
-                
                 context.commit(
                     'setSignedIn', 
-                    google.api.auth2.getAuthInstance().isSignedIn.get()
-                )
-                context.commit(
-                    'setUser', 
-                    google.api.auth2.getAuthInstance().currentUser.get()
+                    this._vm.$google.api.auth2.getAuthInstance().isSignedIn.get()
                 )
             }
             else {
-                await this._vm.$google.api.auth2.getAuthInstance().disconnect()
+                context.commit(
+                    'setSignedIn', 
+                    false
+                )
             }
         } catch (e) {
-            await this._vm.$google.api.auth2.getAuthInstance().disconnect()
             console.error(e)
             console.log(e.error)
         }
@@ -99,7 +108,7 @@ export const actions = {
                 console.log(e.error)
             }
 
-            console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
+            // console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
         } catch (e) {
             console.error(e)
             context.commit('setError', e.error)

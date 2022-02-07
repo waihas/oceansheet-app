@@ -42,10 +42,6 @@ export const actions = {
                     )
                 }
 
-                google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
-                    context.commit('setSignedIn', signedId)
-                })
-
                 context.commit(
                     'setUser', 
                     google.api.auth2.getAuthInstance().currentUser.get()
@@ -85,6 +81,9 @@ export const actions = {
                     'setSignedIn', 
                     this._vm.$google.api.auth2.getAuthInstance().isSignedIn.get()
                 )
+                this._vm.$google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
+                    context.commit('setSignedIn', signedId)
+                })
             }
             else {
                 context.commit(

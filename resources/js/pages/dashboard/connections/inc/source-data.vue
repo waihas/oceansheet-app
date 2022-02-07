@@ -13,7 +13,7 @@
                             {{ source.file.name }}
                         </div>
                         <div class="text-sm">
-                            File Size : {{ source.file.kind }} bytes
+                            File Size : {{ source.file.size }} bytes
                             <!-- <span v-if="checkProgress(source.file)" class="upload-prgress"></span> -->
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                                             :class="file.id == tmpChoosedFile.id ? 'bg-white border border-main-300' : ''">
                                             <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                                             <h2 class="mt-4 w-28 text-center truncate">{{ file.name }}</h2>
-                                            <p class="mt-2 w-24 text-sm truncate">{{ file.kind }} bytes</p>
+                                            <p class="mt-2 w-24 text-sm text-center truncate">{{ file.size }} bytes</p>
                                         </div>
                                     </div>
                                     <div v-else class="p-4 flex justify-center items-center w-full h-80 border bg-gray-100">

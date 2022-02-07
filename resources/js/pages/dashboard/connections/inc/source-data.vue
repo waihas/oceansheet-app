@@ -158,7 +158,7 @@
                                             :class="file.id == tmpChoosedFile.id ? 'bg-white border border-main-300' : ''">
                                             <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                                             <h2 class="mt-4 w-28 text-center truncate">{{ file.name }}</h2>
-                                            <p class="mt-2 w-24 text-sm text-center truncate">{{ file.size }} bytes</p>
+                                            <p v-if="file.size" class="mt-2 w-24 text-sm text-center truncate">{{ file.size }} bytes</p>
                                         </div>
                                     </div>
                                     <div v-else class="p-4 flex justify-center items-center w-full h-80 border bg-gray-100">
@@ -331,7 +331,7 @@ export default {
         async loadSheetDetails() {
             const response = await this.$google.api.client.drive.files.get({
                 fileId: this.source.file.id,
-                // fields: 'size,modifiedTime'
+                fields: 'size,modifiedTime'
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))

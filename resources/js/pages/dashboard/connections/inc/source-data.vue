@@ -329,7 +329,8 @@ export default {
         },
         async loadSheetDetails() {
             const response = await this.$google.api.client.drive.files.list({
-                fileId: this.source.file
+                fileId: this.source.file,
+                fields: 'size,modifiedTime'
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))

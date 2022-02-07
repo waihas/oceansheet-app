@@ -70,7 +70,7 @@ export const actions = {
 
     commit(types.LOGOUT)
     // this one idk about it
-    window.location.reload();
+    // window.location.reload();
   },
 
   async fetchOauthUrl (ctx, { provider }) {

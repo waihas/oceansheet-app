@@ -39,7 +39,7 @@ export const actions = {
                 google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
                     context.commit('setUser', user)
                 })
-                
+
                 clearInterval(load)
 
                 // context.commit('setStatus', types.STATUS_READY)
@@ -78,9 +78,11 @@ export const actions = {
                 console.log('its the same')
             }
             else {
+                await this._vm.$google.api.auth2.getAuthInstance().disconnect()
                 console.log('its not the same')
             }
         } catch (e) {
+            await this._vm.$google.api.auth2.getAuthInstance().disconnect()
             console.error(e)
             console.log(e.error)
         }

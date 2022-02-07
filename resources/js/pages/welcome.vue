@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-          <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
+          <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:pt-24">
             <div class="flex flex-col w-full mb-12 text-center">
               <div class="inline-flex items-center justify-center flex-shrink-0 mx-auto mb-5 rounded-full bg-main-50">
                <lottie-player src="/assets/gif/sync-files.json" background="transparent" speed="1" class="w-32 h-32" loop autoplay>

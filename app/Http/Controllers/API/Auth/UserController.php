@@ -44,6 +44,11 @@ class UserController extends Controller
         }
     }
 
+    public function getDriveUserId(Request $request)
+    {
+        return $request->user()->cloud->google_drive_signed_id;
+    }
+
     public function updatePassword(Request $request)
     {
         $this->validate($request, [

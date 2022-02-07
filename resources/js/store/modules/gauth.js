@@ -29,39 +29,74 @@ export const actions = {
         let google = this._vm.$google
         let load = setInterval(function () {
             if (google.isInit) {
-                // first if(to check if it's same id)
-                // if(resultat)
+
+                context.dispatch('isSignedId')
+
+                google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
+                    context.commit('setSignedIn', signedId)
+                })
+
+                google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+                    context.commit('setUser', user)
+                })
+                
+                clearInterval(load)
+
+                // context.commit('setStatus', types.STATUS_READY)
+                // context.commit(
+                //     'setSignedIn', 
+                //     google.api.auth2.getAuthInstance().isSignedIn.get()
+                // )
+                // google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
+                //     context.commit('setSignedIn', signedId)
+                // })
+                // context.commit(
+                //     'setUser', 
+                //     google.api.auth2.getAuthInstance().currentUser.get()
+                // )
+                // google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
+                //     context.commit('setUser', user)
+                // })
+                // clearInterval(load)
+            }        
+        })
+    },
+    async isSignedId(context) {
+        try {
+            const { data } = await axios.get('/api/user/drive/get/Ba')
+            console.log(data)
+            if(data == this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba) {
                 context.commit('setStatus', types.STATUS_READY)
                 context.commit(
                     'setSignedIn', 
                     google.api.auth2.getAuthInstance().isSignedIn.get()
                 )
-                google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
-                    context.commit('setSignedIn', signedId)
-                })
                 context.commit(
                     'setUser', 
                     google.api.auth2.getAuthInstance().currentUser.get()
                 )
-                google.api.auth2.getAuthInstance().currentUser.listen(function (user) {
-                    context.commit('setUser', user)
-                })
-                clearInterval(load)
-            }        
-        })
+                console.log('its the same')
+            }
+            else {
+                console.log('its not the same')
+            }
+        } catch (e) {
+            console.error(e)
+            console.log(e.error)
+        }
     },
     async signIn (context) {
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
 
-            // try {
-            //     await axios.post('/api/user/drive/Ba', {baID: this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba})
-            // } catch (e) {
-            //     console.error(e)
-            //     console.log(e.error)
-            // }
+            try {
+                await axios.post('/api/user/drive/Ba', {baID: this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba})
+            } catch (e) {
+                console.error(e)
+                console.log(e.error)
+            }
 
-            // console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
+            console.log('Ba' + this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba)
         } catch (e) {
             console.error(e)
             context.commit('setError', e.error)

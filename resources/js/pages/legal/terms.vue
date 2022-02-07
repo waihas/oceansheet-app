@@ -4,7 +4,7 @@
 			<!--Title-->
 			<div class="">
 				<h1 class="font-bold break-normal text-main-900 pt-6 pb-2 text-3xl md:text-4xl">
-					Terms & Conditions
+					Terms & Conditions 
 				</h1>
 				<p class="text-sm md:text-base font-normal text-gray-600">
 					Updated 06 February 2022

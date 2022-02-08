@@ -23,7 +23,7 @@
               <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
                 The best way to connect and manage your spreadsheets for free.
               </p>
-              <router-link :to="{ name: 'register' }" class="mx-auto mt-8 transition-all duration-100 ease-in-out border border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
+              <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
                 Get Started Now »
               </router-link>
             </div>

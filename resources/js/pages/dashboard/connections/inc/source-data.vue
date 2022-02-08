@@ -351,6 +351,7 @@ export default {
                 spreadsheetId: this.source.file.id,
                 // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             })
+            console.log('sheet tabs:')
             console.log(response.result)
         },
         choosedFile: function(file) {

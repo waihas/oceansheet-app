@@ -33,6 +33,8 @@
                             <option>Employees</option>
                         </select>
                     </div>
+
+                    {{ fileSheets }}
                     
                      <div class="mt-2 text-sm text-red-600" @click="makeCompleted">
                         Please select your data source sheet.
@@ -251,6 +253,7 @@ export default {
         isMenuOpen: false, 
         source: {
             file: {},
+            fileSheets: {},
             tab: null
         },
         driveFiles: [
@@ -344,8 +347,10 @@ export default {
                 includeGridData: true
             })
             console.log(response.result)
+            this.fileSheets = response.result.sheets;
             console.log(JSON.stringify(response.result))
             // this.getSheetTabs()
+            
         },
         async getSheetTabs() {
             const response = await this.$google.api.client.sheets.spreadsheets.get({

@@ -23,13 +23,14 @@
                 </div>
                 <div class="border-t border-gray-200 mt-6 py-6 border-dashed">
                     <label for="selectTab" class="block text-sm font-medium text-gray-700 leading-5">
-                        Select the tab you want to use
+                        Select the sheet do you want to use
                     </label>
 
-                    <div class="mt-1 rounded-md shadow-sm" v-if="source.fileSheets">
+                    <div class="mt-1 rounded-md shadow-sm" v-if="source.sheets">
                         <!-- v-model="selected" -->
                         <select id="selectTab" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            <option v-for="item in source.fileSheets" :value="item" :key="item.properties.sheetId">
+                            <option disabled>Select a sheet</option>
+                            <option v-for="item in source.sheets" :value="item" :key="item.properties.sheetId">
                                 {{ item.properties.title }}
                             </option>
                         </select>
@@ -252,7 +253,7 @@ export default {
         isMenuOpen: false, 
         source: {
             file: {},
-            fileSheets: {},
+            sheets: {},
             tab: null
         },
         driveFiles: [
@@ -346,7 +347,7 @@ export default {
                 includeGridData: true
             })
             console.log(response.result)
-            this.source.fileSheets = response.result.sheets;
+            this.source.sheets = response.result.sheets;
             console.log(JSON.stringify(response.result))
             // this.getSheetTabs()
             
@@ -378,6 +379,7 @@ export default {
             this.tmpChoosedFile = {}
             this.source = {
                 file: {},
+                sheets: {},
                 tab: null
             }
         },

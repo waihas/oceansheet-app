@@ -34,9 +34,9 @@
                         </select>
                     </div>
 
-                    {{ fileSheets }}
+                    {{ source.fileSheets }}
                     
-                     <div class="mt-2 text-sm text-red-600" @click="makeCompleted">
+                    <div class="mt-2 text-sm text-red-600" @click="makeCompleted">
                         Please select your data source sheet.
                     </div>
                 </div>

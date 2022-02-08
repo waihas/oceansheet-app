@@ -329,28 +329,23 @@ export default {
             } else this.driveFiles = []
         },
         async loadSheetDetails() {
-            const response = await this.$google.api.client.drive.files.get({
-                fileId: this.source.file.id,
-                fields: '*'
-                // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
+            // const response = await this.$google.api.client.drive.files.get({
+            //     fileId: this.source.file.id,
+            //     fields: '*'
+            //     // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
+            // })
+            const response = await this.$google.api.client.sheets.spreadsheets.get({
+                spreadsheetId: this.source.file.id,
+                includeGridData: true
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))
-            await this.getSheetTabs()
-            // if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
-                
-            //     console.log(response.result)
-            //     console.log(JSON.stringify(response.result))
-
-            //     // this.driveFiles = response.result.files
-            // } 
-            // else // do something
+            // this.getSheetTabs()
         },
         async getSheetTabs() {
             const response = await this.$google.api.client.sheets.spreadsheets.get({
                 spreadsheetId: this.source.file.id,
                 includeGridData: true
-                // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             })
             console.log('sheet tabs:')
             console.log(response.result)

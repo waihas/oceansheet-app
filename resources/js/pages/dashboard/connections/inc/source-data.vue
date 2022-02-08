@@ -297,9 +297,9 @@ export default {
         },
     },
 
-    created() {
-        this.loadSheetDetails()
-    },
+    // created() {
+    //     this.loadSheetDetails()
+    // },
 
     methods: {
         ...mapActions('gauth',{
@@ -339,8 +339,8 @@ export default {
             //     // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             // })
             const response = await this.$google.api.client.sheets.spreadsheets.get({
-                spreadsheetId: '1sdxqzuQ7fANcYUJjbnFJ0YCpHZqWH9gBCxcT-0M9vTY',
-                // spreadsheetId: this.source.file.id,
+                // spreadsheetId: '1sdxqzuQ7fANcYUJjbnFJ0YCpHZqWH9gBCxcT-0M9vTY',
+                spreadsheetId: this.source.file.id,
                 includeGridData: true
             })
             console.log(response.result)

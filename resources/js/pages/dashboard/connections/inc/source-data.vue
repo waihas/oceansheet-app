@@ -347,8 +347,9 @@ export default {
             // else // do something
         },
         async getSheetTabs() {
-            const response = await this.$google.api.client.sheets.spreadsheets.get({
+            const response = await this.$google.api.client.spreadsheets.get({
                 spreadsheetId: this.source.file.id,
+                includeGridData: true
                 // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             })
             console.log('sheet tabs:')

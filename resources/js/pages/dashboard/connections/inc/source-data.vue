@@ -26,11 +26,11 @@
                         Select the tab you want to use
                     </label>
 
-                    <div class="mt-1 rounded-md shadow-sm" v-if="source.fileSheets.properties">
+                    <div class="mt-1 rounded-md shadow-sm" v-if="source.fileSheets">
                         <!-- v-model="selected" -->
                         <select id="selectTab" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            <option v-for="item in source.fileSheets.properties" :value="item" :key="item.sheetId">
-                                {{ item.title }}
+                            <option v-for="item in source.fileSheets" :value="item" :key="item.properties.sheetId">
+                                {{ item.properties.title }}
                             </option>
                         </select>
                     </div>

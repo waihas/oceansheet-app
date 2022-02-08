@@ -347,7 +347,7 @@ export default {
                 includeGridData: true
             })
             console.log(response.result)
-            this.fileSheets = response.result.sheets;
+            this.source.fileSheets = response.result.sheets;
             console.log(JSON.stringify(response.result))
             // this.getSheetTabs()
             

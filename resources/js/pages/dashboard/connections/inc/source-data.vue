@@ -347,7 +347,7 @@ export default {
             // else // do something
         },
         async getSheetTabs() {
-            const response = await this.$google.api.client.sheets.spreadsheets.values.get({
+            const response = await this.$google.api.client.sheets.spreadsheets.get({
                 spreadsheetId: this.source.file.id,
                 // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             })

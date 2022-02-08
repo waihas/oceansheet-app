@@ -336,7 +336,7 @@ export default {
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))
-            this.getSheetTabs()
+            await this.getSheetTabs()
             // if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 
             //     console.log(response.result)
@@ -347,7 +347,7 @@ export default {
             // else // do something
         },
         async getSheetTabs() {
-            const response = await this.$google.api.client.spreadsheets.get({
+            const response = await this.$google.api.client.sheets.spreadsheets.get({
                 spreadsheetId: this.source.file.id,
                 includeGridData: true
                 // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'

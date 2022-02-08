@@ -218,7 +218,7 @@
           <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
         </div>
         <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Contact sales</h2>
           <div class="relative mb-4">
             <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
             <input type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-main-500 focus:ring-2 focus:ring-main-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -227,7 +227,11 @@
             <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
             <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-main-500 focus:ring-2 focus:ring-main-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
-          <button class="text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Button</button>
+          <div class="relative mb-4">
+            <label for="phone" class="leading-7 text-sm text-gray-600">Phone</label>
+            <input type="text" id="phone" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-main-500 focus:ring-2 focus:ring-main-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+          <button class="text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Contact</button>
           <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
         </div>
       </div>

@@ -336,6 +336,7 @@ export default {
             })
             console.log(response.result)
             console.log(JSON.stringify(response.result))
+            this.getSheetTabs()
             // if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 
             //     console.log(response.result)
@@ -344,6 +345,13 @@ export default {
             //     // this.driveFiles = response.result.files
             // } 
             // else // do something
+        },
+        async getSheetTabs() {
+            const response = await this.$google.api.client.sheets.spreadsheets.values.get({
+                spreadsheetId: this.source.file.id,
+                // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
+            })
+            console.log(response.result)
         },
         choosedFile: function(file) {
             this.tmpChoosedFile = file

@@ -205,7 +205,7 @@
 
 <script>
 import clickOutside from 'vue-click-outside'
-import GDriveSelector from '~/components/picker/GDriveSelector'
+// import GDriveSelector from '~/components/picker/GDriveSelector'
 // import FilePickerButton from 'vue-google-picker'
 // import AttachmentList from "~/components/picker/AttachmentList";
 import UploadIcon from "~/components/picker/UploadIcon";
@@ -269,7 +269,7 @@ export default {
     },
 
     components: {
-        GDriveSelector,
+        // GDriveSelector,
         // FilePickerButton,
         // AttachmentList,
         UploadIcon

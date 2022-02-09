@@ -11,6 +11,7 @@
 
           <div v-show="step === 2">
             <output-data @step-two-completed="stepTwoCompleted"
+              @go-one-step-back="goOneStepBack"
             ></output-data>
           </div>
 
@@ -18,6 +19,7 @@
             <settings :source="source" 
               :output="output" 
               @step-three-completed="stepThreeCompleted"
+              @go-one-step-back="goOneStepBack"
             ></settings>
           </div>
 
@@ -26,11 +28,11 @@
               :output="output"
               :options="options"
               :startConnectiong="startConnectiong"
+              @go-one-step-back="goOneStepBack"
             ></connecting>
           </div>
 
-          <div class="flex flex-row-reverse justify-between py-3 px-4 border-t border-gray-100">
-
+          <!-- <div class="flex flex-row-reverse justify-between py-3 px-4 border-t border-gray-100">
               <div class="flex-initial">
                 <button
                   :disabled="movingToNextStep"
@@ -66,9 +68,7 @@
                   </svg>
                 </button>
               </div>
-          </div>
-          
-          <!-- Debug: {{registration}} -->
+          </div> -->
 
       </div>
 
@@ -141,14 +141,20 @@ export default {
         stepOneCompleted: function(data) {
           this.source = data
           this.step1Validated = true
+          this.step = 2
         },
         stepTwoCompleted: function(data) {
           this.output = data
           this.step2Validated = true
+          this.step = 3
         },
         stepThreeCompleted: function(data) {
           this.options = data
           this.step3Validated = true
+          this.step = 4
+        },
+        goOneStepBack: function() {
+          this.step--
         },
         onComplete: function() {
             alert('Yay. Done!');

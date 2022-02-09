@@ -62,20 +62,26 @@
                 </div>
             </div>
         </section>
+
+        <banner></banner>
+
     </div>
 </template>
 
 <script>
+import Banner from '~/components/home/Banner'
 
 export default {
-  layout: 'basic',
+    layout: 'basic',
 
-  metaInfo () {
-    return { title: 'Our Products Features' }
-  },
+    components: { Banner },
 
-  data: () => ({
-    title: window.config.appName,
-  }),
+    metaInfo () {
+        return { title: 'Our Products Features' }
+    },
+
+    data: () => ({
+        title: window.config.appName,
+    }),
 }
 </script>

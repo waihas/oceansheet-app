@@ -21,7 +21,7 @@
                 Connect and manage your <br class="hidden lg:block"> spreadsheets easily. 
               </h1>
               <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
-                The best way to connect and manage your spreadsheets for free.
+                Connect spreadsheets and automate your work.
               </p>
               <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
                 Get Started Now »
@@ -56,70 +56,52 @@
     <section class="text-gray-600">
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-20">
-          <h2 class="text-xs text-main-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
-          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Master Cleanse Reliac Heirloom</h1>
+          <h2 class="text-xs text-main-500 tracking-widest font-medium title-font mb-1">OCEANSHEET</h2>
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Connect, Filter, Merge Sheets, Excel, CSV</h1>
         </div>
         <div class="flex flex-wrap -m-4">
           <div class="p-4 md:w-1/3">
-            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-              <div class="flex items-center mb-3">
-                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col text-center">
+              <div class="flex items-center mb-3 justify-center">
+                <div class="w-14 h-14 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                   </svg>
                 </div>
-                <h2 class="text-gray-900 text-lg title-font font-medium">Shooting Stars</h2>
               </div>
-              <div class="flex-grow">
-                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
+              <div class="flex-grow mt-4">
+                <h2 class="text-gray-900 text-xl font-bold">Connect Google Sheets to Google Sheets</h2>
+                <p class="leading-relaxed text-base mt-3">Link Google Sheets to move data between different files automatically.</p>
               </div>
             </div>
           </div>
           <div class="p-4 md:w-1/3">
-            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-              <div class="flex items-center mb-3">
-                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
+            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col text-center">
+              <div class="flex items-center mb-3 justify-center">
+                <div class="w-14 h-14 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                   </svg>
                 </div>
-                <h2 class="text-gray-900 text-lg title-font font-medium">The Catalyzer</h2>
               </div>
-              <div class="flex-grow">
-                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
+              <div class="flex-grow mt-4">
+                <h2 class="text-gray-900 text-xl font-bold">Connect Excel to Google Sheets or CSV</h2>
+                <p class="leading-relaxed text-base mt-3">Transfer, Convert and Export Excel to Google Sheets automatically.</p>
               </div>
             </div>
           </div>
           <div class="p-4 md:w-1/3">
-            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-              <div class="flex items-center mb-3">
-                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <circle cx="6" cy="6" r="3"></circle>
-                    <circle cx="6" cy="18" r="3"></circle>
-                    <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col text-center">
+              <div class="flex items-center mb-3 justify-center">
+                <div class="w-14 h-14 inline-flex items-center justify-center rounded-full bg-main-500 text-white flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                   </svg>
                 </div>
-                <h2 class="text-gray-900 text-lg title-font font-medium">Neptune</h2>
               </div>
-              <div class="flex-grow">
-                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-                <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
+              <div class="flex-grow mt-4">
+                <h2 class="text-gray-900 text-xl font-bold">Control data privacy with custom workflows</h2>
+                <p class="leading-relaxed text-base mt-3">Share data without sharing your entire spreadsheet.</p>
               </div>
             </div>
           </div>
@@ -132,19 +114,29 @@
         <div class="flex flex-wrap -mx-4 -mb-10 text-center">
           <div class="sm:w-1/2 mb-10 px-4">
             <div class="rounded-lg h-64 overflow-hidden">
-              <img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1201x501">
+              <img alt="content" class="object-cover object-center h-full w-full" src="assets/img/img-1.jpg">
             </div>
-            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Buy YouTube Videos</h2>
-            <p class="leading-relaxed text-base">Williamsburg occupy sustainable snackwave gochujang. Pinterest cornhole brunch, slow-carb neutra irony.</p>
-            <button class="flex mx-auto mt-6 text-white bg-main-500 border-0 py-2 px-5 focus:outline-none hover:bg-main-600 rounded">Button</button>
+            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Export data to multiple other files</h2>
+            <p class="leading-relaxed text-base">Send filtered data from a master sheet to up to 100 other Google Sheets files automatically.</p>
+            <router-link :to="{ name: 'workflows.one-to-many' }" class="inline-flex items-center justify-center mt-8 text-main-500 hover:underline">
+              Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </router-link>
           </div>
           <div class="sm:w-1/2 mb-10 px-4">
             <div class="rounded-lg h-64 overflow-hidden">
-              <img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1202x502">
+              <img alt="content" class="object-cover object-center h-full w-full" src="assets/img/img-2.jpg">
             </div>
-            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">The Catalyzer</h2>
-            <p class="leading-relaxed text-base">Williamsburg occupy sustainable snackwave gochujang. Pinterest cornhole brunch, slow-carb neutra irony.</p>
-            <button class="flex mx-auto mt-6 text-white bg-main-500 border-0 py-2 px-5 focus:outline-none hover:bg-main-600 rounded">Button</button>
+            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Import data from multiple files into one</h2>
+            <p class="leading-relaxed text-base">Automatically merge Google Sheets, Excel or CSV files, pulling data into one master sheet for analysis, reporting and dashboards.</p>
+            <router-link :to="{ name: 'workflows.many-to-one' }" class="inline-flex items-center justify-center mt-8 text-main-500 hover:underline">
+              Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </router-link>
           </div>
         </div>
       </div>
@@ -153,7 +145,7 @@
     <section class="bg-main-500 text-gray-600">
       <div class="container px-5 py-24 mx-auto flex flex-wrap">
         <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-          <img alt="feature" class="object-cover object-center h-full w-full" src="https://dummyimage.com/460x500">
+          <img alt="feature" class="object-cover object-center h-full w-full" src="assets/img/img-3.jpg">
         </div>
         <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
           <div class="flex flex-col mb-10 lg:items-start items-center">
@@ -163,13 +155,15 @@
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Shooting Stars</h2>
-              <p class="leading-relaxed text-base text-white">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-              <a class="mt-3 text-main-500 inline-flex items-center">Learn More
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Connect Google Sheets, Excel & CSV/TSV</h2>
+              <p class="leading-relaxed text-base text-white">Transfer data between CSV or TSV and Google Sheets automatically.</p>
+              <p class="leading-relaxed text-base text-white">Upload CSV to Google Sheets automatically.</p>
+              <p class="leading-relaxed text-base text-white">Send data from CSV to Excel online files.</p>
+              <!-- <a class="mt-3 text-main-500 inline-flex items-center">Learn More
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </a> -->
             </div>
           </div>
           <div class="flex flex-col mb-10 lg:items-start items-center">
@@ -181,13 +175,10 @@
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">The Catalyzer</h2>
-              <p class="leading-relaxed text-base text-white">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-              <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Better business intelligence</h2>
+              <p class="leading-relaxed text-base text-white">Generate automated reports and dashboards.</p>
+              <p class="leading-relaxed text-base text-white">Get accurate and traceable data.</p>
+              <p class="leading-relaxed text-base text-white">Build a custom solution for any business process.</p>
             </div>
           </div>
           <div class="flex flex-col mb-10 lg:items-start items-center">
@@ -198,13 +189,12 @@
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Neptune</h2>
-              <p class="leading-relaxed text-base text-white">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
-              <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Append Google Sheets data</h2>
+              <p class="leading-relaxed text-base text-white">Create historical charts and record changes to your data over time.</p>
+              <p class="leading-relaxed text-base text-white">Freeze values at specified intervals and append data in a log.</p>
+              <p class="leading-relaxed text-base text-white">Append Excel to Google Sheets or append Google Sheets to Excel.</p>
+              <p class="leading-relaxed text-base text-white">Track changes in Excel.</p>
+              <p class="leading-relaxed text-base text-white">Track changes in Google Sheets by appending values at regular times.</p>
             </div>
           </div>
         </div>

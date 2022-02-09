@@ -312,7 +312,7 @@ export default {
         }),
         openPicker: function() {
             this.showPicker = true
-            if(this.isSignedIn)
+            if(this.isSignedIn && this.driveFiles == [])
                 this.loadSheets()
         },
         closePicker: function() {
@@ -346,19 +346,10 @@ export default {
                 spreadsheetId: this.source.file.id,
                 includeGridData: true
             })
-            console.log(response.result)
+            // console.log(response.result)
             this.source.sheets = response.result.sheets;
-            console.log(JSON.stringify(response.result))
-            // this.getSheetTabs()
+            // console.log(JSON.stringify(response.result))
             
-        },
-        async getSheetTabs() {
-            const response = await this.$google.api.client.sheets.spreadsheets.get({
-                spreadsheetId: this.source.file.id,
-                includeGridData: true
-            })
-            console.log('sheet tabs:')
-            console.log(response.result)
         },
         choosedFile: function(file) {
             this.tmpChoosedFile = file

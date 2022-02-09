@@ -4,8 +4,21 @@ function page (path) {
   
   export default [
     { path: '/', name: 'welcome', component: page('welcome.vue') },
+    { path: '/about-us', name: 'about', component: page('about.vue') },
     { path: '/pricing', name: 'pricing', component: page('pricing.vue') },
-  
+    { path: '/product/for-google-sheets', name: 'products.for-gsheet', component: page('products/for-gsheet.vue') },
+    { path: '/product/for-microsoft-excel', name: 'products.for-microsoft', component: page('products/for-microsoft.vue') },
+    { path: '/our-workflows', name: 'workflows', component: page('workflows.vue') },
+    { path: '/workflows/excel-to-google-sheet', name: 'workflows.excel-to-gsheet', component: page('workflows/excel-to-gsheet.vue') },
+    { path: '/workflows/google-sheet-filter-data', name: 'workflows.filter-data', component: page('workflows/filter-data.vue') },
+    { path: '/workflows/many-google-sheets-to-one', name: 'workflows.many-to-one', component: page('workflows/many-to-one.vue') },
+    { path: '/workflows/one-google-sheets-to-many', name: 'workflows.one-to-many', component: page('workflows/one-to-many.vue') },
+    { path: '/work-with-us', name: 'careers', component: page('careers.vue') },
+    { path: '/blog', name: 'blog', component: page('blog.vue') },
+    { path: '/press-kit', name: 'press-kit', component: page('press-kit.vue') },
+    { path: '/security', name: 'security', component: page('security.vue') },
+    { path: '/support', name: 'support', component: page('support.vue') },
+
     { path: '/login', name: 'login', component: page('auth/login.vue') },
     { path: '/register', name: 'register', component: page('auth/register.vue') },
     { path: '/password/reset', name: 'password.request', component: page('auth/password/email.vue') },

@@ -30,7 +30,7 @@
                     <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">PRODUCT</h2>
                     <nav class="list-none mb-10">
                         <li>
-                            <router-link :to="{ name: 'products.connection' }" class="text-gray-600 hover:text-gray-800">Features</router-link>
+                            <router-link :to="{ name: 'features' }" class="text-gray-600 hover:text-gray-800">Features</router-link>
                         </li>
                         <li>
                             <router-link :to="{ name: 'workflows' }" class="text-gray-600 hover:text-gray-800">Workflows</router-link>

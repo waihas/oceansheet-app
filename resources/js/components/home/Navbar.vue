@@ -42,7 +42,7 @@
                         </div>
                         <div class="ml-3">
                           <p class="font-semibold">For Google Sheet</p>
-                          <p class="text-sm">Create Connection between Google Sheet files</p>
+                          <p class="text-sm">Create Connection between Sheets</p>
                         </div>
                       </router-link>
                       <router-link :to="{ name: 'products.for-microsoft' }" class="flex row items-center rounded-lg bg-transparent p-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

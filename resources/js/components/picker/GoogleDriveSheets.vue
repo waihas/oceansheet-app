@@ -1,16 +1,14 @@
 <template>
     <div>
-        <!-- change name from source.file to sheet.file or something else neutral -->
-        <div v-if="Object.keys(source.file).length > 0">
+        <div v-if="Object.keys(tmp.file).length > 0">
             <div class="bg-white p-3 flex flex-wrap">
                 <img class="w-28 h-28" src="/assets/img/sheet-logo.svg" alt="Sheet logo" >
                 <div class="ml-6 flex flex-col my-auto">
                     <div class="text-2xl">
-                        {{ source.file.name }}
+                        {{ tmp.file.name }}
                     </div>
-                    <div class="text-sm" v-if="source.file.size">
-                        File Size : {{ source.file.size }} bytes
-                        <!-- <span v-if="checkProgress(source.file)" class="upload-prgress"></span> -->
+                    <div class="text-sm" v-if="tmp.file.size">
+                        Size : {{ tmp.file.size }} bytes
                     </div>
                 </div>
                 <button @click="clearChoosedFile" class="ml-auto cursor-pointer text-gray-400 text-sm">
@@ -18,22 +16,20 @@
                 </button>
             </div>
             <div class="border-t border-gray-200 mt-6 py-6 border-dashed">
-                <label for="selectTab" class="block text-sm font-medium text-gray-700 leading-5">
+                <label for="selectSheet" class="block text-sm font-medium text-gray-700 leading-5">
                     Select the sheet do you want to use
                 </label>
 
-                <div class="mt-1 rounded-md shadow-sm" v-if="source.sheets">
-                    <!-- v-model="selected" -->
-                    <select id="selectTab" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                <div class="mt-1 rounded-md shadow-sm" v-if="tmp.fileSheets">
+                    <select v-model="tmp.sheet" 
+                        id="selectSheet"
+                        @change="selectedSheetChanged($event)"
+                        class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                         <option disabled>Select a sheet</option>
-                        <option v-for="item in source.sheets" :value="item" :key="item.properties.sheetId">
+                        <option v-for="item in tmp.fileSheets" :value="item" :key="item.properties.sheetId">
                             {{ item.properties.title }}
                         </option>
                     </select>
-                </div>
-                
-                <div class="mt-2 text-sm text-red-600" @click="makeCompleted">
-                    Please select your data source sheet.
                 </div>
             </div>
         </div>
@@ -243,10 +239,10 @@ export default {
         showConfirmFile: false,
         tmpChoosedFile: {},
         isMenuOpen: false, 
-        source: {
+        tmp: {
             file: {},
-            sheets: {},
-            tab: null
+            fileSheets: {},
+            sheet: {}
         },
         driveFiles: [
             // {
@@ -289,7 +285,7 @@ export default {
             // make this condition more specific if not null and true
             if(val) 
                 this.loadSheets()
-        },
+        }
     },
 
     methods: {
@@ -306,36 +302,30 @@ export default {
         closePicker: function() {
             this.showPicker = false
         },
-        makeCompleted: function() {
-            this.$emit("step-one-completed", this.source);
-        },
         async loadSheets() {
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'",
                 fields: 'files(id,size,name)'
             })
             if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
+                
                 console.log(response.result.files)
-
                 this.driveFiles = response.result.files
-                // this.driveFiles = response.result.files.filter(file => {
-                //     return file.mimeType == 'application/vnd.google-apps.spreadsheet'
-                // })
+
             } else this.driveFiles = []
         },
         async loadSheetDetails() {
             // const response = await this.$google.api.client.drive.files.get({
-            //     fileId: this.source.file.id,
+            //     fileId: this.tmp.file.id,
             //     fields: '*'
             //     // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             // })
             const response = await this.$google.api.client.sheets.spreadsheets.get({
-                // spreadsheetId: '1sdxqzuQ7fANcYUJjbnFJ0YCpHZqWH9gBCxcT-0M9vTY',
-                spreadsheetId: this.source.file.id,
+                spreadsheetId: this.tmp.file.id,
                 includeGridData: true
             })
+            this.tmp.fileSheets = response.result.sheets;
             // console.log(response.result)
-            this.source.sheets = response.result.sheets;
             // console.log(JSON.stringify(response.result))
             
         },
@@ -344,24 +334,25 @@ export default {
             this.showConfirmFile = true
         },
         confirmChoosedFile: function() {
-            this.source.file = this.tmpChoosedFile
-            this.$emit("step-one-completed", this.source)
-            console.log('choosed file is: ' + this.tmpChoosedFile.id)
+            this.tmp.file = this.tmpChoosedFile
+            this.$emit("file-choosed", this.tmpChoosedFile)
+            console.log('choosed fileId is: ' + this.tmpChoosedFile.id)
             this.loadSheetDetails()
             this.closePicker()
-        },
-        chooseTab: function() {
-            this.$emit("step-one-completed", this.source);
         },
         clearChoosedFile: function() {
             this.showConfirmFile = false
             this.tmpChoosedFile = {}
-            this.source = {
+            this.tmp = {
                 file: {},
-                sheets: {},
-                tab: null
+                fileSheets: {},
+                sheet: {}
             }
         },
+        selectedSheetChanged: function(event) {
+            this.$emit("sheet-choosed", this.tmp.sheet)
+            console.log('choosed sheet is: ' + this.tmp.sheet.properties.title)
+        }
     },
 }
 </script>

@@ -6,28 +6,35 @@
     <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
       <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
           <div v-show="step === 1">
-            <source-data @step-one-completed="stepOneCompleted"></source-data>
+            <source-data
+              @step-one-completed="stepOneCompleted"
+            ></source-data>
           </div>
 
           <div v-show="step === 2">
-            <output-data @step-two-completed="stepTwoCompleted"
+            <output-data
+              @step-two-completed="stepTwoCompleted"
               @go-one-step-back="goOneStepBack"
             ></output-data>
           </div>
 
           <div v-show="step === 3">
-            <settings :source="source" 
-              :output="output" 
+            <settings
+              :source="source" 
+              :output="output"
+              :startSettings="startSettings"
               @step-three-completed="stepThreeCompleted"
               @go-one-step-back="goOneStepBack"
             ></settings>
           </div>
 
           <div v-show="step === 4">
-            <connecting :source="source"
+            <connecting
+              :source="source"
               :output="output"
               :options="options"
               :startConnectiong="startConnectiong"
+              @step-four-completed="stepFourCompleted"
               @go-one-step-back="goOneStepBack"
             ></connecting>
           </div>
@@ -117,19 +124,19 @@ export default {
     data() {
         return {
             step: 1,
-            step1Validated: false,
-            step2Validated: false,
-            step3Validated: false,
             source: {
-                files: null,
+                file: {},
+                sheet: {},
             },
             output: {
-                files: null,
+                file: {},
+                sheet: {},
             },
             options: {
-                files: null,
+                fromSheets: {},
+                toSheets: {},
             },
-            movingToNextStep: false,
+            startSettings: false,
             startConnectiong: false
         }
     },
@@ -146,47 +153,22 @@ export default {
         stepTwoCompleted: function(data) {
           this.output = data
           this.step2Validated = true
+          this.startSettings = true
           this.step = 3
         },
         stepThreeCompleted: function(data) {
           this.options = data
           this.step3Validated = true
           this.step = 4
+          this.startConnectiong = true
+        },
+        stepFourCompleted: function(data) {
+          alert('Yay. Done!');
         },
         goOneStepBack: function() {
-          this.step--
-        },
-        onComplete: function() {
-            alert('Yay. Done!');
-            // and then redirect to show page for this new connection created
-        },
-        prevStep() {
           if(this.step > 1)
-            this.step--;
+            this.step--
         },
-        nextStep() {
-          // console.log('form: '+ this.form.email);
-          if(this.step === 1)
-            if(this.step1Validated)
-              this.step++
-            else
-              console.log('finish step 1')
-          else if(this.step === 2)
-            if(this.step2Validated)
-              this.step++
-            else
-              console.log('finish step 2')
-          else if(this.step === 3)
-            if(this.step3Validated)
-            {
-              this.step++
-              this.startConnectiong = true
-            }
-            else
-              console.log('finish step 3')
-          else if(this.step === 4)
-            this.onComplete();
-        }
     }
 }
 </script>

@@ -180,67 +180,89 @@ export default {
     components: {
         Draggable
     },
+
+    props: {
+        source:{
+            file: {},
+            sheet: {},
+        },
+        output:{
+            file: {},
+            sheet: {},
+        },
+        startSettings:false
+    },
     
     data: () => ({
         movingToNextStep: false,
-        source: {
-            files:[
-                {
-                    id: 1,
-                    name: "Colomn 1",
-                    avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-                },
-                {
-                    id: 2,
-                    name: "Colomn 2",
-                    avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
-                },
-                {
-                    id: 3,
-                    name: "Colomn 3",
-                    avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
-                },
-                {
-                    id: 4,
-                    name: "Colomn 4",
-                    avatar: "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
-                },
-                {
-                    id: 5,
-                    name: "Colomn 5",
-                    avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
-                }
-            ],
-            selectedFiles: [],
-        },
-        output: {
-            files: [
-                {
-                    id: 1,
-                    name: "Col 1",
-                    avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-                },
-                {
-                    id: 2,
-                    name: "Col 2",
-                    avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
-                },
-                {
-                    id: 3,
-                    name: "Col 3",
-                    avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
-                }
-            ],
-            selectedFiles: [],
-        },
+        // source: {
+        //     files:[
+        //         {
+        //             id: 1,
+        //             name: "Colomn 1",
+        //             avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+        //         },
+        //         {
+        //             id: 2,
+        //             name: "Colomn 2",
+        //             avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
+        //         },
+        //         {
+        //             id: 3,
+        //             name: "Colomn 3",
+        //             avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
+        //         },
+        //         {
+        //             id: 4,
+        //             name: "Colomn 4",
+        //             avatar: "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
+        //         },
+        //         {
+        //             id: 5,
+        //             name: "Colomn 5",
+        //             avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
+        //         }
+        //     ],
+        //     selectedFiles: [],
+        // },
+        // output: {
+        //     files: [
+        //         {
+        //             id: 1,
+        //             name: "Col 1",
+        //             avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+        //         },
+        //         {
+        //             id: 2,
+        //             name: "Col 2",
+        //             avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
+        //         },
+        //         {
+        //             id: 3,
+        //             name: "Col 3",
+        //             avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
+        //         }
+        //     ],
+        //     selectedFiles: [],
+        // },
         options:{
-            files:null,
+            fromSheets: {},
+            toSheets: {},
         },
     }),
 
+     watch: { 
+      	startSettings: function(newVal, oldVal) { // watch it | function(newVal, oldVal)
+          if(newVal)
+            this.loadData()
+            // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+        }
+    },
+
+
     methods: {
-        closePicker: function() {
-            this.showPicker = false
+        loadData: function() {
+            // hna load rows and cols, check first row thats is not empty and first col that is not empty until it\'s empty agail
         },
         makeCompleted: function() {
             // check if length of selectedSourceFiles == selectedOutputFiles

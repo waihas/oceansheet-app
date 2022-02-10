@@ -59,13 +59,16 @@ export default {
 
     props: {
         source:{
-            files:null,
+            file: {},
+            sheet: {},
         },
         output:{
-            files:null,
+            file: {},
+            sheet: {},
         },
         options:{
-            files:null,
+            fromSheets: {},
+            toSheets: {},
         },
         startConnectiong:false
     },
@@ -77,13 +80,12 @@ export default {
     },
 
     watch: { 
-      	startConnectiong: function() { // watch it | function(newVal, oldVal)
+      	startConnectiong: function(newVal, oldVal) { // watch it | function(newVal, oldVal)
+          if(newVal)
             this.connectSheets()
             // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
         }
     },
-
-
 
     // created() {
         /// do your magic here with data i got from props
@@ -93,6 +95,10 @@ export default {
     methods: {
         connectSheets: function() {
             console.log("We are connecting...")
+            alert('Connectiong congrats, 3la slamtek!')
+        },
+        nextStep: function() {
+          this.$emit("step-four-completed");
         },
         prevStep: function() {
             this.$emit("go-one-step-back");

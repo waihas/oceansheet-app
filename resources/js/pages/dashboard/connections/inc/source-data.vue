@@ -6,7 +6,14 @@
         </div>
         <div class="p-4 flex-grow">
             
-            <google-drive-sheets ></google-drive-sheets>
+            <google-drive-sheets 
+                @file-choosed="fileChoosed"
+                @sheet-choosed="sheetChoosed"
+            ></google-drive-sheets>
+
+            <div v-if="error" class="mt-2 text-sm text-red-600">
+                {{ error }}
+            </div>
 
         </div>
 
@@ -76,9 +83,9 @@ export default {
         // isMenuOpen: false, 
         source: {
             file: {},
-            sheets: {},
-            tab: null
+            sheet: {}
         },
+        error: '',
         // driveFiles: [
         //     // {
         //     //     "kind": "drive#file",
@@ -193,8 +200,34 @@ export default {
         //         tab: null
         //     }
         // },
+        fileChoosed: function(data) {
+            this.source.file = data
+        },
+        sheetChoosed: function(data) {
+            this.source.sheet = data
+        },
+        checkFileSelected: function() {
+            if(Object.keys(this.source.file).length < 1) {
+                this.error = 'Please select a Google Sheet file.'
+                return false
+            }
+            return true
+        },
+        checkSheetSelected: function() {
+            if(Object.keys(this.source.sheet).length === 0) {
+                this.error = 'Please select your data source sheet.'
+                return false
+            }
+            return true
+        },
         nextStep: function() {
-            this.$emit("step-one-completed", this.source);
+
+            if(this.checkFileSelected() && this.checkSheetSelected()) {
+                this.error = ''
+                this.$emit("step-one-completed", this.source);
+                this.console('final source: ' + this.source)
+            }
+
         }
     },
 }

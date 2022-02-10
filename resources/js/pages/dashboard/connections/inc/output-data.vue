@@ -7,7 +7,14 @@
         </div>
         <div class="p-4 flex-grow">
             
-            <google-drive-sheets ></google-drive-sheets>
+            <google-drive-sheets
+              @file-choosed="fileChoosed"
+              @sheet-choosed="sheetChoosed"
+            ></google-drive-sheets>
+
+            <div v-if="error" class="mt-2 text-sm text-red-600">
+                {{ error }}
+            </div>
 
         </div>
 
@@ -64,15 +71,39 @@ export default {
     data: () => ({
         movingToNextStep: false,
         output:{
-            files: {},
-            sheets: {},
-            tab: null
+            file: {},
+            sheet: {},
         },
+        error: '',
     }),
     
     methods: {
+        fileChoosed: function(data) {
+            this.output.file = data
+        },
+        sheetChoosed: function(data) {
+            this.output.sheet = data
+        },
+        checkFileSelected: function() {
+            if(Object.keys(this.output.file).length < 1) {
+                this.error = 'Please select a Google Sheet file.'
+                return false
+            }
+            return true
+        },
+        checkSheetSelected: function() {
+            if(Object.keys(this.output.sheet).length === 0) {
+                this.error = 'Please select your data endpoint sheet.'
+                return false
+            }
+            return true
+        },
         nextStep: function() {
-            this.$emit("step-two-completed", this.output);
+            if(this.checkFileSelected() && this.checkSheetSelected()) {
+                this.error = ''
+                this.$emit("step-two-completed", this.output);
+                this.console('final output: ' + this.output)
+            }
         },
         prevStep: function() {
             this.$emit("go-one-step-back");

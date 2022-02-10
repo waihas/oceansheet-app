@@ -123,6 +123,7 @@ export default {
 
     watch: {
         source: function () {
+            console.log('changing in source')
             if(this.checkFileSelected()) 
                 this.error = ''
             if(this.checkSheetSelected())

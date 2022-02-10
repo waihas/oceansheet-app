@@ -18,7 +18,7 @@
                 </svg> -->
               </div>
               <h1 class="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-gray-900 md:text-5xl lg:text-6xl lg:max-w-7xl">
-                Connect and manage your <br class="hidden lg:block"> spreadsheets easily. 
+                Connect, Manage and Automate your <br class="hidden lg:block"> spreadsheets easily. 
               </h1>
               <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
                 Connect spreadsheets and automate your work.

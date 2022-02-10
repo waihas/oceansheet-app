@@ -182,14 +182,8 @@ export default {
     },
 
     props: {
-        source:{
-            file: {},
-            sheet: {},
-        },
-        output:{
-            file: {},
-            sheet: {},
-        },
+        source:{},
+        output:{},
         startSettings:false
     },
     

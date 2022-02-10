@@ -76,6 +76,13 @@ export default {
         },
         error: '',
     }),
+
+    watch: {
+        output: function () {
+            if(this.checkFileSelected() && this.checkSheetSelected()) 
+                this.error = ''
+        },
+    },
     
     methods: {
         fileChoosed: function(data) {
@@ -102,7 +109,7 @@ export default {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
                 this.error = ''
                 this.$emit("step-two-completed", this.output);
-                this.console('final output: ' + this.output)
+                console.log('final output: ' + this.output)
             }
         },
         prevStep: function() {

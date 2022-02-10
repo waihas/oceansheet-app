@@ -121,14 +121,12 @@ export default {
     //     this.$store.dispatch('gauth/init')
     // },
 
-    // watch: {
-    //     isSignedIn: function (val, oldVal) {
-    //         // console.log('new: %s, old: %s', val, oldVal)
-    //         // make this condition more specific if not null and true
-    //         if(val) 
-    //             this.loadSheets()
-    //     },
-    // },
+    watch: {
+        source: function () {
+            if(this.checkFileSelected() && this.checkSheetSelected()) 
+                this.error = ''
+        },
+    },
 
     methods: {
         // ...mapActions('gauth',{
@@ -225,7 +223,7 @@ export default {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
                 this.error = ''
                 this.$emit("step-one-completed", this.source);
-                this.console('final source: ' + this.source)
+                console.log('final source: ' + this.source)
             }
 
         }

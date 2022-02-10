@@ -53,7 +53,7 @@
                                 <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
                             </svg>
                             <h2 class="font-medium text-3xl text-gray-900">1.3K</h2>
-                            <p class="leading-relaxed">Sheets</p>
+                            <p class="leading-relaxed">Connections</p>
                         </div>
                     </div>
                     <div class="p-4 md:w-1/4 sm:w-1/2 w-full">

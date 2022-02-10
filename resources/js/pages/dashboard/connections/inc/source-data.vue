@@ -123,7 +123,9 @@ export default {
 
     watch: {
         source: function () {
-            if(this.checkFileSelected() && this.checkSheetSelected()) 
+            if(this.checkFileSelected()) 
+                this.error = ''
+            if(this.checkSheetSelected())
                 this.error = ''
         },
     },
@@ -223,7 +225,8 @@ export default {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
                 this.error = ''
                 this.$emit("step-one-completed", this.source);
-                console.log('final source: ' + this.source)
+                console.log('final source:')
+                console.log(JSON.stringify(this.source))
             }
 
         }

@@ -79,7 +79,9 @@ export default {
 
     watch: {
         output: function () {
-            if(this.checkFileSelected() && this.checkSheetSelected()) 
+            if(this.checkFileSelected()) 
+                this.error = ''
+            if(this.checkSheetSelected())
                 this.error = ''
         },
     },
@@ -109,7 +111,8 @@ export default {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
                 this.error = ''
                 this.$emit("step-two-completed", this.output);
-                console.log('final output: ' + this.output)
+                console.log('final output:')
+                console.log(JSON.stringify(this.output))
             }
         },
         prevStep: function() {

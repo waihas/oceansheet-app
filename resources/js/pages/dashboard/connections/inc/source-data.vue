@@ -121,16 +121,6 @@ export default {
     //     this.$store.dispatch('gauth/init')
     // },
 
-    watch: {
-        source: function () {
-            console.log('changing in source')
-            if(this.checkFileSelected()) 
-                this.error = ''
-            if(this.checkSheetSelected())
-                this.error = ''
-        },
-    },
-
     methods: {
         // ...mapActions('gauth',{
         //     signIn: 'signIn',
@@ -203,9 +193,11 @@ export default {
         // },
         fileChoosed: function(data) {
             this.source.file = data
+            this.error = ''
         },
         sheetChoosed: function(data) {
             this.source.sheet = data
+            this.error = ''
         },
         checkFileSelected: function() {
             if(Object.keys(this.source.file).length < 1) {

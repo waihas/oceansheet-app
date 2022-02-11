@@ -77,21 +77,14 @@ export default {
         error: '',
     }),
 
-    watch: {
-        output: function () {
-            if(this.checkFileSelected()) 
-                this.error = ''
-            if(this.checkSheetSelected())
-                this.error = ''
-        },
-    },
-    
     methods: {
         fileChoosed: function(data) {
             this.output.file = data
+            this.error = ''
         },
         sheetChoosed: function(data) {
             this.output.sheet = data
+            this.error = ''
         },
         checkFileSelected: function() {
             if(Object.keys(this.output.file).length < 1) {

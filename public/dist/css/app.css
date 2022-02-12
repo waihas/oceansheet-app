@@ -2256,6 +2256,9 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(4 120 87 / var(--tw-bg-opacity));
 }
+.focus\:bg-transparent:focus{
+  background-color: transparent;
+}
 .focus\:text-gray-600:focus{
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -2355,6 +2358,9 @@ select{
   .sm\:ml-auto{
     margin-left: auto;
   }
+  .sm\:ml-4{
+    margin-left: 1rem;
+  }
   .sm\:block{
     display: block;
   }
@@ -2412,6 +2418,16 @@ select{
   .sm\:justify-center{
     justify-content: center;
   }
+  .sm\:space-x-4 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+  .sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0px * var(--tw-space-y-reverse));
+  }
   .sm\:overflow-hidden{
     overflow: hidden;
   }
@@ -2426,6 +2442,13 @@ select{
   }
   .sm\:border-t-0{
     border-top-width: 0px;
+  }
+  .sm\:border-l-2{
+    border-left-width: 2px;
+  }
+  .sm\:border-gray-200{
+    --tw-border-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-border-opacity));
   }
   .sm\:p-10{
     padding: 2.5rem;
@@ -2453,6 +2476,14 @@ select{
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+  .sm\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .sm\:py-2{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
   .sm\:pr-16{
     padding-right: 4rem;
   }
@@ -2464,6 +2495,9 @@ select{
   }
   .sm\:pl-8{
     padding-left: 2rem;
+  }
+  .sm\:pl-4{
+    padding-left: 1rem;
   }
   .sm\:text-left{
     text-align: left;
@@ -2505,6 +2539,9 @@ select{
   }
   .md\:row-span-2{
     grid-row: span 2 / span 2;
+  }
+  .md\:m-0{
+    margin: 0px;
   }
   .md\:mx-auto{
     margin-left: auto;

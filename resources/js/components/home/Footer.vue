@@ -1,16 +1,16 @@
 <template>
-    <footer class="text-gray-600 body-font">
+    <footer class="text-gray-600">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
             <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                    <img src="/assets/img/oceansheet-logo.svg"  class="w-10 h-10" alt="OceanSheet logo" />
+                <a class="flex font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img src="/assets/img/oceansheet-logo.svg" class="w-10 h-10" alt="OceanSheet logo" />
                     <span class="ml-3 text-xl font-bold">OceanSheet</span>
                 </a>
-                <p class="mt-4 text-sm text-gray-500">Connect and manage your spreadsheets using #OceanSheet 💯</p>
+                <p class="mt-4 text-sm text-gray-500">Connect, Manage and Automate your spreadsheets easily using #OceanSheet 💯</p>
             </div>
             <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">STARTUP</h2>
+                    <h2 class="font-medium text-gray-900 tracking-widest text-sm mb-3">STARTUP</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <router-link :to="{ name: 'about' }" class="text-gray-600 hover:text-gray-800">About</router-link>
@@ -27,7 +27,7 @@
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">PRODUCT</h2>
+                    <h2 class="font-medium text-gray-900 tracking-widest text-sm mb-3">PRODUCT</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <router-link :to="{ name: 'features' }" class="text-gray-600 hover:text-gray-800">Features</router-link>
@@ -47,7 +47,7 @@
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">LEGAL</h2>
+                    <h2 class="font-medium text-gray-900 tracking-widest text-sm mb-3">LEGAL</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <router-link :to="{ name: 'terms' }"
@@ -76,7 +76,7 @@
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">RESOURCES</h2>
+                    <h2 class="font-medium text-gray-900 tracking-widest text-sm mb-3">RESOURCES</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <router-link :to="{ name: 'support' }" class="text-gray-600 hover:text-gray-800">Help Center</router-link>

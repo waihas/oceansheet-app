@@ -422,7 +422,7 @@ export default {
 
   data: () => ({
     title: window.config.appName,
-    isMonthly: true,
+    isMonthly: false,
     isFAQ1open: false,
     isFAQ2open: false,
     isFAQ3open: false,

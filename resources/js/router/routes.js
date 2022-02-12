@@ -19,6 +19,8 @@ function page (path) {
     { path: '/security', name: 'security', component: page('security.vue') },
     { path: '/support', name: 'support', component: page('support.vue') },
     { path: '/contact-us', name: 'contact', component: page('contact.vue') },
+    
+    { path: '/newsletter', name: 'newsletter', component: page('newsletter.vue') },
 
     { path: '/login', name: 'login', component: page('auth/login.vue') },
     { path: '/register', name: 'register', component: page('auth/register.vue') },

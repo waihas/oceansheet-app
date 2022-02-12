@@ -10,7 +10,7 @@
             </div>
             <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">COMPANY</h2>
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">STARTUP</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <router-link :to="{ name: 'about' }" class="text-gray-600 hover:text-gray-800">About</router-link>
@@ -19,7 +19,7 @@
                             <router-link :to="{ name: 'careers' }" class="text-gray-600 hover:text-gray-800">Work with us</router-link>
                         </li>
                         <li>
-                            <router-link :to="{ name: 'press-kit' }" class="text-gray-600 hover:text-gray-800">Press kit</router-link>
+                            <router-link :to="{ name: 'contact' }" class="text-gray-600 hover:text-gray-800">Contact us</router-link>
                         </li>
                         <li>
                             <router-link :to="{ name: 'blog' }" class="text-gray-600 hover:text-gray-800">Blog</router-link>

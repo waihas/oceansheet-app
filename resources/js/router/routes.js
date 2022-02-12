@@ -16,7 +16,6 @@ function page (path) {
     { path: '/work-with-us', name: 'careers', component: page('careers.vue') },
     { path: '/blog', name: 'blog', component: page('blog.vue') },
     { path: '/product-features', name: 'features', component: page('features.vue') },
-    { path: '/press-kit', name: 'press-kit', component: page('press-kit.vue') },
     { path: '/security', name: 'security', component: page('security.vue') },
     { path: '/support', name: 'support', component: page('support.vue') },
     { path: '/contact-us', name: 'contact', component: page('contact.vue') },

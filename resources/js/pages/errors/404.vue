@@ -1,19 +1,26 @@
 <template>
-  <card class="text-center">
-    <h3 class="mb-4">
-      {{ $t('page_not_found') }}
-    </h3>
-
-    <div class="links">
-      <router-link :to="{ name: 'welcome' }">
-        {{ $t('go_home') }}
-      </router-link>
+    <div class="w-full h-96 flex flex-col bg-gray-50 text-center">
+      <div class="m-auto">
+        <span class="text-9xl font-bold text-main-800">404</span>
+        <h1 class="text-5xl text-gray-600 mt-4 leading-none select-none text-center">
+          {{ $t('page_not_found') }}
+        </h1>
+      </div>
     </div>
-  </card>
 </template>
 
 <script>
 export default {
-  name: 'NotFound'
+  layout: 'basic',
+
+  name: 'NotFound',
+
+  metaInfo () {
+      return { title: 'Page not found' }
+  },
+
+  data: () => ({
+      title: window.config.appName,
+  }),
 }
 </script>

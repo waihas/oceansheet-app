@@ -3,8 +3,12 @@
         <section class="text-gray-600">
             <div class="container px-5 py-24 mx-auto">
                 <div class="text-center mb-20">
-                    <h1 class="sm:text-3xl text-2xl font-medium text-gray-900 mb-4">For Microsoft Excel</h1>
-                    <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+                    <h1 class="sm:text-5xl text-3xl font-medium text-gray-900 mb-4">
+                        OceanSheet For Microsoft Excel
+                    </h1>
+                    <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
+                        Collect, sync and filter your data — without leaving Excel. OceanSheet add-in for Excel enables hassle free, no-code data management.
+                    </p>
                     <div class="flex mt-6 justify-center">
                         <div class="w-16 h-1 rounded-full bg-main-500 inline-flex"></div>
                     </div>
@@ -12,250 +16,240 @@
                 <div class="flex flex-wrap -m-4">
                     <div class="xl:w-1/3 md:w-1/2 p-4">
                         <div class="border border-gray-200 p-6 rounded-lg">
-                        <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-lg text-gray-900 font-medium mb-2">Shooting Stars</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                        <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <circle cx="6" cy="6" r="3"></circle>
-                            <circle cx="6" cy="18" r="3"></circle>
-                            <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-lg text-gray-900 font-medium mb-2">The Catalyzer</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                        <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <h2 class="text-lg text-gray-900 font-medium mb-2">Neptune</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                        <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-lg text-gray-900 font-medium mb-2">Melanchole</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                        <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-lg text-gray-900 font-medium mb-2">Bunker</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                        </div>
-                    </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                        <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-lg text-gray-900 font-medium mb-2">Ramona Falls</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-                    <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-                        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-5 flex-shrink-0">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg font-medium mb-3">Shooting Stars</h2>
-                            <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.</p>
-                            <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
-                            </a>
+                            </div>
+                            <h2 class="text-lg text-gray-900 font-medium mb-2">
+                                Connect
+                            </h2>
+                            <p class="leading-relaxed text-base">
+                                Excel, Google Sheets, CSV, and TSV files can all be merged into a single file. You can even sync across cloud platforms.
+                            </p>
                         </div>
                     </div>
-                    <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-                        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-5 flex-shrink-0">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-200 p-6 rounded-lg">
+                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
                                 <circle cx="6" cy="6" r="3"></circle>
                                 <circle cx="6" cy="18" r="3"></circle>
                                 <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                            </svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg font-medium mb-3">The Catalyzer</h2>
-                            <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.</p>
-                            <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
-                            </a>
+                            </div>
+                            <h2 class="text-lg text-gray-900 font-medium mb-2">
+                                Consolidate
+                            </h2>
+                            <p class="leading-relaxed text-base">
+                                OceanSheet connect lets you collect data from multiple different sources. Bring all the data you need into one convenient location.
+                            </p>
                         </div>
                     </div>
-                    <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-                        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-5 flex-shrink-0">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-200 p-6 rounded-lg">
+                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg text-gray-900 font-medium mb-2">
+                                Distribute
+                            </h2>
+                            <p class="leading-relaxed text-base">
+                                Automatically filter data before you send it. Sync data across platforms, no matter what software you’re using.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-200 p-6 rounded-lg">
+                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg text-gray-900 font-medium mb-2">
+                                Filter
+                            </h2>
+                            <p class="leading-relaxed text-base">
+                                Automatically refine your data before sharing it. Sort by conditionals, Query functions, even cell color. No need to comb through useless data.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-200 p-6 rounded-lg">
+                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg text-gray-900 font-medium mb-2">
+                                Append
+                            </h2>
+                            <p class="leading-relaxed text-base">
+                                Track historic values with the append feature. Don’t overwrite previous data, add new data to your list instead.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-200 p-6 rounded-lg">
+                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 mb-4">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg text-gray-900 font-medium mb-2">
+                                Automate
+                            </h2>
+                            <p class="leading-relaxed text-base">
+                                Have your data updated automatically with OceanSheet connect. Sync data hourly, daily, weekly, or create a custom update schedule.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="flex mx-auto mt-16 text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Use it now</button>
+            </div>
+        </section>
+
+        <section class="text-gray-600 bg-gray-100">
+            <div class="container px-5 py-24 mx-auto flex flex-col">
+                <div class="lg:w-4/6 mx-auto">
+                    <div class="rounded-lg h-auto overflow-hidden">
+                        <img alt="OceanSheet For Google Sheet" class="object-cover object-center h-full w-full" src="/assets/img/for-microsoft.jpg">
+                    </div>
+                    <div class="flex flex-col sm:flex-row mt-10">
+                        <div class="flex flex-col items-center text-center justify-center">
+                            <h2 class="font-medium mt-4 text-gray-900 text-2xl sm:text-5xl">
+                                Connect files
+                            </h2>
+                            <div class="w-12 h-1 bg-main-500 rounded mt-2 mb-4"></div>
+                            <p class="text-base">
+                                Sync data painlessly from one spreadsheet to another without leaving Excel. Supercharge your workflows by automatically transferring data across the cloud. Your team is connected.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-gray-600 bg-main-600">
+            <div class="container px-5 py-24 mx-auto flex flex-wrap">
+                <div class="text-center mb-20 md:w-2/3 mx-auto">
+                    <h1 class="sm:text-5xl text-3xl font-medium text-white mb-4">
+                        How it Works
+                    </h1>
+                    <div class="flex mt-6 justify-center">
+                        <div class="w-16 h-1 rounded-full bg-main-500 inline-flex"></div>
+                    </div>
+                </div>
+                <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                        <div class="h-full w-1 bg-main-500 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">1</div>
+                    <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                        <div class="flex-shrink-0 w-24 h-24 bg-white text-main-500 rounded-full inline-flex items-center justify-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                            <h2 class="font-medium text-gray-900 mb-1 text-xl sm:text-3xl">Select source sheet</h2>
+                            <p class="leading-relaxed text-white">First step is you select your source Google Sheet which is the place of data you want to transfer to another sheet automatically.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                        <div class="h-full w-1 bg-main-500 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">2</div>
+                    <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                        <div class="flex-shrink-0 w-24 h-24 bg-white text-main-500 rounded-full inline-flex items-center justify-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                            <h2 class="font-medium text-gray-900 mb-1 text-xl sm:text-3xl">Select output sheet</h2>
+                            <p class="leading-relaxed text-white">Means you select to which Google Sheet you want the data to go to.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                        <div class="h-full w-1 bg-main-500 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">3</div>
+                    <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                        <div class="flex-shrink-0 w-24 h-24 bg-white text-main-500 rounded-full inline-flex items-center justify-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                                <circle cx="12" cy="5" r="3"></circle>
+                                <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                            <h2 class="font-medium text-gray-900 mb-1 text-xl sm:text-3xl">Set settings</h2>
+                            <p class="leading-relaxed text-white">Here you select your options like which columns or rows exacly you want to send to the other sheet, and many more other options to discover on the app.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                        <div class="h-full w-1 bg-main-500 pointer-events-none"></div>
+                    </div>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">4</div>
+                    <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                        <div class="flex-shrink-0 w-24 h-24 bg-white text-main-500 rounded-full inline-flex items-center justify-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
                                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg>
                         </div>
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 text-lg font-medium mb-3">Neptune</h2>
-                            <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.</p>
-                            <a class="mt-3 text-main-500 inline-flex items-center">Learn More
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                            <h2 class="font-medium text-gray-900 mb-1 text-xl sm:text-3xl">Connecting</h2>
+                            <p class="leading-relaxed text-white">The last step is we configure and create your connection, this takes some seconds to building everything under the hood.</p>
                         </div>
                     </div>
-                </div> -->
-                <button class="flex mx-auto mt-16 text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Button</button>
+                </div>
             </div>
         </section>
+
         <section class="text-gray-600">
-            <div class="container px-5 py-24 mx-auto flex flex-col">
-                <div class="lg:w-4/6 mx-auto">
-                <div class="rounded-lg h-64 overflow-hidden">
-                    <img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1200x500">
-                </div>
-                <div class="flex flex-col sm:flex-row mt-10">
-                    <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-                    <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
-                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col items-center text-center justify-center">
-                        <h2 class="font-medium mt-4 text-gray-900 text-lg">Phoebe Caulfield</h2>
-                        <div class="w-12 h-1 bg-main-500 rounded mt-2 mb-4"></div>
-                        <p class="text-base">Raclette knausgaard hella meggs normcore williamsburg enamel pin sartorial venmo tbh hot chicken gentrify portland.</p>
-                    </div>
-                    </div>
-                    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-                    <p class="leading-relaxed text-lg mb-4">Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party. Locavore small batch listicle gastropub farm-to-table lumbersexual salvia messenger bag. Coloring book flannel truffaut craft beer drinking vinegar sartorial, disrupt fashion axe normcore meh butcher. Portland 90's scenester vexillologist forage post-ironic asymmetrical, chartreuse disrupt butcher paleo intelligentsia pabst before they sold out four loko. 3 wolf moon brooklyn.</p>
-                    <a class="text-main-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                    </div>
-                </div>
+            <div class="container px-5 py-24 mx-auto">
+                <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
+                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                </svg>
+                <p class="leading-relaxed text-lg">
+                    I don’t know how I would operate without OceanSheet. I use OceanSheet almost every day.
+                </p>
+                <span class="inline-block h-1 w-10 rounded bg-main-500 mt-8 mb-6"></span>
+                <h2 class="text-gray-900 font-medium tracking-wider text-sm">SAID OUBLA</h2>
+                <p class="text-gray-500">CEO & Co-Founder of Inesevents</p>
                 </div>
             </div>
         </section>
-        <section class="text-gray-600">
-            <div class="container px-5 py-24 mx-auto flex flex-wrap">
-                <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
-                <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
-                    <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                </div>
-                <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">1</div>
-                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-                    <div class="flex-shrink-0 w-24 h-24 bg-main-100 text-main-500 rounded-full inline-flex items-center justify-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    </div>
-                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                    <h2 class="font-medium text-gray-900 mb-1 text-xl">Shooting Stars</h2>
-                    <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                    </div>
-                </div>
-                </div>
-                <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
-                <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
-                    <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                </div>
-                <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">2</div>
-                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-                    <div class="flex-shrink-0 w-24 h-24 bg-main-100 text-main-500 rounded-full inline-flex items-center justify-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                    </div>
-                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                    <h2 class="font-medium text-gray-900 mb-1 text-xl">The Catalyzer</h2>
-                    <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                    </div>
-                </div>
-                </div>
-                <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
-                <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
-                    <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                </div>
-                <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">3</div>
-                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-                    <div class="flex-shrink-0 w-24 h-24 bg-main-100 text-main-500 rounded-full inline-flex items-center justify-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
-                        <circle cx="12" cy="5" r="3"></circle>
-                        <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-                    </svg>
-                    </div>
-                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                    <h2 class="font-medium text-gray-900 mb-1 text-xl">The 400 Blows</h2>
-                    <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                    </div>
-                </div>
-                </div>
-                <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
-                <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
-                    <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                </div>
-                <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-main-500 text-white relative z-10 font-medium text-sm">4</div>
-                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-                    <div class="flex-shrink-0 w-24 h-24 bg-main-100 text-main-500 rounded-full inline-flex items-center justify-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
-                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    </div>
-                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                    <h2 class="font-medium text-gray-900 mb-1 text-xl">Neptune</h2>
-                    <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
+        
+        <banner></banner>
     </div>
 </template>
 
 <script>
+import Banner from '~/components/home/Banner'
 
 export default {
-  layout: 'basic',
+    layout: 'basic',
 
-  metaInfo () {
-    return { title: 'For Microsoft Excel' }
-  },
+    components: { Banner },
 
-  data: () => ({
-    title: window.config.appName,
-  }),
+    metaInfo () {
+        return { title: 'For Microsoft Excel' }
+    },
+
+    data: () => ({
+        title: window.config.appName,
+    }),
 }
 </script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\API\Auth\PasswordController;
 use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\Auth\UserController;
 use App\Http\Controllers\API\Auth\VerificationController;
+use App\Http\Controllers\API\NewsletterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('newsletter/add', [NewsletterController::class, 'addToNewsletter']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('logout', [LoginController::class, 'logout']);
@@ -48,6 +51,7 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
     Route::post('oauth/{driver}', [OAuthController::class, 'redirectToProvider']);
     Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleProviderCallback'])->name('oauth.callback');
 });
+
 
 
 // Route::group(['middleware' => 'auth:api'], function () {

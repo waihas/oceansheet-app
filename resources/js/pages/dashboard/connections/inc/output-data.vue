@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import GoogleDriveSheets from "~/components/picker/GoogleDriveSheets";
+import GoogleDriveSheets from "~/components/sheet-selector/GoogleDriveSheets";
 
 export default {
     name: 'OutputData',

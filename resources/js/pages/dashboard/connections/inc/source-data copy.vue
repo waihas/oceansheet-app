@@ -208,7 +208,7 @@ import clickOutside from 'vue-click-outside'
 // import GDriveSelector from '~/components/picker/GDriveSelector'
 // import FilePickerButton from 'vue-google-picker'
 // import AttachmentList from "~/components/picker/AttachmentList";
-import UploadIcon from "~/components/picker/UploadIcon";
+import UploadIcon from "~/components/sheet-selector/UploadIcon";
 import GoogleAPIs  from 'vue-googleapis'
 
 Vue.use(GoogleAPIs, {

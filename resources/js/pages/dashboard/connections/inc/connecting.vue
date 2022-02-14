@@ -49,7 +49,6 @@
                 </button>
               </div>
           </div>
-
     </div>
 </template>
 
@@ -67,8 +66,8 @@ export default {
             sheet: {},
         },
         options:{
-            fromSheets: {},
-            toSheets: {},
+            fromSheets: '',
+            toSheets: '',
         },
         startConnectiong:false
     },
@@ -87,14 +86,16 @@ export default {
         }
     },
 
-    // created() {
-        /// do your magic here with data i got from props
-        // send requests through api and stuffs
-        // alert('Connecting sheets!');
-    // }
     methods: {
         connectSheets: function() {
             console.log("We are connecting...")
+
+            // update the output.file in cell options.toSheets
+            // put on it the script below for source.file from cell options.toSheets
+
+            // =IMPORTRANGE('"'+this.source.file+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
+
+            // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
             alert('Connectiong congrats, 3la slamtek!')
         },
         nextStep: function() {

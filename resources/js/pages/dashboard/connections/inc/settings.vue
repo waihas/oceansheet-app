@@ -2,136 +2,34 @@
     <!-- here we specify which rows and columns we want to connect
     this will require good design to make it easy for user to understand -->
     <div>
-    <!-- <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg"> -->
-        <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100"
-            @click="makeCompleted">
+        <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Configuration
         </div>
-        <!-- <div class="p-4 flex-grow"> -->
-        <div class="p-4 grid grid-cols-7 space-x-1">
-            <!-- <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
-                Specifiying fields and settings
-            </div> -->
-            <div class="col-span-7 text-gray-600 mb-4">
-                Please link source columns with output columns, the ones that you want to be updated with each other.
+        <div class="p-4 flex flex-col space-x-1">
+            <div class="text-main-600 my-6">
+                #1: 
+                <span class="text-gray-600 text-lg">Please select the cell you want to bring data from.</span>
             </div>
-            <div class="w-full col-span-3 max-w-md text-center">
-                <div class="border-b my-3">
-                    selected tabs:
-                </div>
-                <draggable tag="ul"
-                    class="w-full max-w-md"
-                    ghost-class="moving-card"
-                    filter=".action-button"
-                    :list="source.selectedFiles"
-                    group="sourceFiles"
-                    >
-                    <!-- :animation="200" -->
-                    <li v-for="file in source.selectedFiles"
-                        :key="file.id"
-                        class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
-                        {{file.name}}
-                        <!-- <div class="flex items-center">
-                            <img class="w-10 h-10 rounded-full" :src="user.avatar" :alt="user.name">
-                            <p class="ml-2 text-gray-700 font-semibold font-sans tracking-wide">{{user.name}}</p>
-                        </div> -->
-                    </li>
-                </draggable>
-                <div class="border-b my-3">
-                    all tabs:
-                </div>
-                <draggable tag="ul"
-                    class="w-full max-w-md"
-                    ghost-class="moving-card"
-                    filter=".action-button"
-                    group="sourceFiles"
-                    :list="source.files"
-                    @change="log"
-                    >
-                    <!-- :animation="200" -->
-                    <li v-for="file in source.files"
-                        :key="file.id"
-                        class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
-                        {{file.name}}
-                        <!-- <div class="flex items-center">
-                            <img class="w-10 h-10 rounded-full" :src="user.avatar" :alt="user.name">
-                            <p class="ml-2 text-gray-700 font-semibold font-sans tracking-wide">{{user.name}}</p>
-                        </div> -->
-                    </li>
-                </draggable>
+            <sheet-row-col @cell-selected="cellFromSelected"></sheet-row-col>
+
+            <div v-if="errorFrom" class="mt-2 text-sm text-red-600">
+                {{ errorFrom }}
             </div>
 
-            <div class="mb-2 text-gray-700">
-                <div class="text-white my-3">
-                   to:
-                </div>
-                <ul>
-                    <li v-for="file in output.selectedFiles"
-                        :key="file.id"
-                        class="p-4 my-2 flex justify-center items-center shadow-none rounded-lg">
-                        <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                            <path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z"/>
-                        </svg>
-                        <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                            <path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z"/>
-                        </svg>
-                        <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                            <path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z"/>
-                        </svg>
-                    </li>
-                </ul>
+            <div class="text-main-600 mb-6 mt-12">
+                #2: 
+                <span class="text-gray-600 text-lg">Please which cell you want the data to appear at.</span>
             </div>
 
-            <div class="w-full col-span-3 max-w-md text-center">
-                <div class="border-b my-3">
-                    selected tabs:
-                </div>
-                <draggable tag="ul"
-                        ghost-class="moving-card"
-                        :list="output.selectedFiles"
-                        group="outputFiles"
-                        >
-                        <!-- :animation="200" -->
-                    <li v-for="file in output.selectedFiles"
-                        :key="file.id"
-                        class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
-                        {{file.name}}
-                    </li>
-                    <!-- <user-card v-for="user in newUsers"
-                            :user="user"
-                            :key="user.id"
-                            @on-edit="onEdit"
-                            @on-delete="onDelete">
-                    </user-card> -->
-                </draggable>
-                <div class="border-b my-3">
-                    all tabs:
-                </div>
-                <draggable tag="ul"
-                        @change="log"
-                        group="outputFiles"
-                        ghost-class="moving-card"
-                        :list="output.files"
-                        >
-                        <!-- :animation="200" -->
-                    <li v-for="file in output.files"
-                        :key="file.id"
-                        class="p-4 my-2 flex justify-between items-center bg-gray-50 border shadow-none rounded-lg cursor-move">
-                        {{file.name}}
-                    </li>
-                    <!-- <user-card v-for="user in newUsers"
-                            :user="user"
-                            :key="user.id"
-                            @on-edit="onEdit"
-                            @on-delete="onDelete">
-                    </user-card> -->
-                </draggable>
-            </div>
+            <sheet-row-col class="mb-6" @cell-selected="cellToSelected"></sheet-row-col>
 
+            <div v-if="errorTo" class="mt-2 text-sm text-red-600">
+                {{ errorTo }}
+            </div>
         </div>
 
         <div class="flex flex-row-reverse justify-between py-3 px-4 border-t border-gray-100">
-              <div class="flex-initial">
+            <div class="flex-initial">
                 <button
                   :disabled="movingToNextStep"
                   @click.prevent="nextStep()"
@@ -148,9 +46,9 @@
                     <path d="M13,3.233L13,3.233c0,0.454,0.302,0.867,0.745,0.966c3.711,0.829,6.46,4.238,6.243,8.242 c-0.221,4.086-3.662,7.437-7.752,7.555C7.718,20.127,4,16.49,4,12c0-3.807,2.675-6.996,6.243-7.798C10.69,4.101,11,3.693,11,3.235 V3.234c0-0.64-0.595-1.126-1.219-0.985C5.151,3.302,1.732,7.576,2.017,12.58c0.289,5.093,4.568,9.256,9.666,9.415 C17.341,22.171,22,17.619,22,12c0-4.753-3.334-8.741-7.785-9.752C13.593,2.107,13,2.595,13,3.233z"></path>
                   </svg>
                 </button>
-              </div>
+            </div>
 
-              <div class="flex-initial">
+            <div class="flex-initial">
                 <button
                   :disabled="movingToNextStep"
                   @click.prevent="prevStep()"
@@ -165,108 +63,72 @@
                     <path d="M13,3.233L13,3.233c0,0.454,0.302,0.867,0.745,0.966c3.711,0.829,6.46,4.238,6.243,8.242 c-0.221,4.086-3.662,7.437-7.752,7.555C7.718,20.127,4,16.49,4,12c0-3.807,2.675-6.996,6.243-7.798C10.69,4.101,11,3.693,11,3.235 V3.234c0-0.64-0.595-1.126-1.219-0.985C5.151,3.302,1.732,7.576,2.017,12.58c0.289,5.093,4.568,9.256,9.666,9.415 C17.341,22.171,22,17.619,22,12c0-4.753-3.334-8.741-7.785-9.752C13.593,2.107,13,2.595,13,3.233z"></path>
                   </svg>
                 </button>
-              </div>
-          </div>
-
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-import Draggable from 'vuedraggable'
+// import Draggable from 'vuedraggable'
+import SheetRowCol from '~/components/sheet-selector/SheetRowCol';
 
 export default {
     name: 'Settings',
 
     components: {
-        Draggable
+        // Draggable,
+        SheetRowCol
     },
 
     props: {
         source:{},
         output:{},
-        startSettings:false
+        // startSettings:false
     },
     
     data: () => ({
         movingToNextStep: false,
-        // source: {
-        //     files:[
-        //         {
-        //             id: 1,
-        //             name: "Colomn 1",
-        //             avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-        //         },
-        //         {
-        //             id: 2,
-        //             name: "Colomn 2",
-        //             avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
-        //         },
-        //         {
-        //             id: 3,
-        //             name: "Colomn 3",
-        //             avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
-        //         },
-        //         {
-        //             id: 4,
-        //             name: "Colomn 4",
-        //             avatar: "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
-        //         },
-        //         {
-        //             id: 5,
-        //             name: "Colomn 5",
-        //             avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
-        //         }
-        //     ],
-        //     selectedFiles: [],
-        // },
-        // output: {
-        //     files: [
-        //         {
-        //             id: 1,
-        //             name: "Col 1",
-        //             avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-        //         },
-        //         {
-        //             id: 2,
-        //             name: "Col 2",
-        //             avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
-        //         },
-        //         {
-        //             id: 3,
-        //             name: "Col 3",
-        //             avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
-        //         }
-        //     ],
-        //     selectedFiles: [],
-        // },
         options:{
-            fromSheets: {},
-            toSheets: {},
+            fromSheets: '',
+            toSheets: '',
         },
+        errorFrom: '',
+        errorTo: ''
     }),
 
      watch: { 
-      	startSettings: function(newVal, oldVal) { // watch it | function(newVal, oldVal)
-          if(newVal)
-            this.loadData()
-            // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
-        }
+      	// startSettings: function(newVal, oldVal) { // watch it | function(newVal, oldVal)
+        //   if(newVal)
+        //     this.loadData()
+        //     // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+        // }
     },
 
-
     methods: {
-        loadData: function() {
-            // hna load rows and cols, check first row thats is not empty and first col that is not empty until it\'s empty agail
+        // loadData: function() {
+        //     // hna load rows and cols, check first row thats is not empty and first col that is not empty until it\'s empty agail
+        // },
+        cellFromSelected: function(data) {
+            this.options.fromSheets = data
+            this.errorFrom = ''
         },
-        makeCompleted: function() {
-            // check if length of selectedSourceFiles == selectedOutputFiles
-            this.$emit("step-three-completed", this.options);
+        cellToSelected: function(data) {
+            this.options.toSheets = data
+            this.errorTo = ''
         },
         log: function(evt) {
             window.console.log(evt);
         },
         nextStep: function() {
-            this.$emit("step-three-completed", this.options);
+            if(this.options.fromSheets === '') {
+                this.errorFrom = "Please select a row and column from the source data sheet."
+            }
+            else if(this.options.toSheets === '') {
+                this.errorTo = "Please select a row and column from the output data sheet."
+            }
+            else {
+                this.$emit("step-three-completed", this.options);
+            }
         },
         prevStep: function() {
             this.$emit("go-one-step-back");

@@ -19,10 +19,10 @@
           </div>
 
           <div v-show="step === 3">
+              <!-- :startSettings="startSettings" -->
             <settings
               :source="source" 
               :output="output"
-              :startSettings="startSettings"
               @step-three-completed="stepThreeCompleted"
               @go-one-step-back="goOneStepBack"
             ></settings>
@@ -133,10 +133,10 @@ export default {
                 sheet: {},
             },
             options: {
-                fromSheets: {},
-                toSheets: {},
+                fromSheets: '',
+                toSheets: '',
             },
-            startSettings: false,
+            // startSettings: false,
             startConnectiong: false
         }
     },
@@ -153,7 +153,7 @@ export default {
         stepTwoCompleted: function(data) {
           this.output = data
           this.step2Validated = true
-          this.startSettings = true
+          // this.startSettings = true
           this.step = 3
         },
         stepThreeCompleted: function(data) {

@@ -220,7 +220,7 @@
 
 <script>
 import clickOutside from 'vue-click-outside'
-import UploadIcon from "~/components/picker/UploadIcon";
+import UploadIcon from "~/components/sheet-selector/UploadIcon";
 import { mapGetters, mapActions } from 'vuex'
 
 export default {

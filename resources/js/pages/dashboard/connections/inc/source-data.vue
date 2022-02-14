@@ -60,8 +60,8 @@
 
 <script>
 // import clickOutside from 'vue-click-outside'
-// import UploadIcon from "~/components/picker/UploadIcon";
-import GoogleDriveSheets from "~/components/picker/GoogleDriveSheets";
+// import UploadIcon from "~/components/sheet-selector/UploadIcon";
+import GoogleDriveSheets from "~/components/sheet-selector/GoogleDriveSheets";
 // import { mapGetters, mapActions } from 'vuex'
 
 export default {

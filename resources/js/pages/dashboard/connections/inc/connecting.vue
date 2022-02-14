@@ -92,11 +92,20 @@ export default {
 
             // update the output.file in cell options.toSheets
             // put on it the script below for source.file from cell options.toSheets
+            
+            // await this.updateCell()
 
             // =IMPORTRANGE('"'+this.source.file+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
 
             // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
             alert('Connectiong congrats, 3la slamtek!')
+        },
+        async updateCell() {
+          const response = await this.$google.api.client.sheets.spreadsheets.get({
+                spreadsheetId: this.tmp.file.id,
+                includeGridData: true
+            })
+          this.tmp.fileSheets = response.result.sheets;
         },
         nextStep: function() {
           this.$emit("step-four-completed");

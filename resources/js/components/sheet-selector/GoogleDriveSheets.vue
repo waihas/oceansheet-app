@@ -324,6 +324,7 @@ export default {
                 spreadsheetId: this.tmp.file.id,
                 includeGridData: true
             })
+            this.tmp.file.push({url: response.result.spreadsheetUrl});
             this.tmp.fileSheets = response.result.sheets;
             // console.log(response.result)
             // console.log(JSON.stringify(response.result))

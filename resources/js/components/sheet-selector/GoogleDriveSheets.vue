@@ -305,7 +305,7 @@ export default {
         async loadSheets() {
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'",
-                fields: 'files(id,size,name)'
+                fields: 'files(id,size,name,webViewLink)'
             })
             if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 
@@ -324,7 +324,6 @@ export default {
                 spreadsheetId: this.tmp.file.id,
                 includeGridData: true
             })
-            this.tmp.file.push({url: response.result.spreadsheetUrl});
             this.tmp.fileSheets = response.result.sheets;
             // console.log(response.result)
             // console.log(JSON.stringify(response.result))

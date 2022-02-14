@@ -95,7 +95,7 @@ export default {
             
             // await this.updateCell()
 
-            // =IMPORTRANGE('"'+this.source.file+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
+            // =IMPORTRANGE('"'+this.source.file.webViewLink+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
 
             // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
             alert('Connectiong congrats, 3la slamtek!')

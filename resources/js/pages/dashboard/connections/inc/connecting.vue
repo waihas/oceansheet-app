@@ -119,7 +119,7 @@ export default {
 
           const response = await this.$google.api.client.sheets.spreadsheets.values.update({
                 spreadsheetId: this.output.file.id,
-                range: this.output.sheet+'!'+this.options.toSheets,
+                range: this.output.sheet.properties.title+'!'+this.options.toSheets,
                 valueInputOption: 'USER_ENTERED',
                 values: [ ["123"] ]
                 // spreadsheetId: 'something',

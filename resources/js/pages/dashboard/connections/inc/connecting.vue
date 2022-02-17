@@ -7,7 +7,10 @@
             We're connectiong yours sheets now...
         </div>
         <div class="p-4 flex-grow">
-            <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+            <div v-if="connectingCompleted" class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+              Successfully connected :)
+            </div>
+            <div v-else class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
                 Loading...
             </div>
         </div>
@@ -75,6 +78,7 @@ export default {
     data() {
         return {
             movingToNextStep: false,
+            connectingCompleted: false,
         }
     },
 
@@ -121,13 +125,19 @@ export default {
                 spreadsheetId: this.output.file.id,
                 range: this.output.sheet.properties.title+'!'+this.options.toSheets,
                 valueInputOption: 'USER_ENTERED',
-                values: [ ["123"] ]
+                         // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
+                values: [ ["=IMPORTRANGE(\""+this.source.file.webViewLink+"\";\""+this.source.sheet.properties.title+"!"+this.options.toSheets+":"+this.options.toSheets.charAt(0)+"1000)\""] ]
                 // spreadsheetId: 'something',
                 // range: 'Sheet1!B2',
                 // valueInputOption: 'USER_ENTERED',
                 // values: [ ["123"] ]
             })
+
             console.log(response);
+            if(response.status == 200) {
+              this.connectingCompleted = true
+            }
+            
           // this.tmp.fileSheets = response.result.sheets;
         },
         nextStep: function() {

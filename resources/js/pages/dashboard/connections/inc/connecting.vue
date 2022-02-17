@@ -126,7 +126,7 @@ export default {
                 range: this.output.sheet.properties.title+'!'+this.options.toSheets,
                 valueInputOption: 'USER_ENTERED',
                          // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
-                values: [ ["=IMPORTRANGE(\""+this.source.file.webViewLink+"\";\""+this.source.sheet.properties.title+"!"+this.options.toSheets+":"+this.options.toSheets.charAt(0)+"1000)\""] ]
+                values: [ ["=IMPORTRANGE(\""+this.source.file.webViewLink.split('?')[0]+"\";\""+this.source.sheet.properties.title+"!"+this.options.toSheets+":"+this.options.toSheets.charAt(0)+"1000)\""] ]
                 // spreadsheetId: 'something',
                 // range: 'Sheet1!B2',
                 // valueInputOption: 'USER_ENTERED',

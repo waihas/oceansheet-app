@@ -120,7 +120,8 @@ export default {
           // };
 
           // return await this.$google.api.client.sheets.spreadsheets.updateSpreadsheet(request);
-
+          console.log("new link: " + (this.source.file.webViewLink).split('?')[0])
+          console.log("new link: " + this.source.file.webViewLink.split('?')[0])
           const response = await this.$google.api.client.sheets.spreadsheets.values.update({
                 spreadsheetId: this.output.file.id,
                 range: this.output.sheet.properties.title+'!'+this.options.toSheets,

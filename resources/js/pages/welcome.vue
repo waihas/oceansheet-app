@@ -240,7 +240,7 @@ export default {
   components: { Banner },
 
   metaInfo () {
-    return { title: 'Connect and Manage your Spreadsheets' }
+    return { title: 'Connect, Manage and Automate your spreadsheets easily' }
   },
 
   mounted() {

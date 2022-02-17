@@ -101,11 +101,34 @@ export default {
             alert('Connectiong congrats, 3la slamtek!')
         },
         async updateCell() {
-          const response = await this.$google.api.client.sheets.spreadsheets.get({
-                spreadsheetId: this.tmp.file.id,
-                includeGridData: true
+
+          // const request = {
+          //   spreadsheetId: this.sheetId,
+          //   range: `${this.sheetName}!${this.cell}:${this.cell}`,
+          //   valueInputOption: "USER_ENTERED",
+          //   resource: {
+          //     values: [
+          //       [
+          //         this.newCell,
+          //       ],
+          //     ],
+          //   },
+          // };
+
+          // return await this.$google.api.client.sheets.spreadsheets.updateSpreadsheet(request);
+
+          const response = await this.$google.api.client.sheets.spreadsheets.values.update({
+                spreadsheetId: this.output.file.id,
+                range: this.output.sheet+'!'+this.options.toSheets,
+                valueInputOption: 'USER_ENTERED',
+                values: [ ["123"] ]
+                // spreadsheetId: 'something',
+                // range: 'Sheet1!B2',
+                // valueInputOption: 'USER_ENTERED',
+                // values: [ ["123"] ]
             })
-          this.tmp.fileSheets = response.result.sheets;
+            console.log(response);
+          // this.tmp.fileSheets = response.result.sheets;
         },
         nextStep: function() {
           this.$emit("step-four-completed");

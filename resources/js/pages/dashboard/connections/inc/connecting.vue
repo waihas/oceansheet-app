@@ -93,7 +93,7 @@ export default {
             // update the output.file in cell options.toSheets
             // put on it the script below for source.file from cell options.toSheets
             
-            // await this.updateCell()
+            this.updateCell()
 
             // =IMPORTRANGE('"'+this.source.file.webViewLink+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
 

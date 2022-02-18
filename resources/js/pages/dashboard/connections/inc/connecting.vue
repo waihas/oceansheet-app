@@ -102,7 +102,6 @@ export default {
             // =IMPORTRANGE('"'+this.source.file.webViewLink+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
 
             // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
-            alert('Connectiong congrats, 3la slamtek!')
         },
         async updateCell() {
 
@@ -125,7 +124,7 @@ export default {
           const response = await this.$google.api.client.sheets.spreadsheets.values.update({
                 spreadsheetId: this.output.file.id,
                 range: this.output.sheet.properties.title+'!'+this.options.toSheets,
-                valueInputOption: 'RAW',
+                valueInputOption: 'USER_ENTERED',
                          // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
                 values: [ ["=IMPORTRANGE(\""+this.source.file.webViewLink.split('?')[0]+"\";\""+this.source.sheet.properties.title+"!"+this.options.fromSheets+":"+this.options.fromSheets.charAt(0)+"1000\")"] ]
                 // spreadsheetId: 'something',

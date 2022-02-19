@@ -11,6 +11,7 @@ export const SET_LOCALE = 'SET_LOCALE'
 
 // main.js
 export const TOGGLE_SIDEBAR = 'IS_SIDEBAR_OPEN'
+export const ACCEPTED_COOKIES = 'ACCEPTED_COOKIES'
 
 // gauth.js
 export const STATUS_LOADING  = 'loading'

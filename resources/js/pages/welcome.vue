@@ -1,33 +1,33 @@
 <template>
   <div>
     <section>
-          <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:pt-24">
-            <div class="flex flex-col w-full mb-12 text-center">
-              <div class="inline-flex items-center justify-center flex-shrink-0 mx-auto mb-5 rounded-full bg-main-50">
-               <lottie-player src="/assets/gif/sync-files.json" background="transparent" speed="1" class="w-32 h-32" loop autoplay>
-               </lottie-player>
-                <!-- <v-logo></v-logo> -->
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 icon icon-tabler icon-tabler-aperture" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="15" x2="14.15" y2="15"></line>
-                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(72 12 12)"></line>
-                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(144 12 12)"></line>
-                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(216 12 12)"></line>
-                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(288 12 12)"></line>
-                </svg> -->
-              </div>
-              <h1 class="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-gray-900 md:text-5xl lg:text-6xl lg:max-w-7xl">
-                Connect, Manage and Automate your <br class="hidden lg:block"> spreadsheets easily. 
-              </h1>
-              <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
-                Connect spreadsheets and automate your work.
-              </p>
-              <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
-                Get Started Now »
-              </router-link>
-            </div>
+      <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:pt-24">
+        <div class="flex flex-col w-full mb-12 text-center">
+          <div class="inline-flex items-center justify-center flex-shrink-0 mx-auto mb-5 rounded-full bg-main-50">
+            <lottie-player src="/assets/gif/sync-files.json" background="transparent" speed="1" class="w-32 h-32" loop autoplay v-pre>
+            </lottie-player>
+            <!-- <v-logo></v-logo> -->
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 icon icon-tabler icon-tabler-aperture" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <circle cx="12" cy="12" r="9"></circle>
+              <line x1="3.6" y1="15" x2="14.15" y2="15"></line>
+              <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(72 12 12)"></line>
+              <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(144 12 12)"></line>
+              <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(216 12 12)"></line>
+              <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(288 12 12)"></line>
+            </svg> -->
           </div>
+          <h1 class="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-gray-900 md:text-5xl lg:text-6xl lg:max-w-7xl">
+            Connect, Manage and Automate your <br class="hidden lg:block"> spreadsheets easily. 
+          </h1>
+          <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
+            Connect spreadsheets and automate your work.
+          </p>
+          <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
+            Get Started Now »
+          </router-link>
+        </div>
+      </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
@@ -228,6 +228,19 @@
         </div>
       </div>
     </section> -->
+    <!-- <div class="fixed bottom-4 right-1 lg:right-4 p-4 bg-white border-t-4 shadow-lg">
+      <h2 class="text-lg lg:text-xl mb-4 block font-bold leading-tight text-gray-600">Cookie Policy</h2>
+      <div class="lg:flex lg:space-x-5">
+        <p class="mb-5 font-medium text-gray-600">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus condimentum libero. Nulla tempus metus sit amet
+          sagittis tempus. Donec maximus odio nibh, ut congue ante dictum suscipit.
+        </p>
+        <button
+        class="w-full lg:w-48 px-3 py-1 bg-gray-300 hover:bg-gray-200 hover:underline rounded text-gray-700 mr-2 mb-5 uppercase tracking-widest text-xs font-bold">
+          I agree
+        </button>
+      </div>
+    </div> -->
   </div>
 </template>
 

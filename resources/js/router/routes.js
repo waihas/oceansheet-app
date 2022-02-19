@@ -43,6 +43,12 @@ function page (path) {
     
     { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
     
+    { path: '/dash/workflows/excel-to-google-sheet', name: 'dashboard.workflows.excel-to-sheet', component: page('dashboard/workflows/excel-to-sheet/index.vue') },
+    { path: '/dash/workflows/one-google-sheet-to-many', name: 'dashboard.workflows.one-to-many', component: page('dashboard/workflows/one-to-many/index.vue') },
+    { path: '/dash/workflows/many-to-one-google-sheet', name: 'dashboard.workflows.many-to-one', component: page('dashboard/workflows/many-to-one/index.vue') },
+    { path: '/dash/workflows/filter-google-sheet-data', name: 'dashboard.workflows.filter-data', component: page('dashboard/workflows/filter-data/index.vue') },
+    { path: '/dash/workflows/google-sheet-to-google-sheet', name: 'dashboard.workflows.gsheet-to-gsheet', component: page('dashboard/workflows/gsheet-to-gsheet/index.vue') },
+    
     { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
     
     { path: '/help/support', name: 'dashboard.support', component: page('dashboard/support.vue') },

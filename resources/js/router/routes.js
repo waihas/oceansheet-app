@@ -35,13 +35,20 @@ function page (path) {
     { path: '/privacy-and-data-protection-guide', name: 'privacy.guide', component: page('legal/privacy-guide.vue') },
   
     { path: '/dashboard', name: 'dashboard.home', component: page('dashboard/home.vue') },
+    
     { path: '/dash/connections', name: 'dashboard.connections', component: page('dashboard/connections.vue') },
     { path: '/dash/connections/create', name: 'dashboard.connections.create', component: page('dashboard/connections/create.vue') },
     { path: '/dash/connections/:token/edit', name: 'dashboard.connections.edit', component: page('dashboard/connections/edit.vue') },
     { path: '/dash/connections/:token/view', name: 'dashboard.connections.view', component: page('dashboard/connections/show.vue') },
+    
     { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
+    
     { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
+    
     { path: '/help/support', name: 'dashboard.support', component: page('dashboard/support.vue') },
+    { path: '/help/support/feedback', name: 'dashboard.support.feedback', component: page('dashboard/support/feedback.vue') },
+    { path: '/help/support/ticket', name: 'dashboard.support.ticket', component: page('dashboard/support/ticket.vue') },
+    
     { path: '/dash/profile', name: 'dashboard.profile', component: page('dashboard/profile.vue') },
   
     { path: '/settings',

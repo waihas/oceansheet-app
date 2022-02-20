@@ -83,10 +83,9 @@ export default {
     },
 
     watch: { 
-      	startConnectiong: function(newVal, oldVal) { // watch it | function(newVal, oldVal)
+      	startConnectiong: function(newVal, oldVal) {
           if(newVal)
             this.connectSheets()
-            // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
         }
     },
 
@@ -94,51 +93,33 @@ export default {
         connectSheets: function() {
             console.log("We are connecting...")
 
-            // update the output.file in cell options.toSheets
-            // put on it the script below for source.file from cell options.toSheets
-            
             this.updateCell()
-
-            // =IMPORTRANGE('"'+this.source.file.webViewLink+'";"'+"this.source.sheet+'!'+options.toSheets+':'+options.toSheets.charAt(0)+'1000"')
-
-            // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
         },
         async updateCell() {
 
-          // const request = {
-          //   spreadsheetId: this.sheetId,
-          //   range: `${this.sheetName}!${this.cell}:${this.cell}`,
-          //   valueInputOption: "USER_ENTERED",
-          //   resource: {
-          //     values: [
-          //       [
-          //         this.newCell,
-          //       ],
-          //     ],
-          //   },
-          // };
+          //1. get data from source sheet (update from the selected cells to the end where there is no more text)
+          const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
+              spreadsheetId: this.source.file.id,
+              range: this.source.sheet.properties.title+'!'+this.options.fromSheets,
+          }).data.values;
+          
+          console.log('sourceData');
+          console.log(sourceData);
 
-          // return await this.$google.api.client.sheets.spreadsheets.updateSpreadsheet(request);
-          // console.log("new link: " + (this.source.file.webViewLink).split('?')[0])
-          // console.log("new link: " + this.source.file.webViewLink.split('?')[0])
+          //2. put data on output sheet (override maybe the previous putted one)
           const response = await this.$google.api.client.sheets.spreadsheets.values.update({
-                spreadsheetId: this.output.file.id,
-                range: this.output.sheet.properties.title+'!'+this.options.toSheets,
-                valueInputOption: 'USER_ENTERED',
-                         // =IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Bj11WViPheHFxfwc7NAT-NaiK7qyEU6x5ZecfmS2LNg/edit";"Note1!A1:B500")
-                values: [ ["=IMPORTRANGE(\""+this.source.file.webViewLink.split('?')[0]+"\";\""+this.source.sheet.properties.title+"!"+this.options.fromSheets+":"+this.options.fromSheets.charAt(0)+"1000\")"] ]
-                // spreadsheetId: 'something',
-                // range: 'Sheet1!B2',
-                // valueInputOption: 'USER_ENTERED',
-                // values: [ ["123"] ]
-            })
+              spreadsheetId: this.output.file.id,
+              range: this.output.sheet.properties.title+'!'+this.options.toSheets,
+              valueInputOption: 'USER_ENTERED',
+              values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
+          })
+          //3. save things on database
+          //4. increment used_connection for user
 
-            console.log(response);
-            if(response.status == 200) {
-              this.connectingCompleted = true
-            }
-            
-          // this.tmp.fileSheets = response.result.sheets;
+          console.log(response);
+          if(response.status == 200) {
+            this.connectingCompleted = true
+          }
         },
         nextStep: function() {
           this.$emit("step-four-completed");

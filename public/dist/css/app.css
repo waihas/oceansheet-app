@@ -1872,6 +1872,9 @@ select{
 .leading-6{
   line-height: 1.5rem;
 }
+.leading-loose{
+  line-height: 2;
+}
 .leading-tight{
   line-height: 1.25;
 }
@@ -1880,9 +1883,6 @@ select{
 }
 .leading-normal{
   line-height: 1.5;
-}
-.leading-loose{
-  line-height: 2;
 }
 .tracking-wide{
   letter-spacing: 0.025em;

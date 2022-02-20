@@ -278,7 +278,7 @@ export default {
         tmp: {
             file: {},
             fileSheets: {},
-            sheet: {}
+            sheet: null
         },
         driveFiles: [
             // {
@@ -387,7 +387,7 @@ export default {
             this.tmp = {
                 file: {},
                 fileSheets: {},
-                sheet: {}
+                sheet: null
             }
         },
         selectedSheetChanged: function(event) {

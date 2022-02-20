@@ -44,10 +44,19 @@ function page (path) {
     { path: '/dash/workflows', name: 'dashboard.workflows', component: page('dashboard/workflows.vue') },
     
     { path: '/dash/workflows/excel-to-google-sheet', name: 'dashboard.workflows.excel-to-sheet', component: page('dashboard/workflows/excel-to-sheet/index.vue') },
+    { path: '/dash/workflows/excel-to-sheet/create', name: 'dashboard.workflows.excel-to-sheet.create', component: page('dashboard/workflows/excel-to-sheet/create.vue') },
+    
     { path: '/dash/workflows/one-google-sheet-to-many', name: 'dashboard.workflows.one-to-many', component: page('dashboard/workflows/one-to-many/index.vue') },
+    { path: '/dash/workflows/one-to-many/create', name: 'dashboard.workflows.one-to-many.create', component: page('dashboard/workflows/one-to-many/create.vue') },
+    
     { path: '/dash/workflows/many-to-one-google-sheet', name: 'dashboard.workflows.many-to-one', component: page('dashboard/workflows/many-to-one/index.vue') },
+    { path: '/dash/workflows/many-to-one/create', name: 'dashboard.workflows.many-to-one.create', component: page('dashboard/workflows/many-to-one/create.vue') },
+    
     { path: '/dash/workflows/filter-google-sheet-data', name: 'dashboard.workflows.filter-data', component: page('dashboard/workflows/filter-data/index.vue') },
+    { path: '/dash/workflows/filter-data/create', name: 'dashboard.workflows.filter-data.create', component: page('dashboard/workflows/filter-data/create.vue') },
+    
     { path: '/dash/workflows/google-sheet-to-google-sheet', name: 'dashboard.workflows.gsheet-to-gsheet', component: page('dashboard/workflows/gsheet-to-gsheet/index.vue') },
+    { path: '/dash/workflows/gsheet-to-gsheet/create', name: 'dashboard.workflows.gsheet-to-gsheet.create', component: page('dashboard/workflows/gsheet-to-gsheet/create.vue') },
     
     { path: '/dash/team', name: 'dashboard.team', component: page('dashboard/team.vue') },
     

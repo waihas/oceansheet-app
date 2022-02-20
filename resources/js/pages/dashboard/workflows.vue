@@ -1,12 +1,12 @@
 <template>
   <div class="p-4 sm:p-8 sm:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
     <div class="overflow-hidden rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-2">
-      <div class="px-6 py-4 bg-white border-b border-main-200 font-bold uppercase">
+      <div class="px-6 py-4 bg-white border-b border-gray-100 font-bold uppercase">
           Excel To Sheet
       </div>
       <img
         src="/assets/img/excel-to-sheet.jpg"
-        class="h-auto border-main-200 border-b"
+        class="h-auto border-gray-100 border-b"
         alt="Microsoft Excel To Google Sheet"
       />
       <div class="flex p-2 bg-white text-center">
@@ -18,12 +18,12 @@
     </div>
 
     <div class="overflow-hidden rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-2">
-      <div class="px-6 py-4 bg-white border-b border-main-200 font-bold uppercase">
+      <div class="px-6 py-4 bg-white border-b border-gray-100 font-bold uppercase">
           One Sheet to many
       </div>
       <img
         src="/assets/img/one-to-many.jpg"
-        class="h-auto border-main-200 border-b"
+        class="h-auto border-gray-100 border-b"
         alt="One to many Google Sheets"
       />
       <div class="flex p-2 bg-white text-center">
@@ -35,12 +35,12 @@
     </div>
 
     <div class="overflow-hidden rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-2">
-      <div class="px-6 py-4 bg-white border-b border-main-200 font-bold uppercase">
+      <div class="px-6 py-4 bg-white border-b border-gray-100 font-bold uppercase">
           Many to One Sheet
       </div>
       <img
         src="/assets/img/many-to-one.jpg"
-        class="h-auto border-main-200 border-b"
+        class="h-auto border-gray-100 border-b"
         alt="Many Google Sheets to One"
       />
       <div class="flex p-2 bg-white text-center">
@@ -52,12 +52,12 @@
     </div>
 
     <div class="overflow-hidden rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-2">
-      <div class="px-6 py-4 bg-white border-b border-main-200 font-bold uppercase">
+      <div class="px-6 py-4 bg-white border-b border-gray-100 font-bold uppercase">
           Filter sheet data
       </div>
       <img
         src="/assets/img/filter-data.jpg"
-        class="h-auto border-main-200 border-b"
+        class="h-auto border-gray-100 border-b"
         alt="Filter Google Sheet Data"
       />
       <div class="flex p-2 bg-white text-center">
@@ -69,12 +69,12 @@
     </div>
 
     <div class="overflow-hidden rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-2">
-      <div class="px-6 py-4 bg-white border-b border-main-200 font-bold uppercase">
+      <div class="px-6 py-4 bg-white border-b border-gray-100 font-bold uppercase">
           Sheet To Sheet
       </div>
       <img
         src="/assets/img/gsheet-to-gsheet.jpg"
-        class="h-auto border-main-200 border-b"
+        class="h-auto border-gray-100 border-b"
         alt="Google Sheet To Google Sheet"
       />
       <div class="flex p-2 bg-white text-center">

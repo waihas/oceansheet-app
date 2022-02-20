@@ -98,8 +98,8 @@ export default {
           const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
               spreadsheetId: this.source.file.id,
               // range: 'Feuille 1!D1:D8'
-              range: 'Feuille 1!D1:'
-              // range: this.source.sheet.properties.title+'!'+this.options.fromSheets+':'+this.options.fromSheets.charAt(0)+'100',
+              // range: 'Feuille 1!D1:D'
+              range: this.source.sheet.properties.title+'!'+this.options.fromSheets+':'+this.options.fromSheets.charAt(0),
           });//.data.values
 
           if(sourceData.status !== 200) 

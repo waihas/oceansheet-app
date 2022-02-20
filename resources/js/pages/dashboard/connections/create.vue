@@ -41,24 +41,22 @@
       </div>
 
       <div class="row-span-3 bg-white rounded-lg">
-          <div>
-            <div class="px-6 py-5 font-semibold border-b border-gray-100">
+          <div class="px-6 py-5 font-semibold border-b border-gray-100">
             Tips & help
-            </div>
-            <div class="flex p-4">
-                <p v-if="step == 1" class="text-gray-600">
-                  First step is you select your source Google Sheet which is the place of data you want to transfer to another sheet automatically.
-                </p>
-                <p v-else-if="step == 2" class="text-gray-600">
-                  Means you select to which Google Sheet you want the data to go to.
-                </p>
-                <p v-else-if="step == 3" class="text-gray-600">
-                  Here you select your options like which columns or rows exacly you want to send to the other sheet, and many more other options to discover on the app.
-                </p>
-                <p v-else-if="step == 4" class="text-gray-600">
-                  The last step is we configure and create your connection, this takes some seconds to building everything under the hood.
-                </p>
-            </div>
+          </div>
+          <div class="flex p-4">
+              <p v-if="step == 1" class="text-gray-600">
+                First step is you select your source Google Sheet which is the place of data you want to transfer to another sheet automatically.
+              </p>
+              <p v-else-if="step == 2" class="text-gray-600">
+                Means you select to which Google Sheet you want the data to go to.
+              </p>
+              <p v-else-if="step == 3" class="text-gray-600">
+                Here you select your options like which columns or rows exacly you want to send to the other sheet, and many more other options to discover on the app.
+              </p>
+              <p v-else-if="step == 4" class="text-gray-600">
+                The last step is we configure and create your connection, this takes some seconds to building everything under the hood.
+              </p>
           </div>
       </div>
     </section>

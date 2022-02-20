@@ -2,7 +2,7 @@
     <div>
         <div v-if="Object.keys(tmp.file).length > 0">
             <div class="bg-white p-3 flex flex-wrap">
-                <img class="w-28 h-28" src="/assets/img/sheet-logo.svg" alt="Sheet logo" >
+                <img class="w-28 h-28" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                 <div class="ml-6 flex flex-col my-auto">
                     <div class="text-2xl">
                         {{ tmp.file.name }}
@@ -20,16 +20,26 @@
                     Select the sheet do you want to use
                 </label>
 
-                <div class="mt-1 rounded-md shadow-sm" v-if="tmp.fileSheets">
-                    <select v-model="tmp.sheet" 
-                        id="selectSheet"
-                        @change="selectedSheetChanged($event)"
-                        class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                        <option disabled>Select a sheet</option>
-                        <option v-for="item in tmp.fileSheets" :value="item" :key="item.properties.sheetId">
-                            {{ item.properties.title }}
-                        </option>
-                    </select>
+                <div v-if="loadingSheetSheets">
+                    <div class="inline-flex items-center text-center cursor-wait">
+                        <svg class="animate-spin h-4 w-4 mx-auto mr-1 fill-current text-gray-500" viewBox="0 0 24 24">
+                            <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
+                        </svg>
+                        <span class="text-gray-500">Loading ...</span>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="mt-1 rounded-md shadow-sm" v-if="tmp.fileSheets">
+                        <select v-model="tmp.sheet" 
+                            id="selectSheet"
+                            @change="selectedSheetChanged($event)"
+                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option disabled>Select a sheet</option>
+                            <option v-for="item in tmp.fileSheets" :value="item" :key="item.properties.sheetId">
+                                {{ item.properties.title }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,13 +113,10 @@
                                                class="w-8 h-8 mx-3" viewBox="0 0 48 48">
                                                 <path fill="#FFC107" d="M17 6L31 6 45 30 31 30z"></path><path fill="#1976D2" d="M9.875 42L16.938 30 45 30 38 42z"></path><path fill="#4CAF50" d="M3 30.125L9.875 42 24 18 17 6z"></path>
                                             </svg>
-                                            <!-- <div class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-white rounded-lg cursor-pointer">
-                                                khalidhamdani25@gmail.com
-                                            </div> -->
                                             <div class="relative">
                                                 <button @click="isMenuOpen = !isMenuOpen"
                                                     class="inline-flex items-center p-2 hover:bg-gray-200 focus:bg-gray-200 rounded-lg cursor-pointer">
-                                                    {{ user.Iu.yv }}
+                                                    <span v-if="user.Iu">{{ user.Iu.yv }}</span>
                                                 </button>
                                                 <div v-show="isMenuOpen" 
                                                     class="absolute right-0 w-full p-2 bg-white shadow-lg mt-2 rounded-md origin-top-right z-20">
@@ -143,30 +150,41 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div v-if="driveFiles.length > 0" class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border bg-gray-100 overflow-y-auto overflow-x-hidden">
-                                        <div v-for="file in driveFiles" :key="file.id"
-                                            class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
-                                            @click="choosedFile(file)"
-                                            :class="file.id == tmpChoosedFile.id ? 'bg-white border border-main-300' : ''">
-                                            <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
-                                            <h2 class="mt-4 w-28 text-center truncate">{{ file.name }}</h2>
-                                            <p v-if="file.size" class="mt-2 w-24 text-sm text-center truncate">{{ file.size }} bytes</p>
+                                    <div v-if="loadingSheetFiles">
+                                        <div class="p-4 flex justify-center items-center w-full h-80 border bg-gray-100">
+                                            <div class="flex flex-col text-center space-y-3 cursor-wait">
+                                                <svg class="animate-spin h-24 w-24 mb-3 fill-current text-main-500" viewBox="0 0 24 24">
+                                                    <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
+                                                </svg>
+                                                <span class="text-gray-500">Loading ...</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div v-else class="p-4 flex justify-center items-center w-full h-80 border bg-gray-100">
-                                        <div class="flex flex-col text-center space-y-3">
-                                            <div class="bg-gray-200 p-8 rounded-full mx-auto">
-                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                class="w-16 h-16"
-                                                viewBox="0 0 64 64">
-                                                    <g data-name="28-folder"><path fill="#fcea81" d="M1,57V7H20l3,6H59a4,4,0,0,1,4,4V57Z"></path><path fill="#e2c47d" d="M1,57a8,8,0,0,0,8-8V25a4,4,0,0,1,4-4H63V57Z"></path></g>
-                                                </svg>
+                                    <div v-else>
+                                        <div v-if="driveFiles.length > 0" class="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 w-full h-80 border bg-gray-100 overflow-y-auto overflow-x-hidden">
+                                            <div v-for="file in driveFiles" :key="file.id"
+                                                class="p-3 mx-3 flex flex-col rounded-md justify-center items-center transform scale-105 hover:bg-white cursor-pointer"
+                                                @click="choosedFile(file)"
+                                                :class="file.id == tmpChoosedFile.id ? 'bg-white border border-main-300' : ''">
+                                                <img class="h-20 w-20" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
+                                                <h2 class="mt-4 w-28 text-center truncate">{{ file.name }}</h2>
+                                                <p v-if="file.size" class="mt-2 w-24 text-sm text-center truncate">{{ file.size }} bytes</p>
                                             </div>
-                                            <h4 class="text-xl">Empty folder</h4>
-                                            <p class="text-gray-600 text-sm">
-                                                This folder is empty. Upload some files in your Google Drive to start connecting your spreadsheets.
-                                            </p>
+                                        </div>
+                                        <div v-else class="p-4 flex justify-center items-center w-full h-80 border bg-gray-100">
+                                            <div class="flex flex-col text-center space-y-3">
+                                                <div class="bg-gray-200 p-8 rounded-full mx-auto">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    class="w-16 h-16"
+                                                    viewBox="0 0 64 64">
+                                                        <g data-name="28-folder"><path fill="#fcea81" d="M1,57V7H20l3,6H59a4,4,0,0,1,4,4V57Z"></path><path fill="#e2c47d" d="M1,57a8,8,0,0,0,8-8V25a4,4,0,0,1,4-4H63V57Z"></path></g>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="text-xl">Empty folder</h4>
+                                                <p class="text-gray-600 text-sm">
+                                                    This folder is empty. Upload some files in your Google Drive to start connecting your spreadsheets.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -240,7 +258,12 @@ export default {
         tmpChoosedFile: {},
         isMenuOpen: false, 
         tmp: {
-            file: {},
+            file: {
+                "kind": "drive#file",
+                "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                "name": "Laravel Sheets",
+                "mimeType": "application/vnd.google-apps.folder",
+            },
             fileSheets: {},
             sheet: {}
         },
@@ -264,7 +287,9 @@ export default {
             //     "mimeType": "application/vnd.google-apps.folder",
             // },
         ],
-        // isSignedIn: true
+        isSignedIn: true,
+        loadingSheetFiles: false,
+        loadingSheetSheets: false,
     }),
 
     computed: {
@@ -303,6 +328,7 @@ export default {
             this.showPicker = false
         },
         async loadSheets() {
+            this.loadingSheets = true;
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'",
                 fields: 'files(id,size,name,webViewLink)'
@@ -313,6 +339,7 @@ export default {
                 this.driveFiles = response.result.files
 
             } else this.driveFiles = []
+            this.loadingSheets = false
         },
         async loadSheetDetails() {
             // const response = await this.$google.api.client.drive.files.get({
@@ -320,6 +347,7 @@ export default {
             //     fields: '*'
             //     // fields: 'size,modifiedTime,webViewLink,webContentLink,createdTime'
             // })
+            this.loadingSheetSheets = true;
             const response = await this.$google.api.client.sheets.spreadsheets.get({
                 spreadsheetId: this.tmp.file.id,
                 includeGridData: true
@@ -327,7 +355,7 @@ export default {
             this.tmp.fileSheets = response.result.sheets;
             // console.log(response.result)
             // console.log(JSON.stringify(response.result))
-            
+            this.loadingSheetSheets = false;
         },
         choosedFile: function(file) {
             this.tmpChoosedFile = file

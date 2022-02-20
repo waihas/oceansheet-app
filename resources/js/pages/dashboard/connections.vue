@@ -161,38 +161,12 @@
                   </div>
               </div> -->
             <div class="w-full p-2 space-y-1 text-gray-700">
-              <div class="flex cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100">
+              <div v-for="index in 8" :key="index" class="flex cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100">
                 <div class="w-8 text-center py-1 my-auto">
                   <p class="text-xl text-main-500">&bull;</p>
                 </div>
                 <div class="w-4/5 py-3 px-1">
-                  <p @click="overviewConnection(1)">Connection #1</p>
-                </div>
-                <div class="w-1/5 p-3 my-auto">
-                  <svg class="w-4 h-4 fill-current float-right" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="flex cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100">
-                <div class="w-8 text-center py-1 my-auto">
-                  <p class="text-xl text-main-500">&bull;</p>
-                </div>
-                <div class="w-4/5 py-3 px-1">
-                  <p @click="overviewConnection(2)">Connection #2</p>
-                </div>
-                <div class="w-1/5 p-3 my-auto">
-                  <svg class="w-4 h-4 fill-current float-right" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="flex cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100">
-                <div class="w-8 text-center py-1 my-auto">
-                  <p class="text-xl text-main-500">&bull;</p>
-                </div>
-                <div class="w-4/5 py-3 px-1">
-                  <p @click="overviewConnection(3)">Connection #3</p>
+                  <p @click="overviewConnection(index)">Connection #{{index}}</p>
                 </div>
                 <div class="w-1/5 p-3 my-auto">
                   <svg class="w-4 h-4 fill-current float-right" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">

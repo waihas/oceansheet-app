@@ -93,7 +93,8 @@ export default {
             this.updateCell()
         },
         async updateCell() {
-
+          
+          /* ######################## */
           //1. get data from source sheet (update from the selected cells to the end where there is no more text)
           const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
               spreadsheetId: this.source.file.id,
@@ -105,10 +106,11 @@ export default {
           if(sourceData.status !== 200) 
             return alert('something went wrong with sourceData');
 
-          console.log('sourceData');
-          console.log(sourceData.result.values);
-          console.log(sourceData);
+          // console.log('sourceData');
+          // console.log(sourceData.result.values);
+          // console.log(sourceData);
 
+          /* ######################## */
           //2. put data on output sheet (override maybe the previous putted one)
           const response = await this.$google.api.client.sheets.spreadsheets.values.update({
               spreadsheetId: this.output.file.id,
@@ -117,13 +119,16 @@ export default {
               values: sourceData.result.values
               // values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
           })
-          //3. save things on database
-          //4. increment used_connection for user
 
-          console.log(response);
-          if(response.status == 200) {
-            this.connectingCompleted = true
-          }
+          // console.log(response);
+          if(response.status !== 200)
+            return alert('something went wrong with output response');
+
+          /* ######################## */
+          //3. save things on database
+          
+          //4. increment used_connection for user
+          this.connectingCompleted = true
         },
         nextStep: function() {
           this.$emit("step-four-completed");

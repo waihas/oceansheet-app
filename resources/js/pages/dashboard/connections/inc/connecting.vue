@@ -100,18 +100,22 @@ export default {
           //1. get data from source sheet (update from the selected cells to the end where there is no more text)
           const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
               spreadsheetId: this.source.file.id,
-              range: this.source.sheet.properties.title+'!'+this.options.fromSheets,
+              range: this.source.sheet.properties.title+'!'+this.options.fromSheets+':'+this.options.fromSheets.charAt(0)+'100',
           });//.data.values
-          
+
+          if(sourceData.status !== 200) 
+            return alert('something went wrong with sourceData');
+
           console.log('sourceData');
-          console.log(sourceData);
+          console.log(sourceData.values);
 
           //2. put data on output sheet (override maybe the previous putted one)
           const response = await this.$google.api.client.sheets.spreadsheets.values.update({
               spreadsheetId: this.output.file.id,
               range: this.output.sheet.properties.title+'!'+this.options.toSheets,
               valueInputOption: 'USER_ENTERED',
-              values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
+              values: [ sourceData.values ]
+              // values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
           })
           //3. save things on database
           //4. increment used_connection for user

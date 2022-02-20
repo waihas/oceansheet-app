@@ -20,27 +20,45 @@
                     Select the sheet do you want to use
                 </label>
 
-                <div v-if="loadingSheetSheets">
+                <!-- <div v-if="loadingSheetSheets">
                     <div class="inline-flex items-center text-center cursor-wait">
                         <svg class="animate-spin h-4 w-4 mx-auto mr-1 fill-current text-gray-500" viewBox="0 0 24 24">
                             <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
                         </svg>
-                        <span class="text-gray-500">Loading ...</span>
+                        <span class="text-gray-500 text-sm">Loading ...</span>
                     </div>
                 </div>
-                <div v-else>
-                    <div class="mt-1 rounded-md shadow-sm" v-if="tmp.fileSheets">
-                        <select v-model="tmp.sheet" 
-                            id="selectSheet"
-                            @change="selectedSheetChanged($event)"
-                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            <option disabled>Select a sheet</option>
-                            <option v-for="item in tmp.fileSheets" :value="item" :key="item.properties.sheetId">
-                                {{ item.properties.title }}
-                            </option>
-                        </select>
+                <div v-else> -->
+                    <div v-if="loadingSheetSheets">
+                        <div class="mt-1 appearance-none flex w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm">
+                            <div class="flex items-center justify-start text-center cursor-wait my-auto">
+                                <svg class="animate-spin h-4 w-4 mx-auto mr-1 fill-current text-gray-500" viewBox="0 0 24 24">
+                                    <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
+                                </svg>
+                                <span class="text-gray-500 text-sm">loading...</span>
+                            </div>
+                        </div>
+                        <!-- <div class="inline-flex items-center text-center cursor-wait">
+                            <svg class="animate-spin h-4 w-4 mx-auto mr-1 fill-current text-gray-500" viewBox="0 0 24 24">
+                                <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
+                            </svg>
+                            <span class="text-gray-500 text-sm">Loading ...</span>
+                        </div> -->
                     </div>
-                </div>
+                    <div v-else>
+                        <div class="mt-1 rounded-md shadow-sm" v-if="tmp.fileSheets">
+                            <select v-model="tmp.sheet" 
+                                id="selectSheet"
+                                @change="selectedSheetChanged($event)"
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <option selected disabled>Select a sheet</option>
+                                <option v-for="item in tmp.fileSheets" :value="item" :key="item.properties.sheetId">
+                                    {{ item.properties.title }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                <!-- </div> -->
             </div>
         </div>
         <div v-else class="flex items-center justify-center w-full">
@@ -258,7 +276,12 @@ export default {
         tmpChoosedFile: {},
         isMenuOpen: false, 
         tmp: {
-            file: {},
+            file: {
+                "kind": "drive#file",
+                "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
+                "name": "Laravel Sheets",
+                "mimeType": "application/vnd.google-apps.folder",
+            },
             fileSheets: {},
             sheet: {}
         },
@@ -282,7 +305,7 @@ export default {
             //     "mimeType": "application/vnd.google-apps.folder",
             // },
         ],
-        // isSignedIn: true,
+        isSignedIn: true,
         loadingSheetFiles: false,
         loadingSheetSheets: false,
     }),

@@ -822,6 +822,9 @@ select{
 .mr-1{
   margin-right: 0.25rem;
 }
+.mr-auto{
+  margin-right: auto;
+}
 .block{
   display: block;
 }

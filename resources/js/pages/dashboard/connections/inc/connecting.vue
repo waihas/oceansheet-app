@@ -97,15 +97,16 @@ export default {
           //1. get data from source sheet (update from the selected cells to the end where there is no more text)
           const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
               spreadsheetId: this.source.file.id,
-              range: 'Feuille 1!D1:D8'
-              // range: this.source.sheet.properties.title+'!'+this.options.fromSheets+':'+this.options.fromSheets.charAt(0)+'100',
+              // range: 'Feuille 1!D1:D8'
+              // range: 'Feuille 1!D1:'
+              range: this.source.sheet.properties.title+'!'+this.options.fromSheets+':'+this.options.fromSheets.charAt(0)+'100',
           });//.data.values
 
           if(sourceData.status !== 200) 
             return alert('something went wrong with sourceData');
 
           console.log('sourceData');
-          console.log(sourceData.values);
+          console.log(sourceData.result.values);
           console.log(sourceData);
 
           //2. put data on output sheet (override maybe the previous putted one)
@@ -113,7 +114,7 @@ export default {
               spreadsheetId: this.output.file.id,
               range: this.output.sheet.properties.title+'!'+this.options.toSheets,
               valueInputOption: 'USER_ENTERED',
-              values: [ sourceData.values ]
+              values: sourceData.result.values
               // values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
           })
           //3. save things on database

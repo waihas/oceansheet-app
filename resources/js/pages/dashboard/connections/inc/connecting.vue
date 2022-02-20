@@ -101,7 +101,7 @@ export default {
           const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
               spreadsheetId: this.source.file.id,
               range: this.source.sheet.properties.title+'!'+this.options.fromSheets,
-          }).data.values;
+          });//.data.values
           
           console.log('sourceData');
           console.log(sourceData);

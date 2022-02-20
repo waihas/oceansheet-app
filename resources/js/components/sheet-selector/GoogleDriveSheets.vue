@@ -258,12 +258,7 @@ export default {
         tmpChoosedFile: {},
         isMenuOpen: false, 
         tmp: {
-            file: {
-                "kind": "drive#file",
-                "id": "6-xXUwr5s-mJrZC9NGFRl4RqyzSL6CogkQ",
-                "name": "Laravel Sheets",
-                "mimeType": "application/vnd.google-apps.folder",
-            },
+            file: {},
             fileSheets: {},
             sheet: {}
         },
@@ -287,7 +282,7 @@ export default {
             //     "mimeType": "application/vnd.google-apps.folder",
             // },
         ],
-        isSignedIn: true,
+        // isSignedIn: true,
         loadingSheetFiles: false,
         loadingSheetSheets: false,
     }),

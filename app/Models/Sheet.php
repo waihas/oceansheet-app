@@ -20,6 +20,6 @@ class Sheet extends Model
 
     public function sheet_file()
     {
-        return $this->belongsTo(SheetFile::class);
+        return $this->hasOne(SheetFile::class);
     }
 }

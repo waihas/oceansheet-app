@@ -28,21 +28,21 @@ class SheetFile extends Model
 
     public function connection()
     {
-        return $this->belongsTo(Connection::class);
+        return $this->hasOne(Connection::class);
     }
 
     public function workflow()
     {
-        return $this->belongsTo(Workflow::class);
+        return $this->hasOne(Workflow::class);
     }
 
     public function sheet()
     {
-        return $this->hasOne(Sheet::class);
+        return $this->belongsTo(Sheet::class);
     }
 
     public function range()
     {
-        return $this->hasOne(SheetRange::class);
+        return $this->belongsTo(SheetRange::class);
     }
 }

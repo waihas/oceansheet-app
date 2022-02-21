@@ -2178,13 +2178,13 @@ select{
 .hover\:cursor-pointer:hover{
   cursor: pointer;
 }
-.hover\:border-main-300:hover{
-  --tw-border-opacity: 1;
-  border-color: rgb(110 231 183 / var(--tw-border-opacity));
-}
 .hover\:border-main-700:hover{
   --tw-border-opacity: 1;
   border-color: rgb(4 120 87 / var(--tw-border-opacity));
+}
+.hover\:border-main-300:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(110 231 183 / var(--tw-border-opacity));
 }
 .hover\:bg-main-700:hover{
   --tw-bg-opacity: 1;
@@ -2333,6 +2333,10 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(5 150 105 / var(--tw-bg-opacity));
 }
+.focus\:bg-main-700:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 120 87 / var(--tw-bg-opacity));
+}
 .focus\:bg-gray-200:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -2344,10 +2348,6 @@ select{
 .focus\:bg-main-100:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(209 250 229 / var(--tw-bg-opacity));
-}
-.focus\:bg-main-700:focus{
-  --tw-bg-opacity: 1;
-  background-color: rgb(4 120 87 / var(--tw-bg-opacity));
 }
 .focus\:text-gray-600:focus{
   --tw-text-opacity: 1;

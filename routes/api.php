@@ -39,9 +39,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('user/drive/get/Ba', [UserController::class, 'getDriveUserId']);
     
     // Connections
+    Route::get('connection/all', [ConnectionController::class, 'all']);
     Route::post('connection/create', [ConnectionController::class, 'create']);
+    Route::get('connection/{token}/get', [ConnectionController::class, 'get']);
     Route::post('connection/{token}/run', [ConnectionController::class, 'run']);
-    Route::post('connection/create/error', [ConnectionController::class, 'createError']);
+    Route::post('connection/save/error', [ConnectionController::class, 'saveError']);
 });
 
 Route::group(['middleware' => 'guest:sanctum'], function () {

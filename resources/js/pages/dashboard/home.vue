@@ -68,7 +68,7 @@
         </div>
       </section>
 
-      <section class="bg-white p-4 rounded-lg">
+      <section class="bg-white p-4 rounded-lg" >
           <div class="flex border-b mb-2">
             <div class="w-4/5 py-3 px-1 text-gray-900 text-sm font-bold uppercase">
               Connection
@@ -77,27 +77,36 @@
               Actions
             </div>
           </div>
-          <div v-for="index in 6" :key="index" class="flex rounded-lg hover:bg-gray-100">
-            <div class="w-8 text-center py-1 my-auto">
-              <p class="text-xl text-main-500">&bull;</p>
-            </div>
-            <div class="w-3/5 sm:w-4/5 py-3 px-1 my-auto truncate">
-              SheetA_Feuille_1_SheetB_Tab2_Connection_#{{index}}
-            </div>
-            <div class="w-2/5 sm:w-1/5 p-3 my-auto flex flex-row justify-start items-center">
-              <router-link :to="{name: 'dashboard.workflows'}" 
-                class="inline-flex text-sm items-center px-3 py-2 text-main-600 hover:text-main-700 focus:text-main-700 hover:bg-main-100 focus:bg-main-100 border border-main-600 rounded-md">
-                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-4 w-4 -ml-1 mr-2 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 7l-3.36-2.171c-.405.625-.64 1.371-.64 2.171 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-.742 0-1.438.202-2.033.554l2.033 3.446z"/>
-                </svg>
-                View
-              </router-link>
-              <button type="button" class="inline-flex justify-between items-center w-full text-sm px-3 py-2 text-white bg-main-600 hover:bg-main-700 focus:bg-main-700 border border-main-600 hover:border-main-700 rounded-md ml-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 fill-current" viewBox="0 0 24 24">
-                  <path d="M14 12h-4v-12h4v12zm6.949-4.493l1.81-.857c-.353-.7-.758-1.368-1.236-1.981l-1.512 1.318c.36.474.667.986.938 1.52zm-.797-4.299c-.589-.54-1.214-1.038-1.9-1.454l-1.216 1.599c.577.334 1.104.739 1.602 1.177l1.514-1.322zm1.827 7.792h2.006c-.072-.861-.229-1.694-.473-2.493l-1.82.862c.144.527.23 1.074.287 1.631zm-1.895 6.919l1.539 1.29c.465-.616.871-1.276 1.211-1.976l-1.846-.787c-.259.519-.562 1.011-.904 1.473zm1.912-4.919c-.054.54-.162 1.063-.299 1.574l1.864.795c.224-.762.372-1.553.439-2.369h-2.004zm-3.258 6.403c-1.779 1.608-4.129 2.597-6.713 2.597-5.525 0-10.021-4.486-10.021-10 0-1.913.554-3.691 1.496-5.207l2.162 2.162 1.353-7.014-7.015 1.351 2.045 2.045c-1.287 1.904-2.045 4.191-2.045 6.663 0 6.627 5.385 12 12.025 12 3.204 0 6.107-1.259 8.264-3.297l-1.551-1.3z"/>
-                </svg>
-                Run
-              </button>
+          <div v-if="loadingConnections">
+            Loading connections...
+          </div>
+          <div v-else>
+            <div v-for="conn in connections" :key="conn.id" class="flex rounded-lg hover:bg-gray-100">
+              <div class="w-8 text-center py-1 my-auto">
+                <p class="text-xl text-main-500">&bull;</p>
+              </div>
+              <div class="w-3/5 sm:w-4/5 py-3 px-1 my-auto truncate">
+                {{conn.name}}
+                <!-- SheetA_Feuille_1_SheetB_Tab2_Connection_#{{index}} -->
+              </div>
+              <div class="w-2/5 sm:w-1/5 p-3 my-auto flex flex-row justify-start items-center">
+                <router-link :to="{name: 'dashboard.workflows'}" 
+                  class="inline-flex text-sm items-center px-3 py-2 text-main-600 hover:text-main-700 focus:text-main-700 hover:bg-main-100 focus:bg-main-100 border border-main-600 rounded-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-4 w-4 -ml-1 mr-2 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 7l-3.36-2.171c-.405.625-.64 1.371-.64 2.171 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-.742 0-1.438.202-2.033.554l2.033 3.446z"/>
+                  </svg>
+                  View
+                </router-link>
+                <run-connection 
+                  :token="conn.token">
+                </run-connection>
+                <!-- <button type="button" class="inline-flex justify-between items-center w-full text-sm px-3 py-2 text-white bg-main-600 hover:bg-main-700 focus:bg-main-700 border border-main-600 hover:border-main-700 rounded-md ml-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 fill-current" viewBox="0 0 24 24">
+                    <path d="M14 12h-4v-12h4v12zm6.949-4.493l1.81-.857c-.353-.7-.758-1.368-1.236-1.981l-1.512 1.318c.36.474.667.986.938 1.52zm-.797-4.299c-.589-.54-1.214-1.038-1.9-1.454l-1.216 1.599c.577.334 1.104.739 1.602 1.177l1.514-1.322zm1.827 7.792h2.006c-.072-.861-.229-1.694-.473-2.493l-1.82.862c.144.527.23 1.074.287 1.631zm-1.895 6.919l1.539 1.29c.465-.616.871-1.276 1.211-1.976l-1.846-.787c-.259.519-.562 1.011-.904 1.473zm1.912-4.919c-.054.54-.162 1.063-.299 1.574l1.864.795c.224-.762.372-1.553.439-2.369h-2.004zm-3.258 6.403c-1.779 1.608-4.129 2.597-6.713 2.597-5.525 0-10.021-4.486-10.021-10 0-1.913.554-3.691 1.496-5.207l2.162 2.162 1.353-7.014-7.015 1.351 2.045 2.045c-1.287 1.904-2.045 4.191-2.045 6.663 0 6.627 5.385 12 12.025 12 3.204 0 6.107-1.259 8.264-3.297l-1.551-1.3z"/>
+                  </svg>
+                  Run
+                </button> -->
+              </div>
             </div>
           </div>
       </section>
@@ -252,9 +261,14 @@
 </template>
 
 <script>
+import RunConnection from '~/components/connection/Run'
+import axios from 'axios'
+
 export default {
   middleware: 'auth',
   layout: 'dashboard',
+
+  components: { RunConnection },
 
   metaInfo () {
     return { title: 'Dashboard' }
@@ -262,11 +276,29 @@ export default {
 
   data() {
     return {
-      workflowId: 1
+      workflowId: 1,
+      loadingConnections: true,
+      connections: null
     }
   },
 
+  mounted () {
+    this.loadConnections();
+  },
+
   methods: {
+    async loadConnections() {
+      await axios.get('/api/connection/all')
+        .then(response => {
+          // console.log(response.data.data);
+          this.connections = response.data.data
+        })
+        .catch(error => {
+          console.error(error)
+          console.log(error)
+        })
+        .finally(() => this.loadingConnections = false)
+    },
     overviewWorkflow: function(ind) {
       this.workflowId = ind;
     }

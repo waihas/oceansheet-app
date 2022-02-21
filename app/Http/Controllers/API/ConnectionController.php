@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Connection;
+use App\Models\ConnectionError;
 use App\Models\ConnectionSettings;
 use App\Models\Sheet;
 use App\Models\SheetFile;
@@ -13,6 +14,14 @@ use Illuminate\Support\Str;
 
 class ConnectionController extends Controller
 {
+    public function all(Request $request)
+    {
+        return response()->json([
+            'success' => true,
+            'data' => Connection::all()
+        ]);
+    }
+
     public function create(Request $request)
     {
         // validate all the data
@@ -115,7 +124,7 @@ class ConnectionController extends Controller
 
         // 4. save connection
         $connection = Connection::create([
-            'name' => $request->source_title .'_'. $request->output_title . '_' . date('i'),
+            'name' => $request->source_title .'_'. $request->output_title . '_' . date('H:i'),
             'token' => Str::orderedUuid(),
             'user_id' => $request->user()->id,
             'from_sheet_file_id' => $sourceSheetFile->id,
@@ -143,10 +152,48 @@ class ConnectionController extends Controller
     public function run($token, Request $request)
     {
         // decrement user updates counter
+        return response()->json([
+            'success' => true,
+            'message' => "Connection runned successfully."
+        ]);
     }
 
-    public function createError(Request $request)
+    public function saveError(Request $request)
     {
-        // decrement user updates counter
+        $request->validate([
+            'token' => 'required',
+            'error' => 'required',
+            'log' => 'required',
+        ]);
+
+        $connection = Connection::where('token', $request->token)->firstOrFail();
+
+        ConnectionError::create([
+            'connection_id' => $connection->id,
+            'error' => $request->error,
+            'log' => $request->log,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => "Error saved successfully."
+        ]);
+    }
+
+    public function get($token, Request $request)
+    {
+        $conn = Connection::where('token', $token)->firstOrFail();
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'source_spreadsheetId' => $conn->source_sheet()->spreadsheetId,
+                'source_title' => $conn->source_sheet()->sheet()->title,
+                'source_from' => $conn->source_sheet()->range()->from,
+                'source_to' => $conn->source_sheet()->range()->to,
+                'output_spreadsheetId' => $conn->output_sheet()->spreadsheetId,
+                'output_title' => $conn->output_sheet()->sheet()->title,
+                'output_from' => $conn->output_sheet()->range()->from,
+            ]
+        ]);
     }
 }

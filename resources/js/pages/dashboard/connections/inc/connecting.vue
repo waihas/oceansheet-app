@@ -101,6 +101,8 @@ export default {
             await this.updateCell()
 
             this.connecting = false;
+
+            this.$emit("step-four-completed");
         },
         async updateCell() {
 
@@ -230,7 +232,7 @@ export default {
               output_exportLinks: this.output.file.exportLinks,
           })
           .then(response => {
-            console.log(response)
+            // console.log(response)
           })
           .catch(e => {
             console.error(e)

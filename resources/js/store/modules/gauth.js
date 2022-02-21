@@ -76,7 +76,7 @@ export const actions = {
         try {
             const { data } = await axios.get('/api/user/drive/get/Ba')
             // console.log(data)
-            console.log('im here async isSignedId')
+            // console.log('im here async isSignedId')
             if(data == this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba) {
                 context.commit(
                     'setSignedIn', 
@@ -107,7 +107,7 @@ export const actions = {
     async signIn (context) {
         try{
             await this._vm.$google.api.auth2.getAuthInstance().signIn()
-            console.log('im here async signIn')
+            // console.log('im here async signIn')
 
             try {
                 await axios.post('/api/user/drive/Ba', {baID: this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba})

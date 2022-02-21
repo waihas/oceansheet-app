@@ -341,7 +341,7 @@ export default {
             this.showPicker = false
         },
         async loadSheets() {
-            this.loadingSheets = true;
+            this.loadingSheetFiles = true;
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'",
                 fields: 'files(id,size,name,webViewLink,mimeType,shared,ownedByMe,exportLinks)'
@@ -352,7 +352,7 @@ export default {
                 this.driveFiles = response.result.files
 
             } else this.driveFiles = []
-            this.loadingSheets = false
+            this.loadingSheetFiles = false
         },
         async loadSheetDetails() {
             // const response = await this.$google.api.client.drive.files.get({

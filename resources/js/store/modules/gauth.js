@@ -111,6 +111,13 @@ export const actions = {
 
             try {
                 await axios.post('/api/user/drive/Ba', {baID: this._vm.$google.api.auth2.getAuthInstance().currentUser.get().Ba})
+                context.commit(
+                    'setSignedIn', 
+                    this._vm.$google.api.auth2.getAuthInstance().isSignedIn.get()
+                )
+                this._vm.$google.api.auth2.getAuthInstance().isSignedIn.listen(function (signedId) {
+                    context.commit('setSignedIn', signedId)
+                })
             } catch (e) {
                 console.error(e)
                 console.log(e.error)

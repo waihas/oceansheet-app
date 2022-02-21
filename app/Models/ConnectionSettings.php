@@ -12,8 +12,7 @@ class ConnectionSettings extends Model
     protected $fillable = [
         'connection_id',
         'run_time',
-        'from_sheet_file_id',
-        'to_sheet_file_id',
+        'filter_data',
     ];
 
     public function connection()

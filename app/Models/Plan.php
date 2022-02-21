@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WorkflowError extends Model
+class Plan extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'workflow_id',
-        'error',
-        'log',
+        'name',
+        'slug',
+        'number_updates',
+        'price',
+        'features',
     ];
 
-    public function workflow()
+    public function users()
     {
-        return $this->belongsTo(Workflow::class);
+        return $this->hasMany(UserPlan::class);
     }
 }

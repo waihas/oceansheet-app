@@ -10,14 +10,29 @@ class Workflow extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type',
+        'name',
+        'workflow_type_id',
         'token',
         'user_id',
-        'team_id',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function team()
+    {
+        return $this->hasOne(Team::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(WorkflowType::class);
+    }
+
+    public function settings()
+    {
+        return $this->hasOne(WorkflowSettings::class);
     }
 }

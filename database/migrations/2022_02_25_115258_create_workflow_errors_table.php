@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConnectionSettingsTable extends Migration
+class CreateWorkflowErrorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateConnectionSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('connection_settings', function (Blueprint $table) {
+        Schema::create('workflow_errors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('connection_id')->constrained();
-            $table->foreignId('from_sheet_file_id')->constrained();
-            $table->foreignId('to_sheet_file_id')->constrained();
-            $table->string('time_run')->nullable();
+            $table->foreignId('workflow_id')->constrained();
+            $table->string('error');
+            $table->text('log');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateConnectionSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('connection_settings');
+        Schema::dropIfExists('workflow_errors');
     }
 }

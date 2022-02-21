@@ -11,6 +11,7 @@ class TeamRole extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'roles',
     ];
 

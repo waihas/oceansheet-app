@@ -30,7 +30,7 @@
                 </div>
                 <div v-else> -->
                     <div v-if="loadingSheetSheets">
-                        <div class="mt-1 appearance-none flex w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm">
+                        <div class="mt-1 appearance-none cursor-wait flex w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm">
                             <div class="flex items-center justify-start text-center cursor-wait my-auto">
                                 <svg class="animate-spin h-4 w-4 mx-auto mr-1 fill-current text-gray-500" viewBox="0 0 24 24">
                                     <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
@@ -51,7 +51,7 @@
                                 id="selectSheet"
                                 @change="selectedSheetChanged($event)"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                <option :value="null" selected disabled>Select a sheet</option>
+                                <option :value="null" selected disabled>Select</option>
                                 <option v-for="item in tmp.fileSheets" :value="item" :key="item.properties.sheetId">
                                     {{ item.properties.title }}
                                 </option>
@@ -344,7 +344,7 @@ export default {
             this.loadingSheets = true;
             const response = await this.$google.api.client.drive.files.list({
                 q: "mimeType='application/vnd.google-apps.spreadsheet'",
-                fields: 'files(id,size,name,webViewLink)'
+                fields: 'files(id,size,name,webViewLink,mimeType,shared,ownedByMe,exportLinks)'
             })
             if ('result' in response && 'files' in response.result && response.result.files.length > 0) {
                 
@@ -396,4 +396,112 @@ export default {
         }
     },
 }
+// {
+//    "kind": "drive#file",
+//    "id": "1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k",
+//    "name": "SheetB",
+//    "mimeType": "application/vnd.google-apps.spreadsheet",
+//    "starred": false,
+//    "trashed": false,
+//    "explicitlyTrashed": false,
+//    "parents": [
+//     "0AE8QIOTrNGfoUk9PVA"
+//    ],
+//    "spaces": [
+//     "drive"
+//    ],
+//    "version": "53",
+//    "webViewLink": "https://docs.google.com/spreadsheets/d/1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k/edit?usp=drivesdk",
+//    "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
+//    "hasThumbnail": true,
+//    "thumbnailLink": "https://docs.google.com/feeds/vt?gd=true&id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&v=27&s=AMedNnoAAAAAYhPCZo3YQlcorKbph9eCNE7-QQ5HYgd1&sz=s220",
+//    "thumbnailVersion": "27",
+//    "viewedByMe": true,
+//    "viewedByMeTime": "2022-02-21T13:15:59.296Z",
+//    "createdTime": "2022-02-08T13:18:20.008Z",
+//    "modifiedTime": "2022-02-21T13:15:59.296Z",
+//    "modifiedByMeTime": "2022-02-21T13:15:59.296Z",
+//    "modifiedByMe": true,
+//    "owners": [
+//     {
+//      "kind": "drive#user",
+//      "displayName": "Khalid HAMDANI",
+//      "photoLink": "https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s64",
+//      "me": true,
+//      "permissionId": "01114560854106063882",
+//      "emailAddress": "khalidhamdani25@gmail.com"
+//     }
+//    ],
+//    "lastModifyingUser": {
+//     "kind": "drive#user",
+//     "displayName": "Khalid HAMDANI",
+//     "photoLink": "https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s64",
+//     "me": true,
+//     "permissionId": "01114560854106063882",
+//     "emailAddress": "khalidhamdani25@gmail.com"
+//    },
+//    "shared": false,
+//    "ownedByMe": true,
+//    "capabilities": {
+//     "canAcceptOwnership": false,
+//     "canAddChildren": false,
+//     "canAddMyDriveParent": false,
+//     "canChangeCopyRequiresWriterPermission": true,
+//     "canChangeSecurityUpdateEnabled": false,
+//     "canChangeViewersCanCopyContent": true,
+//     "canComment": true,
+//     "canCopy": true,
+//     "canDelete": true,
+//     "canDownload": true,
+//     "canEdit": true,
+//     "canListChildren": false,
+//     "canModifyContent": true,
+//     "canMoveChildrenWithinDrive": false,
+//     "canMoveItemIntoTeamDrive": true,
+//     "canMoveItemOutOfDrive": true,
+//     "canMoveItemWithinDrive": true,
+//     "canReadRevisions": true,
+//     "canRemoveChildren": false,
+//     "canRemoveMyDriveParent": true,
+//     "canRename": true,
+//     "canShare": true,
+//     "canTrash": true,
+//     "canUntrash": true
+//    },
+//    "viewersCanCopyContent": true,
+//    "copyRequiresWriterPermission": false,
+//    "writersCanShare": true,
+//    "permissions": [
+//     {
+//      "kind": "drive#permission",
+//      "id": "01114560854106063882",
+//      "type": "user",
+//      "emailAddress": "khalidhamdani25@gmail.com",
+//      "role": "owner",
+//      "displayName": "Khalid HAMDANI",
+//      "photoLink": "https://lh3.googleusercontent.com/a-/AOh14GhBJzF4hcdR85oznqTBEmwO8H0xcKP2lc66kmjuhA=s64",
+//      "deleted": false,
+//      "pendingOwner": false
+//     }
+//    ],
+//    "permissionIds": [
+//     "01114560854106063882"
+//    ],
+//    "size": "2106",
+//    "quotaBytesUsed": "2106",
+//    "isAppAuthorized": false,
+//    "exportLinks": {
+//     "application/x-vnd.oasis.opendocument.spreadsheet": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=ods",
+//     "text/tab-separated-values": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=tsv",
+//     "application/pdf": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=pdf",
+//     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=xlsx",
+//     "text/csv": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=csv",
+//     "application/zip": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=zip",
+//     "application/vnd.oasis.opendocument.spreadsheet": "https://docs.google.com/spreadsheets/export?id=1bosoLboTO4DSnKalfZiN907ddMF1BfhOR9Qt84E6D7k&exportFormat=ods"
+//    },
+//    "linkShareMetadata": {
+//     "securityUpdateEligible": false,
+//     "securityUpdateEnabled": true
+//    }
+//   }
 </script>

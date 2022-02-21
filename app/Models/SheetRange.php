@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WorkflowError extends Model
+class SheetRange extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'workflow_id',
-        'error',
-        'log',
+        'from',
+        'to',
     ];
 
-    public function workflow()
+    public function sheet_file()
     {
-        return $this->belongsTo(Workflow::class);
+        return $this->belongsTo(SheetFile::class);
     }
 }

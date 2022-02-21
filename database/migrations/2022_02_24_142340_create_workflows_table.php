@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWorkflowErrorsTable extends Migration
+class CreateWorkflowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateWorkflowErrorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('workflow_errors', function (Blueprint $table) {
+        Schema::create('workflows', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('token');
+            $table->foreignId('workflow_type_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateWorkflowErrorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('workflow_errors');
+        Schema::dropIfExists('workflows');
     }
 }

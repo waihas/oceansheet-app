@@ -15,6 +15,8 @@ class CreateWorkflowSettingsTable extends Migration
     {
         Schema::create('workflow_settings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('workflow_id')->constrained();
+            $table->string('run_time')->nullable();
             $table->timestamps();
         });
     }

@@ -72,4 +72,19 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         return $this->hasOne(UserCloudStorage::class);
     }
+
+    public function connections()
+    {
+        return $this->hasMany(Connection::class);
+    }
+
+    public function workflows()
+    {
+        return $this->hasMany(Workflow::class);
+    }
+
+    public function plan()
+    {
+        return $this->hasOne(UserPlan::class);
+    }
 }

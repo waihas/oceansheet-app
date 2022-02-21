@@ -22,6 +22,10 @@ class SheetFile extends Model
         'sheet_range_id',
     ];
 
+    protected $casts = [
+        'exportLinks' => 'array'
+    ];
+
     public function connection()
     {
         return $this->belongsTo(Connection::class);

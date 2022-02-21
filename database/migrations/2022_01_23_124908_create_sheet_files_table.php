@@ -22,7 +22,7 @@ class CreateSheetFilesTable extends Migration
             $table->string('webViewLink')->nullable();
             $table->boolean('shared')->nullable();
             $table->boolean('ownedByMe')->nullable();
-            $table->text('exportLinks')->nullable();
+            $table->json('exportLinks')->nullable();
             $table->foreignId('sheet_id')->nullable()->constrained();
             $table->foreignId('sheet_range_id')->nullable()->constrained();
             $table->timestamps();

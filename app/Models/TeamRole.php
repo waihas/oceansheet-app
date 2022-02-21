@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SheetFile extends Model
+class TeamRole extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'webViewLink',
-        'range',
-        ''
+        'roles',
     ];
+
+    public function connections() {
+        return $this->hasMany(Team::class);
+    }
 }

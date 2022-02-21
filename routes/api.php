@@ -6,6 +6,7 @@ use App\Http\Controllers\API\Auth\PasswordController;
 use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\Auth\UserController;
 use App\Http\Controllers\API\Auth\VerificationController;
+use App\Http\Controllers\API\ConnectionController;
 use App\Http\Controllers\API\NewsletterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::patch('settings/password', [UserController::class, 'updatePassword']);
     Route::post('user/drive/Ba', [UserController::class, 'saveDriveUserId']);
     Route::get('user/drive/get/Ba', [UserController::class, 'getDriveUserId']);
+    
+    // Connections
+    Route::post('connections/create', [ConnectionController::class, 'create']);
+    // Route::post('connections/create', [ConnectionController::class, 'create']);
 });
 
 Route::group(['middleware' => 'guest:sanctum'], function () {

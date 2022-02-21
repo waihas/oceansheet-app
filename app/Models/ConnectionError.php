@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Workflow extends Model
+class ConnectionError extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'type',
-        'token',
-        'user_id',
-        'team_id',
+        'connection_id',
+        'error',
+        'log',
     ];
 
-    public function user()
+    public function connection()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Connection::class);
     }
 }

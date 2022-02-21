@@ -129,7 +129,7 @@ export default {
           this.startConnectiong = true
         },
         stepFourCompleted: function(data) {
-          alert('Yay. Done!');
+          this.$router.push({ name: 'dashboard.connections' })
         },
         goOneStepBack: function() {
           if(this.step > 1)

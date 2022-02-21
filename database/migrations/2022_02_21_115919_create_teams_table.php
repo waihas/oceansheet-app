@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSheetFilesTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSheetFilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sheet_files', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('file_id');
-            $table->string('name');
-            $table->string('webViewLink');
-            $table->string('taille')->nullable();
+            $table->foreignId('connection_id')->nullable()->constrained();
+            $table->foreignId('workflow_id')->nullable()->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('team_role_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateSheetFilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sheet_files');
+        Schema::dropIfExists('teams');
     }
 }

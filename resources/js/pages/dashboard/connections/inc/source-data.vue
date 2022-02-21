@@ -218,8 +218,8 @@ export default {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
                 this.error = ''
                 this.$emit("step-one-completed", this.source);
-                // console.log('final source:')
-                // console.log(JSON.stringify(this.source))
+                console.log('final source:')
+                console.log(JSON.stringify(this.source))
             }
 
         }

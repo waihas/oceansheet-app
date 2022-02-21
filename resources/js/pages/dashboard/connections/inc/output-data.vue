@@ -104,8 +104,8 @@ export default {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
                 this.error = ''
                 this.$emit("step-two-completed", this.output);
-                // console.log('final output:')
-                // console.log(JSON.stringify(this.output))
+                console.log('final output:')
+                console.log(JSON.stringify(this.output))
             }
         },
         prevStep: function() {

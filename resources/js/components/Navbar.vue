@@ -282,7 +282,7 @@ export default {
       await this.$store.dispatch('auth/logout')
 
       // Redirect to login.
-      await this.$router.push({ name: 'login' })
+      await this.$router.go({ name: 'login' })
     },
     toggleSideMenu () {
       this.$store.dispatch('main/toggleSidebar')

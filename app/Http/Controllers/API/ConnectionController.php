@@ -116,7 +116,7 @@ class ConnectionController extends Controller
         // 4. save connection
         $connection = Connection::create([
             'name' => $request->source_title .'_'. $request->output_title . '_' . date('i'),
-            'token' => Str::orderedUuid(),
+            'token' => 'Str::orderedUuid()',
             'user_id' => $request->user()->id,
             'from_sheet_file_id' => $sourceSheetFile->id,
             'to_sheet_file_id' => $outputSheetFile->id,

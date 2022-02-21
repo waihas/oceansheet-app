@@ -92,8 +92,12 @@ export const actions = {
                 )
             }
         } catch (e) {
+            context.commit(
+                'setSignedIn', 
+                false
+            )
             console.error(e)
-            console.log(e.error)
+            // console.log(e.error)
         }
     },
     async signIn (context) {

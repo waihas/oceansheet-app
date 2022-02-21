@@ -234,7 +234,7 @@ export default {
           })
           .catch(e => {
             console.error(e)
-            console.log(e.error)
+            // console.log(e.error)
           })
           // .finally(() => this.connecting = false)
         },

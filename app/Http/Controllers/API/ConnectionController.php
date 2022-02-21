@@ -186,13 +186,13 @@ class ConnectionController extends Controller
         return response()->json([
             'success' => true,
             'data' => [
-                'source_spreadsheetId' => $conn->source_sheet()->spreadsheetId,
-                'source_title' => $conn->source_sheet()->sheet()->title,
-                'source_from' => $conn->source_sheet()->range()->from,
-                'source_to' => $conn->source_sheet()->range()->to,
-                'output_spreadsheetId' => $conn->output_sheet()->spreadsheetId,
-                'output_title' => $conn->output_sheet()->sheet()->title,
-                'output_from' => $conn->output_sheet()->range()->from,
+                'source_spreadsheetId' => $conn->source_sheet->spreadsheetId,
+                'source_title' => $conn->source_sheet->sheet()->title,
+                'source_from' => $conn->source_sheet->range()->from,
+                'source_to' => $conn->source_sheet->range()->to,
+                'output_spreadsheetId' => $conn->output_sheet->spreadsheetId,
+                'output_title' => $conn->output_sheet->sheet()->title,
+                'output_from' => $conn->output_sheet->range()->from,
             ]
         ]);
     }

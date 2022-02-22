@@ -123,7 +123,7 @@ export default {
             }
         },
         async decrementUserUpdates() {
-            await axios.post('/api/connection/'+token+'/run')
+            await axios.post('/api/connection/'+this.token+'/run')
             .then(response => {
                 Swal.fire({
                     icon: 'success',

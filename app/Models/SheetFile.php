@@ -41,7 +41,7 @@ class SheetFile extends Model
         return $this->belongsTo(Sheet::class);
     }
 
-    public function range()
+    public function sheet_range()
     {
         return $this->belongsTo(SheetRange::class);
     }

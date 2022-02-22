@@ -124,7 +124,7 @@ class ConnectionController extends Controller
 
         // 4. save connection
         $connection = Connection::create([
-            'name' => $request->source_title .'_'. $request->output_title . '_' . date('H:i'),
+            'name' => $request->source_title .'_'. $request->output_title . '_' .date('H').date('i'),
             'token' => Str::orderedUuid(),
             'user_id' => $request->user()->id,
             'from_sheet_file_id' => $sourceSheetFile->id,
@@ -188,11 +188,11 @@ class ConnectionController extends Controller
             'data' => [
                 'source_spreadsheetId' => $conn->source_sheet->spreadsheetId,
                 'source_title' => $conn->source_sheet->sheet->title,
-                'source_from' => $conn->source_sheet->range->from,
-                'source_to' => $conn->source_sheet->range->to,
+                'source_from' => $conn->source_sheet->sheet_range->from,
+                'source_to' => $conn->source_sheet->sheet_range->to,
                 'output_spreadsheetId' => $conn->output_sheet->spreadsheetId,
                 'output_title' => $conn->output_sheet->sheet->title,
-                'output_from' => $conn->output_sheet->range->from,
+                'output_from' => $conn->output_sheet->sheet_range->from,
             ]
         ]);
     }

@@ -335,6 +335,7 @@
 
 <script>
 import Overview from './connections/inc/overview'
+import axios from 'axios'
 
 export default {
   middleware: 'auth',

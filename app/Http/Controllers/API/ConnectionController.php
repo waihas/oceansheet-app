@@ -18,7 +18,7 @@ class ConnectionController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data' => Connection::all()
+            'data' => $request->user()->connections
         ]);
     }
 

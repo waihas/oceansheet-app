@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConnectionErrorsTable extends Migration
+class CreateApiCallErrorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateConnectionErrorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('connection_errors', function (Blueprint $table) {
+        Schema::create('api_call_errors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('connection_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->string('error')->nullable();
             $table->text('log')->nullable();
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateConnectionErrorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('connection_errors');
+        Schema::dropIfExists('api_call_errors');
     }
 }

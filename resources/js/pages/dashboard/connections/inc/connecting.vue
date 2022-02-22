@@ -117,6 +117,13 @@ export default {
 
           if(sourceData.status !== 200) {
             // put it in database
+            await axios.post('/api/calls/error/save', {
+                error: sourceData.status,
+                log: sourceData.data,
+            })
+            .catch(e => {
+                console.error(e)
+            })
             
             // show alert
             Swal.fire({
@@ -172,6 +179,13 @@ export default {
           // console.log(response);
           if(response.status !== 200) {
             // put it in database
+            await axios.post('/api/calls/error/save', {
+                error: response.status,
+                log: response.data,
+            })
+            .catch(e => {
+                console.error(e)
+            })
 
             // show alert
             Swal.fire({

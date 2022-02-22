@@ -93,7 +93,7 @@
             <span class="block text-gray-500">Hours spent on lections</span>
           </div>
         </div> -->
-        <div class="row-span-3 bg-white rounded-lg">
+        <div class="bg-white rounded-lg">
           <div class="px-6 py-5 font-semibold border-b border-gray-100">List of connections</div>
           <!-- <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
             <span>Students by average mark</span>

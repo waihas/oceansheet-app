@@ -16,8 +16,8 @@ class CreateWorkflowErrorsTable extends Migration
         Schema::create('workflow_errors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('workflow_id')->constrained();
-            $table->string('error');
-            $table->text('log');
+            $table->string('error')->nullable();
+            $table->text('log')->nullable();
             $table->timestamps();
         });
     }

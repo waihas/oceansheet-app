@@ -165,15 +165,16 @@
                 Loading connections...
               </div>
               <div v-else>
-                <div v-for="conn in connections" :key="conn.id" class="flex cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100">
+                <div v-for="conn in connections" :key="conn.id"
+                  class="flex cursor-pointer px-3 py-2 rounded-lg"
+                  :class="token == conn.token ? 'bg-gray-50 hover:bg-gray-100' : 'hover:bg-gray-50'"
+                  @click="overviewConnection(conn.token)">
                   <div class="w-8 text-center py-1 my-auto">
                     <p class="text-xl text-main-500">&bull;</p>
                   </div>
                   <div class="w-4/5 py-3 px-1">
-                    <p @click="overviewConnection(conn.token)">
                       {{conn.name}}
                       <!-- Connection #{{index}} -->
-                    </p>
                   </div>
                   <div class="w-1/5 p-3 my-auto">
                     <svg class="w-4 h-4 fill-current float-right" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
@@ -193,19 +194,29 @@
             </div>
           </div>
         </div>
-        <!-- <div class="flex flex-col row-span-3 bg-white shadow rounded-lg">
-          <div class="px-6 py-5 font-semibold border-b border-gray-100">Students by type of studying</div>
-          <div class="p-4 flex-grow">
-            <div class="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
-          </div>
-        </div> -->
 
-        <!-- <overview /> -->
-        <!-- here check if there is a connection created
-        then: show statistics of the first one in the list by default (also mention by design that it's selected)
-        otherwise: show video tutorial -->
-        <!-- by default pass first one in the list -->
-        <overview :connection="null" ></overview>
+        <div v-if="loadingConnections" class="md:col-span-3 md:row-span-2 flex flex-col bg-white rounded-lg">
+           <div class="flex items-center justify-center h-full px-4 py-16 rounded-md">
+              <div class="flex flex-col text-center cursor-wait">
+                  <svg class="animate-spin h-24 mx-auto w-24 fill-current text-gray-200" viewBox="0 0 24 24">
+                      <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
+                  </svg>
+              </div>
+          </div>
+        </div>
+        <div v-else class="md:col-span-3 md:row-span-2">
+          <overview v-if="connections.length > 0" :token="token"></overview>
+          <div v-else  class="flex flex-col bg-white rounded-lg">
+            <div class="px-6 py-5 font-semibold border-b border-gray-100">
+                How it works
+            </div>
+            <div class="p-2">
+              <iframe class="w-full h-96 rounded-xl"
+              src="https://www.youtube.com/embed/tgbNymZ7vqY">
+              </iframe>
+            </div>
+          </div>
+        </div>
         <!-- <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
           <div class="px-6 py-5 font-semibold border-b border-gray-100">Overwiew</div>
           <div class="p-4 flex-grow">
@@ -216,121 +227,7 @@
         </div> -->
 
       </section>
-      <!-- <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
-        <div class="flex flex-col md:col-span-2 md:row-span-2 bg-white shadow rounded-lg">
-          <div class="px-6 py-5 font-semibold border-b border-gray-100">The number of applied and left students per month</div>
-          <div class="p-4 flex-grow">
-            <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
-          </div>
-        </div>
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-yellow-600 bg-yellow-100 rounded-full mr-6">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-              <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path fill="#fff" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-            </svg>
-          </div>
-          <div>
-            <span class="block text-2xl font-bold">25</span>
-            <span class="block text-gray-500">Lections left</span>
-          </div>
-        </div>
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-teal-600 bg-teal-100 rounded-full mr-6">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <span class="block text-2xl font-bold">139</span>
-            <span class="block text-gray-500">Hours spent on lections</span>
-          </div>
-        </div>
-        <div class="row-span-3 bg-white shadow rounded-lg">
-          <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-            <span>Students by average mark</span>
-            <button type="button" class="inline-flex justify-center rounded-md px-1 -mr-1 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-600" id="options-menu" aria-haspopup="true" aria-expanded="true">
-              Descending
-              <svg class="-mr-1 ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-          <div class="overflow-y-auto" style="max-height: 24rem;">
-            <ul class="p-6 space-y-6">
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/women/82.jpg" alt="Annette Watson profile picture">
-                </div>
-                <span class="text-gray-600">Annette Watson</span>
-                <span class="ml-auto font-semibold">9.3</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Calvin Steward profile picture">
-                </div>
-                <span class="text-gray-600">Calvin Steward</span>
-                <span class="ml-auto font-semibold">8.9</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/80.jpg" alt="Ralph Richards profile picture">
-                </div>
-                <span class="text-gray-600">Ralph Richards</span>
-                <span class="ml-auto font-semibold">8.7</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Bernard Murphy profile picture">
-                </div>
-                <span class="text-gray-600">Bernard Murphy</span>
-                <span class="ml-auto font-semibold">8.2</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/women/78.jpg" alt="Arlene Robertson profile picture">
-                </div>
-                <span class="text-gray-600">Arlene Robertson</span>
-                <span class="ml-auto font-semibold">8.2</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Jane Lane profile picture">
-                </div>
-                <span class="text-gray-600">Jane Lane</span>
-                <span class="ml-auto font-semibold">8.1</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Pat Mckinney profile picture">
-                </div>
-                <span class="text-gray-600">Pat Mckinney</span>
-                <span class="ml-auto font-semibold">7.9</span>
-              </li>
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Norman Walters profile picture">
-                </div>
-                <span class="text-gray-600">Norman Walters</span>
-                <span class="ml-auto font-semibold">7.7</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex flex-col row-span-3 bg-white shadow rounded-lg">
-          <div class="px-6 py-5 font-semibold border-b border-gray-100">Students by type of studying</div>
-          <div class="p-4 flex-grow">
-            <div class="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
-          </div>
-        </div>
-      </section> -->
     </div>
-  <!-- <div class="w-full h-full flex">
-    <h1 class="text-7xl font-bold text-gray-400 m-auto leading-none select-none text-center">
-      Connections
-    </h1>
-  </div> -->
 </template>
 
 <script>
@@ -350,7 +247,8 @@ export default {
   data() {
     return {
       loadingConnections: true,
-      connections: null,
+      connections: {},
+      token: '',
     }
   },
 
@@ -363,6 +261,7 @@ export default {
         await axios.get('/api/connection/all')
           .then(response => {
             this.connections = response.data.data
+            this.token = response.data.data[0].token
           })
           .catch(error => {
             console.error(error)
@@ -370,8 +269,9 @@ export default {
           })
           .finally(() => this.loadingConnections = false)
       },
-      overviewConnection(number) {
-        console.log('we will show connection' + number)
+      overviewConnection(token) {
+        this.token = token;
+        // console.log('we will show connection' + token)
       },
   }
 }

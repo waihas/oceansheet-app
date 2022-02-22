@@ -1,7 +1,7 @@
 <template>
 <div>
   <aside class="hidden sm:flex sm:flex-col h-screen">
-    <router-link :to="{name: 'dashboard.home'}" class="inline-flex items-center justify-center h-20 w-24 bg-main-500">
+    <router-link :to="{name: 'dashboard.home'}" class="inline-flex items-center justify-center h-20 w-24 bg-main-500" style="height: 10vh; min-height: 4.5rem;">
         <img src="/assets/img/oceansheet-logo-white.svg" class="h-12 w-12" alt="OceanSheet logo">
       <!-- <svg fill="none" viewBox="0 0 64 64" class="h-12 w-12">
         <title>Company logo</title>

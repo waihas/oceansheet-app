@@ -9,48 +9,40 @@
                   <svg class="animate-spin h-24 mx-auto w-24 mb-3 fill-current text-gray-400" viewBox="0 0 24 24">
                       <path d="M4.262 18.324l-1.42 1.42c-1.77-2.09-2.842-4.79-2.842-7.744s1.072-5.654 2.841-7.745l1.42 1.42c-1.411 1.725-2.261 3.928-2.261 6.325s.85 4.6 2.262 6.324zm17.738-6.324c0 2.397-.85 4.6-2.262 6.324l1.42 1.42c1.77-2.09 2.842-4.79 2.842-7.744s-1.072-5.654-2.842-7.745l-1.42 1.42c1.412 1.725 2.262 3.928 2.262 6.325zm-16.324-7.738c1.724-1.412 3.927-2.262 6.324-2.262s4.6.85 6.324 2.262l1.42-1.42c-2.091-1.77-4.791-2.842-7.744-2.842-2.954 0-5.654 1.072-7.744 2.842l1.42 1.42zm12.648 15.476c-1.724 1.412-3.927 2.262-6.324 2.262s-4.6-.85-6.324-2.262l-1.42 1.42c2.09 1.77 4.79 2.842 7.744 2.842 2.953 0 5.653-1.072 7.744-2.842l-1.42-1.42z"/>
                   </svg>
-                  <span class="text-gray-500">loading ...</span>
-              </div>
+                  <span class="text-gray-500">Connecting your spreadsheets...</span>
+                </div>
             </div>
             <div v-else class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
-              Successfully connected :)
+                <div class="flex flex-col text-center space-y-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-24 mx-auto w-24 mb-3 fill-current text-main-500" viewBox="0 0 24 24">
+                    <path d="M0 12.116l2.053-1.897c2.401 1.162 3.924 2.045 6.622 3.969 5.073-5.757 8.426-8.678 14.657-12.555l.668 1.536c-5.139 4.484-8.902 9.479-14.321 19.198-3.343-3.936-5.574-6.446-9.679-10.251z"/>
+                  </svg>
+                  <span class="text-gray-500">Your spreadsheets are connected successfully :)</span>
+                  <p class="text-gray-500 text-sm">Please click 'Save & Continue' to save the connection.</p>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-row-reverse justify-between py-3 px-4 border-t border-gray-100">
             <div class="flex-initial">
               <button
-                :disabled="movingToNextStep"
+                :disabled="connecting"
                 @click.prevent="nextStep()"
                 class="bg-main-500 text-white text-sm py-2 px-8 rounded-3xl w-full transition-all duration-100 ease-in-out"
-                :class="!movingToNextStep ? 'hover:bg-main-700' : 'opacity-75 cursor-default' "
-              >
-                <span v-if="!movingToNextStep">
+                :class="!connecting ? 'hover:bg-main-700' : 'opacity-75 cursor-default' "
+                >
                   Save & Continue
-                </span>
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                  v-if="movingToNextStep"
-                  width="24" height="24" class="animate-spin mx-auto" fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path d="M13,3.233L13,3.233c0,0.454,0.302,0.867,0.745,0.966c3.711,0.829,6.46,4.238,6.243,8.242 c-0.221,4.086-3.662,7.437-7.752,7.555C7.718,20.127,4,16.49,4,12c0-3.807,2.675-6.996,6.243-7.798C10.69,4.101,11,3.693,11,3.235 V3.234c0-0.64-0.595-1.126-1.219-0.985C5.151,3.302,1.732,7.576,2.017,12.58c0.289,5.093,4.568,9.256,9.666,9.415 C17.341,22.171,22,17.619,22,12c0-4.753-3.334-8.741-7.785-9.752C13.593,2.107,13,2.595,13,3.233z"></path>
-                </svg>
               </button>
             </div>
 
             <div class="flex-initial">
               <button
-                :disabled="movingToNextStep"
+                :disabled="connecting || connected"
                 @click.prevent="prevStep()"
                 class="bg-white text-main-500 text-sm py-2 px-8 border border-gray-200 rounded-3xl w-full transition-all duration-100 ease-in-out"
-                :class="!movingToNextStep ? 'hover:bg-gray-100' : 'opacity-75 cursor-default' "
+                :class="(connecting || connected) ? 'opacity-75 cursor-not-allowed' : 'hover:bg-gray-100' "
               >
-                <span v-if="!movingToNextStep">Back</span>
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                  v-if="movingToNextStep"
-                  width="24" height="24" class="animate-spin mx-auto" fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path d="M13,3.233L13,3.233c0,0.454,0.302,0.867,0.745,0.966c3.711,0.829,6.46,4.238,6.243,8.242 c-0.221,4.086-3.662,7.437-7.752,7.555C7.718,20.127,4,16.49,4,12c0-3.807,2.675-6.996,6.243-7.798C10.69,4.101,11,3.693,11,3.235 V3.234c0-0.64-0.595-1.126-1.219-0.985C5.151,3.302,1.732,7.576,2.017,12.58c0.289,5.093,4.568,9.256,9.666,9.415 C17.341,22.171,22,17.619,22,12c0-4.753-3.334-8.741-7.785-9.752C13.593,2.107,13,2.595,13,3.233z"></path>
-                </svg>
+                Back
               </button>
             </div>
         </div>
@@ -82,8 +74,8 @@ export default {
 
     data() {
         return {
-            movingToNextStep: false,
             connecting: false,
+            connected:false,
         }
     },
 
@@ -101,8 +93,7 @@ export default {
             await this.updateCell()
 
             this.connecting = false;
-
-            this.$emit("step-four-completed");
+            this.connected = true;
         },
         async updateCell() {
 

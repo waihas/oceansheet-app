@@ -239,7 +239,7 @@ class ConnectionController extends Controller
         }
 
         // 6. decrement user updates counter
-        $request->user()->plan->updates--;
+        $request->user()->plan->updates_left--;
         $request->user()->plan->save();
 
         return response()->json([
@@ -251,7 +251,7 @@ class ConnectionController extends Controller
     public function run($token, Request $request)
     {
         // decrement user updates counter
-        $request->user()->plan->updates--;
+        $request->user()->plan->updates_left--;
         $request->user()->plan->save();
 
         $connection = Connection::where('token', $token)->firstOrFail();

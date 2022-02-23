@@ -20,7 +20,7 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 
 export default {
-    name: 'RunConnection',
+    name: 'RunButton',
 
     props: {
         token: '',
@@ -63,6 +63,7 @@ export default {
             })
             .catch(e => {
                 console.error(e)
+                this.running = false;
                 return Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -97,6 +98,7 @@ export default {
                     text: 'something went wrong with source sheet!',
                     confirmButtonColor: "#10b981",
                 })
+                this.running = false;
             }
 
             const response = await this.$google.api.client.sheets.spreadsheets.values.update({
@@ -126,6 +128,8 @@ export default {
                     text: 'something went wrong with output sheet!',
                     confirmButtonColor: "#10b981",
                 })
+
+                this.running = false;
             }
         },
         async decrementUserUpdates() {

@@ -172,14 +172,14 @@
 </template>
 
 <script>
-import Draggable from 'vuedraggable'
+// import Draggable from 'vuedraggable'
 
 export default {
     name: 'Settings',
 
-    components: {
-        Draggable
-    },
+    // components: {
+    //     Draggable
+    // },
 
     props: {
         source:{},

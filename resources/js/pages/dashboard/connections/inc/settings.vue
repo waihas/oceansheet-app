@@ -1,30 +1,97 @@
 <template>
-    <!-- here we specify which rows and columns we want to connect
-    this will require good design to make it easy for user to understand -->
     <div>
         <div class="text-2xl px-6 py-5 font-semibold border-b border-gray-100">
             Configuration
         </div>
         <div class="p-4 flex flex-col space-x-1">
-            <div class="text-main-600 my-6">
-                #1: 
-                <span class="text-gray-600 text-lg">Please select the cell you want to bring data from.</span>
+            <div class="flex text-main-600 mt-6 pb-2 border-b border-dashed items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline-flex h-4 w-4 fill-current mr-3" viewBox="0 0 24 24">
+                    <path d="M21 12l-18 12v-24z"/>
+                </svg>
+                <span class="text-gray-600">Select the cell you want to bring data from.</span>
             </div>
-            <sheet-row-col @cell-selected="cellFromSelected"></sheet-row-col>
 
+            <div class="text-lg pl-6 text-gray-900 mb-2 mt-6">
+                {{source.file.name}} \ {{source.sheet.properties.title}} \ <span class="text-main-600">{{options.fromSheets}}</span>
+            </div>
+            <sheet-row-col 
+                @cell-selected="cellFromSelected"
+            ></sheet-row-col>
             <div v-if="errorFrom" class="mt-2 text-sm text-red-600">
                 {{ errorFrom }}
             </div>
 
-            <div class="text-main-600 mb-6 mt-12">
-                #2: 
-                <span class="text-gray-600 text-lg">Please which cell you want the data to appear at.</span>
+            <div class="flex text-main-600 mt-12 pb-2 border-b border-dashed items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline-flex h-4 w-4 fill-current mr-3" viewBox="0 0 24 24">
+                    <path d="M21 12l-18 12v-24z"/>
+                </svg>
+                <span class="text-gray-600">Select which cell you want the data to appear at.</span>
+            </div>
+            
+            <div class="text-lg pl-6 text-gray-900 mb-2 mt-6">
+                {{output.file1.name}} \ {{output.sheet1.properties.title}} \ <span class="text-main-600">{{options.toSheets1}}</span>
+            </div>
+            <sheet-row-col class="mb-6" 
+                @cell-selected="cellToSelected1"
+            ></sheet-row-col>
+            <div v-if="errorTo1" class="mt-2 text-sm text-red-600">
+                {{ errorTo1 }}
             </div>
 
-            <sheet-row-col class="mb-6" @cell-selected="cellToSelected"></sheet-row-col>
+            <div v-if="tosheetscount > 1">
+                <div class="text-lg pl-6 text-gray-900 mb-2 mt-6">
+                    {{output.file2.name}} \ {{output.sheet2.properties.title}} \ <span class="text-main-600">{{options.toSheets2}}</span>
+                </div>
+                <sheet-row-col class="mb-6" 
+                    @cell-selected="cellToSelected2"
+                ></sheet-row-col>
+                <div v-if="errorTo2" class="mt-2 text-sm text-red-600">
+                    {{ errorTo2 }}
+                </div>
+            </div>
 
-            <div v-if="errorTo" class="mt-2 text-sm text-red-600">
-                {{ errorTo }}
+            <div v-if="tosheetscount === 3">
+                <div class="text-lg pl-6 text-gray-900 mb-2 mt-6">
+                    {{output.file3.name}} \ {{output.sheet3.properties.title}} \ <span class="text-main-600">{{options.toSheets3}}</span>
+                </div>
+                <sheet-row-col class="mb-6" 
+                    @cell-selected="cellToSelected3"
+                ></sheet-row-col>
+                <div v-if="errorTo3" class="mt-2 text-sm text-red-600">
+                    {{ errorTo3 }}
+                </div>
+            </div>
+
+            <div class="flex text-main-600 mt-12 pb-2 border-b border-dashed items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline-flex h-4 w-4 fill-current mr-3" viewBox="0 0 24 24">
+                    <path d="M21 12l-18 12v-24z"/>
+                </svg>
+                <span class="text-gray-600">Schedule an update so that your spreadsheets connects everyday.</span>
+            </div>
+            <div class="w-full p-4 mt-6 bg-white">
+                <div class="flex items-center mb-4">
+                    <button @click="toggleSchedule" class="relative inline-flex items-center h-6 rounded-full w-11 duration-200 select-none"
+                    :class="scheduleRunTime ? 'bg-main-700': 'bg-gray-500'">
+                        <span class="sr-only">Update automatically</span>
+                        <span class="inline-block w-4 h-4 transform duration-300 bg-white rounded-full"
+                        :class="scheduleRunTime ? 'translate-x-1 ' : 'translate-x-6'"></span>
+                    </button>
+                    <label @click="toggleSchedule" class="font-bold px-5 transform duration-200 inline-block" 
+                        :class="scheduleRunTime ? ' text-gray-700' : 'text-gray-300'">
+                        Update automatically
+                    </label>
+                </div>
+                <select v-if="scheduleRunTime"
+                    v-model="options.runTime"
+                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-main-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    <option value="" selected disabled>Select timing</option>
+                    <option value="'07:00'">Between 07:00 and 08:00</option>
+                    <option value="'12:00'">Between 12:00 and 13:00</option>
+                    <option value="'20:00'">Between 20:00 and 21:00</option>
+                </select>
+                <div v-if="errorRunTime" class="mt-2 text-sm text-red-600">
+                    {{ errorRunTime }}
+                </div>
             </div>
         </div>
 
@@ -69,65 +136,78 @@
 </template>
 
 <script>
-// import Draggable from 'vuedraggable'
 import SheetRowCol from '~/components/sheet-selector/SheetRowCol';
 
 export default {
     name: 'Settings',
 
     components: {
-        // Draggable,
         SheetRowCol
     },
 
     props: {
         source:{},
         output:{},
-        // startSettings:false
+        tosheetscount: null,
     },
     
     data: () => ({
         movingToNextStep: false,
         options:{
             fromSheets: '',
-            toSheets: '',
+            toSheets1: '',
+            toSheets2: '',
+            toSheets3: '',
+            runTime: '',
         },
+        scheduleRunTime: true,
         errorFrom: '',
-        errorTo: ''
+        errorTo1: '',
+        errorTo2: '',
+        errorTo3: '',
+        errorRunTime: '',
     }),
 
-     watch: { 
-      	// startSettings: function(newVal, oldVal) { // watch it | function(newVal, oldVal)
-        //   if(newVal)
-        //     this.loadData()
-        //     // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
-        // }
-    },
-
     methods: {
-        // loadData: function() {
-        //     // hna load rows and cols, check first row thats is not empty and first col that is not empty until it\'s empty agail
-        // },
+        toggleSchedule: function() {
+            this.scheduleRunTime = !this.scheduleRunTime
+            console.log('toggle ' + this.scheduleRunTime)
+        },
         cellFromSelected: function(data) {
             this.options.fromSheets = data
             this.errorFrom = ''
         },
-        cellToSelected: function(data) {
-            this.options.toSheets = data
-            this.errorTo = ''
+        cellToSelected1: function(data) {
+            this.options.toSheets1 = data
+            this.errorTo1 = ''
         },
-        log: function(evt) {
-            window.console.log(evt);
+        cellToSelected2: function(data) {
+            this.options.toSheets2 = data
+            this.errorTo2 = ''
+        },
+        cellToSelected3: function(data) {
+            this.options.toSheets3 = data
+            this.errorTo3 = ''
         },
         nextStep: function() {
             if(this.options.fromSheets === '') {
                 this.errorFrom = "Please select a row and column from the source data sheet."
             }
-            else if(this.options.toSheets === '') {
-                this.errorTo = "Please select a row and column from the output data sheet."
+            else if(this.options.toSheets1 === '') {
+                this.errorTo1 = "Please select a row and column from the output data sheet."
+            }
+            else if(this.tosheetscount > 1 && this.options.toSheets2 === '') {
+                this.errorTo2 = "Please select a row and column from the output data sheet."
+            }
+            else if(this.tosheetscount == 3 && this.options.toSheets3 === '') {
+                this.errorTo3 = "Please select a row and column from the output data sheet."
+            }
+            else if(this.scheduleRunTime && this.options.runTime === '') {
+                this.errorRunTime = "Please select a timing to run your update."
             }
             else {
                 this.$emit("step-three-completed", this.options);
+                this.errorRunTime = ''
             }
         },
         prevStep: function() {

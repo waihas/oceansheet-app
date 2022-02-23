@@ -13,9 +13,9 @@ class Connection extends Model
         'name',
         'token',
         'user_id',
-        'from_sheet_file_id',
-        'to_sheet_file_id',
-        'count_run'
+        // 'from_sheet_file_id',
+        // 'to_sheet_file_id',
+        'count_updates'
     ];
 
     public function errors()
@@ -33,15 +33,22 @@ class Connection extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function source_sheet()
+    public function sheet_files()
     {
-        return $this->belongsTo(SheetFile::class, 'from_sheet_file_id');
+        return $this->hasMany(SheetFile::class);
     }
+
+    // public function source_sheet()
+    // {
+    //     return $this->hasOne(SheetFile::class);
+    //     // return $this->belongsTo(SheetFile::class, 'from_sheet_file_id');
+    // }
     
-    public function output_sheet()
-    {
-        return $this->belongsTo(SheetFile::class, 'to_sheet_file_id');
-    }
+    // public function output_sheets()
+    // {
+    //     return $this->hasMany(SheetFile::class);
+    //     // return $this->belongsTo(SheetFile::class, 'to_sheet_file_id');
+    // }
 
     public function settings()
     {

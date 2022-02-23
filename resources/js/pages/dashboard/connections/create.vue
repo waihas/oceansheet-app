@@ -4,7 +4,7 @@
     <steps :step="step"></steps>
 
     <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-flow-col gap-6">
-      <div class="flex flex-col md:col-span-3 bg-white shadow rounded-lg">
+      <div class="flex flex-col md:col-span-3 md:row-span-3 bg-white shadow rounded-lg">
           <div v-show="step === 1">
             <source-data
               @step-one-completed="stepOneCompleted"
@@ -23,6 +23,7 @@
             <settings
               :source="source" 
               :output="output"
+              :tosheetscount="output.count"
               @step-three-completed="stepThreeCompleted"
               @go-one-step-back="goOneStepBack"
             ></settings>
@@ -40,7 +41,7 @@
           </div>
       </div>
 
-      <div class="row-span-3 bg-white rounded-lg">
+      <div class="bg-white rounded-lg">
           <div class="px-6 py-5 font-semibold border-b border-gray-100">
             Tips & help
           </div>
@@ -55,7 +56,7 @@
                 Here you select your options like which columns or rows exacly you want to send to the other sheet, and many more other options to discover on the app.
               </p>
               <p v-else-if="step == 4" class="text-gray-600">
-                The last step is we configure and create your connection, this takes some seconds to building everything under the hood.
+                The last step is we configure and create your connection, this takes some seconds to build everything and make it look sharp.
               </p>
           </div>
       </div>
@@ -95,14 +96,21 @@ export default {
                 sheet: {},
             },
             output: {
-                file: {},
-                sheet: {},
+                count: 1,
+                file1: {},
+                sheet1: {},
+                file2: {},
+                sheet2: {},
+                file3: {},
+                sheet3: {},
             },
             options: {
                 fromSheets: '',
-                toSheets: '',
+                toSheets1: '',
+                toSheets2: '',
+                toSheets3: '',
+                runTime: '',
             },
-            // startSettings: false,
             startConnectiong: false
         }
     },

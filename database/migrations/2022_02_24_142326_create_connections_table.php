@@ -17,10 +17,10 @@ class CreateConnectionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('token');
-            $table->foreignId('from_sheet_file_id')->references('id')->on('sheet_files')->constrained();
-            $table->foreignId('to_sheet_file_id')->references('id')->on('sheet_files')->constrained();
+            // $table->foreignId('from_sheet_file_id')->references('id')->on('sheet_files')->constrained();
+            // $table->foreignId('to_sheet_file_id')->references('id')->on('sheet_files')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->integer('count_run')->nullable();
+            $table->integer('count_updates')->default(0);
             $table->timestamps();
         });
     }

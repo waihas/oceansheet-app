@@ -6,16 +6,57 @@
             Select output data
         </div>
         <div class="p-4 flex-grow">
-            
+
             <google-drive-sheets
-              @file-choosed="fileChoosed"
-              @sheet-choosed="sheetChoosed"
+              @file-choosed="fileChoosed1"
+              @sheet-choosed="sheetChoosed1"
             ></google-drive-sheets>
 
-            <div v-if="error" class="mt-2 text-sm text-red-600">
-                {{ error }}
+            <div v-if="error1" class="mt-2 text-sm text-red-600">
+                {{ error1 }}
             </div>
 
+            <div v-if="output.count > 1" class="mt-6 mb-2">
+              <div class="flex w-full justify-end">
+                <span @click="minusOutput" class="text-sm cursor-pointer text-gray-500 hover:text-red-500">remove</span>
+              </div>
+
+              <google-drive-sheets
+                @file-choosed="fileChoosed2"
+                @sheet-choosed="sheetChoosed2"
+              ></google-drive-sheets>
+              
+              <div v-if="error2" class="mt-2 text-sm text-red-600">
+                  {{ error2 }}
+              </div>
+            </div>
+            
+            
+            <div v-if="output.count === 3" class="mt-6 mb-2">
+              <div class="flex w-full justify-end">
+                <span @click="minusOutput" class="text-sm cursor-pointer text-gray-500 hover:text-red-500">remove</span>
+              </div>
+
+              <google-drive-sheets
+                @file-choosed="fileChoosed3"
+                @sheet-choosed="sheetChoosed3"
+              ></google-drive-sheets>
+
+              <div v-if="error3" class="mt-2 text-sm text-red-600">
+                  {{ error3 }}
+              </div>
+            </div>
+
+            <div v-if="output.count < 3" class="flex items-center border-2 border-dashed group rounded-lg hover:border-main-300 cursor-pointer w-full mt-12"
+              @click="extraOutput">
+                <div class="flex flex-row items-center justify-start px-5 p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current text-gray-400 group-hover:text-gray-500" viewBox="0 0 24 24">
+                      <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                    </svg>
+                    <p class="ml-6 text-gray-400 group-hover:text-gray-500">
+                        New data endpoint sheet</p>
+                </div>
+            </div>
         </div>
 
         <div class="flex flex-row-reverse justify-between py-3 px-4 border-t border-gray-100">
@@ -70,39 +111,89 @@ export default {
 
     data: () => ({
         movingToNextStep: false,
-        output:{
-            file: {},
-            sheet: {},
+        output: {
+            count: 1,
+            file1: {},
+            sheet1: {},
+            file2: {},
+            sheet2: {},
+            file3: {},
+            sheet3: {},
         },
-        error: '',
+        // output:{
+        //     file: {},
+        //     sheet: {},
+        // },
+        error1: '',
+        error2: '',
+        error3: '',
     }),
 
     methods: {
-        fileChoosed: function(data) {
-            this.output.file = data
-            this.error = ''
+        fileChoosed1: function(data) {
+              this.output.file1 = data
+              this.error1 = ''
         },
-        sheetChoosed: function(data) {
-            this.output.sheet = data
-            this.error = ''
+        sheetChoosed1: function(data) {
+            this.output.sheet1 = data
+            this.error1 = ''
+        },
+        fileChoosed2: function(data) {
+              this.output.file2 = data
+              this.error2 = ''
+        },
+        sheetChoosed2: function(data) {
+            this.output.sheet2 = data
+            this.error2 = ''
+        },
+        fileChoosed3: function(data) {
+              this.output.file3 = data
+              this.error3 = ''
+        },
+        sheetChoosed3: function(data) {
+            this.output.sheet3 = data
+            this.error3 = ''
         },
         checkFileSelected: function() {
-            if(Object.keys(this.output.file).length < 1) {
-                this.error = 'Please select a Google Sheet file.'
+            if(Object.keys(this.output.file1).length < 1) {
+                this.error1 = 'Please select a Google Sheet file.'
                 return false
             }
+            this.error1 = ''
+            if(this.output.count > 1 && Object.keys(this.output.file2).length < 1) {
+                this.error2 = 'Please select a Google Sheet file.'
+                return false
+            }
+            this.error2 = ''
+            if(this.output.count === 3 && Object.keys(this.output.file3).length < 1) {
+                this.error3 = 'Please select a Google Sheet file.'
+                return false
+            }
+            this.error3 = ''
+
             return true
         },
         checkSheetSelected: function() {
-            if(Object.keys(this.output.sheet).length === 0) {
-                this.error = 'Please select your data endpoint sheet.'
-                return false
+            if(Object.keys(this.output.sheet1).length === 0) {
+              this.error1 = 'Please select your data endpoint sheet.'
+              return false
             }
+            this.error1 = ''
+            if(this.output.count > 1 && Object.keys(this.output.sheet2).length === 0) {
+              this.error2 = 'Please select your data endpoint sheet.'
+              return false
+            }
+            this.error2 = ''
+            if(this.output.count === 3 && Object.keys(this.output.sheet3).length === 0) {
+              this.error3 = 'Please select your data endpoint sheet.'
+              return false
+            }
+            this.error3 = ''
+
             return true
         },
         nextStep: function() {
             if(this.checkFileSelected() && this.checkSheetSelected()) {
-                this.error = ''
                 this.$emit("step-two-completed", this.output);
                 // console.log('final output:')
                 // console.log(JSON.stringify(this.output))
@@ -110,7 +201,23 @@ export default {
         },
         prevStep: function() {
             this.$emit("go-one-step-back");
-        }
+        },
+        extraOutput: function() {
+          if(this.output.count < 3)
+            this.output.count++;
+        },
+        minusOutput: function() {
+          if(this.output.count > 1 && this.output.count < 4)
+            this.output.count--;
+          // if(num == 2 && this.output.count == 2) {
+          //   this.output.file2 = this.output.file3
+          //   this.output.sheet2 = this.output.sheet3
+          //   this.output.count--;
+          // }
+          // else if(num == 3 && this.output.count == 3) {
+          //   this.output.count--;
+          // }
+        },
     },
 }
 </script>

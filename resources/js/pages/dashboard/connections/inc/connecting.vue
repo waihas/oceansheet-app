@@ -62,12 +62,20 @@ export default {
             sheet: {},
         },
         output:{
-            file: {},
-            sheet: {},
+            count: 1,
+            file1: {},
+            sheet1: {},
+            file2: {},
+            sheet2: {},
+            file3: {},
+            sheet3: {},
         },
         options:{
             fromSheets: '',
-            toSheets: '',
+            toSheets1: '',
+            toSheets2: '',
+            toSheets3: '',
+            runTime: '',
         },
         startConnectiong:false
     },
@@ -112,9 +120,6 @@ export default {
                 error: sourceData.status,
                 log: sourceData.data,
             })
-            .catch(e => {
-                console.error(e)
-            })
             
             // show alert
             Swal.fire({
@@ -134,25 +139,85 @@ export default {
 
           /* ######################## */
           //2. put data on output sheet (override maybe the previous putted one)
-          const response = await this.$google.api.client.sheets.spreadsheets.values.update({
-              spreadsheetId: this.output.file.id,
-              range: this.output.sheet.properties.title+'!'+this.options.toSheets,
+          const response1 = await this.$google.api.client.sheets.spreadsheets.values.update({
+              spreadsheetId: this.output.file1.id,
+              range: this.output.sheet1.properties.title+'!'+this.options.toSheets1,
               valueInputOption: 'USER_ENTERED',
               values: sourceData.result.values
               // values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
           })
 
-          // this.source.file.id
-          // this.source.sheet.properties.title
-          // this.options.fromSheets
-          // this.options.fromSheets.charAt(0)
+          if(response1.status !== 200) {
+            await axios.post('/api/calls/error/save', {
+                error: response1.status,
+                log: response1.data,
+            })
 
-          // // file id
-          // this.output.file.id
-          // // sheet name
-          // this.output.sheet.properties.title
-          // // range
-          // this.options.toSheets
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'something went wrong with output sheet!',
+                confirmButtonColor: "#10b981",
+            }).then(() => {
+              this.$router.push({ name: 'dashboard.connections' })
+            })
+          }
+
+          if(this.output.count > 1) {
+            const response2 = await this.$google.api.client.sheets.spreadsheets.values.update({
+                spreadsheetId: this.output.file2.id,
+                range: this.output.sheet2.properties.title+'!'+this.options.toSheets2,
+                valueInputOption: 'USER_ENTERED',
+                values: sourceData.result.values
+                // values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
+            })
+
+            if(response2.status !== 200) {
+              // put it in database
+              await axios.post('/api/calls/error/save', {
+                  error: response2.status,
+                  log: response2.data,
+              })
+
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'something went wrong with output sheet!',
+                  confirmButtonColor: "#10b981",
+              }).then(() => {
+                this.$router.push({ name: 'dashboard.connections' })
+              })
+            }
+          }
+          if(this.output.count === 3) {
+            const response3 = await this.$google.api.client.sheets.spreadsheets.values.update({
+                spreadsheetId: this.output.file3.id,
+                range: this.output.sheet3.properties.title+'!'+this.options.toSheets3,
+                valueInputOption: 'USER_ENTERED',
+                values: sourceData.result.values
+                // values: [ ["123"],["455"],["sdqsdf"],["sqdf"] ]
+            })
+
+            // console.log(response);
+            if(response3.status !== 200) {
+              // put it in database
+              await axios.post('/api/calls/error/save', {
+                  error: response3.status,
+                  log: response3.data,
+              })
+
+              // show alert
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'something went wrong with output sheet!',
+                  confirmButtonColor: "#10b981",
+              }).then(() => {
+                this.$router.push({ name: 'dashboard.connections' })
+              })
+              // return alert('something went wrong with output response');
+            }
+          }
 
           // "sheet":{
           //   "properties":{
@@ -166,29 +231,6 @@ export default {
           //       }
           //     }
           //   }
-
-          // console.log(response);
-          if(response.status !== 200) {
-            // put it in database
-            await axios.post('/api/calls/error/save', {
-                error: response.status,
-                log: response.data,
-            })
-            .catch(e => {
-                console.error(e)
-            })
-
-            // show alert
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'something went wrong with output sheet!',
-                confirmButtonColor: "#10b981",
-            }).then(() => {
-              this.$router.push({ name: 'dashboard.connections' })
-            })
-            // return alert('something went wrong with output response');
-          }
 
           /* ######################## */
           //3. save things on database
@@ -205,18 +247,39 @@ export default {
               source_rowCount: this.source.sheet.properties.gridProperties.rowCount,
               source_columnCount: this.source.sheet.properties.gridProperties.columnCount,
 
-              output_sheetId: this.output.sheet.properties.sheetId,
-              output_title: this.output.sheet.properties.title,
-              output_index: this.output.sheet.properties.index,
-              output_sheetType: this.output.sheet.properties.sheetType,
-              output_rowCount: this.output.sheet.properties.gridProperties.rowCount,
-              output_columnCount: this.output.sheet.properties.gridProperties.columnCount,
+              output_sheets_count: this.output.count,
+              run_time: this.options.runTime,
+
+              output_1_sheetId: this.output.sheet1.properties.sheetId,
+              output_1_title: this.output.sheet1.properties.title,
+              output_1_index: this.output.sheet1.properties.index,
+              output_1_sheetType: this.output.sheet1.properties.sheetType,
+              output_1_rowCount: this.output.sheet1.properties.gridProperties.rowCount,
+              output_1_columnCount: this.output.sheet1.properties.gridProperties.columnCount,
+              
+              output_2_sheetId: this.output.sheet2.properties.sheetId,
+              output_2_title: this.output.sheet2.properties.title,
+              output_2_index: this.output.sheet2.properties.index,
+              output_2_sheetType: this.output.sheet2.properties.sheetType,
+              output_2_rowCount: this.output.sheet2.properties.gridProperties.rowCount,
+              output_2_columnCount: this.output.sheet2.properties.gridProperties.columnCount,
+              
+              output_3_sheetId: this.output.sheet3.properties.sheetId,
+              output_3_title: this.output.sheet3.properties.title,
+              output_3_index: this.output.sheet3.properties.index,
+              output_3_sheetType: this.output.sheet3.properties.sheetType,
+              output_3_rowCount: this.output.sheet3.properties.gridProperties.rowCount,
+              output_3_columnCount: this.output.sheet3.properties.gridProperties.columnCount,
 
               source_from: this.options.fromSheets,
               source_to: this.options.fromSheets.charAt(0),
 
-              output_from: this.options.toSheets,
-              output_to: this.options.toSheets.charAt(0),
+              output_1_from: this.options.toSheets1,
+              output_1_to: this.options.toSheets1.charAt(0),
+              output_2_from: this.options.toSheets2,
+              output_2_to: this.options.toSheets2.charAt(0),
+              output_3_from: this.options.toSheets3,
+              output_3_to: this.options.toSheets3.charAt(0),
 
               source_spreadsheetId: this.source.file.id,
               source_name: this.source.file.name,
@@ -227,20 +290,42 @@ export default {
               source_ownedByMe: this.source.file.ownedByMe,
               source_exportLinks: this.source.file.exportLinks,
 
-              output_spreadsheetId: this.output.file.id,
-              output_name: this.output.file.name,
-              output_mimeType: this.output.file.mimeType,
-              output_size: this.output.file.size,
-              output_webViewLink: this.output.file.webViewLink,
-              output_shared: this.output.file.shared,
-              output_ownedByMe: this.output.file.ownedByMe,
-              output_exportLinks: this.output.file.exportLinks,
+              output_1_spreadsheetId: this.output.file1.id,
+              output_1_name: this.output.file1.name,
+              output_1_mimeType: this.output.file1.mimeType,
+              output_1_size: this.output.file1.size,
+              output_1_webViewLink: this.output.file1.webViewLink,
+              output_1_shared: this.output.file1.shared,
+              output_1_ownedByMe: this.output.file1.ownedByMe,
+              output_1_exportLinks: this.output.file1.exportLinks,
+              
+              output_2_spreadsheetId: this.output.file2.id,
+              output_2_name: this.output.file2.name,
+              output_2_mimeType: this.output.file2.mimeType,
+              output_2_size: this.output.file2.size,
+              output_2_webViewLink: this.output.file2.webViewLink,
+              output_2_shared: this.output.file2.shared,
+              output_2_ownedByMe: this.output.file2.ownedByMe,
+              output_2_exportLinks: this.output.file2.exportLinks,
+              
+              output_3_spreadsheetId: this.output.file3.id,
+              output_3_name: this.output.file3.name,
+              output_3_mimeType: this.output.file3.mimeType,
+              output_3_size: this.output.file3.size,
+              output_3_webViewLink: this.output.file3.webViewLink,
+              output_3_shared: this.output.file3.shared,
+              output_3_ownedByMe: this.output.file3.ownedByMe,
+              output_3_exportLinks: this.output.file3.exportLinks,
           })
           .then(response => {
             // console.log(response)
           })
           .catch(e => {
             console.error(e)
+            axios.post('/api/calls/error/save', {
+                error: e.response.status,
+                log: e.response.data,
+            })
             // console.log(e.error)
           })
           // .finally(() => this.connecting = false)

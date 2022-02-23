@@ -16,8 +16,8 @@ class CreateUserPlansTable extends Migration
         Schema::create('user_plans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('plan_id')->constrained();
-            $table->integer('updates_left')->nullable();
+            $table->foreignId('plan_id')->nullable()->constrained();
+            $table->integer('updates_left')->default(150);
             $table->date('date_start')->nullable();
             $table->timestamps();
         });

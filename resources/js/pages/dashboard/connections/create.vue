@@ -47,10 +47,10 @@
           </div>
           <div class="flex p-4">
               <p v-if="step == 1" class="text-gray-600">
-                First step is you select your source Google Sheet which is the place of data you want to transfer to another sheet automatically.
+                Select your source Google Sheet file from where you wan't to grab data.
               </p>
               <p v-else-if="step == 2" class="text-gray-600">
-                Means you select to which Google Sheet you want the data to go to.
+                Select endpoint Google Sheet files to which you want the data to be distributed automatically.
               </p>
               <p v-else-if="step == 3" class="text-gray-600">
                 Here you select your options like which columns or rows exacly you want to send to the other sheet, and many more other options to discover on the app.

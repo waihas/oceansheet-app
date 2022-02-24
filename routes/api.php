@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\Admin\HomeController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\OAuthController;
 use App\Http\Controllers\API\Auth\PasswordController;
@@ -50,6 +51,15 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('calls/error/save', [ErrorController::class, 'saveError']);
     
     Route::post('feedback/add', [FeedbackController::class, 'createFeedback']);
+    
+    Route::prefix('admin/backdoor/0623656897/oceansheet')->group(function () {
+        Route::get('/users', [HomeController::class, 'users']);
+        Route::get('/errors', [HomeController::class, 'errors']);
+        Route::get('/newsletters', [HomeController::class, 'newsletters']);
+        Route::get('/feedbacks', [HomeController::class, 'feedbacks']);
+        
+        Route::get('/connections/{time}/all', [HomeController::class, 'connectionsByTime']);
+    });
 });
 
 Route::group(['middleware' => 'guest:sanctum'], function () {

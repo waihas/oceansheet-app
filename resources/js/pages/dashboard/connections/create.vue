@@ -56,7 +56,7 @@
                 Configure your connection by selecting the source data cells and that data will transferred to output sheets. Also, by configuring the time you would like the automatic update to launch.
               </p>
               <p v-else-if="step == 4" class="text-gray-600">
-                The last step is we configure and create your connection, this takes some seconds to build everything and make it look sharp.
+                We are configuring your connection based on the options you have chosen before. Once the connection is created successfully, please click 'Save & Continue' to go back to the menu.
               </p>
           </div>
       </div>

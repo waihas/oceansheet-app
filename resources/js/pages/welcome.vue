@@ -28,9 +28,9 @@
             Get Started Now »
           </router-link>
 
-          <div class="inline-flex mx-auto mt-12" v-cloak>
-            <video class="object-cover object-center rounded" muted="muted" playsinline controls loop autoplay style="pointer-events: none;" v-cloak>
-              <source src="/assets/demo.mp4" type="video/mp4" v-cloak>
+          <div class="inline-flex mx-auto mt-12 bg-white">
+            <video class="object-cover object-center bg-white rounded" muted="muted" playsinline controls loop autoplay style="pointer-events: none;">
+              <source src="/assets/demo.mp4" class="bg-white" type="video/mp4">
             </video>
           </div>
         </div>

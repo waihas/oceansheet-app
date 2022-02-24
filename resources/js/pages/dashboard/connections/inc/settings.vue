@@ -87,9 +87,9 @@
                     v-model="options.runTime"
                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-main-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     <option value="" selected disabled>Select timing</option>
-                    <option value="'07:00'">Between 07:00 and 08:00</option>
-                    <option value="'12:00'">Between 12:00 and 13:00</option>
-                    <option value="'20:00'">Between 20:00 and 21:00</option>
+                    <option value="07:00">Between 07:00 and 08:00</option>
+                    <option value="12:00">Between 12:00 and 13:00</option>
+                    <option value="20:00">Between 20:00 and 21:00</option>
                 </select>
                 <div v-if="errorRunTime" class="mt-2 text-sm text-red-600">
                     {{ errorRunTime }}

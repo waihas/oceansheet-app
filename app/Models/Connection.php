@@ -38,6 +38,12 @@ class Connection extends Model
         return $this->hasMany(SheetFile::class);
     }
 
+    public function source_sheet()
+    {
+        return $this->hasOne(SheetFile::class)->where('sheet_files.type', '=', 'source');
+        // return $this->belongsTo(SheetFile::class, 'from_sheet_file_id');
+    }
+
     // public function source_sheet()
     // {
     //     return $this->hasOne(SheetFile::class);

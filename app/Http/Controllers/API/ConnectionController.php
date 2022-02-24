@@ -290,20 +290,27 @@ class ConnectionController extends Controller
     {
         $conn = Connection::where('token', $token)->firstOrFail();
 
-        $count_outputs = $conn->sheet_files->count();
+        $count = $conn->sheet_files->count();
+
+        $data = [
+            'count_outputs' => ($count-1),
+            'source_spreadsheetId' => $conn->source_sheet->spreadsheetId,
+            'source_spreadsheetName' => $conn->source_sheet->name,
+            'source_title' => $conn->source_sheet->sheet->title,
+            'source_from' => $conn->source_sheet->sheet_range->from,
+            'source_to' => $conn->source_sheet->sheet_range->to,
+            'output_1_spreadsheetId' => $conn->output_sheet->spreadsheetId,
+            'output_1_spreadsheetName' => $conn->output_sheet->name,
+            'output_1_title' => $conn->output_sheet->sheet->title,
+            'output_1_from' => $conn->output_sheet->sheet_range->from,
+        ];
+
+        $data['dddd'] = $conn->output_sheet->sheet_range->from;
+        $data['dddd'] = $conn->output_sheet->sheet_range->from;
+
         return response()->json([
             'success' => true,
-            'data' => [
-                'source_spreadsheetId' => $conn->source_sheet->spreadsheetId,
-                'source_spreadsheetName' => $conn->source_sheet->name,
-                'source_title' => $conn->source_sheet->sheet->title,
-                'source_from' => $conn->source_sheet->sheet_range->from,
-                'source_to' => $conn->source_sheet->sheet_range->to,
-                'output_1_spreadsheetId' => $conn->output_sheet->spreadsheetId,
-                'output_1_spreadsheetName' => $conn->output_sheet->name,
-                'output_1_title' => $conn->output_sheet->sheet->title,
-                'output_1_from' => $conn->output_sheet->sheet_range->from,
-            ]
+            'data' => $data,
         ]);
     }
 }

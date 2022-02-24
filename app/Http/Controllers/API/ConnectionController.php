@@ -290,6 +290,8 @@ class ConnectionController extends Controller
     {
         $conn = Connection::where('token', $token)->firstOrFail();
 
+        // check also if the connection belongs to the user
+
         $count = $conn->sheet_files->count();
 
         $data = [

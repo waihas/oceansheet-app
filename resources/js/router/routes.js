@@ -74,6 +74,9 @@ function page (path) {
         { path: 'notifications', name: 'settings.notifications', component: page('dashboard/settings/notifications.vue') },
         { path: 'storage', name: 'settings.storage', component: page('dashboard/settings/storage.vue') }
       ] },
+
+    // admin
+    { path: '/admin/backdoor/0623656897/oceansheet/dashboard', name: 'admin.home', component: page('admin/home.vue') },
   
     { path: '*', component: page('errors/404.vue') }
   ]

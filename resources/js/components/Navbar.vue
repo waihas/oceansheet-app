@@ -31,11 +31,11 @@
               <template v-slot:items>
                 
                   <div class="py-2">
-                      <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-100 -mx-2">
+                      <router-link :to="{name: 'settings.notifications'}" class="flex items-center px-4 py-3 hover:bg-gray-100 -mx-2">
                           <p class="text-gray-600 text-sm mx-2">
-                            None!
+                            No notifications for now!
                           </p>
-                      </a>
+                      </router-link>
                       <!-- <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
                           <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
                           <p class="text-gray-600 text-sm mx-2">

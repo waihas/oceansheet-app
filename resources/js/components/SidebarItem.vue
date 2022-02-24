@@ -28,6 +28,7 @@ export default {
   methods: {
     go: function () {
       if (!this.isCurrentRoute) {
+        this.$store.dispatch('main/toggleSidebar')
         this.$router.push({ name: this.route })
       }
     }

@@ -53,7 +53,7 @@
                 Select endpoint Google Sheet files to which you want the data to be distributed automatically.
               </p>
               <p v-else-if="step == 3" class="text-gray-600">
-                Here you select your options like which columns or rows exacly you want to send to the other sheet, and many more other options to discover on the app.
+                Configure your connection by selecting the source data cells and that data will transferred to output sheets. Also, by configuring the time you would like the automatic update to launch.
               </p>
               <p v-else-if="step == 4" class="text-gray-600">
                 The last step is we configure and create your connection, this takes some seconds to build everything and make it look sharp.

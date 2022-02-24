@@ -42,7 +42,7 @@
             <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
                 <!-- to see overview of project settings
                 we pass data of connection and show statistics -->
-                Tutorial video 
+                COMING SOON
                 <!-- sheets flowcharts -->
             </div>
         </div>

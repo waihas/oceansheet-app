@@ -14,7 +14,7 @@
     </div>
 
     <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-flow-col gap-6">
-      <div class="row-span-3 bg-white rounded-lg">
+      <div class="bg-white rounded-lg">
           <div class="px-6 py-5 font-semibold border-b border-gray-100">
             List of connections
           </div>

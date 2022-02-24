@@ -8,6 +8,7 @@ use App\Http\Controllers\API\Auth\UserController;
 use App\Http\Controllers\API\Auth\VerificationController;
 use App\Http\Controllers\API\ConnectionController;
 use App\Http\Controllers\API\ErrorController;
+use App\Http\Controllers\API\FeedbackController;
 use App\Http\Controllers\API\NewsletterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('connection/save/error', [ConnectionController::class, 'saveError']);
 
     Route::post('calls/error/save', [ErrorController::class, 'saveError']);
+    
+    Route::post('feedback/add', [FeedbackController::class, 'createFeedback']);
 });
 
 Route::group(['middleware' => 'guest:sanctum'], function () {

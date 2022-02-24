@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { runConnection }  from '~/components/connection/Run'
 
 Vue.use(Vuex)
 
@@ -20,6 +19,5 @@ const modules = requireContext.keys()
   }, {})
 
 export default new Vuex.Store({
-  modules,
-  runConnection
+  modules
 })

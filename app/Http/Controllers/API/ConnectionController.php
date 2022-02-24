@@ -289,6 +289,8 @@ class ConnectionController extends Controller
     public function get($token, Request $request)
     {
         $conn = Connection::where('token', $token)->firstOrFail();
+
+        $count_outputs = $conn->sheet_files->count();
         return response()->json([
             'success' => true,
             'data' => [

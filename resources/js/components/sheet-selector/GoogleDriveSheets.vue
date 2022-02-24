@@ -340,7 +340,8 @@ export default {
         }),
         openPicker: function() {
             this.showPicker = true
-            if(this.isSignedIn && this.driveFiles == [])
+            // if(this.isSignedIn && this.driveFiles == [])
+            if(this.isSignedIn)
                 this.loadSheets()
         },
         closePicker: function() {

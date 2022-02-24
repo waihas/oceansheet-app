@@ -1,32 +1,11 @@
 <template>
   <div>
-    <!-- <section class="text-gray-600 body-font">
-      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
-            <br class="hidden lg:inline-block">readymade gluten
-          </h1>
-          <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-          <div class="flex justify-center">
-            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-            <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-          </div>
-        </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <video ref="demoVideoRef" width="300" height="200" autoplay="autoplay">
-            <source src="/assets/demo.mp4" type="video/mp4" />
-          </video>
-          <!- <video ref="demoVideoRef" src="" type="video/mp4" class="object-cover object-center rounded" autoplay playsinline style="pointer-events: none;">
-          </video> ->
-        </div>
-      </div>
-    </section> -->
     <section>
       <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:pt-24">
         <div class="flex flex-col w-full mb-12 text-center">
-          <div class="inline-flex items-center justify-center flex-shrink-0 mx-auto mb-5 rounded-full bg-main-50">
-            <lottie-player src="/assets/gif/sync-files.json" background="transparent" speed="1" class="w-32 h-32" loop autoplay v-pre>
-            </lottie-player>
+          <!-- <div class="inline-flex items-center justify-center flex-shrink-0 mx-auto mb-5 rounded-full bg-main-50"> -->
+            <!-- <lottie-player src="/assets/gif/sync-files.json" background="transparent" speed="1" class="w-32 h-32" loop autoplay v-pre>
+            </lottie-player> -->
             <!-- <v-logo></v-logo> -->
             <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 icon icon-tabler icon-tabler-aperture" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -37,7 +16,8 @@
               <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(216 12 12)"></line>
               <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(288 12 12)"></line>
             </svg> -->
-          </div>
+            
+          <!-- </div> -->
           <h1 class="max-w-5xl text-2xl font-bold leading-loose text-gray-900 md:text-5xl lg:text-6xl lg:max-w-7xl">
             Connect, Manage and Automate your <br class="hidden lg:block"> spreadsheets easily. 
           </h1>
@@ -47,6 +27,12 @@
           <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
             Get Started Now »
           </router-link>
+
+          <div class="inline-flex mx-auto mt-12" v-cloak>
+            <video class="object-cover object-center rounded" muted="muted" playsinline controls loop autoplay style="pointer-events: none;" v-cloak>
+              <source src="/assets/demo.mp4" type="video/mp4" v-cloak>
+            </video>
+          </div>
         </div>
       </div>
     </section>
@@ -277,14 +263,15 @@ export default {
     return { title: 'Connect, Manage and Automate your spreadsheets easily' }
   },
 
-  mounted() {
-    let Script = document.createElement("script");
-    Script.setAttribute("src", "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js");
-    document.head.appendChild(Script);
+  // mounted() {
+    // let Script = document.createElement("script");
+    // Script.setAttribute("src", "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js");
+    // document.head.appendChild(Script);
 
-    this.$refs.demoVideoRef.src = "/assets/demo.mp4";
-    this.$refs.demoVideoRef.play();
-  },
+    // this.$refs.demoVideoRef.src = "/assets/demo.mp4";
+    // this.$refs.demoRef.play();
+  // },
+
   data: () => ({
     title: window.config.appName,
   }),

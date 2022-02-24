@@ -12,7 +12,8 @@
             </div>
 
             <div class="text-lg pl-6 text-gray-900 mb-2 mt-6">
-                {{source.file.length > 0 ? source.file.name : ''}} \ {{source.sheet.length > 0 ? source.sheet.properties.title : ''}} \ <span class="text-main-600">{{options.fromSheets}}</span>
+                {{source.file.name}} \ {{source.sheet.properties.title}} \ <span class="text-main-600">{{options.fromSheets}}</span>
+                <!-- {{source.file.length > 0 ? source.file.name : ''}} \ {{source.sheet.length > 0 ? source.sheet.properties.title : ''}} \ <span class="text-main-600">{{options.fromSheets}}</span> -->
             </div>
             <sheet-row-col 
                 @cell-selected="cellFromSelected"
@@ -29,7 +30,8 @@
             </div>
             
             <div class="text-lg pl-6 text-gray-900 mb-2 mt-6">
-                {{output.file1.length > 0 ? output.file1.name : ''}} \ {{output.sheet1.length > 0 ? output.sheet1.properties.title : ''}} \ <span class="text-main-600">{{options.toSheets1}}</span>
+                <!-- {{output.file1.length > 0 ? output.file1.name : ''}} \ {{output.sheet1.length > 0 ? output.sheet1.properties.title : ''}} \ <span class="text-main-600">{{options.toSheets1}}</span> -->
+                {{output.file1.name}} \ {{output.sheet1.properties.title}} \ <span class="text-main-600">{{options.toSheets1}}</span>
             </div>
             <sheet-row-col class="mb-6" 
                 @cell-selected="cellToSelected1"

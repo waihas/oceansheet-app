@@ -1,9 +1,10 @@
-<script>
-import axios from 'axios'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 
-export default {
-    async runConnection(token) {
+// actions
+export const actions = {
+    async updateConnection(context, {token}) {
+        // console.log('update for: ' + token)
 
         let count_outputs = 1
         let source_spreadsheetId = ''
@@ -49,7 +50,7 @@ export default {
             })
 
         //2. get data from source sheet (update from the selected cells to the end where there is no more text)
-        const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
+        const sourceData = await this._vm.$google.api.client.sheets.spreadsheets.values.get({
             spreadsheetId: source_spreadsheetId,
             range: source_title+'!'+source_from+':'+source_to,
         });
@@ -71,7 +72,7 @@ export default {
         }
 
         //3. put data on output sheets (override maybe the previous putted one)
-        const response1 = await this.$google.api.client.sheets.spreadsheets.values.update({
+        const response1 = await this._vm.$google.api.client.sheets.spreadsheets.values.update({
             spreadsheetId: output_1_spreadsheetId,
             range: output_1_title+'!'+output_1_from,
             valueInputOption: 'USER_ENTERED',
@@ -95,7 +96,7 @@ export default {
         }
 
         if(count_outputs > 1) {
-            const response2 = await this.$google.api.client.sheets.spreadsheets.values.update({
+            const response2 = await this._vm.$google.api.client.sheets.spreadsheets.values.update({
                 spreadsheetId: output_2_spreadsheetId,
                 range: output_2_title+'!'+output_2_from,
                 valueInputOption: 'USER_ENTERED',
@@ -120,7 +121,7 @@ export default {
         }
 
         if(count_outputs === 3) {
-            const response3 = await this.$google.api.client.sheets.spreadsheets.values.update({
+            const response3 = await this._vm.$google.api.client.sheets.spreadsheets.values.update({
                 spreadsheetId: output_3_spreadsheetId,
                 range: output_3_title+'!'+output_3_from,
                 valueInputOption: 'USER_ENTERED',
@@ -158,6 +159,5 @@ export default {
             .catch(e => {
                 console.error(e)
             })
-    }
+    },
 }
-</script>

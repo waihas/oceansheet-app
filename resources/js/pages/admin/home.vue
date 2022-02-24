@@ -25,11 +25,11 @@
         </div>
       </div>
 
-      <section v-if="messageRunUpdates" class="bg-white p-4 rounded-lg" >
+      <section vif="runningUpdates || messageRunUpdates" class="bg-white p-4 rounded-lg" >
           <div v-if="runningUpdates">
             Loading users...
           </div>
-          <div class="flex rounded-lg">
+          <div v-if="messageRunUpdates" class="flex rounded-lg">
             {{messageRunUpdates}}
           </div>
       </section>
@@ -474,7 +474,7 @@ export default {
       //4. decrement number of updates in database
       await axios.post('/api/connection/'+token+'/run')
         .then(response => {
-            this.messageRunUpdates = this.messageRunUpdates + '\n' + token + ' is done.'
+            this.messageRunUpdates = this.messageRunUpdates + '\n<br>' + token + ' is done.'
         })
         .catch(e => {
             console.error(e)

@@ -19,7 +19,7 @@
             List of connections
           </div>
           <div class="overflow-y-auto">
-            <div class="w-full p-2 space-y-1 text-gray-700">
+            <!-- <div class="w-full p-2 space-y-1 text-gray-700">
               <div class="flex cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100">
                 <div class="w-8 text-center py-1 my-auto">
                   <p class="text-xl text-main-500">&bull;</p>
@@ -59,7 +59,7 @@
                   </svg>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="p-6 w-full">
               <router-link :to="{name: 'dashboard.workflows.gsheet-to-gsheet.create'}" class="w-full inline-flex px-5 py-4 text-white bg-main-600 hover:bg-main-700 focus:bg-main-700 rounded-md">
                 <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-white">

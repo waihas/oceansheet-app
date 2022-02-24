@@ -62,7 +62,7 @@
                     <div class="w-full sm:w-1/5 flex flex-col">
                         <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                         <div class="mt-6 flex flex-col text-center text-gray-700">
-                            <div class="text-2xl">
+                            <div class="text-xl">
                                 {{this.sheetFileSource}}
                             </div>
                             <div class="text-sm mt-2">
@@ -87,10 +87,10 @@
                         </div>
                     </div> -->
                     <div class="w-full sm:w-3/5 flex flex-wrap justify-between">
-                        <div class="flex flex-col">
+                        <div class="flex flex-col mx-auto">
                             <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                             <div class="mt-6 flex flex-col text-center text-gray-700">
-                                <div class="text-2xl">
+                                <div class="text-xl">
                                     {{this.sheetFileOutput1}}
                                 </div>
                                 <div class="text-sm mt-2">
@@ -98,10 +98,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-if="countOutputs > 1" class="flex flex-col">
+                        <div v-if="countOutputs > 1" class="flex flex-col mx-auto">
                             <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                             <div class="mt-6 flex flex-col text-center text-gray-700">
-                                <div class="text-2xl">
+                                <div class="text-xl">
                                     {{this.sheetFileOutput2}}
                                 </div>
                                 <div class="text-sm mt-2">
@@ -109,10 +109,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-if="countOutputs == 3" class="flex flex-col">
+                        <div v-if="countOutputs == 3" class="flex flex-col mx-auto">
                             <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                             <div class="mt-6 flex flex-col text-center text-gray-700">
-                                <div class="text-2xl">
+                                <div class="text-xl">
                                     {{this.sheetFileOutput3}}
                                 </div>
                                 <div class="text-sm mt-2">

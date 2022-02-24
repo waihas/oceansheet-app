@@ -1,8 +1,8 @@
 
 <template>
     <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
-        <div class="px-6 py-5 font-semibold border-b border-gray-100">The number of applied and left students per month</div>
-        <section class="grid md:grid-cols-3 gap-4 p-4">
+        <div class="px-6 py-5 font-semibold border-b border-gray-100">Overwiew</div>
+        <!-- <section class="grid md:grid-cols-3 gap-4 p-4">
             <div class="flex items-center py-3 px-8 bg-gray-50 rounded-xl">
                 <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-main-600 bg-main-100 rounded-full mr-6">
                     <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -37,12 +37,13 @@
                     <span class="block text-gray-500">Underperforming students</span>
                 </div>
             </div>
-        </section>
+        </section> -->
         <div class="p-4 flex-grow">
             <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
                 <!-- to see overview of project settings
                 we pass data of connection and show statistics -->
-                Tutorial video or sheets flowcharts
+                Tutorial video 
+                <!-- sheets flowcharts -->
             </div>
         </div>
     </div>

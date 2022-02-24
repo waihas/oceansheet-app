@@ -19,7 +19,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold">{{runTime}}</span>
+                        <span class="block text-2xl font-bold">{{runTime ? runTime : '--:--'}}</span>
                         <span class="block text-gray-500">Schedule</span>
                     </div>
                 </div>
@@ -241,7 +241,7 @@ export default {
     data() {
         return {
             name: '',
-            runTime: '',
+            runTime: null,
             countUpdates: '',
             updatesLeft: '',
             countOutputs: 1,

@@ -18,7 +18,7 @@
 <script>
 // import Swal from 'sweetalert2'
 // import axios from 'axios'
-import { runConnection }  from '~/components/connection/Run'
+import Run  from '~/components/connection/Run'
 
 export default {
     name: 'RunButton',
@@ -44,7 +44,7 @@ export default {
         async runConn() {
             this.running = true;
 
-            await runConnection(this.token)
+            await Run.runConnection(this.token)
             
             this.running = false;
         },

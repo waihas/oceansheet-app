@@ -229,7 +229,7 @@
 
 <script>
 import axios from 'axios'
-import { runConnection }  from '~/components/connection/Run'
+import Run  from '~/components/connection/Run'
 
 export default {
     name: 'Overview',
@@ -269,7 +269,7 @@ export default {
 
     methods: {
         runConn(token) {
-            runConnection(token)
+            Run.runConnection(token)
         },
         async loadConnection() {
             this.loading = true;

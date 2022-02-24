@@ -255,7 +255,7 @@ class ConnectionController extends Controller
         $request->user()->plan->save();
 
         $connection = Connection::where('token', $token)->firstOrFail();
-        $connection->count_updates--;
+        $connection->count_updates++;
         $connection->save();
 
         return response()->json([
@@ -293,6 +293,10 @@ class ConnectionController extends Controller
         $count = $conn->sheet_files->count();
 
         $data = [
+            'name' => $conn->name,
+            'run_time' => $conn->settings->run_time,
+            'count_updates' => $conn->count_updates,
+            'updates_left' => $request->user()->plan->updates_left,
             'count_outputs' => ($count-1),
             'source_spreadsheetId' => $conn->source_sheet->spreadsheetId,
             'source_spreadsheetName' => $conn->source_sheet->name,
@@ -305,8 +309,19 @@ class ConnectionController extends Controller
             'output_1_from' => $conn->output_sheets[0]->sheet_range->from,
         ];
 
-        $data['dddd'] = $conn->output_sheet->sheet_range->from;
-        $data['dddd'] = $conn->output_sheet->sheet_range->from;
+        if($count > 2) {
+            $data['output_2_spreadsheetId'] = $conn->output_sheets[1]->spreadsheetId;
+            $data['output_2_spreadsheetName'] = $conn->output_sheets[1]->name;
+            $data['output_2_title'] = $conn->output_sheets[1]->sheet->title;
+            $data['output_2_from'] = $conn->output_sheets[1]->sheet_range->from;
+        }
+
+        if($count == 4) {
+            $data['output_3_spreadsheetId'] = $conn->output_sheets[2]->spreadsheetId;
+            $data['output_3_spreadsheetName'] = $conn->output_sheets[2]->name;
+            $data['output_3_title'] = $conn->output_sheets[2]->sheet->title;
+            $data['output_3_from'] = $conn->output_sheets[2]->sheet_range->from;
+        }
 
         return response()->json([
             'success' => true,

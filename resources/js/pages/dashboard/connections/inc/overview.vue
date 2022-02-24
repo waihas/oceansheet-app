@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col bg-white rounded-lg">
         <div class="px-6 py-5 font-semibold border-b border-gray-100">
-            Connection overview
+            Overview: {{name}}
         </div>
         <div v-if="loading" class="flex items-center justify-center h-full px-4 py-16 rounded-md">
             <div class="flex flex-col text-center cursor-wait">
@@ -19,7 +19,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold">08:00</span>
+                        <span class="block text-2xl font-bold">{{runTime}}</span>
                         <span class="block text-gray-500">Schedule</span>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold">69</span>
+                        <span class="block text-2xl font-bold">{{countUpdates}}</span>
                         <span class="block text-gray-500">Updates made</span>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="inline-block text-2xl font-bold">9</span>
+                        <span class="inline-block text-2xl font-bold">{{updatesLeft}}</span>
                         <span class="block text-gray-500">Updates left</span>
                     </div>
                 </div>
@@ -91,32 +91,32 @@
                             <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                             <div class="mt-6 flex flex-col text-center text-gray-700">
                                 <div class="text-2xl">
-                                    {{this.sheetFileOutput}}
+                                    {{this.sheetFileOutput1}}
                                 </div>
                                 <div class="text-sm mt-2">
-                                    {{this.sheetOutput}}
+                                    {{this.sheetOutput1}}
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col">
+                        <div v-if="countOutputs > 1" class="flex flex-col">
                             <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                             <div class="mt-6 flex flex-col text-center text-gray-700">
                                 <div class="text-2xl">
-                                    {{this.sheetFileOutput}}
+                                    {{this.sheetFileOutput2}}
                                 </div>
                                 <div class="text-sm mt-2">
-                                    {{this.sheetOutput}}
+                                    {{this.sheetOutput2}}
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col">
+                        <div v-if="countOutputs == 3" class="flex flex-col">
                             <img class="w-28 h-28 mx-auto" src="/assets/img/sheet-logo.svg" alt="Sheet logo">
                             <div class="mt-6 flex flex-col text-center text-gray-700">
                                 <div class="text-2xl">
-                                    {{this.sheetFileOutput}}
+                                    {{this.sheetFileOutput3}}
                                 </div>
                                 <div class="text-sm mt-2">
-                                    {{this.sheetOutput}}
+                                    {{this.sheetOutput3}}
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@
 						</router-link>
 					</div>
 					<div class="flex group w-full">
-						<button @click="runConn('sdfdsfsdfd')" type="button" class="p-3 pb-0 text-gray-400 hover:text-main-500 w-full">
+						<button @click="runConn(token)" type="button" class="p-3 pb-0 text-gray-400 hover:text-main-500 w-full">
 							<span class="flex flex-col items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-gray-500 group-hover:text-gray-700 transition-color duration-200" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
                                     <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 2c5.519 0 10 4.481 10 10s-4.481 10-10 10-10-4.481-10-10 4.481-10 10-10zm2 12v-3l5 4-5 4v-3h-9v-2h9zm-4-6v-3l-5 4 5 4v-3h9v-2h-9z"/>
@@ -241,10 +241,18 @@ export default {
     data() {
         return {
             name: '',
+            runTime: '',
+            countUpdates: '',
+            updatesLeft: '',
+            countOutputs: 1,
             sheetFileSource: '',
             sheetSource: '',
-            sheetFileOutput: '',
-            sheetOutput: '',
+            sheetFileOutput1: '',
+            sheetOutput1: '',
+            sheetFileOutput2: '',
+            sheetOutput2: '',
+            sheetFileOutput3: '',
+            sheetOutput3: '',
             loading: true,
         }
     },
@@ -268,10 +276,23 @@ export default {
             if(this.token != null && this.token != '') {
                 await axios.get('/api/connection/'+this.token+'/get')
                     .then(res => {
+                        this.name = res.data.data.name
+                        this.runTime = res.data.data.run_time
+                        this.countUpdates = res.data.data.count_updates
+                        this.updatesLeft = res.data.data.updates_left
+                        this.countOutputs = res.data.data.count_outputs
                         this.sheetFileSource = res.data.data.source_spreadsheetName
                         this.sheetSource = res.data.data.source_title
-                        this.sheetFileOutput = res.data.data.output_spreadsheetName
-                        this.sheetOutput = res.data.data.output_title
+                        this.sheetFileOutput1 = res.data.data.output_1_spreadsheetName
+                        this.sheetOutput1 = res.data.data.output_1_title
+                        if(this.countOutputs > 1) {
+                            this.sheetFileOutput2 = res.data.data.output_2_spreadsheetName
+                            this.sheetOutput2 = res.data.data.output_2_title
+                        }
+                        if(this.countOutputs == 3) {
+                            this.sheetFileOutput3 = res.data.data.output_3_spreadsheetName
+                            this.sheetOutput3 = res.data.data.output_3_title
+                        }
                     })
                     .catch(e => {
                         console.error(e)

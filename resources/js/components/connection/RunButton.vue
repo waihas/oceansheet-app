@@ -1,6 +1,6 @@
 <template>
      <button type="button" 
-        @click="runConnection()"
+        @click="runConn()"
         >
         <svg xmlns="http://www.w3.org/2000/svg"
             v-if="running"
@@ -16,8 +16,9 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2'
-import axios from 'axios'
+// import Swal from 'sweetalert2'
+// import axios from 'axios'
+import { runConnection }  from '~/components/connection/Run'
 
 export default {
     name: 'RunButton',
@@ -29,124 +30,133 @@ export default {
     data() {
         return {
             running: false,
-            source_spreadsheetId: '',
-            source_title: '',
-            source_from: '',
-            source_to: '',
-            output_spreadsheetId: '',
-            output_title: '',
-            output_from: '',
+            // source_spreadsheetId: '',
+            // source_title: '',
+            // source_from: '',
+            // source_to: '',
+            // output_spreadsheetId: '',
+            // output_title: '',
+            // output_from: '',
         }
     },
 
     methods: {
-        async runConnection() {
+        async runConn() {
             this.running = true;
 
-            await this.updateCell();
-            await this.decrementUserUpdates();
-
+            await runConnection(this.token)
+            
             this.running = false;
         },
-        async updateCell() {
+        // async runConnection() {
 
-            // first get data by token
-            await axios.get('/api/connection/'+this.token+'/get')
-            .then(res => {
-                this.source_spreadsheetId = res.data.data.source_spreadsheetId
-                this.source_title = res.data.data.source_title
-                this.source_from = res.data.data.source_from
-                this.source_to = res.data.data.source_to
-                this.output_spreadsheetId = res.data.data.output_spreadsheetId
-                this.output_title = res.data.data.output_title
-                this.output_from = res.data.data.output_from
-            })
-            .catch(e => {
-                console.error(e)
-                this.running = false;
-                return Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'something went wrong while connecting!',
-                    confirmButtonColor: "#10b981",
-                })
-            })
+        //     this.running = true;
+            
 
-            // then run the API calls
-            const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
-                spreadsheetId: this.source_spreadsheetId,
-                range: this.source_title+'!'+this.source_from+':'+this.source_to,
-            });
+        //     await this.updateCell();
+        //     await this.decrementUserUpdates();
 
-            if(sourceData.status !== 200) {
-                // put it in database
-                await axios.post('/api/connection/save/error', {
-                    token: this.token,
-                    error: sourceData.status,
-                    log: sourceData.data,
-                })
-                .then(res => {
-                })
-                .catch(e => {
-                    console.error(e)
-                })
+        //     this.running = false;
+        // },
+        // async updateCell() {
+
+        //     // first get data by token
+        //     await axios.get('/api/connection/'+this.token+'/get')
+        //     .then(res => {
+        //         this.source_spreadsheetId = res.data.data.source_spreadsheetId
+        //         this.source_title = res.data.data.source_title
+        //         this.source_from = res.data.data.source_from
+        //         this.source_to = res.data.data.source_to
+        //         this.output_spreadsheetId = res.data.data.output_spreadsheetId
+        //         this.output_title = res.data.data.output_title
+        //         this.output_from = res.data.data.output_from
+        //     })
+        //     .catch(e => {
+        //         console.error(e)
+        //         this.running = false;
+        //         return Swal.fire({
+        //             icon: 'error',
+        //             title: 'Oops...',
+        //             text: 'something went wrong while connecting!',
+        //             confirmButtonColor: "#10b981",
+        //         })
+        //     })
+
+        //     // then run the API calls
+        //     const sourceData = await this.$google.api.client.sheets.spreadsheets.values.get({
+        //         spreadsheetId: this.source_spreadsheetId,
+        //         range: this.source_title+'!'+this.source_from+':'+this.source_to,
+        //     });
+
+        //     if(sourceData.status !== 200) {
+        //         // put it in database
+        //         await axios.post('/api/connection/save/error', {
+        //             token: this.token,
+        //             error: sourceData.status,
+        //             log: sourceData.data,
+        //         })
+        //         .then(res => {
+        //         })
+        //         .catch(e => {
+        //             console.error(e)
+        //         })
                 
-                // show alert
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'something went wrong with source sheet!',
-                    confirmButtonColor: "#10b981",
-                })
-                this.running = false;
-            }
+        //         // show alert
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'Oops...',
+        //             text: 'something went wrong with source sheet!',
+        //             confirmButtonColor: "#10b981",
+        //         })
+        //         this.running = false;
+        //     }
 
-            const response = await this.$google.api.client.sheets.spreadsheets.values.update({
-                spreadsheetId: this.output_spreadsheetId,
-                range: this.output_title+'!'+this.output_from,
-                valueInputOption: 'USER_ENTERED',
-                values: sourceData.result.values
-            })
+        //     const response = await this.$google.api.client.sheets.spreadsheets.values.update({
+        //         spreadsheetId: this.output_spreadsheetId,
+        //         range: this.output_title+'!'+this.output_from,
+        //         valueInputOption: 'USER_ENTERED',
+        //         values: sourceData.result.values
+        //     })
 
-            if(response.status !== 200) {
-                // put it in database
-                await axios.post('/api/connection/save/error', {
-                    token: this.token,
-                    error: response.status,
-                    log: response.data,
-                })
-                .then(res => {
-                })
-                .catch(e => {
-                    console.error(e)
-                })
+        //     if(response.status !== 200) {
+        //         // put it in database
+        //         await axios.post('/api/connection/save/error', {
+        //             token: this.token,
+        //             error: response.status,
+        //             log: response.data,
+        //         })
+        //         .then(res => {
+        //         })
+        //         .catch(e => {
+        //             console.error(e)
+        //         })
 
-                // show alert
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'something went wrong with output sheet!',
-                    confirmButtonColor: "#10b981",
-                })
+        //         // show alert
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'Oops...',
+        //             text: 'something went wrong with output sheet!',
+        //             confirmButtonColor: "#10b981",
+        //         })
 
-                this.running = false;
-            }
-        },
-        async decrementUserUpdates() {
-            await axios.post('/api/connection/'+this.token+'/run')
-            .then(response => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: 'You connection did run successfully!',
-                    confirmButtonColor: "#10b981",
-                    timer: 1500
-                })
-            })
-            .catch(e => {
-                console.error(e)
-            })
-        }
+        //         this.running = false;
+        //     }
+        // },
+        // async decrementUserUpdates() {
+        //     await axios.post('/api/connection/'+this.token+'/run')
+        //     .then(response => {
+        //         Swal.fire({
+        //             icon: 'success',
+        //             title: 'Success!',
+        //             text: 'You connection did run successfully!',
+        //             confirmButtonColor: "#10b981",
+        //             timer: 1500
+        //         })
+        //     })
+        //     .catch(e => {
+        //         console.error(e)
+        //     })
+        // }
     }
 }
 </script>

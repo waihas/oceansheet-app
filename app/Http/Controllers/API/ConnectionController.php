@@ -299,10 +299,10 @@ class ConnectionController extends Controller
             'source_title' => $conn->source_sheet->sheet->title,
             'source_from' => $conn->source_sheet->sheet_range->from,
             'source_to' => $conn->source_sheet->sheet_range->to,
-            'output_1_spreadsheetId' => $conn->output_sheet->spreadsheetId,
-            'output_1_spreadsheetName' => $conn->output_sheet->name,
-            'output_1_title' => $conn->output_sheet->sheet->title,
-            'output_1_from' => $conn->output_sheet->sheet_range->from,
+            'output_1_spreadsheetId' => $conn->output_sheets[0]->spreadsheetId,
+            'output_1_spreadsheetName' => $conn->output_sheets[0]->name,
+            'output_1_title' => $conn->output_sheets[0]->sheet->title,
+            'output_1_from' => $conn->output_sheets[0]->sheet_range->from,
         ];
 
         $data['dddd'] = $conn->output_sheet->sheet_range->from;

@@ -41,7 +41,11 @@ class Connection extends Model
     public function source_sheet()
     {
         return $this->hasOne(SheetFile::class)->where('sheet_files.type', '=', 'source');
-        // return $this->belongsTo(SheetFile::class, 'from_sheet_file_id');
+    }
+
+    public function output_sheets()
+    {
+        return $this->hasMany(SheetFile::class)->where('sheet_files.type', '=', 'output');
     }
 
     // public function source_sheet()
@@ -50,7 +54,7 @@ class Connection extends Model
     //     // return $this->belongsTo(SheetFile::class, 'from_sheet_file_id');
     // }
     
-    // public function output_sheets()
+    // public function output_sheet()
     // {
     //     return $this->hasMany(SheetFile::class);
     //     // return $this->belongsTo(SheetFile::class, 'to_sheet_file_id');

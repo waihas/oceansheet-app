@@ -117,8 +117,8 @@ export default {
           if(sourceData.status !== 200) {
             // put it in database
             await axios.post('/api/calls/error/save', {
-                error: sourceData.status,
-                log: sourceData.data,
+                error: sourceData.data.status,
+                log: sourceData.data.data,
             })
             
             // show alert
@@ -149,8 +149,8 @@ export default {
 
           if(response1.status !== 200) {
             await axios.post('/api/calls/error/save', {
-                error: response1.status,
-                log: response1.data,
+                error: response1.data.status,
+                log: response1.data.data,
             })
 
             Swal.fire({
@@ -175,8 +175,8 @@ export default {
             if(response2.status !== 200) {
               // put it in database
               await axios.post('/api/calls/error/save', {
-                  error: response2.status,
-                  log: response2.data,
+                  error: response2.data.status,
+                  log: response2.data.data,
               })
 
               Swal.fire({
@@ -202,8 +202,8 @@ export default {
             if(response3.status !== 200) {
               // put it in database
               await axios.post('/api/calls/error/save', {
-                  error: response3.status,
-                  log: response3.data,
+                  error: response3.data.status,
+                  log: response3.data.data,
               })
 
               // show alert
@@ -239,13 +239,25 @@ export default {
           //4. increment used_connection for user
         },
         async saveInDatabase() {
-          await axios.post('/api/connection/create', {
+          const params = {
               source_sheetId: this.source.sheet.properties.sheetId,
               source_title: this.source.sheet.properties.title,
               source_index: this.source.sheet.properties.index,
               source_sheetType: this.source.sheet.properties.sheetType,
               source_rowCount: this.source.sheet.properties.gridProperties.rowCount,
               source_columnCount: this.source.sheet.properties.gridProperties.columnCount,
+
+              source_from: this.options.fromSheets,
+              source_to: this.options.fromSheets.charAt(0),
+
+              source_spreadsheetId: this.source.file.id,
+              source_name: this.source.file.name,
+              source_mimeType: this.source.file.mimeType,
+              source_size: this.source.file.size,
+              source_webViewLink: this.source.file.webViewLink,
+              source_shared: this.source.file.shared,
+              source_ownedByMe: this.source.file.ownedByMe,
+              source_exportLinks: this.source.file.exportLinks,
 
               output_sheets_count: this.output.count,
               run_time: this.options.runTime,
@@ -257,38 +269,8 @@ export default {
               output_1_rowCount: this.output.sheet1.properties.gridProperties.rowCount,
               output_1_columnCount: this.output.sheet1.properties.gridProperties.columnCount,
               
-              output_2_sheetId: this.output.sheet2.properties.sheetId,
-              output_2_title: this.output.sheet2.properties.title,
-              output_2_index: this.output.sheet2.properties.index,
-              output_2_sheetType: this.output.sheet2.properties.sheetType,
-              output_2_rowCount: this.output.sheet2.properties.gridProperties.rowCount,
-              output_2_columnCount: this.output.sheet2.properties.gridProperties.columnCount,
-              
-              output_3_sheetId: this.output.sheet3.properties.sheetId,
-              output_3_title: this.output.sheet3.properties.title,
-              output_3_index: this.output.sheet3.properties.index,
-              output_3_sheetType: this.output.sheet3.properties.sheetType,
-              output_3_rowCount: this.output.sheet3.properties.gridProperties.rowCount,
-              output_3_columnCount: this.output.sheet3.properties.gridProperties.columnCount,
-
-              source_from: this.options.fromSheets,
-              source_to: this.options.fromSheets.charAt(0),
-
               output_1_from: this.options.toSheets1,
               output_1_to: this.options.toSheets1.charAt(0),
-              output_2_from: this.options.toSheets2,
-              output_2_to: this.options.toSheets2.charAt(0),
-              output_3_from: this.options.toSheets3,
-              output_3_to: this.options.toSheets3.charAt(0),
-
-              source_spreadsheetId: this.source.file.id,
-              source_name: this.source.file.name,
-              source_mimeType: this.source.file.mimeType,
-              source_size: this.source.file.size,
-              source_webViewLink: this.source.file.webViewLink,
-              source_shared: this.source.file.shared,
-              source_ownedByMe: this.source.file.ownedByMe,
-              source_exportLinks: this.source.file.exportLinks,
 
               output_1_spreadsheetId: this.output.file1.id,
               output_1_name: this.output.file1.name,
@@ -298,25 +280,130 @@ export default {
               output_1_shared: this.output.file1.shared,
               output_1_ownedByMe: this.output.file1.ownedByMe,
               output_1_exportLinks: this.output.file1.exportLinks,
+          }
+          if (this.output.count > 1) { 
+              params.output_2_sheetId= this.output.sheet2.properties.sheetId
+              params.output_2_title= this.output.sheet2.properties.title
+              params.output_2_index= this.output.sheet2.properties.index
+              params.output_2_sheetType= this.output.sheet2.properties.sheetType
+              params.output_2_rowCount= this.output.sheet2.properties.gridProperties.rowCount
+              params.output_2_columnCount= this.output.sheet2.properties.gridProperties.columnCount
               
-              output_2_spreadsheetId: this.output.file2.id,
-              output_2_name: this.output.file2.name,
-              output_2_mimeType: this.output.file2.mimeType,
-              output_2_size: this.output.file2.size,
-              output_2_webViewLink: this.output.file2.webViewLink,
-              output_2_shared: this.output.file2.shared,
-              output_2_ownedByMe: this.output.file2.ownedByMe,
-              output_2_exportLinks: this.output.file2.exportLinks,
+              params.output_2_from= this.options.toSheets2
+              params.output_2_to= this.options.toSheets2.charAt(0)
+
+              params.output_2_spreadsheetId= this.output.file2.id
+              params.output_2_name= this.output.file2.name
+              params.output_2_mimeType= this.output.file2.mimeType
+              params.output_2_size= this.output.file2.size
+              params.output_2_webViewLink= this.output.file2.webViewLink
+              params.output_2_shared= this.output.file2.shared
+              params.output_2_ownedByMe= this.output.file2.ownedByMe
+              params.output_2_exportLinks= this.output.file2.exportLinks
+          }
+          if (this.output.count === 3) {
+              params.output_3_sheetId= this.output.sheet3.properties.sheetId
+              params.output_3_title= this.output.sheet3.properties.title
+              params.output_3_index= this.output.sheet3.properties.index
+              params.output_3_sheetType= this.output.sheet3.properties.sheetType
+              params.output_3_rowCount= this.output.sheet3.properties.gridProperties.rowCount
+              params.output_3_columnCount= this.output.sheet3.properties.gridProperties.columnCount
               
-              output_3_spreadsheetId: this.output.file3.id,
-              output_3_name: this.output.file3.name,
-              output_3_mimeType: this.output.file3.mimeType,
-              output_3_size: this.output.file3.size,
-              output_3_webViewLink: this.output.file3.webViewLink,
-              output_3_shared: this.output.file3.shared,
-              output_3_ownedByMe: this.output.file3.ownedByMe,
-              output_3_exportLinks: this.output.file3.exportLinks,
-          })
+              params.output_3_from= this.options.toSheets3
+              params.output_3_to= this.options.toSheets3.charAt(0)
+
+              params.output_3_spreadsheetId= this.output.file3.id
+              params.output_3_name= this.output.file3.name
+              params.output_3_mimeType= this.output.file3.mimeType
+              params.output_3_size= this.output.file3.size
+              params.output_3_webViewLink= this.output.file3.webViewLink
+              params.output_3_shared= this.output.file3.shared
+              params.output_3_ownedByMe= this.output.file3.ownedByMe
+              params.output_3_exportLinks= this.output.file3.exportLinks
+          }
+
+          await axios.post('/api/connection/create', params
+          // {
+          //     source_sheetId: this.source.sheet.properties.sheetId,
+          //     source_title: this.source.sheet.properties.title,
+          //     source_index: this.source.sheet.properties.index,
+          //     source_sheetType: this.source.sheet.properties.sheetType,
+          //     source_rowCount: this.source.sheet.properties.gridProperties.rowCount,
+          //     source_columnCount: this.source.sheet.properties.gridProperties.columnCount,
+
+          //     source_from: this.options.fromSheets,
+          //     source_to: this.options.fromSheets.charAt(0),
+
+          //     source_spreadsheetId: this.source.file.id,
+          //     source_name: this.source.file.name,
+          //     source_mimeType: this.source.file.mimeType,
+          //     source_size: this.source.file.size,
+          //     source_webViewLink: this.source.file.webViewLink,
+          //     source_shared: this.source.file.shared,
+          //     source_ownedByMe: this.source.file.ownedByMe,
+          //     source_exportLinks: this.source.file.exportLinks,
+
+          //     output_sheets_count: this.output.count,
+          //     run_time: this.options.runTime,
+
+          //     output_1_sheetId: this.output.sheet1.properties.sheetId,
+          //     output_1_title: this.output.sheet1.properties.title,
+          //     output_1_index: this.output.sheet1.properties.index,
+          //     output_1_sheetType: this.output.sheet1.properties.sheetType,
+          //     output_1_rowCount: this.output.sheet1.properties.gridProperties.rowCount,
+          //     output_1_columnCount: this.output.sheet1.properties.gridProperties.columnCount,
+              
+          //     output_1_from: this.options.toSheets1,
+          //     output_1_to: this.options.toSheets1.charAt(0),
+
+          //     output_1_spreadsheetId: this.output.file1.id,
+          //     output_1_name: this.output.file1.name,
+          //     output_1_mimeType: this.output.file1.mimeType,
+          //     output_1_size: this.output.file1.size,
+          //     output_1_webViewLink: this.output.file1.webViewLink,
+          //     output_1_shared: this.output.file1.shared,
+          //     output_1_ownedByMe: this.output.file1.ownedByMe,
+          //     output_1_exportLinks: this.output.file1.exportLinks,
+
+          //     output_2_sheetId: this.output.sheet2.properties.sheetId,
+          //     output_2_title: this.output.sheet2.properties.title,
+          //     output_2_index: this.output.sheet2.properties.index,
+          //     output_2_sheetType: this.output.sheet2.properties.sheetType,
+          //     output_2_rowCount: this.output.sheet2.properties.gridProperties.rowCount,
+          //     output_2_columnCount: this.output.sheet2.properties.gridProperties.columnCount,
+              
+          //     output_2_from: this.options.toSheets2,
+          //     output_2_to: this.options.toSheets2.charAt(0),
+
+          //     output_2_spreadsheetId: this.output.file2.id,
+          //     output_2_name: this.output.file2.name,
+          //     output_2_mimeType: this.output.file2.mimeType,
+          //     output_2_size: this.output.file2.size,
+          //     output_2_webViewLink: this.output.file2.webViewLink,
+          //     output_2_shared: this.output.file2.shared,
+          //     output_2_ownedByMe: this.output.file2.ownedByMe,
+          //     output_2_exportLinks: this.output.file2.exportLinks,
+
+          //     output_3_sheetId: this.output.sheet3.properties.sheetId,
+          //     output_3_title: this.output.sheet3.properties.title,
+          //     output_3_index: this.output.sheet3.properties.index,
+          //     output_3_sheetType: this.output.sheet3.properties.sheetType,
+          //     output_3_rowCount: this.output.sheet3.properties.gridProperties.rowCount,
+          //     output_3_columnCount: this.output.sheet3.properties.gridProperties.columnCount,
+              
+          //     output_3_from: this.options.toSheets3,
+          //     output_3_to: this.options.toSheets3.charAt(0),
+
+          //     output_3_spreadsheetId: this.output.file3.id,
+          //     output_3_name: this.output.file3.name,
+          //     output_3_mimeType: this.output.file3.mimeType,
+          //     output_3_size: this.output.file3.size,
+          //     output_3_webViewLink: this.output.file3.webViewLink,
+          //     output_3_shared: this.output.file3.shared,
+          //     output_3_ownedByMe: this.output.file3.ownedByMe,
+          //     output_3_exportLinks: this.output.file3.exportLinks,
+          // }
+          )
           .then(response => {
             // console.log(response)
           })

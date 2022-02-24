@@ -10,6 +10,7 @@
             <google-drive-sheets
               @file-choosed="fileChoosed1"
               @sheet-choosed="sheetChoosed1"
+              :key="'firstOutput'"
             ></google-drive-sheets>
 
             <div v-if="error1" class="mt-2 text-sm text-red-600">
@@ -24,6 +25,7 @@
               <google-drive-sheets
                 @file-choosed="fileChoosed2"
                 @sheet-choosed="sheetChoosed2"
+                :key="'secondOutput'"
               ></google-drive-sheets>
               
               <div v-if="error2" class="mt-2 text-sm text-red-600">
@@ -40,6 +42,7 @@
               <google-drive-sheets
                 @file-choosed="fileChoosed3"
                 @sheet-choosed="sheetChoosed3"
+                :key="'thirdOutput'"
               ></google-drive-sheets>
 
               <div v-if="error3" class="mt-2 text-sm text-red-600">

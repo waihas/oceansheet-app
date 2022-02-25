@@ -84,7 +84,7 @@
       <section class="bg-white p-4 rounded-lg" >
           <div class="flex border-b mb-2">
             <div class="w-4/5 py-3 px-1 text-gray-900 text-sm font-bold uppercase">
-              User
+              Users
             </div>
             <div class="w-1/5 p-3 my-auto text-gray-900 text-sm font-bold uppercase">
               Actions
@@ -120,7 +120,7 @@
       <section class="bg-white p-4 rounded-lg" >
           <div class="flex border-b mb-2">
             <div class="w-4/5 py-3 px-1 text-gray-900 text-sm font-bold uppercase">
-              Error
+              Errors
             </div>
             <div class="w-1/5 p-3 my-auto text-gray-900 text-sm font-bold uppercase">
               Actions
@@ -203,7 +203,7 @@
       <section class="bg-white p-4 rounded-lg" >
           <div class="flex border-b mb-2">
             <div class="w-4/5 py-3 px-1 text-gray-900 text-sm font-bold uppercase">
-              Feedback
+              Feedbacks
             </div>
             <div class="w-1/5 p-3 my-auto text-gray-900 text-sm font-bold uppercase">
               Actions

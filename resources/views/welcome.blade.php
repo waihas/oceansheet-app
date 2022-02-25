@@ -26,6 +26,15 @@ $config = [
 
     <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}">
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css"> --}}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YY9PMCP7RH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YY9PMCP7RH');
+    </script>
 </head>
 <body>
     <div id="app"></div>

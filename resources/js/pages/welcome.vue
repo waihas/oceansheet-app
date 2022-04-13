@@ -22,7 +22,7 @@
             Connect, Manage and Automate your <br class="hidden lg:block"> spreadsheets easily. 
           </h1>
           <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
-            Connect spreadsheets and automate your work.
+            Connect spreadsheets and automate your work to empower you business.
           </p>
           <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
             Get Started Now »

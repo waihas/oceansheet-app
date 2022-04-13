@@ -37,19 +37,19 @@ import store from '~/store'
 import router from '~/router'
 import i18n from '~/plugins/i18n'
 import App from '~/components/App'
-import GoogleAPIs  from 'vue-googleapis'
+// import GoogleAPIs  from 'vue-googleapis'
 
 import '~/plugins'
 import '~/components'
 
 Vue.config.productionTip = false
 
-Vue.use(GoogleAPIs, {
-  apiKey: 'AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw',
-  clientId: '727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com',
-  discoveryDocs: ['https://content.googleapis.com/discovery/v1/apis/drive/v3/rest', 'https://sheets.googleapis.com/$discovery/rest?version=v4'],
-  scope: 'https://www.googleapis.com/auth/drive',
-})
+// Vue.use(GoogleAPIs, {
+//   apiKey: 'AIzaSyDnUBzVRUIu2DFA9NE28Fbqru7Q5dei4Pw',
+//   clientId: '727914357338-l3hhcebf48cfesv4r2733vpjia40l8ft.apps.googleusercontent.com',
+//   discoveryDocs: ['https://content.googleapis.com/discovery/v1/apis/drive/v3/rest', 'https://sheets.googleapis.com/$discovery/rest?version=v4'],
+//   scope: 'https://www.googleapis.com/auth/drive',
+// })
 
 /* eslint-disable no-new */
 new Vue({

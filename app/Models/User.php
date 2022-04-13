@@ -9,10 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable //implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use Billable, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -91,5 +92,10 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function feedbacks()
     {
         return $this->hasMany(Feedback::class);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
     }
 }

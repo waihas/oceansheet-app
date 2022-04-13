@@ -14,7 +14,7 @@
                     <div class="flex gap-4 items-center flex-shrink-0">
                         <!-- setTimeout is for demo purposes only. Remove it & add to cookies
                             so that the popup won't appear next time they load. -->
-                        <router-link :to="{name: 'cookies.policy'}" class="text-gray-500 focus:outline-none hover:underline">Settings</router-link>
+                        <!-- <router-link :to="{name: 'cookies.policy'}" class="text-gray-500 focus:outline-none hover:underline">Settings</router-link> -->
                         <button type="button" @click="setCookies()" class="bg-main-600 px-5 py-2 text-white rounded-md hover:bg-main-800 focus:outline-none">Accept Cookies</button>
                     </div>
                 </div>

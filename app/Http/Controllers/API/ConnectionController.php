@@ -11,9 +11,12 @@ use App\Models\SheetFile;
 use App\Models\SheetRange;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Traits\SheetFile as SheetFileTrait;
 
 class ConnectionController extends Controller
 {
+    use SheetFileTrait;
+
     public function all(Request $request)
     {
         return response()->json([
@@ -133,6 +136,9 @@ class ConnectionController extends Controller
             'from' => $request->source_from,
             'to' => $request->source_to,
         ]);
+
+        // $this->createSheetFile($request, $connection->id, $sheetSource->id, $rangeSource->id);
+        
         SheetFile::create([
             'spreadsheetId' => $request->source_spreadsheetId,
             'name' => $request->source_name,

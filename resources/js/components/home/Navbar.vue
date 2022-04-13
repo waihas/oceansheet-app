@@ -16,13 +16,52 @@
             </div>
             <nav :class="isOpen ? 'flex' : 'hidden'"
             class="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-center md:flex-row items-center">
-              <router-link :to="{ name: 'about' }" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+              <!-- <router-link :to="{ name: 'about' }" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 About
-              </router-link>
+              </router-link> -->
               <!-- v-click-outside="isOpen = false" -->
+              <!-- v-click-outside="closeDropdowns" -->
+              <!-- <div class="relative">
+                <button @click="toggleProducts" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline">
+                  <span>Product</span>
+                  <svg fill="currentColor" viewBox="0 0 20 20" :class="productsOpen ? 'rotate-180' : 'rotate-0'" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div v-if="productsOpen" 
+                  @click="toggleProducts"
+                  x-transition:enter="transition ease-out duration-100" 
+                  x-transition:enter-start="transform opacity-0 scale-95" 
+                  x-transition:enter-end="transform opacity-100 scale-100" 
+                  x-transition:leave="transition ease-in duration-75" 
+                  x-transition:leave-start="transform opacity-100 scale-100" 
+                  x-transition:leave-end="transform opacity-0 scale-95" 
+                  class="absolute left-1/2 w-64 md:max-w-screen-sm md:w-screen transform -translate-x-1/2 mt-2 z-20">
+                  <div class="p-2 bg-white rounded-md shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <router-link :to="{ name: 'products.for-gsheet' }" class="flex row items-center rounded-lg bg-transparent p-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                        <div class="bg-main-500 text-white rounded-lg p-3">
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <div class="ml-3">
+                          <p class="font-semibold">For Google Sheet</p>
+                          <p class="text-sm">Create Connection between Sheets</p>
+                        </div>
+                      </router-link>
+                      <router-link :to="{ name: 'products.for-microsoft' }" class="flex row items-center rounded-lg bg-transparent p-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                        <div class="bg-main-500 text-white rounded-lg p-3">
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <div class="ml-3">
+                          <p class="font-semibold">For Microsoft Excel</p>
+                          <p class="text-sm">Manage your Microsoft Excel files</p>
+                        </div>
+                      </router-link>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
               <div class="relative">
                 <button @click="toggleProducts" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline">
-                  <span>Products</span>
+                  <span>Product</span>
                   <svg fill="currentColor" viewBox="0 0 20 20" :class="productsOpen ? 'rotate-180' : 'rotate-0'" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </button>
                 <div v-show="productsOpen" 
@@ -59,6 +98,7 @@
                 </div>
               </div>
               <!-- v-click-outside="isOpen = false" -->
+              <!-- v-click-outside="closeDropdowns" -->
               <div class="relative">
                 <button @click="toggleWorkflows" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline">
                   <span>Workflows</span>
@@ -146,14 +186,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import clickOutside from 'vue-click-outside'
+import clickOutside from 'vue-click-outside'
 
 export default {
     name: 'Navbar',
 
-    // directives: {
-    //     clickOutside,
-    // },
+    directives: {
+        clickOutside,
+    },
 
     data: () => ({
         isOpen: false,
@@ -174,6 +214,13 @@ export default {
         this.productsOpen = !this.productsOpen
         this.workflowsOpen = false
       },
+      closeDropdowns() {
+        if(this.workflowsOpen)
+          this.workflowsOpen = false
+          
+        if(this.productsOpen)
+          this.productsOpen = false
+      }
     },
 }
 </script>

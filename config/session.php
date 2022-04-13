@@ -155,7 +155,8 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => env('SESSION_DOMAIN',  '.oceansheet.com'),
+    // 'domain' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------

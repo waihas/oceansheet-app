@@ -11,6 +11,7 @@ use App\Http\Controllers\API\ConnectionController;
 use App\Http\Controllers\API\ErrorController;
 use App\Http\Controllers\API\FeedbackController;
 use App\Http\Controllers\API\NewsletterController;
+use App\Http\Controllers\API\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,8 +37,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('user', [UserController::class, 'current']);
 
+    // user account
     Route::patch('settings/profile', [UserController::class, 'updateProfile']);
     Route::patch('settings/password', [UserController::class, 'updatePassword']);
+    
+    // user cloud storage
     Route::post('user/drive/Ba', [UserController::class, 'saveDriveUserId']);
     Route::get('user/drive/get/Ba', [UserController::class, 'getDriveUserId']);
     
@@ -52,6 +56,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     
     Route::post('feedback/add', [FeedbackController::class, 'createFeedback']);
     
+    // https://serversideup.net/managing-stripe-payment-methods-in-vuejs-spa-and-laravel-api/
+    // payments
+    Route::post('/user/payments', [PaymentController::class, 'savePaymentMethod']);
+    Route::get('/user/payments/methods', [PaymentController::class, 'getPaymentMethods']);
+    Route::post('/user/payments/remove', [PaymentController::class, 'removePaymentMethod']);
+
+    // dashboard
     Route::prefix('admin/backdoor/0623656897/oceansheet')->group(function () {
         Route::get('/users', [HomeController::class, 'users']);
         Route::get('/errors', [HomeController::class, 'errors']);

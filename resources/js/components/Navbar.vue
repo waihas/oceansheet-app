@@ -33,7 +33,7 @@
                   <div class="py-2">
                       <router-link :to="{name: 'settings.notifications'}" class="flex items-center px-4 py-3 hover:bg-gray-100 -mx-2">
                           <p class="text-gray-600 text-sm mx-2">
-                            No notifications for now!
+                            You don't have any notifications.
                           </p>
                       </router-link>
                       <!-- <a href="#" class="flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">

@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(array('domain' => 'blog.myapp.com'), function() {
-
-    Route::get('/', function($account, $id) {
+Route::domain('blog.example.com')->group(function () {
+    Route::get('/', function ($account, $id) {
         return "Hello bb";
     });
-
 });
 
 // Route::get('/', function () {

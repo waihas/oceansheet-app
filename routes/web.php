@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('blog.example.com')->group(function () {
+Route::domain('blog.oceansheet.com')->group(function () {
     Route::get('/', function ($account, $id) {
         return "Hello bb";
     });

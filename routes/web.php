@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('blog.oceansheet.com')->group(function () {
-    Route::get('/', function ($account, $id) {
-        return "Hello bb";
+Route::domain('app.oceansheet.com')->group(function () {
+    Route::get('/', function () {
+        return "Here u go";
     });
 });
 

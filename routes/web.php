@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'First sub domain';
-})->domain('blog.' . env('APP_URL'));
+Route::group(array('domain' => 'blog.myapp.com'), function() {
+
+    Route::get('/', function($account, $id) {
+        return "Hello bb";
+    });
+
+});
+
+// Route::get('/', function () {
+//     return 'First sub domain';
+// })->domain('blog.' . env('APP_URL'));
 
 Route::get('{path}', function () {
     return view('welcome');

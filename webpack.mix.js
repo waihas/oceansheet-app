@@ -26,6 +26,11 @@ mix.js('resources/js/app.js', 'public/dist/js')
       ],
     });
 
+mix.js('resources/js/basic.js', 'public/dist/js')
+    .vue();
+mix.js('resources/js/blog.js', 'public/dist/js')
+    .vue();
+
 if (mix.inProduction()) {
   mix
     // .extract() // Disabled until resolved: https://github.com/JeffreyWay/laravel-mix/issues/1889

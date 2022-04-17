@@ -165,15 +165,15 @@
             <div :class="isOpen ? 'flex' : 'hidden'"
             class="relative md:flex mx-auto">
               <template v-if="authenticated">
-                <a href="https://app.oceansheet.com/dashboard" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
+                <a href="/login" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
                   Dashboard
                 </a>
               </template>
               <template v-else>
-                <a href="https://app.oceansheet.com/login" class="transition-all duration-100 ease-in-out hover:text-main-500 px-4 py-2 mt-2 text-sm font-semibold rounded-lg bg-transparent md:mt-0 md:ml-4 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <a href="/login" class="transition-all duration-100 ease-in-out hover:text-main-500 px-4 py-2 mt-2 text-sm font-semibold rounded-lg bg-transparent md:mt-0 md:ml-4 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                     Login
                 </a>
-                <a href="https://app.oceansheet.com/register" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
+                <a href="/register" class="transition-all duration-100 ease-in-out bg-main-600 text-white hover:text-white hover:bg-main-800 px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 focus:bg-main-800 focus:outline-none focus:shadow-outline">
                     Register
                 </a>
               </template>

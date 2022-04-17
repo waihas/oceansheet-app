@@ -3,7 +3,7 @@ function page (path) {
   }
   
   export default [
-    // { path: '/', name: 'welcome', component: page('welcome.vue') },
+    { path: '/', redirect:'dashboard' },
     // { path: '/about-us', name: 'about', component: page('about.vue') },
     // { path: '/pricing', name: 'pricing', component: page('pricing.vue') },
     // { path: '/product/for-google-sheets', name: 'products.for-gsheet', component: page('products/for-gsheet.vue') },

@@ -54,7 +54,7 @@
                         <li>session</li>
                     </ul>
                     <br><br>
-                    OceanSheet cookies. These cookies are used to keep you logged in our product, either in the web platform and add-on for Google Sheets. This is a way to identify you in our different pages inside the product and in different places, such as Add-on for Google Sheets and the Web Platform. More information: <router-link class="underline" :to="{ name: 'privacy.policy' }"> OceanSheet Privacy Policy</router-link>
+                    OceanSheet cookies. These cookies are used to keep you logged in our product, either in the web platform and add-on for Google Sheets. This is a way to identify you in our different pages inside the product and in different places, such as Add-on for Google Sheets and the Web Platform. More information: <a href="{{route('legal.privacy')}}" class="underline"> OceanSheet Privacy Policy</a>
                 </p>
                 <p class="py-6">
                     <h1 class="py-2 text-2xl text-gray-800 underline">

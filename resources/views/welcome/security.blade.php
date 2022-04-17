@@ -136,7 +136,7 @@
             </h1>
             <p class="mb-8 leading-relaxed">
                 GDPR outlines requirements for organizations that are headquartered in, or have users in, Europe. It aims to strengthen the protection of personal data. OceanSheet is fully compliant with the General Data Protection Regulation (“GDPR”). 
-                <router-link class="underline hover:text-main-600" :to="{name: 'privacy.guide'}">Read our GDPR guide.</router-link>
+                <a href="{{route('legal.guide')}}" class="underline hover:text-main-600">Read our GDPR guide.</a>
             </p>
         </div>
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
@@ -155,7 +155,7 @@
             </h1>
             <p class="mb-8 leading-relaxed">
                 Some permissions to your account are required for OceanSheet to function. The permissions granted are used exclusively for the operation of the product limited to the services offered. <span class="font-bold"> OceanSheet does not store any copies of the content of your files.</span>
-                <router-link class="underline hover:text-main-600" :to="{name: 'privacy.policy'}">  Read our Privacy Policy.</router-link>
+                <a href="{{route('legal.privacy')}}" class="underline hover:text-main-600">  Read our Privacy Policy.</a>
             </p>
         </div>
     </div>

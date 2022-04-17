@@ -16,8 +16,8 @@
             <p class="mb-8 leading-relaxed">A startup that aims to help business to acheive more successfull work throught providing a solution that will help them to automate work with all different types of sheets (Google Sheets, Microsoft Excel & CSV/TSV)</p>
             <p class="mb-8 leading-relaxed">If you want to help the world’s spreadsheet users manage their data and automate their work, we want to meet you!</p>
             <div class="flex justify-center">
-                <router-link :to="{ name: 'contact' }" class="inline-flex text-white bg-main-500 border-0 py-2 px-6 focus:outline-none hover:bg-main-600 rounded text-lg">Contact Us</router-link>
-                <router-link :to="{ name: 'register' }" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Sign up</router-link>
+                <a href="{{route('contact')}}" class="inline-flex text-white bg-main-500 border-0 py-2 px-6 focus:outline-none hover:bg-main-600 rounded text-lg">Contact Us</a>
+                <a href="{{route('register')}}" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Sign up</a>
             </div>
         </div>
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">

@@ -25,13 +25,10 @@ Route::domain('blog.oceansheet.com')->group(function () {
     })->name('blog.index');
 });
 
-
-Route::get('/login', function () {
-    return redirect(); // to env('APP_URL').'/login';
-})->name('login');
-Route::get('/register', function () {
-    return redirect(); // to env('APP_URL').'/login';
-})->name('register');
+Route::redirect('/login', 'app.'.env('APP_URL').'/login')
+    ->name('login');
+Route::redirect('/register', 'app.'.env('APP_URL').'/register')
+    ->name('register');
 
 Route::get('/', function () {
     return view('welcome.index');

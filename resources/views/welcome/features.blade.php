@@ -31,11 +31,11 @@
                     <p class="leading-relaxed text-base">
                         OceanSheet makes data collection, distribution, and analysis a cinch. It works with whatever spreadsheet system you use. Start with one of our pre-built templates, or create your own.
                     </p>
-                    <router-link :to="{name: 'workflows'}" class="mt-3 text-main-500 inline-flex items-center">Explore features
+                    <a href="{{route('workflows')}}" class="mt-3 text-main-500 inline-flex items-center">Explore features
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </router-link>
+                    </a>
                 </div>
             </div>
             <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
@@ -46,11 +46,11 @@
                     <p class="leading-relaxed text-base">
                         Find us in the Workspace Marketplace. Use OceanSheet in Google Sheets to update, collect, and distribute your data all from one place.
                     </p>
-                    <router-link :to="{name: 'products.for-gsheet'}" class="mt-3 text-main-500 inline-flex items-center">Explore features
+                    <a href="{{route('products.for-gsheet')}}" class="mt-3 text-main-500 inline-flex items-center">Explore features
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </router-link>
+                    </a>
                 </div>
                 <div class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-main-100 text-main-500 flex-shrink-0">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
@@ -74,11 +74,11 @@
                     <p class="leading-relaxed text-base">
                         Manage your data all from one place. Connect, merge, distribute and append your sheets without leaving Excel. OceanSheet connect makes it a cinch.
                     </p>
-                    <router-link :to="{name: 'products.for-microsoft'}" class="mt-3 text-main-500 inline-flex items-center">Explore features
+                    <a href="{{route('products.for-microsoft')}}" class="mt-3 text-main-500 inline-flex items-center">Explore features
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </router-link>
+                    </a>
                 </div>
             </div>
         </div>

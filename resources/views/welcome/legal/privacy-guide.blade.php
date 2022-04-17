@@ -36,7 +36,7 @@
 					<br><br>
 					The GDPR does not impose a requirement for personal data to remain within the EU. In fact, the GDPR permits the transfer of personal data to non-EU countries in line with a number of recognized methods, including standard contractual clauses and frameworks such as the EU-US Privacy Shield. Under GDPR data can be hosted and processed in non-EU countries as long as you, or your providers who transfer data on your behalf, have one of the necessary transfer mechanisms in place.
 					<br><br>
-					<router-link :to="{name: 'privacy-policy'}">OceanSheet's Privacy Policy</router-link> sets out our approach to working together to keep your data secure and helps make clear OceanSheet's responsibilities and our customers’ responsibilities.
+					<a href="{{route('legal.privacy')}}">OceanSheet's Privacy Policy</a> sets out our approach to working together to keep your data secure and helps make clear OceanSheet's responsibilities and our customers’ responsibilities.
 				</p>
 
 				<h1 class="py-2 text-3xl text-gray-800">

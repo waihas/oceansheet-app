@@ -90,9 +90,9 @@
             </div>
         </div>
         </div>
-        <router-link :to="{name: 'register'}" class="flex w-1/5 justify-center mx-auto mt-16 text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">
+        <a href="{{route('register')}}" class="flex w-1/5 justify-center mx-auto mt-16 text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">
             Start for free
-        </router-link>
+        </a>
     </div>
 </section>
 <!-- <section class="text-gray-600">

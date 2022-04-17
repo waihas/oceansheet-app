@@ -30,9 +30,9 @@
         <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
           Connect spreadsheets and automate your work to empower you business.
         </p>
-        <router-link :to="{ name: 'register' }" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
+        <a href="{{route('register')}}" class="animate-bounce mx-auto mt-8 transition-all duration-100 ease-in-out border-2 border-main-600 text-main-800 hover:text-white hover:bg-main-600 px-4 py-2 font-bold rounded-lg focus:bg-main-600 focus:outline-none focus:shadow-outline" title="sign up"> 
           Get Started Now »
-        </router-link>
+        </a>
 
         <div class="inline-flex mx-auto mt-12 bg-white">
           <video class="object-cover object-center bg-white rounded" muted="muted" playsinline controls loop autoplay style="pointer-events: none;">
@@ -131,12 +131,12 @@
           </div>
           <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Export data to multiple other files</h2>
           <p class="leading-relaxed text-base">Send filtered data from a master sheet to up to 100 other Google Sheets files automatically.</p>
-          <router-link :to="{ name: 'workflows.one-to-many' }" class="inline-flex items-center justify-center mt-8 text-main-500 hover:underline">
+          <a href="{{route('workflows.one-to-many')}}" class="inline-flex items-center justify-center mt-8 text-main-500 hover:underline">
             Learn More
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </router-link>
+          </a>
         </div>
         <div class="sm:w-1/2 mb-10 px-4">
           <div class="rounded-lg h-64 overflow-hidden">
@@ -144,12 +144,12 @@
           </div>
           <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Import data from multiple files into one</h2>
           <p class="leading-relaxed text-base">Automatically merge Google Sheets, Excel or CSV files, pulling data into one master sheet for analysis, reporting and dashboards.</p>
-          <router-link :to="{ name: 'workflows.many-to-one' }" class="inline-flex items-center justify-center mt-8 text-main-500 hover:underline">
+          <a href="{{route('workflows.many-to-one')}}" class="inline-flex items-center justify-center mt-8 text-main-500 hover:underline">
             Learn More
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
